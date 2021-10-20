@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 2500);
-
+        //dang dep trai
     }
 
 }
