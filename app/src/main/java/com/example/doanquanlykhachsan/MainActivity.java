@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }, 2500);
-
+    //note là gì chú
     }
 
 }
