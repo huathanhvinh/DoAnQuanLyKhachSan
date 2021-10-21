@@ -7,21 +7,23 @@
     android:orientation="vertical"
     android:background="#18364B"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/img_avatar"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/avatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="25dp"
+        android:src="@drawable/img_avatar"
+        app:civ_border_color="#3F51B5"
+        app:civ_border_width="5dp">
+    </de.hdodenhof.circleimageview.CircleImageView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nhân viên"
         android:textColor="#F4F4EF"
         android:textSize="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:textStyle="bold"
 
