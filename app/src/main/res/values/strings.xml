@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">victory</string>
+
+    <array name="tendichvu">
+        <item>
+            Gặt giũ quần áo
+        </item>
+        <item>
+            Dọn phòng
+        </item>
+        <item>
+            Đưa đón khách hàng
+        </item>
+        <item>
+            Đồ ăn theo ngày
+        </item>
+        <item>
+            Spa
+        </item>
+
+    </array>
 </resources>
