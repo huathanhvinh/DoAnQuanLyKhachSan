@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".nhanvientapvu_quanlyphong"
+            android:exported="false" />
+        <activity
             android:name=".Nhanvientapvu_manhinhchinh"
             android:exported="false" />
         <activity
