@@ -7,14 +7,15 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thông tin tài khoản"
         android:textColor="#F4F4EF"
         android:textSize="25dp"
-        android:layout_marginTop="100dp"
         android:gravity="center"
         android:textStyle="bold"
+
         />
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"
@@ -161,7 +162,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
