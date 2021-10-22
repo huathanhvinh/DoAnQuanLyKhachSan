@@ -8,8 +8,9 @@ public class Room {
     float giangay;
     float giagio;
     int sophong;
+    int soluong;
 
-    public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong) {
+    public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong, int soluong) {
         this.ma = ma;
         this.ten = ten;
         this.loai = loai;
@@ -17,6 +18,18 @@ public class Room {
         this.giangay = giangay;
         this.giagio = giagio;
         this.sophong = sophong;
+        this.soluong = soluong;
+    }
+
+    public Room() {
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 
     public int getSophong() {
