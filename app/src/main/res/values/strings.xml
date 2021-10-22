@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">victory</string>
+    <array name="HoiVien">
+        <item>Bạc</item>
+        <item>Vàng</item>
+        <item>Kim Cương</item>
+    </array>
 </resources>

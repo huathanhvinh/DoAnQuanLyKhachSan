@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#18364B"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".NVTN_ThemKhachHang">
+
+    <TextView
+        android:layout_marginTop="10sp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:text="Khách Hàng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="Mã Khách Hàng :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:paddingLeft="10sp"
+            android:layout_marginLeft="15sp"
+            android:background="#9A9797"
+            android:textColor="#ffffff"
+            android:text="KH01"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="Tên Khách Hàng :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="Nhập tên khách hàng ...."
+            android:layout_marginLeft="10sp"
+            android:background="#ffffff"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="SĐT Liên Lạc :"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="Nhập số điện thoại ...."
+            android:layout_marginLeft="10sp"
+            android:background="#ffffff"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="CMND/CCCD :"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="Nhập CMND/CCCD ...."
+            android:layout_marginLeft="10sp"
+            android:background="#ffffff"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="Địa chỉ :"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="Nhập địa chỉ ...."
+            android:layout_marginLeft="10sp"
+            android:background="#ffffff"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:text="Hội Viên :"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:layout_marginLeft="10sp"
+            android:background="#ffffff"
+            android:entries="@array/HoiVien"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#02A9B2"
+        android:text="Thêm khách hàng"
+        android:layout_width="200dp"
+        android:layout_height="50dp"/>
+    <Button
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#02A9B2"
+        android:text="Trở về"
+        android:layout_width="150dp"
+        android:layout_height="50dp"/>
+</LinearLayout>
