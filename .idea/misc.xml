@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_edit_text.xml" value="0.2703125" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_edittext.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/ad_sua_dich_vu.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/ad_them_dich_vu.xml" value="0.4" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/ad_thong_tin_dich_vu.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/ad_xem_dich_vu.xml" value="0.2" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
@@ -12,7 +20,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
