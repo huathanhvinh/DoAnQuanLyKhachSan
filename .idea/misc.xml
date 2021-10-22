@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_tao_khuyen_mai.xml" value="0.25" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_admin.xml" value="0.18342391304347827" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.10562310030395136" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_sign_in.xml" value="0.17481884057971014" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
