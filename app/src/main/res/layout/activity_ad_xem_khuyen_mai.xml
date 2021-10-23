@@ -7,8 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".AD_TaoKhuyenMai">
-
+    tools:context=".AD_XemKhuyenMai">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,12 +18,47 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:text="Tạo Khuyến Mãi"
+            android:text="Xem Khuyến Mãi"
             android:textColor="#fff"
             android:textSize="30dp">
+
         </TextView>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:background="#3a5263"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Mã khuyến mãi: "
+            android:textColor="#fff"
+            android:textSize="20dp"></TextView>
+
+        <LinearLayout
+            android:layout_marginLeft="7dp"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#fff">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="123oiu"
+                android:textSize="30dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -162,51 +196,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_weight="1"
-        android:background="#3a5263"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="Mã khuyến mãi: "
-            android:textColor="#fff"
-            android:textSize="20dp"></TextView>
-
-        <LinearLayout
-            android:layout_marginLeft="7dp"
-            android:layout_width="174dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#fff">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="123oiu"
-                android:textSize="30dp"
-                android:textStyle="bold"></TextView>
-        </LinearLayout>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/icon_change">
-
-        </ImageButton>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="1"
         android:background="#3a5263">
 
         <TextView
@@ -291,7 +280,7 @@
             android:layout_width="143dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
-            android:text="Tạo Mới"
+            android:text="Sửa"
             android:textSize="20dp"></Button>
         <Button
             android:layout_gravity="center"

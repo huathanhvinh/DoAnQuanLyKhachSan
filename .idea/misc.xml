@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_khuyen_mai.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_nhan_vien.xml" value="0.165" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_khuyen_mai.xml" value="0.165" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_nhan_vien.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_tao_khuyen_mai.xml" value="0.25" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_ke.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_tin_nhan_vien.xml" value="0.165" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_xem_khuyen_mai.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_admin.xml" value="0.18342391304347827" />
