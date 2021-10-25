@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class nhanvientapvu_quanlyphong extends AppCompatActivity {
     ListView lvQuanLyPhong;
-    Button btnKiemTra;
+
     ArrayList<nvtv_qlphong>data = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

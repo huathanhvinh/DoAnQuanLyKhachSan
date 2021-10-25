@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.11018518518518519" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.1" />
-        <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_dangkydichvu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_dangkydichvu.xml" value="0.25" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_lichlamviec.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_manhinhchinh.xml" value="0.25" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_quanlyphong.xml" value="0.25416666666666665" />
@@ -13,6 +14,7 @@
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_thongtintaikhoan.xml" value="0.25" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_xacnhandatphong.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_quanlyphong.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_sudungdichvu.xml" value="0.11018518518518519" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
@@ -28,5 +30,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25416666666666665" />
+      </ProjectState>
+    </option>
   </component>
 </project>
