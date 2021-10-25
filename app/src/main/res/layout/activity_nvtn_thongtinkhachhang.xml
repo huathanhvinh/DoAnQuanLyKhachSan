@@ -6,207 +6,217 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".NVTN_Thongtinkhachhang">
-
-    <TextView
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#ffffff"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:text="Thông Tin Khách Hàng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_margin="15dp"
-        android:background="#ffffff"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-<LinearLayout
-    android:layout_margin="25dp"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:paddingBottom="10dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
         <TextView
-            android:text="Mã Khách Hàng"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="KH01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Thông Tin Khách Hàng"
+            android:textColor="#fff"
+            android:textSize="30dp">
+        </TextView>
     </LinearLayout>
     <LinearLayout
-        android:paddingBottom="10dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="Tên Khách Hàng"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="Dương Ngọc Thanh Duy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:paddingBottom="10dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="CMND/CCCD"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="0101010101"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:paddingBottom="10dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="Số điện thoại"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="01850001"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</LinearLayout>
-    </LinearLayout>
-    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginLeft="20dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:layout_gravity="center"
-                android:background="@drawable/icon_change"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textColor="#ffffff"
-                android:text="sửa khách hàng"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="170dp"
-            android:layout_gravity="right"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:layout_gravity="center"
-                android:background="@drawable/icon_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textColor="#ffffff"
-                android:text="xóa khách hàng"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:paddingTop="20dp"
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:orientation="horizontal">
         <ImageView
             android:src="@drawable/img_avatar"
-            android:layout_width="150dp"
-            android:layout_height="150dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+    </LinearLayout>
+    <LinearLayout
+        android:background="#3a5263"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:weightSum="6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:text="Mã Khách Hàng:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Tên Khách Hàng:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Số Điện Thoại:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Địa Chỉ:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="CMND/CCCD:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Hội Viên:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:weightSum="6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:text="TV001"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Phúc Kute"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="0933 999 000"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="HolyWood"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="1230987641"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:text="Kim Cương"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:paddingBottom="15dp"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_change">
+            </ImageButton>
+            <TextView
+                android:text="Sửa Khách Hàng"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="#ffffff"
-                    android:text="Mã KH :"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:textColor="#ffffff"
-                    android:text="KH01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:paddingBottom="15dp"
+                android:layout_height="0dp">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="130dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icon_delete">
+            </ImageButton>
+            <TextView
+
+                android:text="Xóa Khách Hàng"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="#ffffff"
-                    android:text="Tên KH :"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:textColor="#ffffff"
-                    android:text="Dương Ngọc Thanh Duy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:paddingBottom="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="#ffffff"
-                    android:text="CMND/CCCD :"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:textColor="#ffffff"
-                    android:text="182113232"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="#ffffff"
-                    android:text="SĐT:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:textColor="#ffffff"
-                    android:text="0123456789"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                android:layout_height="0dp">
+            </TextView>
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:backgroundTint="#02A9B2"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:text="Trở Về"
-        android:layout_width="150dp"
-        android:layout_height="50dp"/>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <Button
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:text="Trở Về"
+            android:textSize="20dp"></Button>
+    </LinearLayout>
+
+
 </LinearLayout>
