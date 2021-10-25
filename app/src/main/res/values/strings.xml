@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">victory</string>
+    <array name="loaiCongViec">
+        <item>Tạp Vụ</item>
+        <item>Lễ Tân</item>
+    </array>
+    <array name="loaiDichVu">
+        <item>Dịch vụ 1</item>
+        <item>Dịch vụ 2</item>
+        <item>Dịch vụ 3</item>
+    </array>
 </resources>
