@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18364B"
+    android:orientation="vertical"
+    android:weightSum="12"
+    tools:context=".AD_LichLamViecCuaNhanVien">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Lịch Làm Việc Của Nhân Viên"
+            android:textColor="#fff"
+            android:textSize="30dp">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã Nhân Viên:"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NV001"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Nhân Viên:"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phúc Kute"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chức Vụ:"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tổng Giám Đốc"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ca Làm:"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+        <Spinner
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="50dp"
+            android:background="#fff"
+            android:entries="@array/caLam"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </Spinner>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ghi Chú:"
+            android:textColor="#fff"
+            android:textSize="25dp"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+        <EditText
+            android:gravity="top"
+            android:text="Ghi chú"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:layout_gravity="center"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:text="Lưu"
+            android:textSize="20dp"></Button>
+        <Button
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:text="Trở Về"
+            android:textSize="20dp"></Button>
+    </LinearLayout>
+</LinearLayout>

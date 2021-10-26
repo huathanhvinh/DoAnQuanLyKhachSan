@@ -12,6 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".AD_LuongCuaNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".AD_LuongNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".AD_LichLamViecCuaNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".AD_LichLamViec"
+            android:exported="false" />
+        <activity
+            android:name=".AD_ThongTinPhong"
+            android:exported="false" />
+        <activity
+            android:name=".AD_ThemPhong"
+            android:exported="false" />
+        <activity
+            android:name=".AD_SuaPhong"
+            android:exported="false" />
+        <activity
+            android:name=".AD_HienThiDanhSachPhong"
+            android:exported="false" />
+        <activity
             android:name=".AD_SuaDichVu"
             android:exported="false" />
         <activity
@@ -51,19 +75,7 @@
             android:name=".AD_TaoKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".Menu_Admin"
-            android:exported="false" />
-        <activity
-            android:name=".menu_khachhang"
-            android:exported="false" />
-        <activity
-            android:name=".forgot_password"
-            android:exported="false" />
-        <activity
-            android:name=".sign_in"
-            android:exported="false" />
-        <activity
-            android:name=".register"
+            android:name=".AD_MenuAdmin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

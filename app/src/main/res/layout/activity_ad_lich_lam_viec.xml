@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".AD_HienThiDanhSachDichVu">
+    tools:context=".AD_LichLamViec">
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:text="Quản Lý Dịch Vụ"
+            android:text="Lịch Làm Việc"
             android:textColor="#fff"
             android:textSize="30dp">
         </TextView>
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:text="Danh sách dịch vụ"
+            android:text="Danh sách Nhân Viên"
             android:textColor="#fff"
             android:textSize="25dp">
         </TextView>
@@ -79,15 +79,7 @@
         android:layout_height="0dp">
         <Button
             android:layout_gravity="center"
-            android:layout_width="143dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#25BDAF"
-            android:text="Tạo Mới"
-            android:textSize="20dp"></Button>
-        <Button
-            android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_width="143dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
             android:text="Trở Về"

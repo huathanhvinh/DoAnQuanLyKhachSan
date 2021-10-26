@@ -9,4 +9,10 @@
         <item>Dịch vụ 2</item>
         <item>Dịch vụ 3</item>
     </array>
+    <array name="caLam">
+        <item>Sáng</item>
+        <item>Trưa</item>
+        <item>Chiều</item>
+        <item>Tối</item>
+    </array>
 </resources>
