@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".NVTN_MenuNhanVienThuNgan"
+            android:exported="false" />
+        <activity
             android:name=".NVTN_LapHoaDon"
             android:exported="false" />
         <activity
