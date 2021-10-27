@@ -14,6 +14,7 @@
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_thongtintaikhoan.xml" value="0.2" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_xacnhandatphong.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_xacnhantrangthaiphong.xml" value="0.176" />
+        <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtintaikhoan.xml" value="0.16486486486486487" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.136" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/fixlayout.xml" value="0.16486486486486487" />
         <entry key="..\:/Users/Duy/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_quanlyphong.xml" value="0.25416666666666665" />
@@ -28,7 +29,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
