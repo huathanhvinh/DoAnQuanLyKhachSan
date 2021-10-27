@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.helpers.*;
 import com.example.doanquanlykhachsan.model.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,9 +27,7 @@ import java.util.ArrayList;
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
     private EditText txtUserName, txtPassWord, txtsdt;
-    String ma = "KH0";
-    ArrayList<Long> data = new ArrayList<>();
-
+    dialog dl = new dialog();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +47,18 @@ public class register extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+                 register(txtUserName.getText().toString(), txtPassWord.getText().toString());
             }
         });
     }
 
     private void register(String Email, String Pass) {
+        //check email already exist or not.
         StaticConfig.fAuth.fetchSignInMethodsForEmail(txtUserName.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     @Override
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-
                         boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
-
                         if (isNewUser) {
                             StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -85,26 +82,11 @@ public class register extends AppCompatActivity {
     }
 
 
-//check email already exist or not.
-
     private void UpdateUser() {
-
-        if (data.size() > 0) {
-            Long max = data.get(0);
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).compareTo(max) > 0) {
-                    max = data.get(i);
-                }
-            }
-            max++;
-            String ma = "KH" + max;
-        }
-
-        User user = new User(ma, txtUserName.getText().toString(), txtsdt.getText().toString());
-        StaticConfig.mUser.child(ma).setValue(user);
-        Intent intent = new Intent(getApplicationContext(), sign_in.class);
+        User user = new User(dl.getuserid(), txtUserName.getText().toString(), txtsdt.getText().toString());
+        dl.addUser(dl.getuserid(), user);
+        Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
         startActivity(intent);
-
     }
 
     private void setControl() {
@@ -113,29 +95,7 @@ public class register extends AppCompatActivity {
         txtPassWord = findViewById(R.id.txtPassWord);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
-        maxid();
-
+        dl.getuserid();
     }
 
-    private void maxid() {
-        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        long mau = 0;
-                        ma = ds.child("id").getValue(String.class);
-                        String[] parts;
-                        parts = ma.split("KH");
-                        mau = Long.parseLong(parts[1]);
-                        data.add(mau);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
 }

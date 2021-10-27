@@ -10,6 +10,20 @@ public class Room {
     int sophong;
     int soluong;
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "ma='" + ma + '\'' +
+                ", ten='" + ten + '\'' +
+                ", loai='" + loai + '\'' +
+                ", tinhtrang='" + tinhtrang + '\'' +
+                ", giangay=" + giangay +
+                ", giagio=" + giagio +
+                ", sophong=" + sophong +
+                ", soluong=" + soluong +
+                '}';
+    }
+
     public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong, int soluong) {
         this.ma = ma;
         this.ten = ten;

@@ -1,15 +1,26 @@
 package com.example.doanquanlykhachsan.model;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+
 public class User {
     String id;
+
+    String name;
+    String sdt;
+    String cmnd;
+    String hoivien;
     String email;
-    String Sdt;
 
     public User(String id, String email, String sdt) {
         this.id = id;
         this.email = email;
-        Sdt = sdt;
+        this.sdt = sdt;
+        this.name = "";
+        this.cmnd = "";
+        this.hoivien = "";
     }
+
+
 
     public String getEmail() {
         return email;
@@ -27,11 +38,35 @@ public class User {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSdt() {
-        return Sdt;
+        return sdt;
     }
 
     public void setSdt(String sdt) {
-        Sdt = sdt;
+        this.sdt = sdt;
+    }
+
+    public String getCmnd() {
+        return cmnd;
+    }
+
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
+
+    public String getHoivien() {
+        return hoivien;
+    }
+
+    public void setHoivien(String hoivien) {
+        this.hoivien = hoivien;
     }
 }

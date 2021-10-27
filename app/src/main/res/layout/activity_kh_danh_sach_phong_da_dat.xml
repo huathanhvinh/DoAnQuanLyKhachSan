@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18364B"
+    android:orientation="vertical"
+    tools:context=".KH_danh_sach_phong_da_dat">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20sp"
+        android:text="Danh sách phòng đã đặt"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20sp"
+            android:paddingVertical="10sp"
+            android:text="Phòng của bạn"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <View
+            style="@style/Divider"
+            android:layout_marginHorizontal="20sp"
+            android:layout_marginVertical="20sp"></View>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvDanhSachPhong"
+        android:layout_width="match_parent"
+        android:layout_height="90sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_weight="9"
+        tools:listitem="@layout/item_phong"></ListView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btntrove"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70sp"
+            android:background="@drawable/custom_button"
+            android:text="Trở về"></Button>
+
+        <Button
+            android:id="@+id/btndoiphong"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:text="Đổi phòng"></Button>
+    </LinearLayout>
+</LinearLayout>
