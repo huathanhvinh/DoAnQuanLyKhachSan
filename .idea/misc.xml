@@ -3,15 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.1796875" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.175" />
-        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.175" />
+        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_dat_phieu_thue_theo_ngay.xml" value="0.175" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_hien_thi_danh_sach_khach_hang.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lap_hoa_don.xml" value="0.22" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_sua_khach_hang.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_them_khach_hang.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_them_khach_hang.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinkhachhang.xml" value="0.22" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xac_nhan_hoa_don.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/fix.xml" value="0.22" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nvtn_hienthidanhsachkhachhang.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/le hoang phuc/AndroidStudioProjects/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nvtn_lap_hoa_don.xml" value="0.3333333333333333" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
