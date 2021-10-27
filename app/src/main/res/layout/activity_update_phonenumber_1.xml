@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập"
+            android:text="Cập nhập số điện thoại"
             android:textColor="#fff"
             android:textSize="24dp"
             android:textStyle="bold"
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tài Khoản"
+                    android:text="Nhập SDT cũ"
                     android:textColor="#fff"
                     android:textSize="14dp"
                     android:gravity="center"
@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:hint="Nhập tài khoản"
+                    android:hint="Nhập số điện thoại cũ"
                     />
             </LinearLayout>
 
@@ -112,7 +112,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mật khẩu"
+                    android:text="Mật SDT mới"
                     android:textColor="#fff"
                     android:textSize="14dp"
                     android:gravity="center"
@@ -128,8 +128,84 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:hint="Nhập mật khẩu"
+                    android:hint="Nhập số điện thoại mới"
                     />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Capcha"
+                    android:textColor="#fff"
+                    android:textSize="14dp"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:layout_marginRight="30dp"
+                android:weightSum="10"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:layout_marginRight="5dp"
+                    >
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:hint="Nhập mã capcha"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="5dp"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:text="Capcha"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:background="#02A9B2"
+                        android:textSize="14dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_change"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
 
 
@@ -151,9 +227,9 @@
             android:layout_weight="1"
             >
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:text="Đăng nhập"
+                android:text="Tiếp tục"
                 android:background="@drawable/custom_button"
                 android:layout_marginLeft="50dp"
                 android:layout_gravity="center"
@@ -180,30 +256,6 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         >
-        <CheckBox
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/custom_checkbox"
-            android:layout_marginLeft="90dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="lưu mật khẩu"
-            android:textColor="#fff"
-            android:textSize="14dp"
-            android:textStyle="italic"
-            android:layout_marginLeft="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quên mật khẩu"
-            android:textColor="#fff"
-            android:textSize="14dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            />
 
     </LinearLayout>
     <LinearLayout

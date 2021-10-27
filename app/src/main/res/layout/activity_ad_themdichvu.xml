@@ -87,7 +87,9 @@
             android:background="#ffff"
             android:hint="Giá Dịch Vụ"
             android:id="@+id/txtGiaDichVu"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:inputType="number"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
