@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#18364B"
+    android:weightSum="10"
+    tools:context=".NVTN_LapHoaDon">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:text="Lập Hóa Đơn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_marginLeft="50dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:hint="Nhập thông tin cần tìm..."
+                    android:background="#ffffff"
+                    android:layout_width="250dp"
+                    android:layout_height="35dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/icon_timkiem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ListView
+            tools:listitem="@layout/listview_nvtn_lap_hoa_don"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <Button
+            android:backgroundTint="#02A9B2"
+            android:text="Trở về"
+            android:layout_width="150dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+</LinearLayout>

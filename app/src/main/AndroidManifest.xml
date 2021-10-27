@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".NVTN_LapHoaDon"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_XacNhanHoaDon"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_Thongtinkhachhang"
+            android:exported="false" />
+        <activity
             android:name=".menu_khachhang"
             android:exported="false" />
         <activity
@@ -24,7 +33,16 @@
             android:name=".register"
             android:exported="false" />
         <activity
+            android:name=".NVTN_ThemKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_SuaKhachHang"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_HienThiDanhSachKhachHang"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
