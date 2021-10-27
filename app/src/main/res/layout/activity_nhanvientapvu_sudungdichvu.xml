@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#18364B"
-    android:orientation="vertical">
-
-    <TextView
+    android:orientation="vertical"
+    android:weightSum="10">
+    <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Sử dụng dịch vụ"
-        android:textColor="#F4F4EF"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Sử dụng dịch vụ"
+            android:textColor="#F4F4EF"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:layout_weight="1">
         <Spinner
 
             android:layout_width="wrap_content"
@@ -31,42 +36,43 @@
             android:layout_height="wrap_content"
             android:text="Thêm phòng sử dụng dịch vụ"
             />
-
     </LinearLayout>
-
-    <TextView
+    <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="Danh sách phòng sử dụng dịch vụ"
-        android:textColor="#F4F4EF"
-        android:textSize="20dp" />
-
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Danh sách phòng sử dụng dịch vụ"
+            android:textColor="#F4F4EF"
+            android:textSize="25dp" />
+    </LinearLayout>
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="450dp"
             android:id="@+id/lvSuDungDV"
             tools:listitem="@layout/listview_nhanvientapvu_sudungdichvu"
             />
     </LinearLayout>
-
     <LinearLayout
-        android:orientation="vertical"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
         <Button
+            android:backgroundTint="#25BDAF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trở về"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             />
-
     </LinearLayout>
 
 

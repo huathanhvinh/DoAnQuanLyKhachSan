@@ -1,47 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#18364B"
-    android:orientation="vertical">
-
-    <TextView
+    android:orientation="vertical"
+    android:weightSum="11">
+    <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Đăng ký dịch vụ"
-        android:textColor="#F4F4EF"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đăng ký dịch vụ"
+            android:textColor="#F4F4EF"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+    </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:layout_weight="1">
         <EditText
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:text="Nhập thông tin cần tìm"
-            android:textColor="#F4F4EF" />
+            android:hint="Nhập thông tin cần tìm"
+            android:textColorHint="#8F8F89"
+            android:textSize="20dp"
+            />
 
         <ImageView
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="27dp"
             android:src="@drawable/icon_timkiem" />
-
     </LinearLayout>
-
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
         <CheckBox
+            android:layout_gravity="center"
+            android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -49,137 +57,135 @@
             android:textColor="#F4F4EF" />
 
         <CheckBox
+            android:layout_gravity="center"
+            android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Chưa dọn"
             android:textColor="#F4F4EF" />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Danh sách dịch vụ"
-        android:textColor="#F4F4EF"
-        android:textSize="20dp" />
-
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
+            android:text="Danh sách dịch vụ"
+            android:textColor="#F4F4EF"
+            android:textSize="25dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Dịch vụ : Giặt giũ quần áo"
             android:textColor="#F4F4EF"
-            android:textSize="20dp" />
-
+            android:textSize="25dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Xem các phòng sử dụng dịch vụ" />
-
     </LinearLayout>
     <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:text="Dịch vụ : Dọn phòng"
             android:textColor="#F4F4EF"
-            android:textSize="20dp" />
-
+            android:textSize="25dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Xem các phòng sử dụng dịch vụ" />
-
     </LinearLayout>
     <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:text="Dịch vụ : Đưa đón khách hàng"
             android:textColor="#F4F4EF"
-            android:textSize="20dp" />
-
+            android:textSize="25dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Xem các phòng sử dụng dịch vụ" />
-
     </LinearLayout>
     <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:text="Dịch vụ : Đồ ăn theo ngày"
             android:textColor="#F4F4EF"
-            android:textSize="20dp" />
-
+            android:textSize="25dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Xem các phòng sử dụng dịch vụ" />
-
     </LinearLayout>
     <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_weight="1">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Dịch vụ : Spa"
             android:textColor="#F4F4EF"
-            android:textSize="20dp" />
-
+            android:textSize="25dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Xem các phòng sử dụng dịch vụ" />
-
     </LinearLayout>
     <LinearLayout
-        android:orientation="vertical"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trở về"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             />
-
     </LinearLayout>
+
+
 
 </LinearLayout>

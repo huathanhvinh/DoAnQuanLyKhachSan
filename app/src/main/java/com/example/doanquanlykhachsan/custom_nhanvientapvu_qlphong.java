@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,13 @@ public class custom_nhanvientapvu_qlphong extends ArrayAdapter {
         convertView = LayoutInflater.from(context).inflate(resource,null);
         TextView tvPhong = convertView.findViewById(R.id.tvPhong);
         Button btnKiemTra = convertView.findViewById(R.id.btnKiemTra);
+
         nvtv_qlphong qlphong = data.get(position);
         tvPhong.setText(qlphong.getPhong());
         btnKiemTra.setText(qlphong.getKiemtra());
+
+
+
 
         return convertView;
 

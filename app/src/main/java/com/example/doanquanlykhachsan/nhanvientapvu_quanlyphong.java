@@ -2,7 +2,9 @@ package com.example.doanquanlykhachsan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import  com.example.doanquanlykhachsan.model.*;
@@ -11,6 +13,8 @@ import java.util.ArrayList;
 
 public class nhanvientapvu_quanlyphong extends AppCompatActivity {
     ListView lvQuanLyPhong;
+    Button btnTroVe;
+
 
     ArrayList<nvtv_qlphong>data = new ArrayList<>();
     @Override
@@ -23,13 +27,22 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
 
     private void setControl() {
         lvQuanLyPhong = findViewById(R.id.lvQuanLyPhong);
+         btnTroVe = findViewById(R.id.btnTroVe);
+
     }
 
     private void setEvent() {
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         custom_nhanvientapvu_qlphong nhanvientapvu = new custom_nhanvientapvu_qlphong(this,R.layout.listview_nhanvientapvu_quanlyphong,data);
         lvQuanLyPhong.setAdapter(nhanvientapvu);
         khoitao();
         nhanvientapvu.notifyDataSetChanged();
+
     }
 
     private void khoitao() {
