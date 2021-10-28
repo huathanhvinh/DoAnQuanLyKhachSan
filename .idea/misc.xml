@@ -5,12 +5,13 @@
       <map>
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_dich_vu.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_khach_hang.xml" value="0.17481884057971014" />
-        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_nhan_vien.xml" value="0.165" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_nhan_vien.xml" value="0.25" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_phong.xml" value="0.17028985507246377" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_lich_lam_viec.xml" value="0.16530797101449277" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_lich_lam_viec_cua_nhan_vien.xml" value="0.16530797101449277" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_luong_cua_nhan_vien.xml" value="0.20425724637681159" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_luong_nhan_vien.xml" value="0.20425724637681159" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_menuadmin.xml" value="0.1539855072463768" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_dich_vu.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_khuyen_mai.xml" value="0.165" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_nhan_vien.xml" value="0.25" />
@@ -30,6 +31,7 @@
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.10562310030395136" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.17481884057971014" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_sign_in.xml" value="0.17481884057971014" />
+        <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_nhanvien.xml" value="0.335" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />

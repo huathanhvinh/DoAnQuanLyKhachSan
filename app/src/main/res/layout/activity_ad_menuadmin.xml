@@ -91,6 +91,7 @@
             android:layout_height="45dp"
             android:src="@drawable/icon_quanly" />
         <TextView
+            android:id="@+id/tvDSNV"
             android:layout_marginLeft="10dp"
             android:text="Quản Lý Nhân Viên"
             android:textSize="25dp"
