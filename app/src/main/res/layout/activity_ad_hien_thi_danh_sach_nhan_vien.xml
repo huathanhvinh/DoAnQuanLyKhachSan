@@ -30,6 +30,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edTimNhanVien"
             android:layout_gravity="center"
             android:hint="Nhập thông tin cần tìm..."
             android:padding="15dp"
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content">
         </EditText>
         <ImageButton
+            android:id="@+id/imTimKiem"
             android:layout_gravity="center"
             android:layout_width="70dp"
             android:layout_height="70dp"

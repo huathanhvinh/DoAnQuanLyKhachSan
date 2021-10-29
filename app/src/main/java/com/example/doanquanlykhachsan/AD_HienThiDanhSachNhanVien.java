@@ -5,9 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +24,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     TextView maNV,tenNV;
     ListView lvDSNV;
     Button btnTroVe;
+    EditText edTimKiem;
+    ImageButton imTimKiem;
     Adapter_NhanVien adapter_nhanVien;
     ArrayList<NhanVien> arrNV = new ArrayList<>();
 
@@ -38,6 +45,33 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //
+        edTimKiem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ArrayList<NhanVien> kq = new ArrayList<>();
+                String key = edTimKiem.getText().toString().toLowerCase();
+                for (int i = 0;i<arrNV.size();i++)
+                {
+                    if(arrNV.get(i).getTenNV().toLowerCase().contains(key)){
+                        kq.add(arrNV.get(i));
+                    }
+                }
+                Adapter_NhanVien adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhanvien, kq);
+                lvDSNV.setAdapter(adapter_nhanVien);
+                adapter_nhanVien.notifyDataSetChanged();
+            }
+        });
         //
         lvDSNV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -60,6 +94,8 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
         maNV = findViewById(R.id.maNV);
         tenNV = findViewById(R.id.tenNV);
         lvDSNV = findViewById(R.id.lvDSNV);
+        edTimKiem = findViewById(R.id.edTimNhanVien);
+        imTimKiem = findViewById(R.id.imTimKiem);
         adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhanvien, arrNV);
         lvDSNV.setAdapter(adapter_nhanVien);
     }
