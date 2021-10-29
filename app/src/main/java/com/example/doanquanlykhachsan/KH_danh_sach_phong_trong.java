@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.helpers.dialog;
@@ -33,6 +35,13 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
     }
 
     private void setEvnet() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Room room =data.get(position);
+                Toast.makeText(getApplicationContext(), room.getMa(), Toast.LENGTH_SHORT).show();
+            }
+        });
         btntrove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +58,6 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
     }
 
     private void khoitao() {
-
+        dl.getAllRoom(data,adapter);
     }
 }

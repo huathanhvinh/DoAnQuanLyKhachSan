@@ -102,24 +102,24 @@ public class menu_khachhang extends AppCompatActivity {
         traphong = findViewById(R.id.traphong);
         danhsachdaphong = findViewById(R.id.phongdadat);
         thongtin = findViewById(R.id.thongtin);
-//        String emailhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-//        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot ds : snapshot.getChildren()) {
-//                    if (ds.child("email").getValue(String.class).equals(emailhientai)) {
-//                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
-//                        name.setText(ds.child("name").getValue(String.class));
-//                    }
-//                }
-//                if (name.getText().toString().isEmpty()) {
-//                    name.setText(emailhientai);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) { }
-//        });
+        String emailhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    if (ds.child("email").getValue(String.class).equals(emailhientai)) {
+                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
+                        name.setText(ds.child("name").getValue(String.class));
+                    }
+                }
+                if (name.getText().toString().isEmpty()) {
+                    name.setText(emailhientai);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
 
 
     }

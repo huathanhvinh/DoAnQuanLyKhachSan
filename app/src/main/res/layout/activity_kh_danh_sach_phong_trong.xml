@@ -6,34 +6,33 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".KH_danh_sach_phong_trong">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="20sp"
         android:text="Danh sách phòng trống"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="20sp"
-            android:paddingVertical="10sp"
-            android:text="Phòng trống"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:paddingHorizontal="20sp"
+        android:text="Phòng trống"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:gravity="center">
 
         <View
@@ -45,15 +44,15 @@
     <ListView
         android:id="@+id/lvDanhSachPhong"
         android:layout_width="match_parent"
-        android:layout_height="90sp"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="20sp"
-        android:layout_weight="9"
+        android:layout_weight="7"
         tools:listitem="@layout/item_phong"></ListView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">

@@ -29,7 +29,6 @@ public class VP_adapter extends FragmentPagerAdapter {
     public void addFragment(Fragment fragment,String tieude){
         data.add(fragment);
         Arraytieude.add(tieude);
-
     }
     @Nullable
     @Override

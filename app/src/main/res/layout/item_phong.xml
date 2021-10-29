@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="#18364B"
+    android:background="#18364B"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,9 +12,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/anhphong"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
             android:src="@drawable/img_phong"></ImageView>
 
         <LinearLayout
@@ -170,5 +169,6 @@
         android:text="Chi tiết"
         android:textColor="#17b573"
         android:textSize="15sp"></TextView>
+
 
 </LinearLayout>

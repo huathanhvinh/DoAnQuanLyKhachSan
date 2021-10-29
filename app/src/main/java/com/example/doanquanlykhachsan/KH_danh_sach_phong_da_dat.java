@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.dialog;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Dangky;
 import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +38,13 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     }
 
     private void setEvnet() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Room room = data.get(position);
+                Toast.makeText(getApplicationContext(), room.getMa(), Toast.LENGTH_SHORT).show();
+            }
+        });
         btntrove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,9 +73,48 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     private void khoitao() {
         dl.getroomid();
         // dl.getAllRoom(data,adapter);
-        dl.getAllRoom(data,adapter);
-       // adapter.notifyDataSetChanged();
+        //StaticConfig.mDangky.child("L1").setValue(new Dangky("L1","KH1","20/5/2020"));
+        ArrayList<Dangky> dangky = new ArrayList<>();
+        dangky.clear();
+        data.clear();
+        StaticConfig.mDangky.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Dangky dk = ds.getValue(Dangky.class);
+                    if (dk.getMakh().equals(StaticConfig.currentuser)) {
+                        dangky.add(dk);
+                        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds : snapshot.getChildren()) {
+                                    Room room = ds.getValue(Room.class);
+                                    if (ds.child("ma").getValue(String.class).equals(dk.getMaphong())) {
+                                        data.add(room);
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                throw error.toException();
+                            }
+
+                        });
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        // adapter.notifyDataSetChanged();
 
 //        ArrayList<Room> data = new ArrayList<>();
 //        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
