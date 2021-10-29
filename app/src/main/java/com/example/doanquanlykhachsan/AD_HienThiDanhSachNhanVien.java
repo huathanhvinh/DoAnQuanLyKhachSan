@@ -29,7 +29,7 @@ import java.util.Locale;
 public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     TextView maNV,tenNV;
     ListView lvDSNV;
-    Button btnTroVe;
+    Button btnTroVe,btnLamMoi;
     EditText edTimKiem;
     ImageButton imTimKiem;
     Adapter_NhanVien adapter_nhanVien;
@@ -41,11 +41,13 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
         setContentView(R.layout.activity_ad_hien_thi_danh_sach_nhan_vien);
         setControl();
         setEvent();
-        LayDSNV();
+
     }
 
     private void setEvent() {
-        //
+        //Sự kiện load dữ liệu từ Firebase lên listview
+        LayDSNV();
+        //sự kiện tìm kiếm
         edTimKiem.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -72,7 +74,7 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
                 adapter_nhanVien.notifyDataSetChanged();
             }
         });
-        //
+        //code lỗi không click đc !!!!!
         lvDSNV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -80,17 +82,26 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), nv.getMaFB(), Toast.LENGTH_LONG).show();
             }
         });
-        //
+        //sự kiện trở về
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+        //làm mới dữ liệu tại listview
+        btnLamMoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter_nhanVien.clear();
+                LayDSNV();
+            }
+        });
     }
 
     private void setControl() {
         btnTroVe = findViewById(R.id.btnTroVe);
+        btnLamMoi = findViewById(R.id.btnLamMoi);
         maNV = findViewById(R.id.maNV);
         tenNV = findViewById(R.id.tenNV);
         lvDSNV = findViewById(R.id.lvDSNV);

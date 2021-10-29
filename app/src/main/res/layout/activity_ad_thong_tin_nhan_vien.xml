@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:weightSum="10"
+    android:weightSum="12"
     tools:context=".AD_ThongTinNhanVien">
     <LinearLayout
         android:layout_weight="1"
@@ -30,7 +30,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal">
         <ImageView
-            android:src="@drawable/img_avatar"
+            android:src="@drawable/avatar_staff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </ImageView>
@@ -39,13 +39,13 @@
         android:background="#3a5263"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_weight="4"
+        android:layout_weight="6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_marginLeft="10dp"
-            android:weightSum="7"
+            android:weightSum="8"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -66,6 +66,14 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:text="Số Điện Thoại:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
                 android:text="Ngày Sinh:"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -74,7 +82,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
-                android:text="Quê Quán:"
+                android:text="Địa Chỉ:"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textSize="20dp"
@@ -108,7 +116,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_marginLeft="10dp"
-            android:weightSum="7"
+            android:weightSum="8"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -127,6 +135,15 @@
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:id="@+id/tvSoDienThoai"
+                android:text="0933 333 999"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp">
             </TextView>
@@ -189,6 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
+                android:id="@+id/imSuaNhanVien"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/icon_edit">
@@ -209,6 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
+                android:id="@+id/imXoaNhanVien"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/icon_delete">

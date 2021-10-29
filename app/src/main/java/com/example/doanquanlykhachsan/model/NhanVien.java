@@ -6,6 +6,7 @@ public class NhanVien implements Serializable {
     int stt;
     String maFB;
     String tenNV;
+    String SoDienThoai;
     String diaChi;
     String ngaySinh;
     String cmnd;
@@ -15,10 +16,11 @@ public class NhanVien implements Serializable {
     public NhanVien() {
     }
 
-    public NhanVien(int stt, String maFB, String tenNV, String diaChi, String ngaySinh, String cmnd, String luong, String chucVu) {
+    public NhanVien(int stt, String maFB, String tenNV, String soDienThoai, String diaChi, String ngaySinh, String cmnd, String luong, String chucVu) {
         this.stt = stt;
         this.maFB = maFB;
         this.tenNV = tenNV;
+        SoDienThoai = soDienThoai;
         this.diaChi = diaChi;
         this.ngaySinh = ngaySinh;
         this.cmnd = cmnd;
@@ -48,6 +50,14 @@ public class NhanVien implements Serializable {
 
     public void setTenNV(String tenNV) {
         this.tenNV = tenNV;
+    }
+
+    public String getSoDienThoai() {
+        return SoDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+        SoDienThoai = soDienThoai;
     }
 
     public String getDiaChi() {
@@ -88,5 +98,20 @@ public class NhanVien implements Serializable {
 
     public void setChucVu(String chucVu) {
         this.chucVu = chucVu;
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVien{" +
+                "stt=" + stt +
+                ", maFB='" + maFB + '\'' +
+                ", tenNV='" + tenNV + '\'' +
+                ", SoDienThoai='" + SoDienThoai + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", ngaySinh='" + ngaySinh + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                ", luong='" + luong + '\'' +
+                ", chucVu='" + chucVu + '\'' +
+                '}';
     }
 }
