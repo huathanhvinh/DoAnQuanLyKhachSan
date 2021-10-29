@@ -27,6 +27,9 @@
             android:name=".AD_ThongTinPhong"
             android:exported="false" />
         <activity
+            android:name=".AD_khuyenmai"
+            android:exported="false" />
+        <activity
             android:name=".AD_ThemPhong"
             android:exported="false" />
         <activity

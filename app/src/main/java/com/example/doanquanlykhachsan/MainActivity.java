@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         String key = StaticConfig.mNhanVien.push().getKey();
 //        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","Q9, HCM","01/01/2000","1917091991","3,000,000","Tạp Vụ");
 //        StaticConfig.mNhanVien.child(key).setValue(nv);
-        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
+        startActivity(new Intent(getApplicationContext(), AD_khuyenmai.class));
 
     }
 
