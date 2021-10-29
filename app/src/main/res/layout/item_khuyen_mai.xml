@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="123"
-                android:textColor="#00FF75" />
+                android:textColor="#25BDAF"/>
 
             <TextView
                 android:id="@+id/tieude"
@@ -75,8 +75,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/custom_button"
-                android:backgroundTint="#02a9b2"
+                android:backgroundTint="#25BDAF"
                 android:text="thay đổi"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
@@ -86,7 +85,6 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/custom_button"
                 android:backgroundTint="#02a9b2"
                 android:text="kết thúc ngay"
                 android:textColor="@color/white"
