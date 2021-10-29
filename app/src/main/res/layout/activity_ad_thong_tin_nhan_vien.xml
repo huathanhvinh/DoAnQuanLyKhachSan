@@ -39,13 +39,13 @@
         android:background="#3a5263"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_marginLeft="10dp"
-            android:weightSum="6"
+            android:weightSum="7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -90,6 +90,14 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:text="Lương nhân viên:"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
                 android:text="Chức Vụ:"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -100,11 +108,12 @@
         </LinearLayout>
         <LinearLayout
             android:layout_marginLeft="10dp"
-            android:weightSum="6"
+            android:weightSum="7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvManv"
                 android:text="TV001"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -113,6 +122,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvTennv"
                 android:text="Phúc Kute"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -121,6 +131,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvNgaysinh"
                 android:text="1/1/2001"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -129,6 +140,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvQueQuan"
                 android:text="HolyWood"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -137,6 +149,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvCMNN"
                 android:text="1230987641"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -145,6 +158,16 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvLuongNV"
+                android:text="9,000,000 VNĐ"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp">
+            </TextView>
+            <TextView
+                android:id="@+id/tvChucvu"
                 android:text="Tạp Vụ"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -157,17 +180,17 @@
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <LinearLayout
+            android:gravity="center"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="24dp"
                 android:src="@drawable/icon_edit">
             </ImageButton>
             <TextView
@@ -180,6 +203,7 @@
             </TextView>
         </LinearLayout>
         <LinearLayout
+            android:gravity="center"
             android:layout_marginLeft="20dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -187,7 +211,6 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="24dp"
                 android:src="@drawable/icon_delete">
             </ImageButton>
             <TextView
@@ -206,6 +229,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_width="143dp"

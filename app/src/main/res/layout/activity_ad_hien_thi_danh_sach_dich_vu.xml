@@ -85,6 +85,7 @@
             android:text="Tạo Mới"
             android:textSize="20dp"></Button>
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
             android:layout_width="143dp"

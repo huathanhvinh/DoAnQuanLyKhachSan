@@ -9,18 +9,20 @@ public class NhanVien implements Serializable {
     String diaChi;
     String ngaySinh;
     String cmnd;
+    String luong;
     String chucVu;
 
     public NhanVien() {
     }
 
-    public NhanVien(int stt, String maFB, String tenNV, String diaChi, String ngaySinh, String cmnd, String chucVu) {
+    public NhanVien(int stt, String maFB, String tenNV, String diaChi, String ngaySinh, String cmnd, String luong, String chucVu) {
         this.stt = stt;
         this.maFB = maFB;
         this.tenNV = tenNV;
         this.diaChi = diaChi;
         this.ngaySinh = ngaySinh;
         this.cmnd = cmnd;
+        this.luong = luong;
         this.chucVu = chucVu;
     }
 
@@ -70,6 +72,14 @@ public class NhanVien implements Serializable {
 
     public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
+    }
+
+    public String getLuong() {
+        return luong;
+    }
+
+    public void setLuong(String luong) {
+        this.luong = luong;
     }
 
     public String getChucVu() {

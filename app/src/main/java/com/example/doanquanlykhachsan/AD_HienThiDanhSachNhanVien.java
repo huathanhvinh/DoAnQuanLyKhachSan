@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Adapter_NhanVien;
@@ -36,6 +38,15 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //
+        lvDSNV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                NhanVien nv = arrNV.get(position);
+                Toast.makeText(getApplicationContext(), nv.getMaFB(), Toast.LENGTH_LONG).show();
+            }
+        });
+        //
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

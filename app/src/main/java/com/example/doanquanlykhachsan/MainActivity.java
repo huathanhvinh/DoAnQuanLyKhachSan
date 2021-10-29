@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        String key = StaticConfig.mNhanVien.push().getKey();
-//        NhanVien nv = new NhanVien(4,key,"Nguyễn Phi Duy","Thủ Đức, HCM","01/01/2003","1917239991","Lễ Tân");
+        String key = StaticConfig.mNhanVien.push().getKey();
+//        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","Q9, HCM","01/01/2000","1917091991","3,000,000","Tạp Vụ");
 //        StaticConfig.mNhanVien.child(key).setValue(nv);
-        startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
+        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
 
     }
 
