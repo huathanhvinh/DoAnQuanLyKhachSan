@@ -104,17 +104,5 @@ public class Room implements Serializable {
         this.soluong = soluong;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "ma='" + ma + '\'' +
-                ", ten='" + ten + '\'' +
-                ", loai='" + loai + '\'' +
-                ", tinhtrang='" + tinhtrang + '\'' +
-                ", giangay=" + giangay +
-                ", giagio=" + giagio +
-                ", sophong=" + sophong +
-                ", soluong=" + soluong +
-                '}';
-    }
+
 }

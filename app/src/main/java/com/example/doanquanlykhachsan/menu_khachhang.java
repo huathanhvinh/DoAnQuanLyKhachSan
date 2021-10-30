@@ -30,7 +30,7 @@ public class menu_khachhang extends AppCompatActivity {
 
     private ImageView avatar;
     private TextView name;
-    private TextView test;
+    private TextView test, tvDatPhongTheoNgay, getTvDatPhongTheoGio;
     private Button dangxuat;
     private TextView traphong, danhsachdaphong, thongtin;
     ArrayList<Long> soluong = new ArrayList<>();
@@ -92,6 +92,18 @@ public class menu_khachhang extends AppCompatActivity {
                         .show();
             }
         });
+        tvDatPhongTheoNgay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menu_khachhang.this, KH_DatPhongTheoNgay.class));
+            }
+        });
+        getTvDatPhongTheoGio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menu_khachhang.this, KH_DatPhongTheoGio.class));
+            }
+        });
     }
 
     private void setControl() {
@@ -100,6 +112,8 @@ public class menu_khachhang extends AppCompatActivity {
         name = findViewById(R.id.name);
         dangxuat = findViewById(R.id.dangxuat);
         traphong = findViewById(R.id.traphong);
+        tvDatPhongTheoNgay = findViewById(R.id.tvDatPhongTheoNgay);
+        getTvDatPhongTheoGio = findViewById(R.id.tvDatPhongTheoGio);
         danhsachdaphong = findViewById(R.id.phongdadat);
         thongtin = findViewById(R.id.thongtin);
         String emailhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
