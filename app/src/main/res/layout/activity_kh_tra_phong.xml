@@ -126,7 +126,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Phòng đã thuê: "
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
@@ -135,7 +134,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Họ và tên :"
+
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
@@ -144,23 +143,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Số ngày đã ở : "
+
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/tvNgayNhanPhong"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Bắt đầu từ ngày : "
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/tvNgayTraPhong"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Kết thúc từ ngày : "
+
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 
@@ -169,7 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Dịch vụ đã chọn :"
+
                     android:textColor="@color/white"
                     android:textSize="20dp" />
             </LinearLayout>
@@ -192,12 +192,13 @@
                 android:textColor="@color/white"></TextView>
 
             <EditText
+                android:layout_gravity="left|top"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="20sp"
                 android:layout_weight="3"
                 android:background="@drawable/custom_edtext"
-                android:gravity="center" />
+              />
 
             <TextView
                 android:layout_width="match_parent"

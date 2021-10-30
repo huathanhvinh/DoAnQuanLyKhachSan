@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,8 @@ import com.example.doanquanlykhachsan.helpers.dialog;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Dangky;
 import com.example.doanquanlykhachsan.model.Room;
+import com.example.doanquanlykhachsan.model.RoomRented;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -27,7 +30,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     private Button btntrove, btndoiphonng;
     private ArrayList<Room> data = new ArrayList<>();
     private Phong_adapter adapter;
-    dialog dl = new dialog();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), KH_danh_sach_phong_trong.class));
-                Log.e("max Room id", dl.getroomid());
+
             }
         });
     }
@@ -71,36 +74,31 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     }
 
     private void khoitao() {
-        dl.getroomid();
-        // dl.getAllRoom(data,adapter);
-        //StaticConfig.mDangky.child("L1").setValue(new Dangky("L1","KH1","20/5/2020"));
-        ArrayList<Dangky> dangky = new ArrayList<>();
-        dangky.clear();
-        data.clear();
-        StaticConfig.mDangky.addValueEventListener(new ValueEventListener() {
+
+        StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    Dangky dk = ds.getValue(Dangky.class);
-                    if (dk.getMakh().equals(StaticConfig.currentuser)) {
-                        dangky.add(dk);
-                        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
+                    if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
+                        String maphong = ds.child("sMaPH").getValue(String.class);
+                        data.clear();
+                        StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Room room = ds.getValue(Room.class);
-                                    if (ds.child("ma").getValue(String.class).equals(dk.getMaphong())) {
+                                    if (room.getMa().equals(maphong)) {
                                         data.add(room);
                                     }
                                     adapter.notifyDataSetChanged();
                                 }
+
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-                                throw error.toException();
-                            }
 
+                            }
                         });
                     }
                 }
@@ -112,27 +110,6 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
 
             }
         });
-
-
-        // adapter.notifyDataSetChanged();
-
-//        ArrayList<Room> data = new ArrayList<>();
-//        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot ds : snapshot.getChildren()) {
-//                    Room room = ds.getValue(Room.class);
-//                    if (ds.child("tinhtrang").getValue(String.class).equals("trống")) {
-//                        data.add(room);
-//                    }
-//                    adapter.notifyDataSetChanged();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
 
     }
 }
