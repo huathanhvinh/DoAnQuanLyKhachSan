@@ -1,6 +1,8 @@
 package com.example.doanquanlykhachsan.model;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
     String ma;
     String ten;
     String loai;
@@ -37,22 +39,6 @@ public class Room {
     }
 
     public Room() {
-    }
-
-    public int getSoluong() {
-        return soluong;
-    }
-
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
-    }
-
-    public int getSophong() {
-        return sophong;
-    }
-
-    public void setSophong(int sophong) {
-        this.sophong = sophong;
     }
 
     public String getMa() {
@@ -101,5 +87,35 @@ public class Room {
 
     public void setGiagio(float giagio) {
         this.giagio = giagio;
+    }
+
+    public int getSophong() {
+        return sophong;
+    }
+
+    public void setSophong(int sophong) {
+        this.sophong = sophong;
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "ma='" + ma + '\'' +
+                ", ten='" + ten + '\'' +
+                ", loai='" + loai + '\'' +
+                ", tinhtrang='" + tinhtrang + '\'' +
+                ", giangay=" + giangay +
+                ", giagio=" + giagio +
+                ", sophong=" + sophong +
+                ", soluong=" + soluong +
+                '}';
     }
 }

@@ -33,6 +33,18 @@
             android:name=".AD_khuyenmai"
             android:exported="false" />
         <activity
+            android:name=".KH_XacNhanDatPhong"
+            android:exported="false" />
+        <activity
+            android:name=".KH_ChiTietPhong"
+            android:exported="false" />
+        <activity
+            android:name=".KH_DatPhongTheoGio"
+            android:exported="false" />
+        <activity
+            android:name=".KH_DatPhongTheoNgay"
+            android:exported="false" />
+        <activity
             android:name=".menu_khachhang"
             android:exported="false" />
         <activity

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#18364B"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <CheckBox
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"></CheckBox>
+
+    <TextView
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:gravity="center|left"
+        android:paddingLeft="10sp"
+        android:text="Giặc giũ quần áo"
+        android:textColor="@color/white"></TextView>
+</LinearLayout>

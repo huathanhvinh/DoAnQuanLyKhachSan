@@ -31,6 +31,7 @@ public class menu_khachhang extends AppCompatActivity {
     private ImageView avatar;
     private TextView name;
     private TextView test;
+    private TextView name, tvDatPhongTheoNgay;
     private Button dangxuat;
     private TextView traphong, danhsachdaphong, thongtin;
     ArrayList<Long> soluong = new ArrayList<>();
@@ -92,17 +93,38 @@ public class menu_khachhang extends AppCompatActivity {
                         .show();
             }
         });
+        tvDatPhongTheoNgay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), KH_DatPhongTheoNgay.class));
+            }
+        });
     }
 
     private void setControl() {
         test = findViewById(R.id.text);
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
+        tvDatPhongTheoNgay = findViewById(R.id.tvDatPhongTheoNgay);
         dangxuat = findViewById(R.id.dangxuat);
-        traphong = findViewById(R.id.traphong);
-        danhsachdaphong = findViewById(R.id.phongdadat);
-        thongtin = findViewById(R.id.thongtin);
-        String emailhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+//        for (i = 10; i < 30; i++) {
+//            key = "L0" + i;
+//            Room room = new Room(key, "phog " + i, "nor", "Free", 200, 50, i);
+//            StaticConfig.mRoom.child(key).setValue(room);
+//        }
+
+        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds:snapshot.getChildren()){
+                    Log.e("id ",ds.child("ma").getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
