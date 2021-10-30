@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,6 +28,15 @@ public class StaticConfig {
 
     //them du lieu phong
     public static DatabaseReference mRoom = Database.getReference("Room");
+    public static DatabaseReference mRoomRented = Database.getReference("RoomRented");
+
+    //KH_Arraylist checkBox item
+    public static ArrayList<Room> arrayListCheckItem = new ArrayList<>();
+    //phan biet man hinh theo ngay hay gio
+    public static String sXacNhan = "";
+    //check all
+    public static boolean isCheckAll = false;
+
 
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp

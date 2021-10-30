@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), sign_in.class));
                 }
             }
-        }, 2500);
-        //dang dep trai
+        }, 0);
+        //
     }
 
 }

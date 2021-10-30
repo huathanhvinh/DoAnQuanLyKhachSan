@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class menu_khachhang extends AppCompatActivity {
 
     private ImageView avatar;
-    private TextView name;
+    private TextView name, tvDatPhongTheoNgay;
     private Button dangxuat;
     int i;
     String key;
@@ -59,11 +59,18 @@ public class menu_khachhang extends AppCompatActivity {
                         .show();
             }
         });
+        tvDatPhongTheoNgay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), KH_DatPhongTheoNgay.class));
+            }
+        });
     }
 
     private void setControl() {
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
+        tvDatPhongTheoNgay = findViewById(R.id.tvDatPhongTheoNgay);
         dangxuat = findViewById(R.id.dangxuat);
 //        for (i = 10; i < 30; i++) {
 //            key = "L0" + i;
@@ -74,8 +81,8 @@ public class menu_khachhang extends AppCompatActivity {
         StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds:snapshot.getChildren()){
-                    Log.e("id ",ds.child("ma").getValue(String.class));
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Log.e("id ", ds.child("ma").getValue(String.class));
                 }
             }
 
@@ -91,6 +98,7 @@ public class menu_khachhang extends AppCompatActivity {
                         name.setText(ds.child("sdt").getValue(String.class));
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }

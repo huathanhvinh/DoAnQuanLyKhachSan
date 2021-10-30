@@ -1,6 +1,8 @@
 package com.example.doanquanlykhachsan.model;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
     String ma;
     String ten;
     String loai;
@@ -8,8 +10,9 @@ public class Room {
     float giangay;
     float giagio;
     int sophong;
+    int soluong;
 
-    public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong) {
+    public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong, int soluong) {
         this.ma = ma;
         this.ten = ten;
         this.loai = loai;
@@ -17,14 +20,10 @@ public class Room {
         this.giangay = giangay;
         this.giagio = giagio;
         this.sophong = sophong;
+        this.soluong = soluong;
     }
 
-    public int getSophong() {
-        return sophong;
-    }
-
-    public void setSophong(int sophong) {
-        this.sophong = sophong;
+    public Room() {
     }
 
     public String getMa() {
@@ -73,5 +72,35 @@ public class Room {
 
     public void setGiagio(float giagio) {
         this.giagio = giagio;
+    }
+
+    public int getSophong() {
+        return sophong;
+    }
+
+    public void setSophong(int sophong) {
+        this.sophong = sophong;
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "ma='" + ma + '\'' +
+                ", ten='" + ten + '\'' +
+                ", loai='" + loai + '\'' +
+                ", tinhtrang='" + tinhtrang + '\'' +
+                ", giangay=" + giangay +
+                ", giagio=" + giagio +
+                ", sophong=" + sophong +
+                ", soluong=" + soluong +
+                '}';
     }
 }
