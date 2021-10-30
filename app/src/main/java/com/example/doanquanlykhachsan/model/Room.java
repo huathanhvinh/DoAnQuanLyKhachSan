@@ -11,6 +11,7 @@ public class Room implements Serializable {
     float giagio;
     int sophong;
     int soluong;
+    //helo
 
     @Override
     public String toString() {
