@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -39,23 +42,22 @@ public class KH_tra_phong extends AppCompatActivity {
         btntraphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
+                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
+                        for (DataSnapshot ds : snapshot.getChildren())
                             if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
                                 StaticConfig.mRoom.child(ds.child("sMaPH").getValue(String.class)).child("tinhtrang").setValue("trống");
-                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).removeValue();
+                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).setValue(null);
                             }
-                        }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        throw  error.toException();
+
                     }
                 });
-                finish();
+                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -101,17 +103,22 @@ public class KH_tra_phong extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
-
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
                         ngaynhan.setText(ds.child("sNgayNhan").getValue(String.class));
                         ngaytra.setText(ds.child("sNgayTra").getValue(String.class));
                         phongthue += ds.child("sMaPH").getValue(String.class) + " ";
-                        DateDifference();
+
                         if (ds.child("sManHinh").getValue(String.class).equals("ngay")) {
                             songayo.setText(thoigian + " ngay");
+                            DateDifference();
                         } else {
                             songayo.setText(thoigian + " gio");
+                            try {
+                                TimeDifference();
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -123,6 +130,21 @@ public class KH_tra_phong extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void TimeDifference() throws ParseException {
+        if (!ngaynhan.getText().toString().isEmpty() && !ngaytra.getText().toString().isEmpty()) {
+            String time1 = ngaynhan.getText().toString();
+            String time2 = ngaytra.getText().toString();
+
+            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            Date date1 = format.parse(time1);
+            Date date2 = format.parse(time2);
+            thoigian = timeBetween(date1, date2) + "";
+        } else {
+            Toast.makeText(getApplicationContext(), "Khong co phong de tra", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void DateDifference() {
@@ -141,7 +163,7 @@ public class KH_tra_phong extends AppCompatActivity {
             thang = Integer.parseInt(parts[1]);
             nam = Integer.parseInt(parts[2]);
             cal2.set(nam, thang, ngay);
-            thoigian = daysBetween(cal1.getTime(), cal2.getTime()) + "";
+            thoigian = daysBetween(cal1.getTime(), cal2.getTime()) + 1 + "";
         } else {
             Toast.makeText(getApplicationContext(), "Khong co phong de tra", Toast.LENGTH_SHORT).show();
         }
@@ -151,4 +173,9 @@ public class KH_tra_phong extends AppCompatActivity {
     public int daysBetween(Date d1, Date d2) {
         return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
     }
+
+    public int timeBetween(Date d1, Date d2) {
+        return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60)) % 24;
+    }
+
 }
