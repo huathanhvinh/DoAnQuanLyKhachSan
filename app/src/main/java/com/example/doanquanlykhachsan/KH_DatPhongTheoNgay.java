@@ -62,8 +62,8 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                if(snapshot.child("sMaKH").getValue().toString().equals("KH1")){
-                    Log.e("phong da dat",  snapshot.child("sMaPH").getValue().toString());
+                if (snapshot.child("sMaKH").getValue().toString().equals("KH1")) {
+                    Log.e("phong da dat", snapshot.child("sMaPH").getValue().toString());
                 }
             }
 
@@ -185,7 +185,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(KH_DatPhongTheoNgay.this, "dung"+position, Toast.LENGTH_LONG).show();
+                Toast.makeText(KH_DatPhongTheoNgay.this, "dung" + position, Toast.LENGTH_LONG).show();
             }
         });
         cboChonHet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
