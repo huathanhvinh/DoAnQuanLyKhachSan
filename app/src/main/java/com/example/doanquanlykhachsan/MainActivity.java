@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //        NhanVien_Luong nv_l = new NhanVien_Luong(4,key,"Trần Phi Du","0933123004","Đồng Nai","01/01/2003","1192102102","10,000,000","Tối","Quản Lý","400,000","Thích là ghi");
 //        StaticConfig.mNhanVien_Luong.child(key).setValue(nv_l);
 
-       startActivity(new Intent(getApplicationContext(),AD_LuongNhanVien.class));
+       startActivity(new Intent(getApplicationContext(),AD_ThongTinKhachHang.class));
 
     }
 
