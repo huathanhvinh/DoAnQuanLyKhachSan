@@ -24,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     TextView maNV,tenNV;
@@ -69,7 +68,7 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
                         kq.add(arrNV.get(i));
                     }
                 }
-                Adapter_NhanVien adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhanvien, kq);
+                Adapter_NhanVien adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhan_vien, kq);
                 lvDSNV.setAdapter(adapter_nhanVien);
                 adapter_nhanVien.notifyDataSetChanged();
             }
@@ -99,7 +98,7 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
         edTimKiem = findViewById(R.id.edTimNhanVien);
         imTimKiem = findViewById(R.id.imTimKiem);
 
-        adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhanvien, arrNV);
+        adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhan_vien, arrNV);
         lvDSNV.setAdapter(adapter_nhanVien);
     }
     public void LayDSNV()

@@ -13,9 +13,7 @@ import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Adapter_KhachHang;
-import com.example.doanquanlykhachsan.model.Adapter_NhanVien;
 import com.example.doanquanlykhachsan.model.KhachHang;
-import com.example.doanquanlykhachsan.model.NhanVien;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,7 +60,7 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
                         kq.add(arrKhachHang.get(i));
                     }
                 }
-                Adapter_KhachHang adapter_khachHang = new Adapter_KhachHang(getApplicationContext(),R.layout.cus_tom_khachhang, kq);
+                Adapter_KhachHang adapter_khachHang = new Adapter_KhachHang(getApplicationContext(),R.layout.custom_khach_hang, kq);
                 lvDSKH.setAdapter(adapter_khachHang);
                 adapter_khachHang.notifyDataSetChanged();
             }
@@ -74,7 +72,7 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
         lvDSKH = findViewById(R.id.lvDSKH);
         btnTroVe = findViewById(R.id.btnTroVe);
 
-        adapter_khachHang = new Adapter_KhachHang(getApplicationContext(), R.layout.cus_tom_khachhang, arrKhachHang);
+        adapter_khachHang = new Adapter_KhachHang(getApplicationContext(), R.layout.custom_khach_hang, arrKhachHang);
         lvDSKH.setAdapter(adapter_khachHang);
     }
 

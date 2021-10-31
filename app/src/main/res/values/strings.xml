@@ -6,9 +6,10 @@
         <item>Quản Lý</item>
     </array>
     <array name="loaiDichVu">
-        <item>Dịch vụ 1</item>
-        <item>Dịch vụ 2</item>
-        <item>Dịch vụ 3</item>
+        <item>Dịch vụ giặc ủi quần áo</item>
+        <item>Dịch vụ spa</item>
+        <item>Dịch vụ trông trẻ</item>
+        <item>Dịch vụ phục vụ phòng</item>
     </array>
     <array name="caLam">
         <item>Sáng</item>

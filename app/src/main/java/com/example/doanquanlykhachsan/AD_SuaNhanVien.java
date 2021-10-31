@@ -80,7 +80,7 @@ public class AD_SuaNhanVien extends AppCompatActivity {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(AD_SuaNhanVien.this);
                     builder.setTitle("Sửa Nhân Viên");
-                    builder.setMessage("Bạn Bạn chưa lưu, Bạn có muốn thoát không ?");
+                    builder.setMessage("Bạn chưa lưu, Bạn có muốn thoát không ?");
                     builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

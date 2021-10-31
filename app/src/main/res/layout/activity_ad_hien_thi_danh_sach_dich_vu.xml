@@ -30,6 +30,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edTimDichVu"
             android:layout_gravity="center"
             android:text="Nhập thông tin cần tìm..."
             android:padding="15dp"
@@ -67,6 +68,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ListView
+            tools:listitem="@layout/custom_dich_vu"
+            android:id="@+id/lvDSDV"
+            android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -78,6 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTaoMoi"
             android:layout_gravity="center"
             android:layout_width="143dp"
             android:layout_height="wrap_content"

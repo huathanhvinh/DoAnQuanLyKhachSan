@@ -109,4 +109,20 @@ public class NhanVien implements Serializable {
     public void setChucVu(String chucVu) {
         this.chucVu = chucVu;
     }
+
+    @Override
+    public String toString() {
+        return "NhanVien{" +
+                "stt=" + stt +
+                ", maFB='" + maFB + '\'' +
+                ", tenNV='" + tenNV + '\'' +
+                ", SoDienThoai='" + SoDienThoai + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", ngaySinh='" + ngaySinh + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                ", luong='" + luong + '\'' +
+                ", caLam='" + caLam + '\'' +
+                ", chucVu='" + chucVu + '\'' +
+                '}';
+    }
 }

@@ -30,6 +30,9 @@ public class StaticConfig {
     //KET NOI VOI NHANVIEN TREN FIREBASE
     public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
     public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
+    public static DatabaseReference mDichVu = Database.getReference("DichVu");
+    public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
+
 
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp

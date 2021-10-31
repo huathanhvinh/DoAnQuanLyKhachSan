@@ -69,4 +69,16 @@ public class KhachHang implements Serializable {
     public void setCmnd(String cmnd) {
         this.cmnd = cmnd;
     }
+
+    @Override
+    public String toString() {
+        return "KhachHang{" +
+                "stt=" + stt +
+                ", maFB='" + maFB + '\'' +
+                ", tenKH='" + tenKH + '\'' +
+                ", sdtKH='" + sdtKH + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                '}';
+    }
 }

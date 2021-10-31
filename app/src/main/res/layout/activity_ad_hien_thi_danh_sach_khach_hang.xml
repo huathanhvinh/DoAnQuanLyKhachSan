@@ -69,7 +69,7 @@
         android:layout_height="0dp">
         <ListView
             android:background="#fff"
-            tools:listitem="@layout/cus_tom_khachhang"
+            tools:listitem="@layout/custom_khach_hang"
             android:id="@+id/lvDSKH"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

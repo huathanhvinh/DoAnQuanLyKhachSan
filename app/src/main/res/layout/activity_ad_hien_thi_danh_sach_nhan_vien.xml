@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ListView
-            tools:listitem="@layout/custom_nhanvien"
+            tools:listitem="@layout/custom_nhan_vien"
             android:id="@+id/lvDSNV"
             android:background="#fff"
             android:layout_width="match_parent"

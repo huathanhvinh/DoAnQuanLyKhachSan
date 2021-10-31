@@ -26,13 +26,14 @@
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_avatar"></ImageView>
+            android:src="@drawable/avatar_dichvu"></ImageView>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +50,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
-            android:weightSum="6">
+            android:weightSum="7">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,12 +75,19 @@
                 android:text="Giá Dịch Vụ:"
                 android:textColor="#fff"
                 android:textSize="20dp"></TextView>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Chi Tiết:"
+                android:text="Đơn vị tính :"
+                android:textColor="#fff"
+                android:textSize="20dp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:text="Mô Tả:"
                 android:textColor="#fff"
                 android:textSize="20dp"></TextView>
 
@@ -94,32 +102,45 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/edMaDichVu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
                 android:padding="10dp"
                 android:text="DV001"></EditText>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:background="#fff"
+            <Spinner
+                android:id="@+id/spTenDichVu"
+                android:layout_marginTop="10dp"
                 android:padding="10dp"
-                android:text="ABC"></EditText>
+                android:entries="@array/loaiDichVu"
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
 
             <EditText
+                android:id="@+id/edGiaDichVu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:background="#fff"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:text="300,000"></EditText>
+            <EditText
+                android:id="@+id/edDVT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="#fff"
                 android:padding="10dp"
                 android:text="300,000"></EditText>
 
             <EditText
+                android:id="@+id/edMota"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
                 android:background="#fff"
                 android:gravity="top"
                 android:padding="10dp"
@@ -137,6 +158,7 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/btnLuu"
             android:layout_gravity="center"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
@@ -144,6 +166,7 @@
             android:text="Lưu"
             android:textSize="20dp"></Button>
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
             android:layout_width="143dp"
@@ -152,6 +175,5 @@
             android:text="Trở Về"
             android:textSize="20dp"></Button>
     </LinearLayout>
-
 
 </LinearLayout>
