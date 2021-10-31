@@ -6,11 +6,9 @@
         <item name="android:layout_height">1dp</item>
         <item name="android:background">#C4C4C4</item>
     </style>
-<<<<<<<<< Temporary merge branch 1
-=========
+
     <style name="Stroke">
         <item name="boxStrokeColor">#A5AE3C</item>
         <item name="android:layout_height">10dp</item>
     </style>
->>>>>>>>> Temporary merge branch 2
 </resources>
