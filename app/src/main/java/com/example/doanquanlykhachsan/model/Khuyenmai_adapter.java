@@ -42,7 +42,7 @@ public class Khuyenmai_adapter extends ArrayAdapter {
         TextView ngaybatdau = convertView.findViewById(R.id.ngaybatdau);
         TextView ngayketthuc = convertView.findViewById(R.id.ngayketthuc);
 
-        Khuyenmai km= data.get(position);
+        Khuyenmai km = data.get(position);
         ma.setText(km.getMa());
         tieude.setText(km.getTen());
         ngaybatdau.setText(km.getNgaybatdau());

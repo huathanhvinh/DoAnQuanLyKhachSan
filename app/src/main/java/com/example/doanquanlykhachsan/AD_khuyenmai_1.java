@@ -78,7 +78,7 @@ public class AD_khuyenmai_1 extends Fragment {
         data.add(km1);
         data.add(km2);
         data.add(km3);
-        adapter = new Khuyenmai_adapter(getContext(), R.layout.item_khuyen_mai, data);
+        adapter = new Khuyenmai_adapter(getContext(), R.layout.custom_khuyen_mai, data);
         listView.setAdapter(adapter);
         return view;
 

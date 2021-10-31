@@ -173,7 +173,6 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="24dp"
                     android:src="@drawable/icon_cal">
-
                 </ImageButton>
             </LinearLayout>
 

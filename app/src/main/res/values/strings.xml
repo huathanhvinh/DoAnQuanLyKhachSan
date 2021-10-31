@@ -3,6 +3,7 @@
     <array name="loaiCongViec">
         <item>Tạp Vụ</item>
         <item>Lễ Tân</item>
+        <item>Quản Lý</item>
     </array>
     <array name="loaiDichVu">
         <item>Dịch vụ 1</item>

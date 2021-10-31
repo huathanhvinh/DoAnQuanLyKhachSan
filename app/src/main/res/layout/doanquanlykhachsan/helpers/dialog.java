@@ -3,8 +3,6 @@ package com.example.doanquanlykhachsan.helpers;
 import androidx.annotation.NonNull;
 
 import com.example.doanquanlykhachsan.Phong_adapter;
-import com.example.doanquanlykhachsan.model.Room;
-import com.example.doanquanlykhachsan.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;

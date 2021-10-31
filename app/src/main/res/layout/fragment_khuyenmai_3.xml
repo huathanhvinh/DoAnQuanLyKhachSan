@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".AD_khuyenmai_3">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="3" />
+        android:layout_height="wrap_content"
+        android:dividerHeight="10dp"
+        tools:listitem="@layout/custom_khuyen_mai"/>
 
 </FrameLayout>

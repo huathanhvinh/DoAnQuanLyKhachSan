@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="10dp"
-        tools:listitem="@layout/item_khuyen_mai" />
+        tools:listitem="@layout/custom_khuyen_mai" />
 
 </FrameLayout>

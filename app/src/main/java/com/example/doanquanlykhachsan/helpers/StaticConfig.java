@@ -29,6 +29,7 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Room");
     //KET NOI VOI NHANVIEN TREN FIREBASE
     public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
+    public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
 
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp

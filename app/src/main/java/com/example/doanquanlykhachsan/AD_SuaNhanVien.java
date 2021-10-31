@@ -3,10 +3,13 @@ package com.example.doanquanlykhachsan;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -16,13 +19,15 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AD_SuaNhanVien extends AppCompatActivity {
     EditText edManv, edTennv, edSdt, edNgaysinh, edDiachi, edCmnd, edLuong;
     ImageButton imLich, imLuu;
     Spinner spChucVu;
     Button btnTrove;
     TextView tvLuu;
-    AD_ThongTinNhanVien ad_thongTinNhanVien = new AD_ThongTinNhanVien();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +38,33 @@ public class AD_SuaNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //Sự kiện dành cho lịch
+        imLich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imButtonLich();
+            }
+        });
         //tắt tính năng chỉnh sửa cho mã nv
         edManv.setFocusable(false);
         //load thông tin nhân viên
         setThongTinNhanVien();
+        //Sự kiện nút Lưu Thông Tin
+        imLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
+                thongTinNhanVien.setTenNV(edTennv.getText().toString());
+                thongTinNhanVien.setSoDienThoai(edSdt.getText().toString());
+                thongTinNhanVien.setNgaySinh(edNgaysinh.getText().toString());
+                thongTinNhanVien.setDiaChi(edDiachi.getText().toString());
+                thongTinNhanVien.setCmnd(edCmnd.getText().toString());
+                thongTinNhanVien.setLuong(edLuong.getText().toString());
+                thongTinNhanVien.setChucVu(spChucVu.getSelectedItem().toString());
+                StaticConfig.mNhanVien.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
+                Toast.makeText(getApplicationContext(), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
+            }
+        });
         //sự kiện nút trở về
         btnTrove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +84,6 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                     builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
                             finish();
                         }
                     });
@@ -67,12 +94,11 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                         }
                     });
                     builder.show();
-                } else
+                } else {
                     finish();
+                }
             }
         });
-
-
     }
 
     private void setControl() {
@@ -93,7 +119,6 @@ public class AD_SuaNhanVien extends AppCompatActivity {
 
         tvLuu = findViewById(R.id.tvLuu);
     }
-
     private void setThongTinNhanVien() {
         NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
         edManv.setText("100" + thongTinNhanVien.getStt());
@@ -105,8 +130,25 @@ public class AD_SuaNhanVien extends AppCompatActivity {
         edLuong.setText(thongTinNhanVien.getLuong());
         if (thongTinNhanVien.getChucVu().equals("Tạp Vụ")) {
             spChucVu.setSelection(0);
-        } else
+        } else if(thongTinNhanVien.getChucVu().equals("Lễ Tân"))
             spChucVu.setSelection(1);
-        //Toast.makeText(getApplicationContext(), spChucVu.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+        else
+            spChucVu.setSelection(2);
+    }
+    private void imButtonLich()
+    {
+        final Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(year, month, dayOfMonth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                edNgaysinh.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        }, nam, thang, ngay);
+        datePickerDialog.show();
     }
 }

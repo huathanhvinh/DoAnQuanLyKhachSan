@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:weightSum="10"
+    android:weightSum="20"
     tools:context=".AD_ThongTinKhachHang">
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
@@ -25,25 +25,26 @@
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal">
         <ImageView
-            android:src="@drawable/img_avatar"
+            android:src="@drawable/avatar_customer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </ImageView>
     </LinearLayout>
     <LinearLayout
         android:background="#3a5263"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
-        android:layout_weight="5"
+        android:layout_weight="10"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal">
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:weightSum="6"
             android:layout_width="wrap_content"
@@ -91,12 +92,15 @@
             </TextView>
         </LinearLayout>
         <LinearLayout
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:weightSum="6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvMaKH"
                 android:text="TV001"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -105,6 +109,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvtenKh"
                 android:text="Phúc Kute"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -113,6 +118,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvSDTKH"
                 android:text="0933 999 000"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -121,6 +127,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvDiaChiKH"
                 android:text="HolyWood"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -129,6 +136,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvCMNDKH"
                 android:text="1230987641"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -141,7 +149,7 @@
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <LinearLayout
@@ -149,6 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
+                android:id="@+id/imChuyen"
                 android:layout_gravity="center"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -167,12 +176,12 @@
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"

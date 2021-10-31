@@ -20,7 +20,6 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
     TextView tvMa, tvTen, tvSdt, tvNgaySinh, tvQueQuan, tvCMND, tvLuong, tvChucVu;
     Button btnTrove;
     ImageButton imSuaNhanVien, imXoaNhanVien;
-    //NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,8 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //load thông tin nhân viên
+        setThongTinNhanVien();
         //Sự kiện button sửa nhân viên
         imSuaNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +61,6 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
         });
         //sự kiện button xóa nhân viên
         xoaThongTinNhanVien();
-        //load thông tin nhân viên
-        setThongTinNhanVien();
         //sự kiện button trở về
         btnTrove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +73,8 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
     //lấy thông tin nhân viên từ listview
     private void setThongTinNhanVien() {
         NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
-        tvMa.setText("100" + thongTinNhanVien.getStt());
+        //Toast.makeText(getApplicationContext(), thongTinNhanVienDaSua.toString(), Toast.LENGTH_SHORT).show();
+        tvMa.setText("NV100" + thongTinNhanVien.getStt());
         tvTen.setText(thongTinNhanVien.getTenNV());
         tvSdt.setText(thongTinNhanVien.getSoDienThoai());
         tvNgaySinh.setText(thongTinNhanVien.getNgaySinh());

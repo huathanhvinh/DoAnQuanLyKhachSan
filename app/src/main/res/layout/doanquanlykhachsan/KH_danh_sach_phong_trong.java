@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doanquanlykhachsan.helpers.dialog;
-import com.example.doanquanlykhachsan.model.Room;
 
 import java.util.ArrayList;
 

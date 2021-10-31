@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.helpers.dialog;
 import com.example.doanquanlykhachsan.model.Dangky;
-import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;

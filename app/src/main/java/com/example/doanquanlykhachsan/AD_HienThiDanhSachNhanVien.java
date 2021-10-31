@@ -29,7 +29,7 @@ import java.util.Locale;
 public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     TextView maNV,tenNV;
     ListView lvDSNV;
-    Button btnTroVe,btnLamMoi;
+    Button btnTroVe;
     EditText edTimKiem;
     ImageButton imTimKiem;
     Adapter_NhanVien adapter_nhanVien;
@@ -89,24 +89,16 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
                 finish();
             }
         });
-        //làm mới dữ liệu tại listview
-        btnLamMoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                adapter_nhanVien.clear();
-                LayDSNV();
-            }
-        });
     }
 
     private void setControl() {
         btnTroVe = findViewById(R.id.btnTroVe);
-        btnLamMoi = findViewById(R.id.btnLamMoi);
         maNV = findViewById(R.id.maNV);
         tenNV = findViewById(R.id.tenNV);
         lvDSNV = findViewById(R.id.lvDSNV);
         edTimKiem = findViewById(R.id.edTimNhanVien);
         imTimKiem = findViewById(R.id.imTimKiem);
+
         adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhanvien, arrNV);
         lvDSNV.setAdapter(adapter_nhanVien);
     }
