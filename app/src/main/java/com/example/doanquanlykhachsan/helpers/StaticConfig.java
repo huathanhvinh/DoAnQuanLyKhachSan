@@ -36,6 +36,8 @@ public class StaticConfig {
     public static String sXacNhan = "";
     //check all
     public static boolean isCheckAll = false;
+    //chon phong de doi
+    public static Room chon = new Room();
 
 
     public static DatabaseReference mThongtinDv = Database.getReference("Thongtindv");

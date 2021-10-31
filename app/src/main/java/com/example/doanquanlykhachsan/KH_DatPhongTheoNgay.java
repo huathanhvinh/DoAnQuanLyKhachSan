@@ -105,6 +105,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 throw error.toException();
             }
         });
+
         imNhanPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,13 +123,13 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StaticConfig.isCheckAll = false;
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
             }
         });
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (CheckDates(tvNgayNhanPhong.getText() + "", tvNgaytraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoNgay.this);
                     b.setTitle("Thông báo");
@@ -157,7 +158,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(KH_DatPhongTheoNgay.this, "dung"+position, Toast.LENGTH_LONG).show();
+                Toast.makeText(KH_DatPhongTheoNgay.this, "dung" + position, Toast.LENGTH_LONG).show();
             }
         });
         cboChonHet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

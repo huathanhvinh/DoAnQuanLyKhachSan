@@ -3,15 +3,14 @@ package com.example.doanquanlykhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.helpers.dialog;
 import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,10 +20,10 @@ import java.util.ArrayList;
 
 public class KH_danh_sach_phong_trong extends AppCompatActivity {
     private ListView listView;
-    private Phong_adapter adapter;
+    private Doi_Phong_adapter adapter;
     private Button btntrove;
     private ArrayList<Room> data = new ArrayList<>();
-    dialog dl = new dialog();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,13 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room room =data.get(position);
-                Toast.makeText(getApplicationContext(), room.getMa(), Toast.LENGTH_SHORT).show();
+                Room room = data.get(position);
+                Intent intent = new Intent(getApplicationContext(), KH_doi_phong.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("chitiet", room);
+                intent.putExtras(bundle);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -49,15 +53,34 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
             }
         });
     }
+
     private void setControl() {
-        btntrove=findViewById(R.id.btntrove);
+        btntrove = findViewById(R.id.btntrove);
         listView = findViewById(R.id.lvDanhSachPhong);
-        adapter = new Phong_adapter(getApplicationContext(), R.layout.item_phong, data);
+        adapter = new Doi_Phong_adapter(getApplicationContext(), R.layout.item_phong, data);
         listView.setAdapter(adapter);
         khoitao();
     }
 
     private void khoitao() {
-        dl.getAllRoom(data,adapter);
+        data.clear();
+        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Room room = ds.getValue(Room.class);
+                    if (ds.child("tinhtrang").getValue(String.class).equals("trống")) {
+                        data.add(room);
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+
+        });
     }
 }

@@ -7,23 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Room;
 
 import java.util.ArrayList;
 
-public class Phong_adapter extends ArrayAdapter {
+public class Doi_Phong_adapter extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<Room> data;
 
-    public Phong_adapter(@NonNull Context context, int resource, ArrayList<Room> data) {
+    public Doi_Phong_adapter(@NonNull Context context, int resource, ArrayList<Room> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -61,7 +60,7 @@ public class Phong_adapter extends ArrayAdapter {
         chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), KH_ChiTietPhong.class);
+                Intent intent = new Intent(getContext(), KH_doi_phong.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("chitiet", room);
                 bundle.putFloat("Gia", room.getGiangay());

@@ -65,12 +65,11 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         calendar.set(0, 0, 0, gio, phut);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
         tvGioNhanPhong.setText(simpleDateFormat.format(calendar.getTime()));
-        //lay hien taij sau 1 gio
+        //lay hien tai sau 1 gio
         calendar.set(0, 0, 0, gio + 1, phut);
         tvGiotraPhong.setText(simpleDateFormat.format(calendar.getTime()));
 
         StaticConfig.sXacNhan = "gio";
-
         setEvent();
     }
 
@@ -91,13 +90,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
             }
         });
 
-        lvDanhSachPhongGio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("test", "onItemClick: ");
 
-            }
-        });
         //lay danh sach phong trong
         Query query = mRoom.orderByChild("sophong");
         query.addValueEventListener(new ValueEventListener() {
@@ -138,13 +131,13 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StaticConfig.isCheckAll = false;
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
             }
         });
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (CheckTimes(tvGioNhanPhong.getText() + "", tvGiotraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoGio.this);
                     b.setTitle("Thông báo");
