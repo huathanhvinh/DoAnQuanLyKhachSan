@@ -37,7 +37,7 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return super.getCount();
+        return data.size();
     }
 
     @NonNull
@@ -53,8 +53,6 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
         CheckBox cboNgay = convertView.findViewById(R.id.cboNgay);
 //        TextView tvNgayNhanPhong = convertView.findViewById(R.id.tvNgayNhanPhong);
 //        TextView tvNgaytraPhong = convertView.findViewById(R.id.tvNgayTraPhong);
-
-
         Room room = data.get(position);
 
         tvTenPhong.setText(room.getTen());
@@ -63,6 +61,9 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
         tvSoLuong.setText(room.getSoluong() + "");
         tvGiaNgay.setText(String.valueOf(room.getGiangay()));
 
+        for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
+            cboNgay.setChecked(true);
+        }
         //checkAll
         if (StaticConfig.isCheckAll == true) {
             StaticConfig.arrayListCheckItem.clear();
@@ -76,7 +77,6 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
         tvChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getContext(), KH_ChiTietPhong.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("chitiet", room);

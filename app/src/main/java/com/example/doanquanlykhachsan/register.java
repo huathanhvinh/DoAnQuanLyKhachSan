@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
     private EditText txtUserName, txtPassWord, txtsdt;
-    dialog dl = new dialog();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +83,7 @@ public class register extends AppCompatActivity {
 
 
     private void UpdateUser() {
-        User user = new User(dl.getuserid(), txtUserName.getText().toString(), txtsdt.getText().toString());
-        dl.addUser(dl.getuserid(), user);
+
         Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
         startActivity(intent);
     }
@@ -95,7 +94,7 @@ public class register extends AppCompatActivity {
         txtPassWord = findViewById(R.id.txtPassWord);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
-        dl.getuserid();
+
     }
 
 }

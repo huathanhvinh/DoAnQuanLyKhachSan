@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="20sp"
-        android:text="Danh sách phòng trống"
+        android:text="Danh sách Đã thuê"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -25,7 +25,7 @@
         android:layout_weight="0.5"
         android:gravity="center"
         android:paddingHorizontal="20sp"
-        android:text="Phòng trống"
+        android:text="Phòng Đã Thuê"
         android:textColor="@color/white"
         android:textSize="15sp" />
 
@@ -47,6 +47,7 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="20sp"
         android:layout_weight="7"
+        android:background="@drawable/selector_listview_item"
         tools:listitem="@layout/item_phong"></ListView>
 
     <LinearLayout

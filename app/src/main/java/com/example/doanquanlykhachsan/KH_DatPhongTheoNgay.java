@@ -58,35 +58,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_ngay);
         //
-        StaticConfig.mRoomRented.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                if (snapshot.child("sMaKH").getValue().toString().equals("KH1")) {
-                    Log.e("phong da dat", snapshot.child("sMaPH").getValue().toString());
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
         setConTrol();
         //lay ngay hien tai
         final Calendar calendar = Calendar.getInstance();
@@ -133,6 +105,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 throw error.toException();
             }
         });
+
         imNhanPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,13 +123,13 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StaticConfig.isCheckAll = false;
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
             }
         });
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (CheckDates(tvNgayNhanPhong.getText() + "", tvNgaytraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoNgay.this);
                     b.setTitle("Thông báo");

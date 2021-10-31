@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -85,12 +86,11 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                 for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
                     StaticConfig.mRoom.child(StaticConfig.arrayListCheckItem.get(i).getMa()).child("tinhtrang").setValue("da dat");
                     String key = StaticConfig.mRoomRented.push().getKey();
-                    RoomRented roomRented = new RoomRented(key, "KH2", StaticConfig.arrayListCheckItem.get(i).getMa(),
+                    RoomRented roomRented = new RoomRented(key, "KH1", StaticConfig.arrayListCheckItem.get(i).getMa(),
                             tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan);
                     StaticConfig.mRoomRented.child(key).setValue(roomRented);
                 }
-
-
+                startActivity(new Intent(getApplicationContext(),menu_khachhang.class));
             }
         });
         btTroVe.setOnClickListener(new View.OnClickListener() {
