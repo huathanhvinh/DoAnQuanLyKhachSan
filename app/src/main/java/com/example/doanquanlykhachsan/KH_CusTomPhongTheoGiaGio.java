@@ -59,14 +59,22 @@ public class KH_CusTomPhongTheoGiaGio extends ArrayAdapter {
         tvSoLuong.setText(room.getSoluong() + "");
         tvGiaGio.setText(String.valueOf(room.getGiagio()));
 
-        //checkAll
         if (StaticConfig.isCheckAll == true) {
             StaticConfig.arrayListCheckItem.clear();
             cboGio.setChecked(true);
             StaticConfig.arrayListCheckItem.addAll(data);
         } else {
-            cboGio.setChecked(false);
-            StaticConfig.arrayListCheckItem.clear();
+            for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
+                if (StaticConfig.arrayListCheckItem.get(i).getMa().equals(room.getMa())){
+                    cboGio.setChecked(true);
+                }
+                if(StaticConfig.arrayListCheckItem.size()==data.size()){
+                    cboGio.setChecked(false);
+                    StaticConfig.arrayListCheckItem.clear();
+                    break;
+                }
+            }
+
         }
 
         tvChiTiet.setOnClickListener(new View.OnClickListener() {
