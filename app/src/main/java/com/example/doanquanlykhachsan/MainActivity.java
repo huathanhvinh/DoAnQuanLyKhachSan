@@ -27,18 +27,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //màn hình loading....
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (StaticConfig.fAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-                } else {
-                    startActivity(new Intent(getApplicationContext(), sign_in.class));
-                }
-            }
-        }, 2500);
-
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (StaticConfig.fAuth.getCurrentUser() != null) {
+//                    startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+//                } else {
+//                    startActivity(new Intent(getApplicationContext(), sign_in.class));
+//                }
+//            }
+//        }, 2500);
+        startActivity(new Intent(getApplicationContext(), sign_in.class));
     }
 
 }
