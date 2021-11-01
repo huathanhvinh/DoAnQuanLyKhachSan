@@ -128,7 +128,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                         nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);
                         lvQuanLyPhong.setAdapter(nhanvientapvu);
                         nhanvientapvu.notifyDataSetChanged();
-                        Toast.makeText(getApplicationContext(),timkiemphong.size() +  "", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),timkiemphong.size() , Toast.LENGTH_SHORT).show();
 
                     }
 
