@@ -27,6 +27,7 @@ public class StaticConfig {
 
     //them du lieu phong
     public static DatabaseReference mRoom = Database.getReference("Room");
+    public static DatabaseReference mQLPhong = Database.getReference("QLPhong");
 
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp

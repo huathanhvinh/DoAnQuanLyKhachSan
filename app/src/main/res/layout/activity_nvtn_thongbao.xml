@@ -98,245 +98,21 @@
             >
         </TextView>
     </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STT : "
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01"
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:text="Nội dung"
-            android:textColor="#12CC19"
-            android:textSize="25dp"></TextView>
-    </LinearLayout>
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="09:00"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="25/09/2021"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký dịch vụ"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <Button
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi tiết"
-            />
-        <Button
-            android:layout_gravity="center"
-            android:layout_marginLeft="160dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xác nhận"
-            />
+        android:layout_height="461dp"
+        android:layout_weight="9"
+        android:background="#fff">
 
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
+        <ListView
+            android:id="@+id/lvThongBao"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="STT : "
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="02"
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
+            tools:listitem="@layout/listview_nvtn_thongbao">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:text="Nội dung"
-            android:textColor="#12CC19"
-            android:textSize="25dp"></TextView>
+        </ListView>
     </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="09:00"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="25/09/2021"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký dịch vụ"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <Button
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi tiết"
-            />
-        <Button
-            android:layout_gravity="center"
-            android:layout_marginLeft="160dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xác nhận"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STT : "
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="03"
-            android:textColor="#12CC19"
-            android:textSize="25dp"
-            >
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:text="Nội dung"
-            android:textColor="#12CC19"
-            android:textSize="25dp"></TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="09:00"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="25/09/2021"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký dịch vụ"
-            android:textColor="#FFEB3B"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <Button
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chi tiết"
-            />
-        <Button
-            android:layout_gravity="center"
-            android:layout_marginLeft="160dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xác nhận"
-            />
-
-    </LinearLayout>
-
-
 
     <LinearLayout
         android:gravity="center"
@@ -344,6 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trở về"

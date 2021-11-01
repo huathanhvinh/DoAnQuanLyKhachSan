@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnTroVe"
             android:gravity="center"
             android:backgroundTint="#25BDAF"
             android:layout_width="200dp"

@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lê Hoàng Phắc Boiz"
+            android:text="Lê Hoàng Phúc"
             android:textColor="#F4F4EF"
             android:textSize="25dp"
             android:layout_marginLeft="50dp"
@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnTroVe"
             android:gravity="center"
             android:backgroundTint="#25BDAF"
             android:layout_width="200dp"

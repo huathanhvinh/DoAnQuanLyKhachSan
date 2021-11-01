@@ -1,12 +1,13 @@
 package com.example.doanquanlykhachsan.model;
 
 public class nvtv_qlphong {
-    String phong,kiemtra;
+    String phong;
+    boolean kiemtra;
 
     public nvtv_qlphong() {
     }
 
-    public nvtv_qlphong(String phong, String kiemtra) {
+    public nvtv_qlphong(String phong, boolean kiemtra) {
         this.phong = phong;
         this.kiemtra = kiemtra;
     }
@@ -19,11 +20,11 @@ public class nvtv_qlphong {
         this.phong = phong;
     }
 
-    public String getKiemtra() {
+    public boolean getKiemtra() {
         return kiemtra;
     }
 
-    public void setKiemtra(String kiemtra) {
+    public void setKiemtra(boolean kiemtra) {
         this.kiemtra = kiemtra;
     }
 

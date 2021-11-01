@@ -131,6 +131,7 @@
             android:src="@drawable/icon_thongbao"
             />
         <TextView
+            android:id="@+id/tvThongBao"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

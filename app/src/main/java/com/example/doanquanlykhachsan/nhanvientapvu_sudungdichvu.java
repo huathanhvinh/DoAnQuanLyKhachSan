@@ -3,6 +3,8 @@ package com.example.doanquanlykhachsan;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.model.SuDungDichVu;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     ListView lvSuDungDV ;
     ArrayList<SuDungDichVu> data = new ArrayList<>();
-
+    Button btnTroVe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +27,16 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
 
     private void SetControl() {
         lvSuDungDV = findViewById(R.id.lvSuDungDV);
+        btnTroVe = findViewById(R.id.btnTroVe);
     }
 
     private void setEvent() {
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         custom_nhanvientapvu_sudungdichvu sudungdichvu = new custom_nhanvientapvu_sudungdichvu(this,R.layout.listview_nhanvientapvu_sudungdichvu,data);
         lvSuDungDV.setAdapter(sudungdichvu);
         khoiTao();
