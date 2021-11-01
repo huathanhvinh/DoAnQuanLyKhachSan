@@ -62,10 +62,10 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ArrayList<Room> ketqua = new ArrayList<>();
                 if (ckDaChon.isChecked()) {
-                    ketqua.clear();
                     for (int i = 0; i < data.size(); i++) {
                         String ma = data.get(i).getMa();
                         Room room = data.get(i);
+                        ketqua.clear();
                         StaticConfig.mQLPhong.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
