@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -22,13 +27,16 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class nhanvientapvu_quanlyphong extends AppCompatActivity {
+    TextView tvDSPhong;
     ListView lvQuanLyPhong;
     Button btnTroVe;
-    CheckBox ckDaChon, ckChuaChon;
+    RadioButton rdDaChon, rdChuaChon;
     custom_nhanvientapvu_qlphong nhanvientapvu;
-
+    EditText editTimKiem;
+    ArrayList<Room> timkiemphong = new ArrayList<>();
     ArrayList<Room> data = new ArrayList<>();
 
     @Override
@@ -42,12 +50,40 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
     private void setControl() {
         lvQuanLyPhong = findViewById(R.id.lvQuanLyPhong);
         btnTroVe = findViewById(R.id.btnTroVe);
-        ckDaChon = findViewById(R.id.ckDaChon);
-        ckChuaChon = findViewById(R.id.ckChuaChon);
-
+        rdDaChon = findViewById(R.id.rdDaChon);
+        rdChuaChon = findViewById(R.id.rdChuaChon);
+        editTimKiem = findViewById(R.id.editTimKiem);
+        tvDSPhong = findViewById(R.id.tvDSPhong);
     }
 
     private void setEvent() {
+        tvDSPhong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Khi click vào textview danh sách phòng thì reset 2 radioButton
+                rdDaChon.setChecked(false);
+                rdChuaChon.setChecked(false);
+                nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, data);
+                lvQuanLyPhong.setAdapter(nhanvientapvu);
+                khoitao();
+
+            }
+        });
+        //Xử lý 2 nút radioButton
+        rdDaChon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdDaChon.setChecked(true);
+                rdChuaChon.setChecked(false);
+            }
+        });
+        rdChuaChon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rdDaChon.setChecked(false);
+                rdChuaChon.setChecked(true);
+            }
+        });
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,11 +93,127 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
         nhanvientapvu = new custom_nhanvientapvu_qlphong(this, R.layout.listview_nhanvientapvu_quanlyphong, data);
         lvQuanLyPhong.setAdapter(nhanvientapvu);
         khoitao();
-        ckDaChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        //Tim kiem
+        editTimKiem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String timkiem = editTimKiem.getText().toString().toLowerCase();
+
+                StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        timkiemphong.clear();
+
+                        for(DataSnapshot ds : snapshot.getChildren() ){
+                            Room phong = ds.getValue(Room.class);
+                            if(phong.getTen().toLowerCase().contains(timkiem)){
+                                timkiemphong.add(phong);
+
+                            }
+                        }
+                        if(timkiem.isEmpty()){
+                            timkiemphong = data;
+                        }
+                        nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);
+                        lvQuanLyPhong.setAdapter(nhanvientapvu);
+                        nhanvientapvu.notifyDataSetChanged();
+                        Toast.makeText(getApplicationContext(),timkiemphong.size() +  "", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+//                timkiemphong.clear();
+//                if(!timkiem.isEmpty()){
+//                    for (int i = 0; i < data.size(); i++) {
+//                        if (data.get(i).getTen().toLowerCase().contains(timkiem)) {
+//                            //Toast.makeText(getApplicationContext(), data.get(i).getMa(), Toast.LENGTH_SHORT).show();
+//                            timkiemphong.add(data.get(i));
+//                            nhanvientapvu.notifyDataSetChanged();
+//                        }
+//
+//                    }
+//                    nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);
+//                    lvQuanLyPhong.setAdapter(nhanvientapvu);
+//
+//                }
+//
+//                else {
+//                    khoitao();
+//                }
+
+
+            }
+        });
+
+        //Xử lý nút radionbutton chưa chọn hiển thị các phòng xem đã dọn hay chưa
+        rdChuaChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                    ArrayList<Room> ketqua = new ArrayList<>();
+                    if (rdChuaChon.isChecked()) {
+                        for (int i = 0; i < data.size(); i++) {
+                            ketqua.clear();
+                            String ma = data.get(i).getMa();
+                            Room room = data.get(i);
+                            ketqua.addAll(data);//Add tất cả phòng
+                            StaticConfig.mQLPhong.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                                    for (DataSnapshot ds : snapshot.getChildren()) {
+
+                                        nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
+
+
+                                        if (qlphong.getPhong().equals(ma) && qlphong.getKiemtra() == true) {
+
+                                            //Kiểm tra nếu dữ liệu = true thì remove phòng
+                                            //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+                                            ketqua.remove(room);
+                                        }
+                                    }
+                                    nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, ketqua);
+                                    lvQuanLyPhong.setAdapter(nhanvientapvu);
+                                    nhanvientapvu.notifyDataSetChanged();
+                                    Log.d("soluong", ketqua.size() + "");
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
+
+                    }
+            }
+        });
+
+        //Xử lý nút radionbutton đã chọn hiển thị các phòng xem đã dọn hay chưa
+        rdDaChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ArrayList<Room> ketqua = new ArrayList<>();
-                if (ckDaChon.isChecked()) {
+                if (rdDaChon.isChecked()) {
                     for (int i = 0; i < data.size(); i++) {
                         String ma = data.get(i).getMa();
                         Room room = data.get(i);
