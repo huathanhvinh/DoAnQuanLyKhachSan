@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,9 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class AD_LuongCuaNhanVien extends AppCompatActivity {
     TextView tvMaNV,tvTennv,tvChucVu;
@@ -33,15 +37,36 @@ public class AD_LuongCuaNhanVien extends AppCompatActivity {
         //lấy thông tin nhân viên_lương
         layThongTinNhanVien();
         //xử lý edittext Luong
-        edLuong.setFocusable(false);
+        //edLuong.setFocusable(false);
         //xử lý nút lưu
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NhanVien_Luong thongTinNhanVien = (NhanVien_Luong) getIntent().getSerializableExtra("ThongTinLuongNhanVien");
+                thongTinNhanVien.setLuong(edLuong.getText().toString());
                 thongTinNhanVien.setTienThuong(edThuong.getText().toString());
                 thongTinNhanVien.setGhiChu(edGhichu.getText().toString());
                 StaticConfig.mNhanVien_Luong.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
+
+                StaticConfig.mNhanVien.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds: snapshot.getChildren())
+                        {
+                            if (ds.child("soDienThoai").getValue().toString().equals(thongTinNhanVien.getSoDienThoai()))
+                            {
+                                NhanVien nv = ds.getValue(NhanVien.class);
+                                nv.setLuong(edLuong.getText().toString());
+                                StaticConfig.mNhanVien.child(nv.getMaFB()).setValue(nv);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 Toast.makeText(getApplicationContext(), "Lưu Thành Công !", Toast.LENGTH_SHORT).show();
             }
         });

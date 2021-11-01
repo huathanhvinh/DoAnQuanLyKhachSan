@@ -5,13 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.DichVu;
-import com.example.doanquanlykhachsan.model.KhachHang;
-import com.example.doanquanlykhachsan.model.NhanVien;
-import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
-import com.example.doanquanlykhachsan.model.NhanVien_Luong;
-
 public class MainActivity extends AppCompatActivity {
     //StaticConfig st = new StaticConfig();
     @Override
@@ -43,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 //        NhanVien_LichLamViec nv_lv = new NhanVien_LichLamViec(4,key,"Trần Phi Du","0933123004","Q9, HCM","01/01/2003","1192102102","10,000,000","Tối","Quản Lý","Thích là ghi");
 //        StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nv_lv);
 
-        startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
+        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachKhuyenMai.class));
 
     }
 

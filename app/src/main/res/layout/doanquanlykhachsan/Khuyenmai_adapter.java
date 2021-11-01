@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.doanquanlykhachsan.model.Khuyenmai;
-
 import java.util.ArrayList;
 
 public class Khuyenmai_adapter extends ArrayAdapter {

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".AD_HienThiDanhSachKhuyenMai"
+            android:exported="false" />
+        <activity
             android:name=".AD_LuongCuaNhanVien"
             android:exported="false" />
         <activity
@@ -25,9 +28,6 @@
             android:exported="false" />
         <activity
             android:name=".AD_ThongTinPhong"
-            android:exported="false" />
-        <activity
-            android:name=".AD_khuyenmai"
             android:exported="false" />
         <activity
             android:name=".AD_ThemPhong"
@@ -66,7 +66,7 @@
             android:name=".AD_HienThiDanhSachNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_XemKhuyenMai"
+            android:name=".AD_ThongTinKhuyenMai"
             android:exported="false" />
         <activity
             android:name=".AD_ThongKe"
@@ -75,7 +75,7 @@
             android:name=".AD_SuaKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".AD_TaoKhuyenMai"
+            android:name=".AD_ThemKhuyenMai"
             android:exported="false" />
         <activity
             android:name=".AD_MenuAdmin"

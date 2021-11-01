@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AD_TaoKhuyenMai extends AppCompatActivity {
+public class AD_ThemKhuyenMai extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

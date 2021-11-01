@@ -8,8 +8,6 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.doanquanlykhachsan.model.Khuyenmai;
-
 import java.util.ArrayList;
 
 /**

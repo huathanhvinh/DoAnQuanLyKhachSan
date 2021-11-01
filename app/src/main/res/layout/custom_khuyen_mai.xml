@@ -8,31 +8,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            android:weightSum="2">
             <TextView
+                android:layout_gravity="left"
                 android:id="@+id/ma"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="123"
+                android:text="Mã KM: 123kjsna"
                 android:textColor="#25BDAF"/>
 
             <TextView
+                android:layout_gravity="left"
                 android:id="@+id/tieude"
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Khuyến mãi 3 tháng cuối năm"
                 android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -40,53 +45,54 @@
             android:orientation="horizontal">
 
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/ngaybatdau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:text="22 thg 9"
+                android:text="01/01/2021"
                 android:textColor="#E3F512" />
 
-
             <ImageView
-
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/ic_baseline_arrow_right_alt_24" />
+                android:src="@drawable/ic_baseline_muitentrang" />
 
             <TextView
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="center"
                 android:id="@+id/ngayketthuc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:text="22 thg 9"
+                android:text="05/01/2021"
                 android:textColor="#E3F512" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
                 android:backgroundTint="#25BDAF"
-                android:text="thay đổi"
+                android:text="Chi Tiết"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:backgroundTint="#02a9b2"
+                android:layout_marginLeft="70dp"
+                android:layout_gravity="center"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#25BDAF"
                 android:text="kết thúc ngay"
                 android:textColor="@color/white"
                 android:textSize="15dp" />

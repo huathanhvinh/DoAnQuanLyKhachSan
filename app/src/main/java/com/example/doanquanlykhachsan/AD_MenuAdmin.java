@@ -59,12 +59,12 @@ public class AD_MenuAdmin extends AppCompatActivity{
             }
         });
         //
-        tvKhuyenMai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AD_khuyenmai.class));
-            }
-        });
+//        tvKhuyenMai.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), AD_khuyenmai.class));
+//            }
+//        });
         //
         tvLuongNV.setOnClickListener(new View.OnClickListener() {
             @Override

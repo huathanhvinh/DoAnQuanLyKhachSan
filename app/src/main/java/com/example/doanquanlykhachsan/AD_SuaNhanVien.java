@@ -47,6 +47,8 @@ public class AD_SuaNhanVien extends AppCompatActivity {
         });
         //tắt tính năng chỉnh sửa cho mã nv
         edManv.setFocusable(false);
+        //tắt tính năng chỉnh sửa Lương cho nhân viên
+        edLuong.setFocusable(false);
         //load thông tin nhân viên
         setThongTinNhanVien();
         //Sự kiện nút Lưu Thông Tin

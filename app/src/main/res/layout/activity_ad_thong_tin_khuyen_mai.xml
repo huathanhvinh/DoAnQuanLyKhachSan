@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".AD_XemKhuyenMai">
+    tools:context=".AD_ThongTinKhuyenMai">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,10 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:text="Xem Khuyến Mãi"
+            android:text="Thông Tin Khuyến Mãi"
             android:textColor="#fff"
             android:textSize="30dp">
-
         </TextView>
     </LinearLayout>
     <LinearLayout
@@ -277,15 +276,24 @@
 
         <Button
             android:layout_gravity="center"
-            android:layout_width="143dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:text="Xóa"
+            android:textSize="20dp"></Button>
+
+        <Button
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
             android:text="Sửa"
             android:textSize="20dp"></Button>
         <Button
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_width="143dp"
+            android:layout_marginLeft="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
             android:text="Trở Về"
