@@ -192,6 +192,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập số điện thoại"
+                    android:id="@+id/txtPhone"
                     />
             </LinearLayout>
 
@@ -233,6 +234,7 @@
                 android:background="@drawable/custom_button"
                 android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
+                android:id="@+id/btnReturn"
                 />
         </LinearLayout>
     </LinearLayout>

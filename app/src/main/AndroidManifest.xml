@@ -19,7 +19,7 @@
             android:exported="false" />
         <activity
             android:name=".sign_in"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".register"
             android:exported="false" />
