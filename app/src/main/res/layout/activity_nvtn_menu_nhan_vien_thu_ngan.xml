@@ -51,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvTTTaiKhoan"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -69,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvLichLamViec"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -87,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvQLKhachHang"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -105,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvLapPhieuThue"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -123,6 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvLapHoaDon"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -141,6 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvThongBao"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -159,6 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvLuong"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -177,6 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvDoiMK"
             android:paddingLeft="10dp"
             android:layout_gravity="center"
             android:textColor="#fff"
@@ -190,6 +198,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/btnDangXuat"
             android:layout_marginBottom="20dp"
             android:layout_gravity="bottom"
             android:text="Đăng Xuất"

@@ -56,6 +56,7 @@
         android:layout_height="0dp">
 
         <ListView
+            android:id="@+id/lvHoaDon"
             tools:listitem="@layout/listview_nvtn_lap_hoa_don"
             android:padding="10dp"
             android:layout_width="match_parent"
@@ -67,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTroVe"
             android:backgroundTint="#02A9B2"
             android:text="Trở về"
             android:layout_width="150dp"

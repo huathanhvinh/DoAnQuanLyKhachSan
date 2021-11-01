@@ -12,7 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
-            android:name=".NVTN_MenuNhanVienThuNgan"
+            android:name=".NVTN_Thongbao"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_Thongtinluong"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_lichlamviec"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_Thongtintaikhoan"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_HienThiDanhSachKhachHang"
             android:exported="false" />
         <activity
             android:name=".NVTN_LapHoaDon"
@@ -45,7 +57,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".NVTN_HienThiDanhSachKhachHang"
+            android:name=".NVTN_MenuNhanVienThuNgan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

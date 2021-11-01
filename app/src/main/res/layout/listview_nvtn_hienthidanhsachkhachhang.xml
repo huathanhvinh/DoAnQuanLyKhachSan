@@ -43,6 +43,7 @@
         </LinearLayout>
     </LinearLayout>
     <Button
+        android:id="@+id/btnXemTT"
         android:backgroundTint="#02A9B2"
         android:text="Xem thông tin khách hàng"
         android:layout_width="match_parent"

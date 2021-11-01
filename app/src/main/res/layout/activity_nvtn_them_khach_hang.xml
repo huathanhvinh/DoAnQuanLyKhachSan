@@ -65,6 +65,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/edtTenKH"
                 android:layout_gravity="center"
                 android:hint="Nhập tên khách hàng ...."
                 android:layout_marginLeft="10sp"
@@ -89,6 +90,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/edtSoDT"
                 android:layout_gravity="center"
                 android:hint="Nhập số điện thoại ...."
                 android:layout_marginLeft="10sp"
@@ -113,6 +115,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/edtCMND"
                 android:layout_gravity="center"
                 android:hint="Nhập CMND/CCCD ...."
                 android:layout_marginLeft="10sp"
@@ -137,6 +140,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:id="@+id/edtDiachi"
                 android:layout_gravity="center"
                 android:hint="Nhập địa chỉ ...."
                 android:layout_marginLeft="10sp"
@@ -161,6 +165,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"/>
             <Spinner
+                android:id="@+id/spHoiVien"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10sp"
                 android:background="#ffffff"
@@ -175,6 +180,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnThemKH"
             android:layout_gravity="center"
             android:backgroundTint="#02A9B2"
             android:text="Thêm khách hàng"
@@ -187,6 +193,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:backgroundTint="#02A9B2"
             android:text="Trở về"
