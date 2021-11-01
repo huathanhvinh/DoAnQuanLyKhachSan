@@ -40,6 +40,7 @@
             android:textColor="#fff"
             android:textSize="25dp"></TextView>
         <TextView
+            android:id="@+id/tvManvLV"
             android:layout_marginLeft="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -62,6 +63,7 @@
             android:textColor="#fff"
             android:textSize="25dp"></TextView>
         <TextView
+            android:id="@+id/tvTennvLV"
             android:layout_marginLeft="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -84,6 +86,7 @@
             android:textColor="#fff"
             android:textSize="25dp"></TextView>
         <TextView
+            android:id="@+id/tvChucvuLV"
             android:layout_marginLeft="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -106,6 +109,7 @@
             android:textColor="#fff"
             android:textSize="25dp"></TextView>
         <Spinner
+            android:id="@+id/spLichLamViecLV"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="50dp"
             android:background="#fff"
@@ -137,6 +141,7 @@
         android:layout_height="0dp"
         android:layout_weight="5">
         <EditText
+            android:id="@+id/edGhiChuLV"
             android:gravity="top"
             android:text="Ghi chú"
             android:background="#fff"
@@ -151,6 +156,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnLuuLV"
             android:layout_gravity="center"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
@@ -158,6 +164,7 @@
             android:text="Lưu"
             android:textSize="20dp"></Button>
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
             android:layout_width="143dp"

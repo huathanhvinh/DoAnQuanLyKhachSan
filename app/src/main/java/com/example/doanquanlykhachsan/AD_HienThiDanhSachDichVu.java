@@ -39,7 +39,7 @@ public class AD_HienThiDanhSachDichVu extends AppCompatActivity {
     private void setEvent() {
         //hiển thị danh sách dịch vụ từ firebase
         setDanhSachDichVu();
-
+        //sự kiện nút trở về
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

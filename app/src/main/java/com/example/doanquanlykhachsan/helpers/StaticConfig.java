@@ -32,6 +32,7 @@ public class StaticConfig {
     public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
     public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
+    public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
 
 
     public static final int PICK_IMAGE_REQUEST = 10;

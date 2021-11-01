@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -85,6 +86,13 @@ public class AD_ThongTinKhachHang extends AppCompatActivity {
                                            "01/01/2000",thongTinKhachHang.getCmnd(),"3,000,000",
                                            "Sáng","Tạp Vụ","","");
                                    StaticConfig.mNhanVien_Luong.child(key).setValue(nvMoi1);
+
+                                   String key2 = StaticConfig.mNhanVien_LichLamViec.push().getKey();
+                                   NhanVien_LichLamViec nvMoi2 = new NhanVien_LichLamViec(size, key,thongTinKhachHang.getTenKH(),
+                                           thongTinKhachHang.getSdtKH(),thongTinKhachHang.getDiaChi(),
+                                           "01/01/2000",thongTinKhachHang.getCmnd(),"3,000,000",
+                                           "Sáng","Tạp Vụ","");
+                                   StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nvMoi2);
 
                                    StaticConfig.mKhachHang.child(thongTinKhachHang.getMaFB()).removeValue();
 

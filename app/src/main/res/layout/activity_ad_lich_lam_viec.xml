@@ -30,6 +30,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/edTimkiemViecLam"
             android:layout_gravity="center"
             android:text="Nhập thông tin cần tìm..."
             android:padding="15dp"
@@ -67,6 +68,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ListView
+            android:background="#fff"
+            android:id="@+id/lvDSVLNV"
+            tools:listitem="@layout/custom_nhanvien_lichlamviec"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

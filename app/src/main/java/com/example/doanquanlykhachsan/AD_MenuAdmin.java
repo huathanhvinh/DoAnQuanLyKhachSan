@@ -62,7 +62,7 @@ public class AD_MenuAdmin extends AppCompatActivity{
         tvKhuyenMai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Đăng", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), AD_khuyenmai.class));
             }
         });
         //

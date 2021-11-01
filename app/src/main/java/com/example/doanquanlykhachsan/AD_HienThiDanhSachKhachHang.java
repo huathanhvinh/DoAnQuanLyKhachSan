@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -63,6 +64,13 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
                 Adapter_KhachHang adapter_khachHang = new Adapter_KhachHang(getApplicationContext(),R.layout.custom_khach_hang, kq);
                 lvDSKH.setAdapter(adapter_khachHang);
                 adapter_khachHang.notifyDataSetChanged();
+            }
+        });
+        //Xử lý nút trở về
+        btnTroVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

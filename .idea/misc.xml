@@ -7,8 +7,10 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_dich_vu.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_khach_hang.xml" value="0.18614130434782608" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_nhan_vien.xml" value="0.16530797101449277" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_phong.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_khuyenmai.xml" value="0.25" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_lich_lam_viec.xml" value="0.18614130434782608" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_lich_lam_viec_cua_nhan_vien.xml" value="0.17798913043478262" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_luong_cua_nhan_vien.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_luong_nhan_vien.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_menuadmin.xml" value="0.22135416666666666" />
@@ -16,6 +18,7 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_khuyen_mai.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_nhan_vien.xml" value="0.19021739130434784" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_phong.xml" value="0.22135416666666666" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_ke.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_tin_dich_vu.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_tin_khach_hang.xml" value="0.18614130434782608" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_tin_nhan_vien.xml" value="0.25" />
@@ -28,6 +31,8 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_luong_nhan_vien.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_nhan_vien.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_nhanvien.xml" value="0.18614130434782608" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_nhanvien_lichlamviec.xml" value="0.17798913043478262" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/custom_nhanvien_luong.xml" value="0.13496376811594202" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_khuyenmai_1.xml" value="0.16530797101449277" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_khuyenmai_2.xml" value="0.18614130434782608" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_khuyenmai_3.xml" value="0.18614130434782608" />

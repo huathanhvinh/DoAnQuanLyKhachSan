@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     TextView maNV,tenNV;
     ListView lvDSNV;
-    Button btnTroVe;
+    Button btnTroVe,btnThem;
     EditText edTimKiem;
     ImageButton imTimKiem;
     Adapter_NhanVien adapter_nhanVien;
@@ -44,6 +45,13 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //Thêm nhân viên
+        btnThem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AD_HienThiDanhSachKhachHang.class));
+            }
+        });
         //Sự kiện load dữ liệu từ Firebase lên listview
         LayDSNV();
         //sự kiện tìm kiếm
@@ -91,6 +99,7 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     }
 
     private void setControl() {
+        btnThem = findViewById(R.id.btmThemNV);
         btnTroVe = findViewById(R.id.btnTroVe);
         maNV = findViewById(R.id.maNV);
         tenNV = findViewById(R.id.tenNV);
