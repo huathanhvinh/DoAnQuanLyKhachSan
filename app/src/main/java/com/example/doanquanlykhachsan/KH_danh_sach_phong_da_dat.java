@@ -27,6 +27,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     private Phong_adapter adapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +120,6 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
 
             }
         });
-
+        StaticConfig.chon = null;
     }
 }
