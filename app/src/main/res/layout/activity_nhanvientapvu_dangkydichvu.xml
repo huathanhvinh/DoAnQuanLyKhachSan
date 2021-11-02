@@ -42,29 +42,29 @@
             android:layout_marginLeft="10dp"
             android:src="@drawable/icon_timkiem" />
     </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <CheckBox
-            android:layout_gravity="center"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Đã dọn"
-            android:textColor="#F4F4EF" />
+<!--    <LinearLayout-->
+<!--        android:gravity="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1">-->
+<!--        <CheckBox-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textSize="25dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="Đã dọn"-->
+<!--            android:textColor="#F4F4EF" />-->
 
-        <CheckBox
-            android:layout_gravity="center"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Chưa dọn"
-            android:textColor="#F4F4EF" />
-    </LinearLayout>
+<!--        <CheckBox-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textSize="25dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:text="Chưa dọn"-->
+<!--            android:textColor="#F4F4EF" />-->
+<!--    </LinearLayout>-->
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
@@ -79,99 +79,18 @@
             android:textSize="25dp" />
     </LinearLayout>
     <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dịch vụ : Giặt giũ quần áo"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Xem các phòng sử dụng dịch vụ" />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dịch vụ : Dọn phòng"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Xem các phòng sử dụng dịch vụ" />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dịch vụ : Đưa đón khách hàng"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Xem các phòng sử dụng dịch vụ" />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dịch vụ : Đồ ăn theo ngày"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Xem các phòng sử dụng dịch vụ" />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Dịch vụ : Spa"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Xem các phòng sử dụng dịch vụ" />
+        android:layout_height="400dp"
+        >
+        <ListView
+            android:id="@+id/lvDanhSachDV"
+            tools:listitem="@layout/listview_nhanvientapvu_dangkydichvu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </ListView>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
@@ -179,6 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:backgroundTint="#25BDAF"
+            android:id="@+id/btnTroVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trở về"
