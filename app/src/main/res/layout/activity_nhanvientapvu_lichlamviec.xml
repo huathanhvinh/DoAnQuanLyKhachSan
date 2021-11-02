@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
             android:layout_marginLeft="20dp"
             />
         <TextView
+            android:id="@+id/tvTenNhanVien"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,6 +64,7 @@
             android:layout_marginLeft="50dp"
             />
         <TextView
+            android:id="@+id/tvCaLam"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,10 +107,11 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:id="@+id/etGhiChu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Làm việc lười biếng,thường xuyên sử dụng điện thoại trong giờ làm việc"
