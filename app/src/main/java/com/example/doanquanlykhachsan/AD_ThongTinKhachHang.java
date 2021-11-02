@@ -49,78 +49,78 @@ public class AD_ThongTinKhachHang extends AppCompatActivity {
             }
         });
         //chuyển khách hàng thành nhân viên
-       imChuyen.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               KhachHang thongTinKhachHang = (KhachHang) getIntent().getSerializableExtra("ThongTinKhachHang");
-               AlertDialog.Builder builder = new AlertDialog.Builder(AD_ThongTinKhachHang.this);
-               builder.setTitle("Thông Báo");
-               builder.setMessage("Xác nhận chuyển đổi !");
-               builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       StaticConfig.mNhanVien.addValueEventListener(new ValueEventListener() {
-                           int i = 0;
-                           int size = 1;
-                           @Override
-                           public void onDataChange(@NonNull DataSnapshot snapshot) {
-                               for (DataSnapshot ds : snapshot.getChildren()) {
-                                   size++;
-                                   NhanVien nv = ds.getValue(NhanVien.class);
-                                   if (nv.getSoDienThoai().equals(thongTinKhachHang.getSdtKH())) {
-                                       i++;
-                                   }
-                               }
-                               if(i == 0)
-                               {
-                                   String key = StaticConfig.mNhanVien.push().getKey();
-                                   NhanVien nvMoi = new NhanVien(size, key,thongTinKhachHang.getTenKH(),
-                                           thongTinKhachHang.getSdtKH(),thongTinKhachHang.getDiaChi(),
-                                           "01/01/2000",thongTinKhachHang.getCmnd(),"3,000,000",
-                                           "Sáng","Tạp Vụ");
-                                   StaticConfig.mNhanVien.child(key).setValue(nvMoi);
+        imChuyen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KhachHang thongTinKhachHang = (KhachHang) getIntent().getSerializableExtra("ThongTinKhachHang");
+                AlertDialog.Builder builder = new AlertDialog.Builder(AD_ThongTinKhachHang.this);
+                builder.setTitle("Thông Báo");
+                builder.setMessage("Xác nhận chuyển đổi !");
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StaticConfig.mNhanVien.addValueEventListener(new ValueEventListener() {
+                            int i = 0;
+                            int size = 1;
 
-                                   String key1 = StaticConfig.mNhanVien_Luong.push().getKey();
-                                   NhanVien_Luong nvMoi1 = new NhanVien_Luong(size, key,thongTinKhachHang.getTenKH(),
-                                           thongTinKhachHang.getSdtKH(),thongTinKhachHang.getDiaChi(),
-                                           "01/01/2000",thongTinKhachHang.getCmnd(),"3,000,000",
-                                           "Sáng","Tạp Vụ","","");
-                                   StaticConfig.mNhanVien_Luong.child(key).setValue(nvMoi1);
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds : snapshot.getChildren()) {
+                                    size++;
+                                    NhanVien nv = ds.getValue(NhanVien.class);
+                                    if (nv.getSoDienThoai().equals(thongTinKhachHang.getSdtKH())) {
+                                        i++;
+                                    }
+                                }
+                                if (i == 0) {
+                                    String key = StaticConfig.mNhanVien.push().getKey();
+                                    //Thêm thông tin vào bảng nhân viên
+                                    NhanVien nvMoi = new NhanVien(size, key, thongTinKhachHang.getTenKH(),
+                                            thongTinKhachHang.getSdtKH(), thongTinKhachHang.getDiaChi(),
+                                            "01/01/2000", thongTinKhachHang.getCmnd(), "3,000,000",
+                                            "Sáng", "Tạp Vụ");
+                                    StaticConfig.mNhanVien.child(key).setValue(nvMoi);
+                                    //Thêm thông tin vào bảng nhân viên - lương
+                                    String key1 = StaticConfig.mNhanVien_Luong.push().getKey();
+                                    NhanVien_Luong nvMoi1 = new NhanVien_Luong(size, key, thongTinKhachHang.getTenKH(),
+                                            thongTinKhachHang.getSdtKH(), thongTinKhachHang.getDiaChi(),
+                                            "01/01/2000", thongTinKhachHang.getCmnd(), "3,000,000",
+                                            "Sáng", "Tạp Vụ", "", "");
+                                    StaticConfig.mNhanVien_Luong.child(key).setValue(nvMoi1);
+                                    //Thêm thông tin vào bảng nhân viên - ca làm
+                                    String key2 = StaticConfig.mNhanVien_LichLamViec.push().getKey();
+                                    NhanVien_LichLamViec nvMoi2 = new NhanVien_LichLamViec(size, key, thongTinKhachHang.getTenKH(),
+                                            thongTinKhachHang.getSdtKH(), thongTinKhachHang.getDiaChi(),
+                                            "01/01/2000", thongTinKhachHang.getCmnd(), "3,000,000",
+                                            "Sáng", "Tạp Vụ", "");
+                                    StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nvMoi2);
 
-                                   String key2 = StaticConfig.mNhanVien_LichLamViec.push().getKey();
-                                   NhanVien_LichLamViec nvMoi2 = new NhanVien_LichLamViec(size, key,thongTinKhachHang.getTenKH(),
-                                           thongTinKhachHang.getSdtKH(),thongTinKhachHang.getDiaChi(),
-                                           "01/01/2000",thongTinKhachHang.getCmnd(),"3,000,000",
-                                           "Sáng","Tạp Vụ","");
-                                   StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nvMoi2);
+                                    StaticConfig.mKhachHang.child(thongTinKhachHang.getMaFB()).removeValue();
 
-                                   StaticConfig.mKhachHang.child(thongTinKhachHang.getMaFB()).removeValue();
+                                    Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_LONG).show();
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Đã tồn tại số điện thoại trong danh sách nhân viên", Toast.LENGTH_SHORT).show();
+                                }
+                            }
 
-                                   Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_LONG).show();
-                                   finish();
-                               }else
-                               {
-                                   Toast.makeText(getApplicationContext(), "Đã tồn tại số điện thoại trong danh sách nhân viên", Toast.LENGTH_SHORT).show();
-                               }
-                           }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                           @Override
-                           public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
 
-                           }
-                       });
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                   }
-               });
-               builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-
-                   }
-               });
-               builder.show();
-           }
-       });
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
     private void setControl() {

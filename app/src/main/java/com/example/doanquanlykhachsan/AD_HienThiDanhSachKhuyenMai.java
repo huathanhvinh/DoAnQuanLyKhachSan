@@ -1,9 +1,11 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +20,10 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
     Button btnThemKM, btnTroVe;
@@ -38,6 +43,13 @@ public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //Sự kiện thêm khuyến mãi
+        btnThemKM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AD_ThemKhuyenMai.class));
+            }
+        });
         //lấy danh sách các thông tin khuyến mãi
         layDanhSachKhuyenMai();
         //lấy danh sách các thông tin Đang diễn ra
@@ -50,7 +62,6 @@ public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
                 }
             }
         });
-
         //lấy danh sách các thông tin Sắp diễn ra
         rdSapDienRa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +88,38 @@ public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
             }
         });
     }
+    private int kiemtraTrangThaiCode(String sngayBatDau,String sngayKetThuc) {
+        Date ngayHienTai = new Date();
+        int checkNgay = 0;
+        //kiểm tra thời gian bất đầu với thời gian kết thúc
+        try {
+            Date ngayBatDau = new SimpleDateFormat("dd/MM/yyyy").parse(sngayBatDau);
+            Date ngayKetThuc = new SimpleDateFormat("dd/MM/yyyy").parse(sngayKetThuc);
+            if (ngayKetThuc.compareTo(ngayHienTai) < 0)
+                checkNgay = 0; //đã kết thúc
+            else if(ngayKetThuc.compareTo(ngayHienTai)>=0 && ngayBatDau.compareTo(ngayHienTai)>=0)
+                checkNgay = 1; //sắp diễn ra
+            else
+                checkNgay = 2; //đang diễn ra
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (checkNgay == 0) {
+            return 0;
+        }else if(checkNgay == 1){
+            return 1;
+        }else
+        {
+            return 2;
+        }
+    }
 
     private void layDanhSachKhuyenMaiDaKetThuc() {
         StaticConfig.mKhuyenMai.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (snapshot.child("trangThai").getValue().toString().equals("Đã Kết Thúc")) {
+                KhuyenMai kh = snapshot.getValue(KhuyenMai.class);
+                if (kiemtraTrangThaiCode(kh.getNgayBatDau(),kh.getNgayKetThuc())==0) {
                     KhuyenMai khuyenMai = snapshot.getValue(KhuyenMai.class);
                     arrKhuyenMai.add(khuyenMai);
                     adapter_khuyenMai.notifyDataSetChanged();
@@ -115,7 +152,8 @@ public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
         StaticConfig.mKhuyenMai.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (snapshot.child("trangThai").getValue().toString().equals("Sắp Diễn Ra")) {
+                KhuyenMai kh = snapshot.getValue(KhuyenMai.class);
+                if (kiemtraTrangThaiCode(kh.getNgayBatDau(),kh.getNgayKetThuc())==1) {
                     KhuyenMai khuyenMai = snapshot.getValue(KhuyenMai.class);
                     arrKhuyenMai.add(khuyenMai);
                     adapter_khuyenMai.notifyDataSetChanged();
@@ -148,7 +186,8 @@ public class AD_HienThiDanhSachKhuyenMai extends AppCompatActivity {
         StaticConfig.mKhuyenMai.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (snapshot.child("trangThai").getValue().toString().equals("Đang Diễn Ra")) {
+                KhuyenMai kh = snapshot.getValue(KhuyenMai.class);
+                if (kiemtraTrangThaiCode(kh.getNgayBatDau(),kh.getNgayKetThuc())==2) {
                     KhuyenMai khuyenMai = snapshot.getValue(KhuyenMai.class);
                     arrKhuyenMai.add(khuyenMai);
                     adapter_khuyenMai.notifyDataSetChanged();

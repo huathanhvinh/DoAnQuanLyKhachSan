@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,11 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
+import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,8 +51,12 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                 imButtonLich();
             }
         });
+        //tắt tính năng chỉnh sửa cho số điện thoại
+        edSdt.setFocusable(false);
         //tắt tính năng chỉnh sửa cho mã nv
         edManv.setFocusable(false);
+        //tắt tính năng chỉnh sửa cho lịch tại editText
+        edNgaysinh.setFocusable(false);
         //tắt tính năng chỉnh sửa Lương cho nhân viên
         edLuong.setFocusable(false);
         //load thông tin nhân viên
@@ -64,6 +74,49 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                 thongTinNhanVien.setLuong(edLuong.getText().toString());
                 thongTinNhanVien.setChucVu(spChucVu.getSelectedItem().toString());
                 StaticConfig.mNhanVien.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
+                //sửa thông tin nhân viên - lương
+                StaticConfig.mNhanVien_Luong.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (thongTinNhanVien.getSoDienThoai().equals(ds.child("soDienThoai").getValue().toString())) {
+                                NhanVien_Luong nv = ds.getValue(NhanVien_Luong.class);
+                                NhanVien_Luong nvMoi1 = new NhanVien_Luong(nv.getStt(), nv.getMaFB(), edTennv.getText().toString(),
+                                        nv.getSoDienThoai(), edDiachi.getText().toString(),
+                                        edNgaysinh.getText().toString(), edCmnd.getText().toString(), nv.getLuong(),
+                                        nv.getCaLam(), spChucVu.getSelectedItem().toString(), nv.getTienThuong(), nv.getGhiChu());
+                                StaticConfig.mNhanVien_Luong.child(nv.getMaFB()).setValue(nvMoi1);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                //Sửa thông tin nhân viên - ca làm
+                StaticConfig.mNhanVien_LichLamViec.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (thongTinNhanVien.getSoDienThoai().equals(ds.child("soDienThoai").getValue().toString())) {
+                                NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                                NhanVien_LichLamViec nvMoi1 = new NhanVien_LichLamViec(nv.getStt(), nv.getMaFB(), edTennv.getText().toString(),
+                                        nv.getSoDienThoai(), edDiachi.getText().toString(), edNgaysinh.getText().toString(),
+                                        edCmnd.getText().toString(), nv.getLuong(), nv.getCaLam(), spChucVu.getSelectedItem().toString(),
+                                        nv.getGhiChu());
+                                StaticConfig.mNhanVien_LichLamViec.child(nv.getMaFB()).setValue(nvMoi1);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                //Thông báo
                 Toast.makeText(getApplicationContext(), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
             }
         });
@@ -121,6 +174,7 @@ public class AD_SuaNhanVien extends AppCompatActivity {
 
         tvLuu = findViewById(R.id.tvLuu);
     }
+
     private void setThongTinNhanVien() {
         NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
         edManv.setText("100" + thongTinNhanVien.getStt());
@@ -132,13 +186,13 @@ public class AD_SuaNhanVien extends AppCompatActivity {
         edLuong.setText(thongTinNhanVien.getLuong());
         if (thongTinNhanVien.getChucVu().equals("Tạp Vụ")) {
             spChucVu.setSelection(0);
-        } else if(thongTinNhanVien.getChucVu().equals("Lễ Tân"))
+        } else if (thongTinNhanVien.getChucVu().equals("Lễ Tân"))
             spChucVu.setSelection(1);
         else
             spChucVu.setSelection(2);
     }
-    private void imButtonLich()
-    {
+
+    private void imButtonLich() {
         final Calendar calendar = Calendar.getInstance();
         int ngay = calendar.get(Calendar.DATE);
         int thang = calendar.get(Calendar.MONTH);

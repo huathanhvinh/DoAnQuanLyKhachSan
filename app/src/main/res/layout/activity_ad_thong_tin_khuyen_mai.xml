@@ -50,6 +50,7 @@
             android:background="#fff">
 
             <TextView
+                android:id="@+id/tvMakhuyenMaiT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -79,28 +80,32 @@
         </TextView>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <EditText
+                android:layout_weight="4"
+                android:id="@+id/edTenKhuyenMaiT"
                 android:layout_marginLeft="5dp"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:background="#fff"
-                android:text="Nhập tên chương trình khuyến mãi..."
+                android:hint="Nhập tên chương trình..."
                 android:textColor="#000"
                 android:textSize="20dp"></EditText>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tvSizeTenKMT"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
                 android:text="0/50"
                 android:textColor="#fff"
-                android:textSize="25dp">
+                android:textSize="20dp">
 
             </TextView>
         </LinearLayout>
@@ -133,6 +138,7 @@
                 android:textSize="20dp"></TextView>
 
             <TextView
+                android:id="@+id/tvNgayBatDauT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -144,6 +150,7 @@
             </TextView>
 
             <ImageButton
+                android:id="@+id/imNgayBatDauT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -168,6 +175,7 @@
                 android:textSize="20dp"></TextView>
 
             <TextView
+                android:id="@+id/tvNgayKetThucT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -179,6 +187,7 @@
             </TextView>
 
             <ImageButton
+                android:id="@+id/imNgayKetThucT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -212,13 +221,14 @@
             android:layout_gravity="center"
             android:background="#fff">
 
-            <TextView
+            <EditText
+                android:id="@+id/edGiamGiaT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="10"
-                android:textSize="30dp"
-                android:textStyle="bold"></TextView>
+                android:hint="5"
+                android:textSize="25dp"
+                android:textStyle="bold"></EditText>
         </LinearLayout>
 
         <TextView
@@ -253,6 +263,7 @@
             android:textSize="20dp"></TextView>
 
         <EditText
+            android:id="@+id/edNoiDungChuongTrinhT"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="match_parent"
@@ -275,6 +286,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnXoaT"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -283,6 +295,7 @@
             android:textSize="20dp"></Button>
 
         <Button
+            android:id="@+id/btnSuaT"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
@@ -291,6 +304,7 @@
             android:text="Sửa"
             android:textSize="20dp"></Button>
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="80dp"
             android:layout_width="wrap_content"

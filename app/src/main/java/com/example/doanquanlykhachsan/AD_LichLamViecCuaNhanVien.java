@@ -74,7 +74,7 @@ public class AD_LichLamViecCuaNhanVien extends AppCompatActivity {
                 thongTinNhanVien.setCaLam(spCalam.getSelectedItem().toString());
                 thongTinNhanVien.setGhiChu(edGhichu.getText().toString());
                 StaticConfig.mNhanVien_LichLamViec.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
-
+                //sửa thông tin lại bên Nhân Viên
                 StaticConfig.mNhanVien.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -94,7 +94,27 @@ public class AD_LichLamViecCuaNhanVien extends AppCompatActivity {
 
                     }
                 });
+                //Sửa thông tin lại bên Nhan Viên - Lương
+                StaticConfig.mNhanVien_Luong.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds: snapshot.getChildren())
+                        {
+                            if (ds.child("soDienThoai").getValue().toString().equals(thongTinNhanVien.getSoDienThoai()))
+                            {
+                                NhanVien_Luong nv = ds.getValue(NhanVien_Luong.class);
+                                nv.setCaLam(spCalam.getSelectedItem().toString());
+                                StaticConfig.mNhanVien_Luong.child(nv.getMaFB()).setValue(nv);
+                            }
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                //Thông Báo
                 Toast.makeText(getApplicationContext(), "Lưu Thành Công !", Toast.LENGTH_SHORT).show();
             }
         });

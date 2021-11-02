@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,7 +48,7 @@ public class AD_LuongCuaNhanVien extends AppCompatActivity {
                 thongTinNhanVien.setTienThuong(edThuong.getText().toString());
                 thongTinNhanVien.setGhiChu(edGhichu.getText().toString());
                 StaticConfig.mNhanVien_Luong.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
-
+                //thay đổi thông tin lương lại bên Nhân viên
                 StaticConfig.mNhanVien.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -67,6 +68,27 @@ public class AD_LuongCuaNhanVien extends AppCompatActivity {
 
                     }
                 });
+                //thay đổi thông tin lương lại bên Nhân viên - Lịch Làm Việc
+                StaticConfig.mNhanVien_LichLamViec.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds: snapshot.getChildren())
+                        {
+                            if (ds.child("soDienThoai").getValue().toString().equals(thongTinNhanVien.getSoDienThoai()))
+                            {
+                                NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                                nv.setLuong(edLuong.getText().toString());
+                                StaticConfig.mNhanVien_LichLamViec.child(nv.getMaFB()).setValue(nv);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                //Thông Báo
                 Toast.makeText(getApplicationContext(), "Lưu Thành Công !", Toast.LENGTH_SHORT).show();
             }
         });

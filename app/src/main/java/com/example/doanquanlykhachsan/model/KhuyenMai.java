@@ -10,12 +10,11 @@ public class KhuyenMai implements Serializable {
     String ngayKetThuc;
     int mucGiamGia;
     String noiDung;
-    String trangThai;
 
     public KhuyenMai() {
     }
 
-    public KhuyenMai(String maFB, String maKM, String tenKM, String ngayBatDau, String ngayKetThuc, int mucGiamGia, String noiDung, String trangThai) {
+    public KhuyenMai(String maFB, String maKM, String tenKM, String ngayBatDau, String ngayKetThuc, int mucGiamGia, String noiDung) {
         this.maFB = maFB;
         this.maKM = maKM;
         this.tenKM = tenKM;
@@ -23,7 +22,6 @@ public class KhuyenMai implements Serializable {
         this.ngayKetThuc = ngayKetThuc;
         this.mucGiamGia = mucGiamGia;
         this.noiDung = noiDung;
-        this.trangThai = trangThai;
     }
 
     public String getMaFB() {
@@ -82,16 +80,4 @@ public class KhuyenMai implements Serializable {
         this.noiDung = noiDung;
     }
 
-    public String getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
-    }
-
-    private String CheckTrangThai(String ngayBatDau, String ngayKetThuc, String ngayHienTai)
-    {
-        return "";
-    }
 }

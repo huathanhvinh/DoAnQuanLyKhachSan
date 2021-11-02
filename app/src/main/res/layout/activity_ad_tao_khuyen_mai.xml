@@ -46,29 +46,33 @@
         </TextView>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:weightSum="5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <EditText
+                android:layout_weight="4"
+                android:id="@+id/edTenKhuyenMai"
                 android:layout_marginLeft="5dp"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="38dp"
                 android:background="#fff"
-                android:text="Nhập tên chương trình khuyến mãi..."
+                android:hint="Nhập tên chương trình..."
                 android:textColor="#000"
                 android:textSize="20dp"></EditText>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tvSizeTenKM"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
                 android:text="0/50"
                 android:textColor="#fff"
-                android:textSize="25dp">
-
+                android:textSize="20dp">
             </TextView>
         </LinearLayout>
 
@@ -100,6 +104,7 @@
                 android:textSize="20dp"></TextView>
 
             <TextView
+                android:id="@+id/tvNgayBatDau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -111,6 +116,7 @@
             </TextView>
 
             <ImageButton
+                android:id="@+id/imNgayBatDau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -135,6 +141,7 @@
                 android:textSize="20dp"></TextView>
 
             <TextView
+                android:id="@+id/tvNgayKetThuc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -146,6 +153,7 @@
             </TextView>
 
             <ImageButton
+                android:id="@+id/imNgayKetThuc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -182,6 +190,7 @@
             android:background="#fff">
 
             <TextView
+                android:id="@+id/tvMaKhuyenMai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -191,6 +200,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/imChangeMaKM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -224,13 +234,16 @@
             android:layout_gravity="center"
             android:background="#fff">
 
-            <TextView
+            <EditText
+                android:inputType="number"
+                android:id="@+id/edGiamGia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="10"
-                android:textSize="30dp"
-                android:textStyle="bold"></TextView>
+                android:hint="0"
+                android:textSize="25dp"
+                android:textStyle="bold">
+            </EditText>
         </LinearLayout>
 
         <TextView
@@ -265,12 +278,13 @@
             android:textSize="20dp"></TextView>
 
         <EditText
+            android:id="@+id/edNoiDungChuongTrinh"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#fff"
-            android:text="Nhập nội dung..."
+            android:hint="Nhập nội dung..."
             android:gravity="top">
 
         </EditText>
@@ -287,6 +301,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnTaoMoiKM"
             android:layout_gravity="center"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
@@ -294,6 +309,7 @@
             android:text="Tạo Mới"
             android:textSize="20dp"></Button>
         <Button
+            android:id="@+id/btnTroVe"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_width="143dp"

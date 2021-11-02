@@ -8,9 +8,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.KhuyenMai;
 import com.example.doanquanlykhachsan.model.NhanVien;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +27,23 @@ public class MainActivity extends AppCompatActivity {
 //        String key = StaticConfig.mNhanVien.push().getKey();
 //        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","0933123004","Đồng Nai","01/01/2003","1192102102","10,000,000","Trưa","Quản Lý");
 //        StaticConfig.mNhanVien.child(key).setValue(nv);
+
+//        cmnd:
+//        "0859300312"
+//        diaChi:
+//        "sadas"
+//        maFB:
+//        "-MnW48MCQg_sQ1EtnBSv"
+//        sdtKH:
+//        "12345678"
+//        stt:
+//        6
+//        tenKH:
+//        "le hoang duy"
+
+//        String key = StaticConfig.mKhachHang.push().getKey();
+//        KhachHang kh = new KhachHang(6,key,"le hoang duy","12345678","sadas","0859300312");
+//        StaticConfig.mKhachHang.child(key).setValue(kh);
 
 //        String key = StaticConfig.mKhachHang.push().getKey();
 //        KhachHang kh = new KhachHang(4,key,"Nguyễn Văn Duy","0933123008","Q9, HCM","346081888");
@@ -47,21 +68,7 @@ public class MainActivity extends AppCompatActivity {
 //        String key3 = StaticConfig.mKhuyenMai.push().getKey();
 //        KhuyenMai km3 = new KhuyenMai(key3,"00dkanxa","Lễ Khánh Thành","01/01/2021","03/01/2021",5,"Khánh thành","Đã Kết Thúc");
 //        StaticConfig.mKhuyenMai.child(key3).setValue(km3);
-
-
-        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachKhuyenMai.class));
-    }
-
-    @NonNull
-    private StringBuilder getStringBuilder() {
-        String ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(8);
-        for(int i=0;i<8;i++)
-        {
-            sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
-        }
-        return sb;
+        startActivity(new Intent(getApplicationContext(),AD_MenuAdmin.class));
     }
 
 }

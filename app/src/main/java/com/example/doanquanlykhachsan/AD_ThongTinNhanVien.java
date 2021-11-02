@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,11 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
+import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class AD_ThongTinNhanVien extends AppCompatActivity {
     TextView tvMa, tvTen, tvSdt, tvNgaySinh, tvQueQuan, tvCMND, tvLuong, tvChucVu;
@@ -51,9 +57,9 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 NhanVien thongTinNhanVien = (NhanVien) getIntent().getSerializableExtra("ThongTinNhanVien");
-                Intent intent = new Intent(getApplicationContext(),AD_SuaNhanVien.class);
+                Intent intent = new Intent(getApplicationContext(), AD_SuaNhanVien.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("ThongTinNhanVien",thongTinNhanVien);
+                bundle.putSerializable("ThongTinNhanVien", thongTinNhanVien);
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
@@ -95,7 +101,45 @@ public class AD_ThongTinNhanVien extends AppCompatActivity {
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //xóa thông tin nhân viên
                         StaticConfig.mNhanVien.child(thongTinNhanVien.getMaFB()).removeValue();
+                        //xóa thông tin nhân viên - lương
+                        StaticConfig.mNhanVien_Luong.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds:snapshot.getChildren()) {
+                                    if(thongTinNhanVien.getSoDienThoai().equals(ds.child("soDienThoai").getValue().toString()))
+                                    {
+                                        NhanVien_Luong nv = ds.getValue(NhanVien_Luong.class);
+                                        StaticConfig.mNhanVien_Luong.child(nv.getMaFB()).removeValue();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        //Xóa thông tin nhân viên - ca làm
+                        StaticConfig.mNhanVien_LichLamViec.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds:snapshot.getChildren()) {
+                                    if(thongTinNhanVien.getSoDienThoai().equals(ds.child("soDienThoai").getValue().toString()))
+                                    {
+                                        NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                                        StaticConfig.mNhanVien_LichLamViec.child(nv.getMaFB()).removeValue();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        //Thông báo
                         Toast.makeText(getApplicationContext(), "Xóa Thành Công", Toast.LENGTH_LONG).show();
                         finish();
                     }
