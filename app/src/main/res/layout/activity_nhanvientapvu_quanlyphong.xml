@@ -65,7 +65,7 @@
                     android:id="@+id/rdDaChon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đã chọn"
+                    android:text="Đã dọn"
                     android:textSize="25dp"
                     android:textColor="#F4F4EF"
                     />
@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="Chưa chọn"
+                    android:text="Chưa dọn"
                     android:textColor="#F4F4EF"
                     android:textSize="25dp" />
             </LinearLayout>

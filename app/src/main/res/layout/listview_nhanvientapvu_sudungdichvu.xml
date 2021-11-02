@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
+
             android:textColor="#F3EEEE"
             android:layout_gravity="center"
             android:id="@+id/tvPhong"
@@ -19,6 +20,7 @@
             android:textStyle="bold"
             />
         <Button
+            android:backgroundTint="#25BDAF"
             android:id="@+id/btnHuyDV"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
