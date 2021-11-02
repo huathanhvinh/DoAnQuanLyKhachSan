@@ -1,40 +1,100 @@
 package com.example.doanquanlykhachsan.model;
 
-public class Dichvu {
-    String ma;
-    String ten;
-    float gia;
+import java.io.Serializable;
 
-    public Dichvu(String ma, String ten, float gia) {
-        this.ma = ma;
-        this.ten = ten;
-        this.gia = gia;
-    }
+public class Dichvu implements Serializable {
+    int stt;
+    String maFB;
+    String tenDV;
+    int giaDV;
+    String dvt;
+    int soLan;
+    String mota;
 
     public Dichvu() {
     }
 
-    public float getGia() {
-        return gia;
+    public Dichvu(int stt, String maFB, String tenDV, int giaDV, String dvt, int soLan, String mota) {
+        this.stt = stt;
+        this.maFB = maFB;
+        this.tenDV = tenDV;
+        this.giaDV = giaDV;
+        this.dvt = dvt;
+        this.soLan = soLan;
+        this.mota = mota;
     }
 
-    public void setGia(float gia) {
-        this.gia = gia;
+    public int getStt() {
+        return stt;
     }
 
-    public String getMa() {
-        return ma;
+    public void setStt(int stt) {
+        this.stt = stt;
     }
 
-    public void setMa(String ma) {
-        this.ma = ma;
+    public String getMaFB() {
+        return maFB;
     }
 
-    public String getTen() {
-        return ten;
+    public void setMaFB(String maFB) {
+        this.maFB = maFB;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public String getTenDV() {
+        return tenDV;
+    }
+
+    public void setTenDV(String tenDV) {
+        this.tenDV = tenDV;
+    }
+
+    public int getGiaDV() {
+        return giaDV;
+    }
+
+    public void setGiaDV(int giaDV) {
+        this.giaDV = giaDV;
+    }
+
+    public String getDvt() {
+        return dvt;
+    }
+
+    public void setDvt(String dvt) {
+        this.dvt = dvt;
+    }
+
+    public int getSoLan() {
+        return soLan;
+    }
+
+    public void setSoLan(int soLan) {
+        this.soLan = soLan;
+    }
+
+    public String getMota() {
+        return mota;
+    }
+
+    public void setMota(String mota) {
+        this.mota = mota;
+    }
+
+    private int TinhTien()
+    {
+        return this.soLan*this.giaDV;
+    }
+
+    @Override
+    public String toString() {
+        return "DichVu{" +
+                "stt=" + stt +
+                ", maFB='" + maFB + '\'' +
+                ", tenDV='" + tenDV + '\'' +
+                ", giaDV=" + giaDV +
+                ", dvt='" + dvt + '\'' +
+                ", soLan=" + soLan +
+                ", mota='" + mota + '\'' +
+                '}';
     }
 }

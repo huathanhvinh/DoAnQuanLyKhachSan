@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,6 +15,9 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Dichvu;
 import com.example.doanquanlykhachsan.model.Room;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -45,7 +49,7 @@ public class KH_ChiTietPhong extends AppCompatActivity {
     }
 
     private void setEvent() {
-         customDichvu = new KH_CustomDichvu(getApplicationContext(), R.layout.kh_item_ds_dich_vu, data);
+        customDichvu = new KH_CustomDichvu(getApplicationContext(), R.layout.kh_item_ds_dich_vu, data);
         gridView.setAdapter(customDichvu);
         khoitao();
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
@@ -64,11 +68,23 @@ public class KH_ChiTietPhong extends AppCompatActivity {
     }
 
     private void khoitao() {
-        for (int i = 0; i < 5; i++) {
-            Dichvu dv = new Dichvu("ma"+i,"dich vu"+i,50);
-            data.add(dv);
-        }
-        customDichvu.notifyDataSetChanged();
+        StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                data.clear();
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Dichvu dv = ds.getValue(Dichvu.class);
+                    data.add(dv);
+                }
+                customDichvu.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private void setConTrol() {

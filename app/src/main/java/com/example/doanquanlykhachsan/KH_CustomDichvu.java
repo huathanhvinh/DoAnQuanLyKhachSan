@@ -41,7 +41,7 @@ public class KH_CustomDichvu extends ArrayAdapter {
         TextView ten = convertView.findViewById(R.id.tvTendv);
 
         Dichvu dv = data.get(position);
-        ten.setText(dv.getTen());
+        ten.setText(dv.getMota());
         return convertView;
     }
 }
