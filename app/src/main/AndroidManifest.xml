@@ -48,9 +48,9 @@
         <activity
             android:name=".nhanvientapvu_quanlyphong"
             android:exported="false" />
-        <!-- <activity -->
-        <!-- android:name=".Nhanvientapvu_manhinhchinh" -->
-        <!-- android:exported="false" /> -->
+         <activity
+         android:name=".Nhanvientapvu_manhinhchinh"
+         android:exported="false" />
         <activity
             android:name=".menu_khachhang"
             android:exported="false" />
@@ -64,7 +64,7 @@
             android:name=".register"
             android:exported="false" />
         <activity
-            android:name=".Nhanvientapvu_manhinhchinh"
+            android:name=".MainActivity"
             android:exported="true"
             tools:ignore="DuplicateActivity">
             <intent-filter>

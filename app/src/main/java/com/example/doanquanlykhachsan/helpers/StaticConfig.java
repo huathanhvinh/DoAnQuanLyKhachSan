@@ -23,12 +23,16 @@ public class StaticConfig {
     public static FirebaseStorage storage = FirebaseStorage.getInstance();
     public static StorageReference storageReference = storage.getReference();
     public static String currentuser = "";
+    public static String currentphone = "";
+
+
     public static DatabaseReference mUser = Database.getReference("User");
 
     //them du lieu phong
     public static DatabaseReference mRoom = Database.getReference("Room");
     public static DatabaseReference mQLPhong = Database.getReference("QLPhong");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
+    public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
 
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp

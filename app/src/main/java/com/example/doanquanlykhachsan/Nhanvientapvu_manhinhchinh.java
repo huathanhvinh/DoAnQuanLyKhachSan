@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,9 +10,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.NhanVien;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
 
-    TextView tvThongTinTaiKhoan,tvQuanLyPhong,tvQuanLyDichVu,tvLuong,tvLichLamViec,tvThongBao;
+    TextView tvThongTinTaiKhoan,tvNhanVien,tvQuanLyPhong,tvQuanLyDichVu,tvLuong,tvLichLamViec,tvThongBao;
     Button btnDangXuat;
 
     @Override
@@ -20,8 +28,45 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
         setContentView(R.layout.activity_nhanvientapvu_manhinhchinh);
         setControl();
         setEvent();
+        Phone();
 
 
+    }
+
+    private void Phone() {
+        StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    if (ds.child("id").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
+                        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds : snapshot.getChildren())
+                                {
+                                    NhanVien nv = ds.getValue(NhanVien.class);
+                                    if(nv.getSoDienThoai().toString().equals(StaticConfig.currentphone))
+                                    {
+                                        tvNhanVien.setText(nv.getTenNV());
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void setEvent() {
@@ -71,6 +116,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
     }
 
     private void setControl() {
+        tvNhanVien = findViewById(R.id.tvNhanVien);
         tvThongTinTaiKhoan=findViewById(R.id.tvThongTinTaiKhoan);
         tvQuanLyPhong=findViewById(R.id.tvQuanLyPhong);
         tvQuanLyDichVu=findViewById(R.id.tvQuanLyDichVu);

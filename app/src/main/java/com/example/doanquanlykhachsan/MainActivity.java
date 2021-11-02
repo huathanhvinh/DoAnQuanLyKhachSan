@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (StaticConfig.fAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                    startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
                 } else {
                     startActivity(new Intent(getApplicationContext(), sign_in.class));
                 }
