@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTaoKhuyenMai"
             android:backgroundTint="#8D9A0C"
             android:drawableLeft="@drawable/icon_them"
             android:text="Tạo Chương Trình Khuyến Mãi"
@@ -68,15 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                     <RadioButton
-                        android:layout_gravity="center"
-                        android:textColor="#fff"
-                        android:text="Sắp diễn ra"
-                        android:textSize="18dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </RadioButton>
-                    <RadioButton
-                        android:layout_marginLeft="10dp"
+                        android:id="@+id/rdDangDienRa"
                         android:layout_gravity="center"
                         android:textColor="#fff"
                         android:text="Đang diễn ra"
@@ -85,6 +78,17 @@
                         android:layout_height="wrap_content">
                     </RadioButton>
                     <RadioButton
+                        android:id="@+id/rdSapDienRa"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Sắp diễn ra"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/rdDaKetThuc"
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
                         android:textColor="#fff"
@@ -102,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ListView
+            android:id="@+id/lvDSKM"
             tools:listitem="@layout/custom_khuyen_mai"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

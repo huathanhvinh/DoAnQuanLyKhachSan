@@ -1,9 +1,17 @@
 package com.example.doanquanlykhachsan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.KhuyenMai;
+import com.example.doanquanlykhachsan.model.NhanVien;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     //StaticConfig st = new StaticConfig();
@@ -13,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        String key = StaticConfig.mNhanVien.push().getKey();
-//        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","0933123004","Đồng Nai","01/01/2003","1192102102","10,000,000","Tối","Quản Lý");
+//        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","0933123004","Đồng Nai","01/01/2003","1192102102","10,000,000","Trưa","Quản Lý");
 //        StaticConfig.mNhanVien.child(key).setValue(nv);
 
 //        String key = StaticConfig.mKhachHang.push().getKey();
@@ -36,8 +44,24 @@ public class MainActivity extends AppCompatActivity {
 //        NhanVien_LichLamViec nv_lv = new NhanVien_LichLamViec(4,key,"Trần Phi Du","0933123004","Q9, HCM","01/01/2003","1192102102","10,000,000","Tối","Quản Lý","Thích là ghi");
 //        StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nv_lv);
 
-        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachKhuyenMai.class));
+//        String key3 = StaticConfig.mKhuyenMai.push().getKey();
+//        KhuyenMai km3 = new KhuyenMai(key3,"00dkanxa","Lễ Khánh Thành","01/01/2021","03/01/2021",5,"Khánh thành","Đã Kết Thúc");
+//        StaticConfig.mKhuyenMai.child(key3).setValue(km3);
 
+
+        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachKhuyenMai.class));
+    }
+
+    @NonNull
+    private StringBuilder getStringBuilder() {
+        String ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnm";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(8);
+        for(int i=0;i<8;i++)
+        {
+            sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
+        }
+        return sb;
     }
 
 }
