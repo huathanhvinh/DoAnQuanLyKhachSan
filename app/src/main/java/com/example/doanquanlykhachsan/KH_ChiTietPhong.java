@@ -46,7 +46,14 @@ public class KH_ChiTietPhong extends AppCompatActivity {
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), KH_XacNhanDatPhong.class));
+                Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ngaynhan",StaticConfig.NgayNhanXacNhanPhong+"");
+                bundle.putString("ngaytra",StaticConfig.NgayNhanXacTraPhong+"");
+                intent.putExtras(bundle);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
             }
         });
         btntroVe.setOnClickListener(new View.OnClickListener() {

@@ -55,7 +55,8 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_gio);
-
+        //clear checkbox
+        StaticConfig.arrayListCheckItem.clear();
 
         setConTrol();
         //lay gio nhan phong hien tai
@@ -70,6 +71,9 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         tvGiotraPhong.setText(simpleDateFormat.format(calendar.getTime()));
 
         StaticConfig.sXacNhan = "gio";
+        //ngay tu chi tiet
+        StaticConfig.NgayNhanXacNhanPhong = tvGioNhanPhong.getText() + "";
+        StaticConfig.NgayNhanXacTraPhong = tvGiotraPhong.getText() + "";
         setEvent();
     }
 
@@ -141,7 +145,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                 if (CheckTimes(tvGioNhanPhong.getText() + "", tvGiotraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoGio.this);
                     b.setTitle("Thông báo");
-                    b.setMessage("yêu cầu chọn lại giờ trả phòng");
+                    b.setMessage("chọn giờ không hợp lệ");
                     b.setPositiveButton("Đồng ý", null);
                     //Tạo dialog
                     AlertDialog dialog = b.create();
@@ -150,7 +154,6 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                     if (StaticConfig.arrayListCheckItem.isEmpty()) {
                         Toast.makeText(KH_DatPhongTheoGio.this, "xin chon phong", Toast.LENGTH_LONG).show();
                     } else {
-
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("ngaynhan", tvGioNhanPhong.getText().toString());
@@ -175,6 +178,8 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                 calendar.set(0, 0, 0, hourOfDay, minute);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                 tvGioNhanPhong.setText(simpleDateFormat.format(calendar.getTime()));
+                //ngay tu chi tiet
+                StaticConfig.NgayNhanXacNhanPhong = tvGioNhanPhong.getText() + "";
             }
         }, gio, phut, true);
         timePickerDialog.show();
@@ -191,8 +196,10 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                 calendar.set(0, 0, 0, hourOfDay, minute);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                 tvGiotraPhong.setText(simpleDateFormat.format(calendar.getTime()));
+                //ngay tu chi tiet
+                StaticConfig.NgayNhanXacTraPhong = tvGiotraPhong.getText() + "";
             }
-        }, gio, phut, true);
+        }, gio + 1, phut, true);
         timePickerDialog.show();
     }
 

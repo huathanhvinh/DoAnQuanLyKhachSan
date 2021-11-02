@@ -57,7 +57,10 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_ngay);
-        //
+        //clear checkbox
+        StaticConfig.arrayListCheckItem.clear();
+
+
 
         setConTrol();
         //lay ngay hien tai
@@ -74,7 +77,12 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
 
         StaticConfig.sXacNhan = "ngay";
 
+        //ngay tu chi tiet
+        StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText()+"";
+        StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText()+"";
+
         setEvent();
+
     }
 
     private void setEvent() {
@@ -133,7 +141,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 if (CheckDates(tvNgayNhanPhong.getText() + "", tvNgaytraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoNgay.this);
                     b.setTitle("Thông báo");
-                    b.setMessage("yêu cầu chọn lại ngày trả phòng");
+                    b.setMessage("chọn ngày không hợp lệ");
                     b.setPositiveButton("Đồng ý", null);
                     //Tạo dialog
                     AlertDialog dialog = b.create();
@@ -151,7 +159,6 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
-
             }
         });
         lvDanhSachPhongNgay.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -186,6 +193,9 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 tvNgayNhanPhong.setText(simpleDateFormat.format(calendar.getTime()));
+                //ngay tu chi tiet
+                StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText()+"";
+
             }
         }, nam, thang, ngay);
         datePickerDialog.show();
@@ -202,8 +212,10 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 tvNgaytraPhong.setText(simpleDateFormat.format(calendar.getTime()));
+                //ngay tu chi tiet
+                StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText()+"";
             }
-        }, nam, thang, ngay);
+        }, nam, thang, ngay + 1);
         datePickerDialog.show();
     }
 

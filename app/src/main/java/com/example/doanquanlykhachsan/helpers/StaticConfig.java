@@ -38,6 +38,10 @@ public class StaticConfig {
     public static boolean isCheckAll = false;
     //chon phong de doi
     public static Room chon = new Room();
+    //ngay nhan phong tu chi tiet
+    public static String NgayNhanXacNhanPhong = "";
+    //ngay nhan tra phong tu chi tiet
+    public static String NgayNhanXacTraPhong = "";
 
 
     public static DatabaseReference mThongtinDv = Database.getReference("Thongtindv");

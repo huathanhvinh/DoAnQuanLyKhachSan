@@ -158,16 +158,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvChiTiet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
-        android:background="#294a73"
-        android:gravity="center"
-        android:padding="7sp"
-        android:text="Chi tiết"
-        android:textColor="#17b573"
-        android:textSize="15sp"></TextView>
-
 </LinearLayout>

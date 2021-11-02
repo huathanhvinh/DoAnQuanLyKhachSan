@@ -69,10 +69,10 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
             StaticConfig.arrayListCheckItem.addAll(data);
         } else {
             for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
-                if (StaticConfig.arrayListCheckItem.get(i).getMa().equals(room.getMa())){
+                if (StaticConfig.arrayListCheckItem.get(i).getMa().equals(room.getMa())) {
                     cboNgay.setChecked(true);
                 }
-                if(StaticConfig.arrayListCheckItem.size()==data.size()){
+                if (StaticConfig.arrayListCheckItem.size() == data.size()) {
                     cboNgay.setChecked(false);
                     StaticConfig.arrayListCheckItem.clear();
                     break;
@@ -95,6 +95,7 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
                 //them phong tu chi tiet phong
                 StaticConfig.arrayListCheckItem.clear();
                 StaticConfig.arrayListCheckItem.add(room);
+
             }
         });
         cboNgay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
