@@ -60,7 +60,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
 
                         }
                     });
-                    StaticConfig.mDichvu.child(madv).addValueEventListener(new ValueEventListener() {
+                    StaticConfig.mDichVu.child(madv).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Tongtien += snapshot.child("gia").getValue(Float.class);
