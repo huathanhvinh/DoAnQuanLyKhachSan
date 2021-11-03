@@ -133,9 +133,24 @@ public class menu_khachhang extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) { }
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
         });
+        StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    if (ds.child("id").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 }

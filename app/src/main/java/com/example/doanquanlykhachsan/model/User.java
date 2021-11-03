@@ -4,12 +4,11 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 
 public class User {
     String id;
-
     String name;
     String sdt;
     String cmnd;
-    String hoivien;
     String email;
+    int role;
 
     public User(String id, String email, String sdt) {
         this.id = id;
@@ -17,10 +16,16 @@ public class User {
         this.sdt = sdt;
         this.name = "";
         this.cmnd = "";
-        this.hoivien = "";
+        this.role = 3;
     }
 
+    public int getRole() {
+        return role;
+    }
 
+    public void setRole(int role) {
+        this.role = role;
+    }
 
     public String getEmail() {
         return email;
@@ -62,11 +67,5 @@ public class User {
         this.cmnd = cmnd;
     }
 
-    public String getHoivien() {
-        return hoivien;
-    }
 
-    public void setHoivien(String hoivien) {
-        this.hoivien = hoivien;
-    }
 }
