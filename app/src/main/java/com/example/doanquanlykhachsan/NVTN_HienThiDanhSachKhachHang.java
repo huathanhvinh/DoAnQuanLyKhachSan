@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -18,12 +21,15 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class NVTN_HienThiDanhSachKhachHang extends AppCompatActivity {
     private Button btnThem , btnTroVe;
     ListView lvKhachHang;
+    EditText edtTimKiem;
     Custom_NVTN_HienThiDanhSachKH nhanvienthungan;
-    ArrayList<NVTN_HienThiDSKH>arrKH= new ArrayList<>();
+    ArrayList<KhachHang>arrKH= new ArrayList<>();
+    ArrayList<KhachHang>arrTimKiem= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +45,7 @@ public class NVTN_HienThiDanhSachKhachHang extends AppCompatActivity {
         lvKhachHang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NVTN_HienThiDSKH kh = arrKH.get(position);
+                KhachHang kh = arrKH.get(position);
             }
         });
         btnThem.setOnClickListener(new View.OnClickListener() {
@@ -51,20 +57,51 @@ public class NVTN_HienThiDanhSachKhachHang extends AppCompatActivity {
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(getApplicationContext(),NVTN_MenuNhanVienThuNgan.class));
+            }
+        });
+        edtTimKiem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String timkiem = edtTimKiem.getText().toString().toLowerCase();
+                arrTimKiem.clear();
+                for (int i = 0;i<arrKH.size();i++)
+                {
+
+                    String makh =arrKH.get(i).getStt()+"".toLowerCase();
+
+                    if (arrKH.get(i).getTenKH().toLowerCase().contains(timkiem)||makh.contains(timkiem))
+                    {
+                        arrTimKiem.add(arrKH.get(i));
+                    }
+
+                }
+                nhanvienthungan = new Custom_NVTN_HienThiDanhSachKH(getApplicationContext(),R.layout.listview_nvtn_hienthidanhsachkhachhang,arrTimKiem);
+                lvKhachHang.setAdapter(nhanvienthungan);
+                nhanvienthungan.notifyDataSetChanged();
             }
         });
     }
 
     private void KhoiTao() {
-//        Query sapxep = StaticConfig.mKhachHang.orderByChild("TenKhachHang");
-        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
+        Query sapxep = StaticConfig.mKhachHang.orderByChild("stt");
+        sapxep.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                arrKH.clear();
+                arrKH.clear();
                 for(DataSnapshot ds: snapshot.getChildren())
                 {
-                    NVTN_HienThiDSKH dskh = ds.getValue(NVTN_HienThiDSKH.class);
+                    KhachHang dskh = ds.getValue(KhachHang.class);
                     arrKH.add(dskh);
                 }
                 nhanvienthungan.notifyDataSetChanged();
@@ -78,6 +115,7 @@ public class NVTN_HienThiDanhSachKhachHang extends AppCompatActivity {
     }
 
     private void setControl() {
+        edtTimKiem = findViewById(R.id.edtTimKiem);
         lvKhachHang =findViewById(R.id.lvKhachHang);
         btnThem = findViewById(R.id.btnThem);
         btnTroVe = findViewById(R.id.btnTroVe);

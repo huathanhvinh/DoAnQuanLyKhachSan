@@ -22,34 +22,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <LinearLayout
-           android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:hint="Nhập thông tin cần tìm..."
-                    android:background="#ffffff"
-                    android:layout_width="250dp"
-                    android:layout_height="35dp"/>
-            </androidx.cardview.widget.CardView>
+<!--    <LinearLayout-->
+<!--        android:gravity="center"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp">-->
+<!--        <LinearLayout-->
+<!--           android:gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <EditText-->
+<!--                    android:hint="Nhập thông tin cần tìm..."-->
+<!--                    android:background="#ffffff"-->
+<!--                    android:layout_width="250dp"-->
+<!--                    android:layout_height="35dp"/>-->
+<!--            </androidx.cardview.widget.CardView>-->
 
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="15dp"
-                android:background="@drawable/icon_timkiem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
+<!--            <ImageButton-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginLeft="15dp"-->
+<!--                android:background="@drawable/icon_timkiem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
     <LinearLayout
         android:gravity="center"
         android:layout_weight="1"
@@ -107,6 +107,7 @@
                         android:textColor="#FD0B0B" />
 
                     <EditText
+                        android:id="@+id/edtTenKH"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Le hoang phuc" />
@@ -131,6 +132,7 @@
                         android:textColor="#FD0B0B" />
 
                     <EditText
+                        android:id="@+id/edtCMND"
                         android:inputType="number"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -156,6 +158,7 @@
                         android:textColor="#FD0B0B" />
 
                     <EditText
+                        android:id="@+id/edtSDT"
                         android:inputType="number"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
@@ -169,6 +172,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnSuaKH"
             android:backgroundTint="#02A9B2"
             android:text="Chỉnh sửa thông tin khách hàng"
             android:layout_width="match_parent"
@@ -180,6 +184,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/btnTroVe"
             android:backgroundTint="#02A9B2"
             android:layout_gravity="center"
             android:text="Trở về"

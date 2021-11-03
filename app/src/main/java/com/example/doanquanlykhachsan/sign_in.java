@@ -70,7 +70,7 @@ public class sign_in extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 //dang nhap thanh cong
                                 Toast.makeText(getApplicationContext(), "dang nhap thanh cong", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                                startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), "sai email hoac pass!!", Toast.LENGTH_SHORT).show();
                             }

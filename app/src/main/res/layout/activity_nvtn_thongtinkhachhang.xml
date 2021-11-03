@@ -44,6 +44,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal">
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:weightSum="6"
             android:layout_width="wrap_content"
@@ -89,16 +90,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp">
             </TextView>
-            <TextView
-                android:text="Hội Viên:"
-                android:textColor="#fff"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp">
-            </TextView>
         </LinearLayout>
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:weightSum="6"
             android:layout_width="wrap_content"
@@ -123,6 +117,7 @@
                 android:layout_height="0dp">
             </TextView>
             <TextView
+                android:id="@+id/tvSoDT"
                 android:text="0933 999 000"
                 android:textColor="#fff"
                 android:layout_weight="1"
@@ -142,15 +137,6 @@
             <TextView
                 android:id="@+id/tvCMND"
                 android:text="1230987641"
-                android:textColor="#fff"
-                android:layout_weight="1"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp">
-            </TextView>
-            <TextView
-                android:id="@+id/tvHoiVien"
-                android:text="Kim Cương"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textSize="20dp"
