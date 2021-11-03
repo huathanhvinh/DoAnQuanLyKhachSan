@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,7 +27,8 @@ import java.util.ArrayList;
 
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
-    private EditText txtUserName, txtPassWord, txtsdt;
+    private EditText txtUserName, txtPassWord, txtsdt,txtNhapLaiMK;
+    private CheckBox ckbDieuKhoan;
     String ma = "KH0";
     ArrayList<Long> data = new ArrayList<>();
 
@@ -49,6 +51,20 @@ public class register extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = txtUserName.getText().toString();
+                String password = txtPassWord.getText().toString();
+                String nhaplaimk = txtNhapLaiMK.getText().toString();
+                String phone = txtsdt.getText().toString();
+                if (username.isEmpty()||password.isEmpty()||nhaplaimk.isEmpty()||phone.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Có thông tin để trống,vui lòng nhập đầy đủ thông tin" , Toast.LENGTH_SHORT).show();
+                }
+                if (password != nhaplaimk){
+                    Toast.makeText(getApplicationContext(),"Mật khẩu không chính xác vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                }
+                if (ckbDieuKhoan.isChecked() == false){
+                    Toast.makeText(getApplicationContext(),"Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
+
+                }
                 register(txtUserName.getText().toString(), txtPassWord.getText().toString());
             }
         });
@@ -111,8 +127,10 @@ public class register extends AppCompatActivity {
         txtsdt = findViewById(R.id.txtPhone);
         txtUserName = findViewById(R.id.txtUserName);
         txtPassWord = findViewById(R.id.txtPassWord);
+        txtNhapLaiMK = findViewById(R.id.txtNhapLaiMK);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
+        ckbDieuKhoan = findViewById(R.id.ckbDieuKhoan);
         maxid();
 
     }

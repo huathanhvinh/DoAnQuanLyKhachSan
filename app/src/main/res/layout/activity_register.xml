@@ -87,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập tài khoản"
+                    android:id="@+id/txtUserName"
                     />
             </LinearLayout>
 
@@ -122,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập mật khẩu"
+                    android:id="@+id/txtPassWord"
                     />
             </LinearLayout>
 
@@ -157,6 +159,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập lại mật khẩu"
+                    android:id="@+id/txtNhapLaiMK"
                     />
             </LinearLayout>
 
@@ -214,6 +217,7 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/btnSignIn"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="Đăng kí"
@@ -228,6 +232,7 @@
             android:layout_weight="1"
             >
             <Button
+
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="Trở về"
@@ -248,6 +253,7 @@
             android:layout_height="30dp"
             android:background="@drawable/custom_checkbox"
             android:layout_marginLeft="120dp"
+            android:id="@+id/ckbDieuKhoan"
             />
         <TextView
             android:layout_width="wrap_content"
