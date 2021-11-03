@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.model;
 
 import com.example.doanquanlykhachsan.model.NhanVien;
 
