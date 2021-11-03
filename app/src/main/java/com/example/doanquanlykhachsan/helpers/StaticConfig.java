@@ -24,6 +24,7 @@ public class StaticConfig {
     public static FirebaseStorage storage = FirebaseStorage.getInstance();
     public static StorageReference storageReference = storage.getReference();
     public static String currentuser = "";
+    public static String currentphone = "";
     public static DatabaseReference mUser = Database.getReference("User");
     public static DatabaseReference mDangky = Database.getReference("Dangky");
     //them du lieu phong

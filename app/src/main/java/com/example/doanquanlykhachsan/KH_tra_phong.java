@@ -46,7 +46,7 @@ public class KH_tra_phong extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren())
-                            if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
+                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
                                 StaticConfig.mRoom.child(ds.child("sMaPH").getValue(String.class)).child("tinhtrang").setValue("trống");
                                 StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).setValue(null);
                             }
@@ -104,7 +104,7 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
+                    if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)) {
                         ngaynhan.setText(ds.child("sNgayNhan").getValue(String.class));
                         ngaytra.setText(ds.child("sNgayTra").getValue(String.class));
                         phongthue += ds.child("sMaPH").getValue(String.class) + " ";

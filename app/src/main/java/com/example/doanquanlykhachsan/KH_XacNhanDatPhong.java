@@ -86,7 +86,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                 for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
                     StaticConfig.mRoom.child(StaticConfig.arrayListCheckItem.get(i).getMa()).child("tinhtrang").setValue("da dat");
                     String key = StaticConfig.mRoomRented.push().getKey();
-                    RoomRented roomRented = new RoomRented(key, "KH1", StaticConfig.arrayListCheckItem.get(i).getMa(),
+                    RoomRented roomRented = new RoomRented(key, StaticConfig.currentuser, StaticConfig.arrayListCheckItem.get(i).getMa(),
                             tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan);
                     StaticConfig.mRoomRented.child(key).setValue(roomRented);
                 }

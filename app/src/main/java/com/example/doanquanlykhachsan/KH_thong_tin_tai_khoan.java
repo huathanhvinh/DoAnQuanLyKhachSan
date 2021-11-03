@@ -38,6 +38,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     }
 
     private void setControl() {
+        Log.d("so dien thoai",StaticConfig.currentphone);
         btntrove = findViewById(R.id.btntrove);
 //        Dichvu dv = new Dichvu("DV2", "xe",100);
 //        StaticConfig.mDichvu.child("DV2").setValue(dv);

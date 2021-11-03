@@ -51,7 +51,6 @@ public class register extends AppCompatActivity {
             }
         });
     }
-
     private void register(String Email, String Pass) {
         //check email already exist or not.
         StaticConfig.fAuth.fetchSignInMethodsForEmail(txtUserName.getText().toString())
@@ -81,10 +80,11 @@ public class register extends AppCompatActivity {
                 });
     }
 
-
     private void UpdateUser() {
-
         Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        User user = new User(id,txtUserName.getText().toString(),txtsdt.getText().toString());
+        StaticConfig.mUser.child(id).setValue(user);
         startActivity(intent);
     }
 

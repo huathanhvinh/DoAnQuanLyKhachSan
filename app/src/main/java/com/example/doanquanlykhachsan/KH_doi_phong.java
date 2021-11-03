@@ -41,7 +41,7 @@ public class KH_doi_phong extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
-                            if (ds.child("sMaKH").getValue().toString().equals("KH1") && ds.child("sMaPH")
+                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser) && ds.child("sMaPH")
                                     .getValue(String.class).equals(StaticConfig.chon.getMa())) {
                                 Log.d("test",ds.child("sMa").getValue(String.class));
                                 StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).
@@ -55,6 +55,7 @@ public class KH_doi_phong extends AppCompatActivity {
 
                     }
                 });
+                startActivity(new Intent(getApplicationContext(),KH_danh_sach_phong_da_dat.class));
 
             }
         });

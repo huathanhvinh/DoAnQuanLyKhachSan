@@ -89,7 +89,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("sMaKH").getValue().toString().equals("KH1")) {
+                    if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
                         String maphong = ds.child("sMaPH").getValue(String.class);
                         data.clear();
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
