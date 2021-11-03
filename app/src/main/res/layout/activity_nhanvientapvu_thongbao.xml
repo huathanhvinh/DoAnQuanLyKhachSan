@@ -110,7 +110,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/listview_nhanvientapvu_thongbao">
-
         </ListView>
     </LinearLayout>
 
@@ -120,6 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:backgroundTint="#02A9B2"
             android:id="@+id/btnTroVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

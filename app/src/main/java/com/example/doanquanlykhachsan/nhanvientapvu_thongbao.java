@@ -44,10 +44,15 @@ public class nhanvientapvu_thongbao extends AppCompatActivity {
         ThongBao thongbao1 = new ThongBao("STT : 02","Nội dung","9:00","25/09/2021","Đăng ký dịch vụ","Chi tiết","Xác nhận");
         ThongBao thongbao2 = new ThongBao("STT : 03","Nội dung","9:00","25/09/2021","Đăng ký dịch vụ","Chi tiết","Xác nhận");
         ThongBao thongbao3 = new ThongBao("STT : 04","Nội dung","9:00","25/09/2021","Đăng ký dịch vụ","Chi tiết","Xác nhận");
+        ThongBao thongbao4 = new ThongBao("STT : 05","Nội dung","9:00","25/09/2021","Đăng ký dịch vụ","Chi tiết","Xác nhận");
+        ThongBao thongbao5 = new ThongBao("STT : 06","Nội dung","9:00","25/09/2021","Đăng ký dịch vụ","Chi tiết","Xác nhận");
+
         data.add(thongbao);
         data.add(thongbao1);
         data.add(thongbao2);
         data.add(thongbao3);
+        data.add(thongbao4);
+        data.add(thongbao5);
     }
 
 

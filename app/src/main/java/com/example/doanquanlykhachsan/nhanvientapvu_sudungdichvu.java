@@ -62,14 +62,14 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     }
 
     private void khoiTao() {
-//        SuDungDichVu suDungDichVu = new SuDungDichVu("Phòng : 1","Hủy sử dụng dịch vụ");
-//        SuDungDichVu suDungDichVu1 = new SuDungDichVu("Phòng : 2","Hủy sử dụng dịch vụ");
-//        SuDungDichVu suDungDichVu2 = new SuDungDichVu("Phòng : 3","Hủy sử dụng dịch vụ");
-//        SuDungDichVu suDungDichVu3 = new SuDungDichVu("Phòng : 4","Hủy sử dụng dịch vụ");
-//        data.add(suDungDichVu);
-//        data.add(suDungDichVu1);
-//        data.add(suDungDichVu2);
-//        data.add(suDungDichVu3);
+        SuDungDichVu suDungDichVu = new SuDungDichVu("Phòng : 1","Hủy sử dụng dịch vụ");
+        SuDungDichVu suDungDichVu1 = new SuDungDichVu("Phòng : 2","Hủy sử dụng dịch vụ");
+        SuDungDichVu suDungDichVu2 = new SuDungDichVu("Phòng : 3","Hủy sử dụng dịch vụ");
+        SuDungDichVu suDungDichVu3 = new SuDungDichVu("Phòng : 4","Hủy sử dụng dịch vụ");
+        data.add(suDungDichVu);
+        data.add(suDungDichVu1);
+        data.add(suDungDichVu2);
+        data.add(suDungDichVu3);
 
         //Lấy dữ liệu các dịch vụ từ firebase vô Spinner
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);

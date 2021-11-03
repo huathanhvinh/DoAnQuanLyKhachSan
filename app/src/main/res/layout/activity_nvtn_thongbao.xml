@@ -41,6 +41,7 @@
         </TextView>
     </LinearLayout>
     <LinearLayout
+        android:background="#fff"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_width="match_parent"

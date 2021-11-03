@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thông tin tài khoản"
@@ -26,7 +27,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2">
+        android:layout_weight="1">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/avatar"
             android:layout_width="150dp"
@@ -49,10 +50,11 @@
             android:layout_height="50dp"
             android:src="@drawable/icon_thongtin"
             />
+
         <EditText
             android:inputType="text"
             android:maxLength="25"
-            android:id="@+id/editName"
+            android:id="@+id/edtTenNV"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -63,7 +65,7 @@
             android:enabled="false"
             />
         <ImageView
-            android:id="@+id/imgEditName"
+            android:id="@+id/ivChangeTen"
             android:layout_marginLeft="15dp"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -84,8 +86,8 @@
             android:src="@drawable/icon_phone"
             />
         <EditText
-            android:maxLength="13"
-            android:id="@+id/editPhone"
+            android:maxLength="11"
+            android:id="@+id/edtSoDT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0123456789"
@@ -97,7 +99,7 @@
             android:enabled="false"
             />
         <ImageView
-            android:id="@+id/imgEditPhone"
+            android:id="@+id/ivChangeSDT"
             android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -118,7 +120,7 @@
             android:src="@drawable/icon_cmnd"
             />
         <EditText
-            android:id="@+id/editCMND"
+            android:id="@+id/edtCMND"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +133,7 @@
             android:maxLength="15"
             />
         <ImageView
-            android:id="@+id/imgEditCMND"
+            android:id="@+id/ivChangeCMND"
             android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -151,6 +153,7 @@
             android:src="@drawable/icon_lichlamviec"
             />
         <TextView
+            android:id="@+id/tvLichLamViec"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,6 +175,7 @@
             android:src="@drawable/icon_luongnhanvien"
             />
         <TextView
+            android:id="@+id/tvLuong"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

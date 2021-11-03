@@ -180,6 +180,7 @@
             android:src="@drawable/icon_lichlamviec"
             />
         <TextView
+            android:layout_marginBottom="5dp"
             android:layout_gravity="center"
             android:id="@+id/tvLichLamViec"
             android:layout_width="wrap_content"

@@ -6,6 +6,7 @@
 
 
     <LinearLayout
+        android:background="#fff"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -17,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Dịch vụ : Giặt giũ quần áo"
-            android:textColor="#F4F4EF"
-            android:textSize="25dp" />
+            android:textColor="#070707"
+            android:textSize="20dp" />
         <Button
             android:backgroundTint="#25BDAF"
             android:id="@+id/btnXemPhong"

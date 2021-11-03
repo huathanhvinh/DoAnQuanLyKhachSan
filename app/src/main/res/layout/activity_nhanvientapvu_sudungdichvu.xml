@@ -27,11 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Spinner
+            android:background="#fff"
             android:id="@+id/spDichVu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/tendichvu" />
         <Button
+            android:layout_marginLeft="60dp"
             android:backgroundTint="#25BDAF"
             android:id="@+id/btnDangKyDV"
             android:layout_width="wrap_content"
@@ -57,7 +59,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="3">
         <ListView
-
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:id="@+id/lvSuDungDV"

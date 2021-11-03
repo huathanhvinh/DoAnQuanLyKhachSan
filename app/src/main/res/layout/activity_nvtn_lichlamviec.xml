@@ -6,6 +6,7 @@
     android:weightSum="10"
     android:orientation="vertical">
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thông tin lịch làm việc"
-            android:textColor="#F4F4EF"
+            android:textColor="#F4EFF0"
             android:textSize="25dp"
             android:gravity="center"
             android:textStyle="bold"
@@ -33,22 +34,22 @@
             android:layout_height="wrap_content"
             android:text="Tên nhân viên :"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
-            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
             />
         <TextView
+            android:id="@+id/tvTenNhanVien"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lê Hoàng Phắc Boiz"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_marginLeft="50dp"
 
             />
     </LinearLayout>
     <LinearLayout
-
+        android:layout_marginLeft="23dp"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -58,17 +59,16 @@
             android:layout_height="wrap_content"
             android:text="Ca làm :"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
-            android:layout_marginLeft="50dp"
-            />
+            android:textSize="20dp" />
+
         <TextView
+            android:layout_marginLeft="115dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ca sáng"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
-            android:layout_marginLeft="50dp"
+            android:textSize="20dp"
 
             />
     </LinearLayout>
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:text="Ghi chú :"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             />
@@ -107,12 +107,14 @@
         android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
+        <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Làm việc lười biếng,thường xuyên sử dụng điện thoại trong giờ làm việc"
             android:textColor="#F4F4EF"
-            android:textSize="25dp"
+            android:textSize="20dp"
+            android:enabled="false"
             />
 
     </LinearLayout>

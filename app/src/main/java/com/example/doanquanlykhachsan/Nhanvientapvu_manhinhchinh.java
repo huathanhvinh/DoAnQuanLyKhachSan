@@ -32,7 +32,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
 
 
     }
-
+    //Lấy sđt từ tài khoản trên firebase để lấy thông tin nhân viên
     private void Phone() {
         StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -52,10 +52,8 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
                                     }
                                 }
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
                     }

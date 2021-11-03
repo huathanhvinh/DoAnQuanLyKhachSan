@@ -17,8 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class nhanvientapvu_lichlamviec extends AppCompatActivity {
     Button btnTroVe;
-    TextView tvTenNhanVien,tvCaLam;
-    EditText etGhiChu;
+    TextView tvTenNhanVien,tvCaLam,tvGhiChu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +26,17 @@ public class nhanvientapvu_lichlamviec extends AppCompatActivity {
         setEvent();
         khoiTao();
     }
-    //Lấy thông tim ca làm của nhân viên
+    //Lấy thông tim lịch làm việc của nhân viên
     private void khoiTao() {
-        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+        StaticConfig.mNhanVien_LichLamViec.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    NhanVien nv = ds.getValue(NhanVien.class);
+                    NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
                     if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
                         tvTenNhanVien.setText(nv.getTenNV());
                         tvCaLam.setText(nv.getCaLam());
-
+                        tvGhiChu.setText(nv.getGhiChu());
                     }
                 }
             }
@@ -53,7 +52,7 @@ public class nhanvientapvu_lichlamviec extends AppCompatActivity {
         btnTroVe = findViewById(R.id.btnTroVe);
         tvTenNhanVien = findViewById(R.id.tvTenNhanVien);
         tvCaLam = findViewById(R.id.tvCaLam);
-        etGhiChu = findViewById(R.id.etGhiChu);
+        tvGhiChu = findViewById(R.id.tvGhiChu);
     }
     private void setEvent() {
         btnTroVe.setOnClickListener(new View.OnClickListener() {

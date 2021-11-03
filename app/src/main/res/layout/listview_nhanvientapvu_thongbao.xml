@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="STT : 01"
             android:textColor="#12CC19"
-            android:textSize="25dp"
+            android:textSize="20dp"
             >
         </TextView>
 
@@ -29,7 +29,7 @@
             android:layout_marginLeft="170dp"
             android:text="Nội dung"
             android:textColor="#12CC19"
-            android:textSize="25dp"></TextView>
+            android:textSize="20dp"></TextView>
     </LinearLayout>
     <LinearLayout
         android:gravity="center"
