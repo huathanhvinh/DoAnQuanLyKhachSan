@@ -32,7 +32,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
 
 
     }
-    //Lấy sđt từ tài khoản trên firebase để lấy thông tin nhân viên
+    //So sánh sđt từ tài khoản trên firebase để lấy thông tin nhân viên
     private void Phone() {
         StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
