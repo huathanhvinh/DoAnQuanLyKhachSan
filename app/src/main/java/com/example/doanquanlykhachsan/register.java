@@ -30,7 +30,7 @@ public class register extends AppCompatActivity {
     private EditText txtUserName, txtPassWord, txtsdt,txtNhapLaiMK;
     private CheckBox ckbDieuKhoan;
     String ma = "KH0";
-    ArrayList<Long> data = new ArrayList<>();
+    ArrayList<User> userList = new ArrayList<>();
 
 
     @Override
@@ -39,6 +39,7 @@ public class register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         setControl();
         setEvent();
+
     }
 
     private void setEvent() {
@@ -58,70 +59,23 @@ public class register extends AppCompatActivity {
                 if (username.isEmpty()||password.isEmpty()||nhaplaimk.isEmpty()||phone.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Có thông tin để trống,vui lòng nhập đầy đủ thông tin" , Toast.LENGTH_SHORT).show();
                 }
-                if (password != nhaplaimk){
+                if (!password.equals(nhaplaimk) ){
                     Toast.makeText(getApplicationContext(),"Mật khẩu không chính xác vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                 }
                 if (ckbDieuKhoan.isChecked() == false){
                     Toast.makeText(getApplicationContext(),"Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
 
                 }
-                register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+
             }
         });
     }
 
-    private void register(String Email, String Pass) {
-        StaticConfig.fAuth.fetchSignInMethodsForEmail(txtUserName.getText().toString())
-                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
 
-                        boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
-
-                        if (isNewUser) {
-                            StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isComplete()) {
-                                        UpdateUser();
-                                        Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), "email da ton tai", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-    }
 
 
 //check email already exist or not.
 
-    private void UpdateUser() {
-
-        if (data.size() > 0) {
-            Long max = data.get(0);
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).compareTo(max) > 0) {
-                    max = data.get(i);
-                }
-            }
-            max++;
-            String ma = "KH" + max;
-        }
-
-        User user = new User(ma, txtUserName.getText().toString(), txtsdt.getText().toString());
-        StaticConfig.mUser.child(ma).setValue(user);
-        Intent intent = new Intent(getApplicationContext(), sign_in.class);
-        startActivity(intent);
-
-    }
 
     private void setControl() {
         txtsdt = findViewById(R.id.txtPhone);
@@ -131,29 +85,7 @@ public class register extends AppCompatActivity {
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
         ckbDieuKhoan = findViewById(R.id.ckbDieuKhoan);
-        maxid();
-
     }
 
-    private void maxid() {
-        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        long mau = 0;
-                        ma = ds.child("id").getValue(String.class);
-                        String[] parts;
-                        parts = ma.split("KH");
-                        mau = Long.parseLong(parts[1]);
-                        data.add(mau);
-                    }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
 }
