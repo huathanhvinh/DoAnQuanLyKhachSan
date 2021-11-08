@@ -171,7 +171,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                                         nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
 
 
-                                        if (qlphong.getPhong().equals(ma) && qlphong.get() == true) {
+                                        if (qlphong.getPhong().equals(ma) && qlphong.isKiemtra() == true) {
 
                                             //Kiểm tra nếu dữ liệu = true thì remove phòng
                                             //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
@@ -211,7 +211,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
-                                    if (qlphong.getPhong().equals(ma) && qlphong.getKiemtra() == true) {
+                                    if (qlphong.getPhong().equals(ma) && qlphong.isKiemtra() == true) {
                                         ketqua.add(room);
                                     }
                                 }
