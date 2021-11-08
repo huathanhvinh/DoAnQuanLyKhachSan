@@ -78,7 +78,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    arrayList.add(ds.child("mota").getValue(String.class));
+                    arrayList.add(ds.child("tenDV").getValue(String.class));
                 }
                 arrayAdapter.notifyDataSetChanged();
             }

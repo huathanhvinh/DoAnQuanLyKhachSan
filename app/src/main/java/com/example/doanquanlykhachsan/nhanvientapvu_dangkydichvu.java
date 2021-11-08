@@ -59,7 +59,7 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    data.add(new DangKyDichVu(ds.child("mota").getValue(String.class),"Xem phòng sử dụng dịch vụ"));
+                    data.add(new DangKyDichVu(ds.child("tenDV").getValue(String.class),"Xem phòng sử dụng dịch vụ"));
                 }
                 custom_nhanvientapvu_dangkydichvu dangkydichvu = new custom_nhanvientapvu_dangkydichvu(getApplicationContext(),R.layout.listview_nhanvientapvu_dangkydichvu,data);
                 lvDanhSachDV.setAdapter(dangkydichvu);

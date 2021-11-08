@@ -84,64 +84,36 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                 if (edtTenNV.getText().toString().isEmpty() || edtSoDT.getText().toString().isEmpty() || edtCMND.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "không được bỏ trống", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                StaticConfig.mNhanVien.addChildEventListener(new ChildEventListener() {
-                      @Override
-                      public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                          if(edtSoDT.getText().equals(snapshot.child("soDienThoai").getValue().toString())){
-                              NhanVien nv = snapshot.getValue(NhanVien.class);
-                              nv.setTenNV(edtTenNV.getText().toString());
-                              nv.setCmnd(edtCMND.getText().toString());
-                              StaticConfig.mNhanVien.child(edtSoDT.getText().toString()).setValue(nv);
+                } else
+                    StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                                if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                    String ma = nv.getMaFB();
+                                    StaticConfig.mNhanVien.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                    StaticConfig.mNhanVien.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                                }
+                            }
+                        }
 
-                          }
-                      }
-
-                      @Override
-                      public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                      }
-
-                      @Override
-                      public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                      }
-
-                      @Override
-                      public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                      }
-
-                      @Override
-                      public void onCancelled(@NonNull DatabaseError error) {
-
-                      }
-                  });
-                StaticConfig.mNhanVien_Luong.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                        if(edtSoDT.getText().equals(snapshot.child("soDienThoai").getValue().toString())){
-                            NhanVien_Luong nv = snapshot.getValue(NhanVien_Luong.class);
-                            nv.setTenNV(edtTenNV.getText().toString());
-                            nv.setCmnd(edtCMND.getText().toString());
-                            StaticConfig.mNhanVien_Luong.child(edtSoDT.getText().toString()).setValue(nv);
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
                         }
-                    }
-
+                    });
+                StaticConfig.mNhanVien_Luong.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                String ma = nv.getMaFB();
+                                StaticConfig.mNhanVien_Luong.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                StaticConfig.mNhanVien_Luong.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                            }
+                        }
                     }
 
                     @Override
@@ -149,31 +121,17 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
 
                     }
                 });
-                StaticConfig.mNhanVien_LichLamViec.addChildEventListener(new ChildEventListener() {
+                StaticConfig.mNhanVien_LichLamViec.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                        if(edtSoDT.getText().equals(snapshot.child("soDienThoai").getValue().toString())){
-                            NhanVien_LichLamViec nv = snapshot.getValue(NhanVien_LichLamViec.class);
-                            nv.setTenNV(edtTenNV.getText().toString());
-                            nv.setCmnd(edtCMND.getText().toString());
-                            StaticConfig.mNhanVien_LichLamViec.child(edtSoDT.getText().toString()).setValue(nv);
-
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                String ma = nv.getMaFB();
+                                StaticConfig.mNhanVien_LichLamViec.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                StaticConfig.mNhanVien_LichLamViec.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                            }
                         }
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
                     }
 
                     @Override
@@ -182,19 +140,10 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                     }
                 });
 
-//                StaticConfig.mNhanVien.child(SDT).child("tenNV").setValue(edtTenNV.getText().toString());
-//                //StaticConfig.mNhanVien.child(maNV).child("soDienThoai").setValue(edtSoDT.getText().toString());
-//                StaticConfig.mNhanVien.child(SDT).child("cmnd").setValue(edtCMND.getText().toString());
-//                StaticConfig.mNhanVien_Luong.child(SDT).child("tenNV").setValue(edtTenNV.getText().toString());
-//                //StaticConfig.mNhanVien.child(maNV).child("soDienThoai").setValue(edtSoDT.getText().toString());
-//                StaticConfig.mNhanVien_Luong.child(SDT).child("cmnd").setValue(edtCMND.getText().toString());
-//                StaticConfig.mNhanVien_LichLamViec.child(SDT).child("tenNV").setValue(edtTenNV.getText().toString());
-//                //StaticConfig.mNhanVien.child(maNV).child("soDienThoai").setValue(edtSoDT.getText().toString());
-//                StaticConfig.mNhanVien_LichLamViec.child(SDT).child("cmnd").setValue(edtCMND.getText().toString());
 
                 Toast.makeText(getApplicationContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(getApplicationContext(), nhanvientapvu_thongtintaikhoan.class));
+                startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
             }
         });
         btnTroVe.setOnClickListener(new View.OnClickListener() {
