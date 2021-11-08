@@ -3,18 +3,18 @@ package com.example.doanquanlykhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Dichvu;
 import com.example.doanquanlykhachsan.model.Room;
+import com.example.doanquanlykhachsan.model.RoomRented;
+import com.example.doanquanlykhachsan.model.SelectedService;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -57,8 +57,8 @@ public class KH_ChiTietPhong extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ngaynhan",StaticConfig.NgayNhanXacNhanPhong+"");
-                bundle.putString("ngaytra",StaticConfig.NgayNhanXacTraPhong+"");
+                bundle.putString("ngaynhan", StaticConfig.NgayNhanXacNhanPhong + "");
+                bundle.putString("ngaytra", StaticConfig.NgayNhanXacTraPhong + "");
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -68,7 +68,7 @@ public class KH_ChiTietPhong extends AppCompatActivity {
         btntroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.arrayListCheckItem.clear();
+                StaticConfig.arrayListTemporaryRoom.clear();
                 finish();
             }
         });
@@ -95,6 +95,7 @@ public class KH_ChiTietPhong extends AppCompatActivity {
     }
 
     private void setConTrol() {
+
         tvTenPhong = findViewById(R.id.tvTenPhong);
         tvLau = findViewById(R.id.tvLau);
         tvLoaiPhong = findViewById(R.id.tvLoaiPhong);

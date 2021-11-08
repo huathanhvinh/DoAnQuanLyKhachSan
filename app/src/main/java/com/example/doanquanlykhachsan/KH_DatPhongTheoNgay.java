@@ -3,17 +3,12 @@ package com.example.doanquanlykhachsan;
 import static com.example.doanquanlykhachsan.helpers.StaticConfig.mRoom;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -27,18 +22,15 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Room;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class KH_DatPhongTheoNgay extends AppCompatActivity {
 
@@ -58,7 +50,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_ngay);
         //clear checkbox
-        StaticConfig.arrayListCheckItem.clear();
+        StaticConfig.arrayListTemporaryRoom.clear();
 
 
 
@@ -147,7 +139,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                     AlertDialog dialog = b.create();
                     dialog.show();
                 } else {
-                    if (StaticConfig.arrayListCheckItem.isEmpty()) {
+                    if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
                         Toast.makeText(KH_DatPhongTheoNgay.this, "xin chon phong", Toast.LENGTH_LONG).show();
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);

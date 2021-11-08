@@ -1,18 +1,11 @@
 package com.example.doanquanlykhachsan.helpers;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
+import com.example.doanquanlykhachsan.model.Dichvu;
+import com.example.doanquanlykhachsan.model.SelectedService;
 import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -31,18 +24,21 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Room");
     public static DatabaseReference mRoomRented = Database.getReference("RoomRented");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
+    public static DatabaseReference mDichVuDaChon = Database.getReference("SelectedService");
 
-    //KH_Arraylist checkBox item
-    public static ArrayList<Room> arrayListCheckItem = new ArrayList<>();
+    //Danh sách phòng tạm thời
+    public static ArrayList<Room> arrayListTemporaryRoom = new ArrayList<>();
+    //Danh sách dịch vụ tạm thời
+    public static ArrayList<Dichvu> arrayListTemporaryService = new ArrayList<>();
     //phan biet man hinh theo ngay hay gio
     public static String sXacNhan = "";
     //check all
     public static boolean isCheckAll = false;
     //chon phong de doi
     public static Room chon = new Room();
-    //ngay nhan phong tu chi tiet
+    //ngay nhan phong tu man hinh chi tiet
     public static String NgayNhanXacNhanPhong = "";
-    //ngay nhan tra phong tu chi tiet
+    //ngay tra phong tu man hinh chi tiet
     public static String NgayNhanXacTraPhong = "";
 
 

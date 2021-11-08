@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,16 +14,17 @@ import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Dichvu;
+import com.example.doanquanlykhachsan.model.SelectedService;
 
 import java.util.ArrayList;
 
-public class KH_CustomDichvu extends ArrayAdapter {
 
+public class CusTomSelectedService extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<Dichvu> data;
+    ArrayList<SelectedService> data;
 
-    public KH_CustomDichvu(@NonNull Context context, int resource, ArrayList<Dichvu> data) {
+    public CusTomSelectedService(@NonNull Context context, int resource, @NonNull ArrayList<SelectedService> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -40,24 +40,20 @@ public class KH_CustomDichvu extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
-        CheckBox checkBox = convertView.findViewById(R.id.checkbox);
-        TextView ten = convertView.findViewById(R.id.tvTendv);
         CheckBox cboDichVu = convertView.findViewById(R.id.cboDichVu);
+        SelectedService dv = data.get(position);
 
-        Dichvu dv = data.get(position);
-        ten.setText(dv.getMota());
-        cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                StaticConfig.arrayListTemporaryService.clear();
-                if (cboDichVu.isChecked()) {
-                    StaticConfig.arrayListTemporaryService.add(dv);
-                } else {
-                    StaticConfig.arrayListTemporaryService.remove(dv);
-                }
-            }
-        });
-
+//        cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (cboDichVu.isChecked()) {
+//                    StaticConfig.arrayListTemporaryService.add(dv);
+//                    Toast.makeText(getContext(), "11", Toast.LENGTH_LONG).show();
+//                } else {
+//                    StaticConfig.arrayListTemporaryService.remove(dv);
+//                }
+//            }
+//        });
         return convertView;
     }
 }

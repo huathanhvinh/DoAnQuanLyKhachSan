@@ -3,16 +3,13 @@ package com.example.doanquanlykhachsan;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,17 +57,17 @@ public class KH_CusTomPhongTheoGiaGio extends ArrayAdapter {
         tvGiaGio.setText(String.valueOf(room.getGiagio()));
 
         if (StaticConfig.isCheckAll == true) {
-            StaticConfig.arrayListCheckItem.clear();
+            StaticConfig.arrayListTemporaryRoom.clear();
             cboGio.setChecked(true);
-            StaticConfig.arrayListCheckItem.addAll(data);
+            StaticConfig.arrayListTemporaryRoom.addAll(data);
         } else {
-            for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
-                if (StaticConfig.arrayListCheckItem.get(i).getMa().equals(room.getMa())){
+            for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                if (StaticConfig.arrayListTemporaryRoom.get(i).getMa().equals(room.getMa())){
                     cboGio.setChecked(true);
                 }
-                if(StaticConfig.arrayListCheckItem.size()==data.size()){
+                if(StaticConfig.arrayListTemporaryRoom.size()==data.size()){
                     cboGio.setChecked(false);
-                    StaticConfig.arrayListCheckItem.clear();
+                    StaticConfig.arrayListTemporaryRoom.clear();
                     break;
                 }
             }
@@ -89,8 +86,8 @@ public class KH_CusTomPhongTheoGiaGio extends ArrayAdapter {
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
-                StaticConfig.arrayListCheckItem.clear();
-                StaticConfig.arrayListCheckItem.add(room);
+                StaticConfig.arrayListTemporaryRoom.clear();
+                StaticConfig.arrayListTemporaryRoom.add(room);
             }
         });
 
@@ -100,9 +97,9 @@ public class KH_CusTomPhongTheoGiaGio extends ArrayAdapter {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (cboGio.isChecked()) {
 
-                    StaticConfig.arrayListCheckItem.add(room);
+                    StaticConfig.arrayListTemporaryRoom.add(room);
                 } else {
-                    StaticConfig.arrayListCheckItem.remove(room);
+                    StaticConfig.arrayListTemporaryRoom.remove(room);
                 }
             }
         });

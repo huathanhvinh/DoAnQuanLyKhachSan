@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,18 +15,19 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Room;
 import com.example.doanquanlykhachsan.model.RoomRented;
+import com.example.doanquanlykhachsan.model.SelectedService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class KH_XacNhanDatPhong extends AppCompatActivity {
     ListView lvDanhSachPhongXN;
     Button btTroVe, btnDatPhong;
     TextView tvXnTenKhachHang, tvSoDienThoai, tvXnSoLuongPhong, tvDichVu, tvXnNhanPhong, tvXnTraPhong;
+    EditText edtGhiChuKH;
 
     ArrayList<Room> roomArrayList = new ArrayList<>();
     KH_CusTomXacNhanDatPhong customRoom;
@@ -39,7 +40,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         setEvent();
 
         //so luong phong
-        tvXnSoLuongPhong.setText(StaticConfig.arrayListCheckItem.size() + "");
+        tvXnSoLuongPhong.setText(StaticConfig.arrayListTemporaryRoom.size() + "");
 
         //ngay nhan phong
         String ngaynhan = (String) getIntent().getStringExtra("ngaynhan");
@@ -48,6 +49,8 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         //ngay tra phong
         String ngaytra = (String) getIntent().getStringExtra("ngaytra");
         tvXnTraPhong.setText(ngaytra);
+
+        //dịch vụ
 
         //thong tin khach hang
         String tenhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -77,20 +80,31 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     }
 
     private void setEvent() {
-        customRoom = new KH_CusTomXacNhanDatPhong(getApplicationContext(), R.layout.kh_item_ds_xac_nhan_dat_phong, StaticConfig.arrayListCheckItem);
+        customRoom = new KH_CusTomXacNhanDatPhong(getApplicationContext(), R.layout.kh_item_ds_xac_nhan_dat_phong, StaticConfig.arrayListTemporaryRoom);
         lvDanhSachPhongXN.setAdapter(customRoom);
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang do
-                for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
-                    StaticConfig.mRoom.child(StaticConfig.arrayListCheckItem.get(i).getMa()).child("tinhtrang").setValue("da dat");
+                for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                    StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMa()).child("tinhtrang").setValue("đã đặt");
                     String key = StaticConfig.mRoomRented.push().getKey();
-                    RoomRented roomRented = new RoomRented(key, StaticConfig.currentuser, StaticConfig.arrayListCheckItem.get(i).getMa(),
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan);
+                    RoomRented roomRented = new RoomRented(key, StaticConfig.currentuser, StaticConfig.arrayListTemporaryRoom.get(i).getMa(),
+                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString());
                     StaticConfig.mRoomRented.child(key).setValue(roomRented);
+
+                    for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
+
+                        String key2 = StaticConfig.mDichVuDaChon.push().getKey();
+                        SelectedService selectedService = new SelectedService(key2,
+                                StaticConfig.arrayListTemporaryService.get(j).getMaFB(), StaticConfig.arrayListTemporaryService.get(j).getTenDV(),
+                                StaticConfig.arrayListTemporaryRoom.get(i).getMa());
+                        StaticConfig.mDichVuDaChon.child(key2).setValue(selectedService);
+                    }
                 }
-                startActivity(new Intent(getApplicationContext(),menu_khachhang.class));
+
+                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                Toast.makeText(getApplicationContext(), "Đặt phòng thành công", Toast.LENGTH_LONG).show();
             }
         });
         btTroVe.setOnClickListener(new View.OnClickListener() {
@@ -112,5 +126,6 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         tvSoDienThoai = findViewById(R.id.tvSoDienThoai);
         tvXnNhanPhong = findViewById(R.id.tvXnNhanPhong);
         tvXnTraPhong = findViewById(R.id.tvXnTraPhong);
+        edtGhiChuKH = findViewById(R.id.edtGhiChuKH);
     }
 }

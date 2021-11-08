@@ -7,16 +7,18 @@ public class RoomRented {
     String sNgayNhan;
     String sNgayTra;
     String sManHinh;//phan biet man hinh theo ngay hay gio
+    String sGhiChuKH;
 
     @Override
     public String toString() {
-        return "RoomDaDat{" +
+        return "RoomRented{" +
                 "sMa='" + sMa + '\'' +
                 ", sMaKH='" + sMaKH + '\'' +
                 ", sMaPH='" + sMaPH + '\'' +
                 ", sNgayNhan='" + sNgayNhan + '\'' +
                 ", sNgayTra='" + sNgayTra + '\'' +
                 ", sManHinh='" + sManHinh + '\'' +
+                ", sGhiChuKH='" + sGhiChuKH + '\'' +
                 '}';
     }
 
@@ -68,13 +70,22 @@ public class RoomRented {
         this.sManHinh = sManHinh;
     }
 
-    public RoomRented(String sMa, String sMaKH, String sMaPH, String sNgayNhan, String sNgayTra, String sManHinh) {
+    public String getsGhiChuKH() {
+        return sGhiChuKH;
+    }
+
+    public void setsGhiChuKH(String sGhiChuKH) {
+        this.sGhiChuKH = sGhiChuKH;
+    }
+
+    public RoomRented(String sMa, String sMaKH, String sMaPH, String sNgayNhan, String sNgayTra, String sManHinh, String sGhiChuKH) {
         this.sMa = sMa;
         this.sMaKH = sMaKH;
         this.sMaPH = sMaPH;
         this.sNgayNhan = sNgayNhan;
         this.sNgayTra = sNgayTra;
         this.sManHinh = sManHinh;
+        this.sGhiChuKH = sGhiChuKH;
     }
 
     public RoomRented() {

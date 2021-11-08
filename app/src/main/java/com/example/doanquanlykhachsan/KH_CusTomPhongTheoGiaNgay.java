@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,17 +61,17 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
 
         //checkAll
         if (StaticConfig.isCheckAll == true) {
-            StaticConfig.arrayListCheckItem.clear();
+            StaticConfig.arrayListTemporaryRoom.clear();
             cboNgay.setChecked(true);
-            StaticConfig.arrayListCheckItem.addAll(data);
+            StaticConfig.arrayListTemporaryRoom.addAll(data);
         } else {
-            for (int i = 0; i < StaticConfig.arrayListCheckItem.size(); i++) {
-                if (StaticConfig.arrayListCheckItem.get(i).getMa().equals(room.getMa())) {
+            for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                if (StaticConfig.arrayListTemporaryRoom.get(i).getMa().equals(room.getMa())) {
                     cboNgay.setChecked(true);
                 }
-                if (StaticConfig.arrayListCheckItem.size() == data.size()) {
+                if (StaticConfig.arrayListTemporaryRoom.size() == data.size()) {
                     cboNgay.setChecked(false);
-                    StaticConfig.arrayListCheckItem.clear();
+                    StaticConfig.arrayListTemporaryRoom.clear();
                     break;
                 }
             }
@@ -93,8 +90,8 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
                 context.startActivity(intent);
 
                 //them phong tu chi tiet phong
-                StaticConfig.arrayListCheckItem.clear();
-                StaticConfig.arrayListCheckItem.add(room);
+                StaticConfig.arrayListTemporaryRoom.clear();
+                StaticConfig.arrayListTemporaryRoom.add(room);
 
             }
         });
@@ -102,9 +99,9 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (cboNgay.isChecked()) {
-                    StaticConfig.arrayListCheckItem.add(room);
+                    StaticConfig.arrayListTemporaryRoom.add(room);
                 } else {
-                    StaticConfig.arrayListCheckItem.remove(room);
+                    StaticConfig.arrayListTemporaryRoom.remove(room);
                 }
             }
         });

@@ -6,20 +6,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -56,7 +50,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_gio);
         //clear checkbox
-        StaticConfig.arrayListCheckItem.clear();
+        StaticConfig.arrayListTemporaryRoom.clear();
 
         setConTrol();
         //lay gio nhan phong hien tai
@@ -151,7 +145,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                     AlertDialog dialog = b.create();
                     dialog.show();
                 } else {
-                    if (StaticConfig.arrayListCheckItem.isEmpty()) {
+                    if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
                         Toast.makeText(KH_DatPhongTheoGio.this, "xin chon phong", Toast.LENGTH_LONG).show();
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
