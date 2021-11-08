@@ -57,7 +57,8 @@
                 android:layout_weight="1"
                 android:src="@drawable/icon_user" />
 
-            <TextView
+            <EditText
+                android:enabled="false"
                 android:id="@+id/hoten"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -68,8 +69,9 @@
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/pen1"
                 android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/icon_edit" />
@@ -88,7 +90,8 @@
                 android:layout_weight="1"
                 android:src="@drawable/icon_phone" />
 
-            <TextView
+            <EditText
+                android:enabled="false"
                 android:id="@+id/sdt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -99,6 +102,7 @@
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/pen2"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
@@ -119,7 +123,8 @@
                 android:layout_weight="1"
                 android:src="@drawable/icon_cmnd" />
 
-            <TextView
+            <EditText
+                android:enabled="false"
                 android:id="@+id/cmnd"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -130,6 +135,7 @@
                 android:textColor="@color/white" />
 
             <ImageView
+                android:id="@+id/pen3"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
@@ -194,6 +200,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnluu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"

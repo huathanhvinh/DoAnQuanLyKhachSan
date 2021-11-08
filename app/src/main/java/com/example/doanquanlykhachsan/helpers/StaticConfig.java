@@ -31,6 +31,7 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Room");
     public static DatabaseReference mRoomRented = Database.getReference("RoomRented");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
+    public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
 
     //KH_Arraylist checkBox item
     public static ArrayList<Room> arrayListCheckItem = new ArrayList<>();

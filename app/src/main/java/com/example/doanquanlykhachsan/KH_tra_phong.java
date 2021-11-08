@@ -1,9 +1,15 @@
 package com.example.doanquanlykhachsan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,24 +46,43 @@ public class KH_tra_phong extends AppCompatActivity {
 
     private void setEvnet() {
         btntraphong.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren())
-                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
-                                StaticConfig.mRoom.child(ds.child("sMaPH").getValue(String.class)).child("tinhtrang").setValue("trống");
-                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).setValue(null);
-                            }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                //tra phong ve trang thai tronng và xoá khỏi danh sách phòng thuê
+//                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        for (DataSnapshot ds : snapshot.getChildren())
+//                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
+//                                StaticConfig.mRoom.child(ds.child("sMaPH").getValue(String.class)).child("tinhtrang").setValue("trống");
+//                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).setValue(null);
+//                            }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//                new AlertDialog.Builder(KH_tra_phong.this)
+//                        .setTitle("Trả phòng ")
+//                        .setMessage("Bạn có chắc trả phòng không??")
+//                        // Specifying a listener allows you to take an action before dismissing the dialog.
+//                        // The dialog is automatically dismissed when a dialog button is clicked.
+//                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+//                            @RequiresApi(api = Build.VERSION_CODES.M)
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                thongbao();
+//                            }
+//                        })
+//
+//                        // A null listener allows the button to dismiss the dialog and take no further action.
+//                        .setNegativeButton(android.R.string.no, null)
+//                        .setIcon(android.R.drawable.ic_dialog_alert)
+//                        .show();
+//                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                thongbao();
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +91,29 @@ public class KH_tra_phong extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    //Chưa show
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void thongbao() {
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(KH_tra_phong.this, "Thong bao")
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle("Trả phòng")
+                .setContentText("Trả Phòng thành công")
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(0, notification.build());
+//
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+//        builder.setSmallIcon(R.drawable.logo)
+//                .setContentTitle(getString(R.string.hello))
+//                .setContentIntent(notificationPendingIntent)
+//                .setDefaults(NotificationCompat.DEFAULT_ALL)
+//                .setStyle(bigText)
+//                .setPriority(NotificationCompat.PRIORITY_HIGH);
+//        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        manager.notify(0, notification.build());
+
     }
 
     private void setControl() {
