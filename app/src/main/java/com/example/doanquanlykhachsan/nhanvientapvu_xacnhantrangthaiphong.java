@@ -22,8 +22,13 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
     TextView tvMaPhong,tvLoaiPhong,tvTrangThai;
     Button btnXacNhan,btnTroVe;
     Room chitiet;
-    CheckBox ckDonPhong;
-    boolean check= false;
+    CheckBox ckDonPhong,ckVatDung,ckRuou,ckMaKM,ckTuLanh,ckThucAn;
+    boolean check = false;
+    boolean thucAn = false;
+    boolean ruou = false;
+    boolean maKM = false;
+    boolean tuLanh = false;
+    boolean vatDung = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +49,7 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Khi bấn xác nhận phòng thì lưu checkbox xem phòng đã dọn hay chưa
-                StaticConfig.mQLPhong.child(chitiet.getMa()).setValue(new nvtv_qlphong(chitiet.getMa(),check));
+                StaticConfig.mQLPhong.child(chitiet.getMa()).setValue(new nvtv_qlphong(chitiet.getMa(),check,thucAn,ruou,tuLanh,maKM,vatDung));
                 Toast.makeText(getApplicationContext(), "Thông tin phòng đã được lưu", Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -62,6 +67,8 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
                 }
             }
         });
+
+
 
 
     }
@@ -109,6 +116,11 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
         btnXacNhan = findViewById(R.id.btnXacNhan);
         btnTroVe = findViewById(R.id.btnTroVe);
         ckDonPhong = findViewById(R.id.ckDonPhong);
+        ckThucAn = findViewById(R.id.ckThucAn);
+        ckTuLanh = findViewById(R.id.ckTuLanh);
+        ckMaKM = findViewById(R.id.ckMaKM);
+        ckVatDung = findViewById(R.id.ckVatDung);
+        ckRuou = findViewById(R.id.ckVatDung);
 
 
     }

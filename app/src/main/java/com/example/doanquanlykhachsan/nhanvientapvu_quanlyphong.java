@@ -143,24 +143,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                     }
                 });
 
-//                timkiemphong.clear();
-//                if(!timkiem.isEmpty()){
-//                    for (int i = 0; i < data.size(); i++) {
-//                        if (data.get(i).getTen().toLowerCase().contains(timkiem)) {
-//                            //Toast.makeText(getApplicationContext(), data.get(i).getMa(), Toast.LENGTH_SHORT).show();
-//                            timkiemphong.add(data.get(i));
-//                            nhanvientapvu.notifyDataSetChanged();
-//                        }
-//
-//                    }
-//                    nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);
-//                    lvQuanLyPhong.setAdapter(nhanvientapvu);
-//
-//                }
-//
-//                else {
-//                    khoitao();
-//                }
+
 
 
             }
@@ -188,7 +171,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                                         nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
 
 
-                                        if (qlphong.getPhong().equals(ma) && qlphong.getKiemtra() == true) {
+                                        if (qlphong.getPhong().equals(ma) && qlphong.get() == true) {
 
                                             //Kiểm tra nếu dữ liệu = true thì remove phòng
                                             //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();

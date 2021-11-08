@@ -45,6 +45,7 @@ public class custom_nhanvientapvu_qlphong extends ArrayAdapter {
         convertView = LayoutInflater.from(context).inflate(resource,null);
         TextView tvPhong = convertView.findViewById(R.id.tvPhong);
         Button btnKiemTra = convertView.findViewById(R.id.btnKiemTra);
+
         //ListView lvQuanLyPhong = convertView.findViewById(R.id.lvQuanLyPhong);
 
         Room room = data.get(position);
