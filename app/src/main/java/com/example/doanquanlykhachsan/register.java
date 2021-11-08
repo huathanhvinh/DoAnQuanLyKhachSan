@@ -27,11 +27,10 @@ import java.util.ArrayList;
 
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
-    private EditText txtUserName, txtPassWord, txtsdt,txtNhapLaiMK;
+    private EditText txtUserName, txtPassWord, txtsdt, txtNhapLaiMK;
     private CheckBox ckbDieuKhoan;
     String ma = "KH0";
-    ArrayList<User> userList = new ArrayList<>();
-
+    boolean issdt = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,61 +40,6 @@ public class register extends AppCompatActivity {
         setEvent();
 
     }
-
-    private void setEvent() {
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), sign_in.class));
-            }
-        });
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String username = txtUserName.getText().toString();
-                String password = txtPassWord.getText().toString();
-                String nhaplaimk = txtNhapLaiMK.getText().toString();
-                String phone = txtsdt.getText().toString();
-                if (username.isEmpty()||password.isEmpty()||nhaplaimk.isEmpty()||phone.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Có thông tin để trống,vui lòng nhập đầy đủ thông tin" , Toast.LENGTH_SHORT).show();
-                }
-                if (!password.equals(nhaplaimk) ){
-                    Toast.makeText(getApplicationContext(),"Mật khẩu không chính xác vui lòng nhập lại", Toast.LENGTH_SHORT).show();
-                }
-                if (ckbDieuKhoan.isChecked() == false){
-                    Toast.makeText(getApplicationContext(),"Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
-
-                }
-                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        for (DataSnapshot ds : snapshot.getChildren()){
-
-                            User user = ds.getValue(User.class);
-                            userList.add(user);
-                            if (txtsdt.getText().toString().equals(ds.child("Sdt").getValue(String.class))){
-                                Toast.makeText(getApplicationContext(),"Sdt trung", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-            }
-        });
-    }
-
-
-
-
-//check email already exist or not.
-
 
     private void setControl() {
         txtsdt = findViewById(R.id.txtPhone);
@@ -108,4 +52,98 @@ public class register extends AppCompatActivity {
     }
 
 
+    private void setEvent() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), sign_in.class));
+            }
+        });
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String username = txtUserName.getText().toString();
+                String password = txtPassWord.getText().toString();
+                String nhaplaimk = txtNhapLaiMK.getText().toString();
+                String phone = txtsdt.getText().toString();
+                if (username.isEmpty() || password.isEmpty() || nhaplaimk.isEmpty() || phone.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Có thông tin để trống,vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
+                if (!password.equals(nhaplaimk)) {
+                    Toast.makeText(getApplicationContext(), "Mật khẩu không chính xác vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                }
+                if (ckbDieuKhoan.isChecked() == false) {
+                    Toast.makeText(getApplicationContext(), "Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                User user = ds.getValue(User.class);
+                                if (phone.equals(user.getSdt().toString())) {
+                                    issdt = true;
+                                    Toast.makeText(getApplicationContext(), "Sdt trung", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    issdt = false;
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    if(issdt==false)
+                    register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+                }
+
+            }
+        });
+    }
+
+
+    //check email already exist or not.
+    private void register(String Email, String Pass) {
+        //check email already exist or not.
+        StaticConfig.fAuth.fetchSignInMethodsForEmail(txtUserName.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                        boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
+                        if (isNewUser) {
+                            StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isComplete()) {
+                                        UpdateUser();
+                                        Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "email da ton tai", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+    }
+
+    private void UpdateUser() {
+        Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), 3);
+        StaticConfig.mUser.child(id).setValue(user);
+        startActivity(intent);
+    }
 }
+
+
+
