@@ -66,6 +66,26 @@ public class register extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
 
                 }
+                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        for (DataSnapshot ds : snapshot.getChildren()){
+
+                            User user = ds.getValue(User.class);
+                            userList.add(user);
+                            if (txtsdt.getText().toString().equals(ds.child("Sdt").getValue(String.class))){
+                                Toast.makeText(getApplicationContext(),"Sdt trung", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });
