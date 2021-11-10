@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Đăng ký dịch vụ"
+            android:text="Dịch vụ"
             android:textColor="#F4F4EF"
             android:textSize="35dp"
             android:textStyle="bold" />
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <EditText
+            android:id="@+id/etTimKiem"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,29 +43,7 @@
             android:layout_marginLeft="10dp"
             android:src="@drawable/icon_timkiem" />
     </LinearLayout>
-<!--    <LinearLayout-->
-<!--        android:gravity="center"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1">-->
-<!--        <CheckBox-->
-<!--            android:layout_gravity="center"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="Đã dọn"-->
-<!--            android:textColor="#F4F4EF" />-->
 
-<!--        <CheckBox-->
-<!--            android:layout_gravity="center"-->
-<!--            android:textSize="25dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="Chưa dọn"-->
-<!--            android:textColor="#F4F4EF" />-->
-<!--    </LinearLayout>-->
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
@@ -79,6 +58,7 @@
             android:textSize="25dp" />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="400dp"
@@ -89,7 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
         </ListView>
     </LinearLayout>
     <LinearLayout

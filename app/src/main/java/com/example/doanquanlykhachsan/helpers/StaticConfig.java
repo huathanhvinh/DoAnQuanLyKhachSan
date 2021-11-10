@@ -37,6 +37,7 @@ public class StaticConfig {
     public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
     public static DatabaseReference mLuong = Database.getReference("NhanVien_Luong");
 
+
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp
     public static Long tsLong = System.currentTimeMillis() / 1000;
