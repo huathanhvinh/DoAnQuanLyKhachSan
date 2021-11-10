@@ -119,7 +119,7 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
-                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone))  {
                                 String ma = nv.getMaFB();
                                 StaticConfig.mNhanVien_LichLamViec.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
                                 StaticConfig.mNhanVien_LichLamViec.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
