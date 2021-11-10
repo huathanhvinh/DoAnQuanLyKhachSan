@@ -98,7 +98,7 @@ public class register extends AppCompatActivity {
                         }
                     });
                     if(issdt==false)
-                    register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+                        register(txtUserName.getText().toString(), txtPassWord.getText().toString());
                 }
 
             }
@@ -139,7 +139,7 @@ public class register extends AppCompatActivity {
     private void UpdateUser() {
         Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), 3);
+        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), txtPassWord.getText().toString(),4);
         StaticConfig.mUser.child(id).setValue(user);
         startActivity(intent);
     }
