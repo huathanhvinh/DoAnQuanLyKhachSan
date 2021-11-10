@@ -35,7 +35,7 @@ public class StaticConfig {
 
     public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
 
-    public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamviec");
+    public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
     //sdt cua user hien tai
     public static String currentphone = "";
     public static final int PICK_IMAGE_REQUEST = 10;

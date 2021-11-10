@@ -41,14 +41,12 @@ public class NVTN_lichlamviec extends AppCompatActivity {
 
     private void KhoiTao() {
         //qq
-        Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_SHORT).show();
         StaticConfig.mNhanVien_LichLamViec.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     NhanVien_LichLamViec nvtn = ds.getValue(NhanVien_LichLamViec.class);
-                    if (nvtn.getSoDienThoai().equals("0933123003")) {
-                        Toast.makeText(getApplicationContext(), "hello1", Toast.LENGTH_SHORT).show();
+                    if (nvtn.getSoDienThoai().equals(StaticConfig.currentphone)) {
                         tvTenNV.setText(nvtn.getTenNV());
                         tvCaLam.setText(nvtn.getCaLam());
                         tvGhiChu.setText(nvtn.getGhiChu());
@@ -60,7 +58,6 @@ public class NVTN_lichlamviec extends AppCompatActivity {
 
             }
         });
-        Log.e("0933123003",StaticConfig.currentphone);
     }
 
     private void setConTrol() {

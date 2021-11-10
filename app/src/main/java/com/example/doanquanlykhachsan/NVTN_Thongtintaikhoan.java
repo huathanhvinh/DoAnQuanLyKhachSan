@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,9 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
+import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -68,17 +72,69 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtTenNV.getText().toString().isEmpty() || edtSoDT.getText().toString().isEmpty() || edtCMND.getText().toString().isEmpty())
+                if (edtTenNV.getText().toString().isEmpty() ||  edtCMND.getText().toString().isEmpty())
                 {
                     Toast.makeText(getApplicationContext(), "không được bỏ trống", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                else
+                StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                String ma = nv.getMaFB();
+                                StaticConfig.mNhanVien.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                StaticConfig.mNhanVien.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                            }
+                        }
+                    }
 
-                StaticConfig.mNhanVien.child(maNV).child("tenNV").setValue(edtTenNV.getText().toString());
-                StaticConfig.mNhanVien.child(maNV).child("soDienThoai").setValue(edtSoDT.getText().toString());
-                StaticConfig.mNhanVien.child(maNV).child("cmnd").setValue(edtCMND.getText().toString());
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                StaticConfig.mNhanVien_Luong.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                String ma = nv.getMaFB();
+                                StaticConfig.mNhanVien_Luong.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                StaticConfig.mNhanVien_Luong.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                StaticConfig.mNhanVien_LichLamViec.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            NhanVien_LichLamViec nv = ds.getValue(NhanVien_LichLamViec.class);
+                            if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                                String ma = nv.getMaFB();
+                                StaticConfig.mNhanVien_LichLamViec.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
+                                StaticConfig.mNhanVien_LichLamViec.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
                 Toast.makeText(getApplicationContext(), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), NVTN_Thongtintaikhoan.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
             }
         });
         btnTroVe.setOnClickListener(new View.OnClickListener() {

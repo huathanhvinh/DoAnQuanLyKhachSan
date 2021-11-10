@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.NhanVien_Luong;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,15 +30,16 @@ public class NVTN_Thongtinluong extends AppCompatActivity {
     }
 
     private void KhoiTao() {
-        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+        StaticConfig.mNhanVien_Luong.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    NhanVien nv = ds.getValue(NhanVien.class);
+                    NhanVien_Luong nv = ds.getValue(NhanVien_Luong.class);
                     if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
                         tvLuong.setText(nv.getLuong());
                         tvLoaiNV.setText(nv.getChucVu());
                         tvTenNV.setText(nv.getTenNV());
+                        tvTienThuong.setText(nv.getTienThuong());
                     }
                 }
             }
