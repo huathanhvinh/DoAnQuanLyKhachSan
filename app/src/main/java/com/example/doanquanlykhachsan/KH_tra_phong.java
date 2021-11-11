@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -96,13 +100,40 @@ public class KH_tra_phong extends AppCompatActivity {
     //Chưa show
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void thongbao() {
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(KH_tra_phong.this, "Thong bao")
-                .setSmallIcon(R.drawable.logo)
-                .setContentTitle("Trả phòng")
-                .setContentText("Trả Phòng thành công")
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0, notification.build());
+//        NotificationCompat.Builder notification = new NotificationCompat.Builder(KH_tra_phong.this, "Thong bao")
+//                .setSmallIcon(R.drawable.logo)
+//                .setContentTitle("Trả phòng")
+//                .setContentText("Trả Phòng thành công")
+//                .setPriority(NotificationCompat.PRIORITY_HIGH);
+//        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        manager.notify(0, notification.build());
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this, "channelId")
+                        .setSmallIcon(R.drawable.ic_launcher_background)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background))
+                        .setContentTitle(getString(R.string.project_Id))
+                        .setContentText("Trả phòng")
+                        .setAutoCancel(true)
+                        .setDefaults(Notification.DEFAULT_ALL)
+                        .setPriority(NotificationManager.IMPORTANCE_HIGH);
+
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
+
+        // Since android Oreo notification channel is needed.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "channelId",
+                    "Channel human readable title",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        notificationManager.notify(0, notificationBuilder.build());
 //
 //        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 //        builder.setSmallIcon(R.drawable.logo)
