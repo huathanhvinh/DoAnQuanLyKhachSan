@@ -26,18 +26,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
         //màn hình loading....
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (StaticConfig.fAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
-                } else {
-                    startActivity(new Intent(getApplicationContext(), sign_in.class));
-                }
-            }
-        }, 2500);
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (StaticConfig.fAuth.getCurrentUser() != null) {
+//                    startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
+//                } else {
+//                    startActivity(new Intent(getApplicationContext(), sign_in.class));
+//                }
+//            }
+//        }, 2500);
 
     }
 
