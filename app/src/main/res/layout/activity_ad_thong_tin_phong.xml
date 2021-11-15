@@ -9,272 +9,291 @@
     android:weightSum="10"
     android:orientation="vertical">
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <TextView
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
+            android:gravity="center"
             android:text="Thông Tin Phòng"
             android:textColor="#fff"
-            android:textSize="30dp">
-        </TextView>
+            android:textSize="30dp"></TextView>
     </LinearLayout>
-    <LinearLayout
-        android:padding="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#fff"
-        android:layout_weight="3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="3"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_gravity="center"
-                android:text="Mã phòng: "
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:text="P01"
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_gravity="center"
-                android:text="Loại Phòng: "
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-            <CheckBox
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                android:textSize="25dp"
-                android:text="Đơn"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </CheckBox>
-            <CheckBox
-                android:layout_marginLeft="10dp"
-                android:textColor="#000"
-                android:textSize="25dp"
-                android:text="Đôi"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </CheckBox>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_gravity="center"
-                android:text="Tình Trạng: "
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-            <CheckBox
-                android:layout_marginLeft="5dp"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:text="Đầy"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </CheckBox>
-            <CheckBox
-                android:layout_marginLeft="5dp"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:text="Trống"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </CheckBox>
-            <CheckBox
-                android:layout_marginLeft="5dp"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:text="Chờ xử lý"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </CheckBox>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:src="@drawable/icon_change"></ImageButton>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sửa"
-                android:textColor="#fff"
-                android:textSize="18dp"></TextView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="100dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:src="@drawable/icon_delete"></ImageButton>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Xóa"
-                android:textColor="#fff"
-                android:textSize="18dp"></TextView>
-        </LinearLayout>
-    </LinearLayout>
     <LinearLayout
-        android:padding="5dp"
-        android:layout_weight="4"
-        android:weightSum="5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal">
+        android:layout_weight="2">
+
         <ImageView
-            android:src="@drawable/img_avatar"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-        </ImageView>
-        <LinearLayout
-            android:layout_marginTop="50dp"
-            android:padding="5dp"
-            android:weightSum="5"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_gravity="center"
-                    android:text="Mã phòng: "
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center"
-                    android:text="P01"
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_gravity="center"
-                    android:text="Loại Phòng: "
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center"
-                    android:text="Đơn"
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/im_phong"></ImageView>
+    </LinearLayout>
 
-            </LinearLayout>
-            <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="6"
+        android:background="#3a5263"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Số Phòng"
+                android:textSize="20dp"
+                android:textColor="#fff"
                 android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_gravity="center"
-                    android:text="Tình Trạng: "
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="center"
-                    android:text="Trống"
-                    android:textSize="25dp"
-                    android:textColor="#fff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-            </LinearLayout>
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <Spinner
+                android:id="@+id/spSoPhongTT"
+                android:entries="@array/soPhong"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </Spinner>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Lầu"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <Spinner
+                android:id="@+id/spLauTT"
+                android:entries="@array/lauPhong"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </Spinner>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Loại Phòng"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <Spinner
+                android:id="@+id/spLoaiPhongTT"
+                android:entries="@array/loaiPhong"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </Spinner>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Tên Phòng"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:id="@+id/tvTenPhongTT"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Mã Phòng"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <TextView
+                android:id="@+id/tvMaPhongTT"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Giá Giờ"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <EditText
+                android:focusable="false"
+                android:id="@+id/edGiaGioTT"
+                android:inputType="number"
+                android:hint="Giá theo giờ"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Giá Ngày"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <EditText
+                android:focusable="false"
+                android:id="@+id/edGiaNgayTT"
+                android:inputType="number"
+                android:hint="Giá theo ngày"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </EditText>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Mô tả"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <EditText
+                android:focusable="false"
+                android:id="@+id/edMotaTT"
+                android:gravity="top"
+                android:hint="Mô tả"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </EditText>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:gravity="center"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+
         <Button
+            android:id="@+id/btnSuaPhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#25BDAF"
+            android:text="Sửa"
+            android:textSize="20dp"></Button>
+
+        <Button
+            android:id="@+id/btnXoaPhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:layout_width="143dp"
+            android:backgroundTint="#25BDAF"
+            android:text="Xóa"
+            android:textSize="20dp"></Button>
+
+        <Button
+            android:id="@+id/btnTroVe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
             android:backgroundTint="#25BDAF"
             android:text="Trở Về"
             android:textSize="20dp"></Button>

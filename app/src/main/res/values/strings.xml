@@ -17,4 +17,27 @@
         <item>Chiều</item>
         <item>Tối</item>
     </array>
+    <array name="soPhong">
+        <item>Phòng 1</item>
+        <item>Phòng 2</item>
+        <item>Phòng 3</item>
+        <item>Phòng 4</item>
+        <item>Phòng 5</item>
+        <item>Phòng 6</item>
+        <item>Phòng 7</item>
+        <item>Phòng 8</item>
+        <item>Phòng 9</item>
+        <item>Phòng 10</item>
+    </array>
+    <array name="lauPhong">
+        <item>Tầng 1</item>
+        <item>Tầng 2</item>
+        <item>Tầng 3</item>
+        <item>Tầng 4</item>
+        <item>Tầng 5</item>
+    </array>
+    <array name="loaiPhong">
+        <item>Đơn</item>
+        <item>Đôi</item>
+    </array>
 </resources>

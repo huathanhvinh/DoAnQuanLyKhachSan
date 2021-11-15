@@ -11,6 +11,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.KhuyenMai;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.Phong;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,19 +29,6 @@ public class MainActivity extends AppCompatActivity {
 //        NhanVien nv = new NhanVien(4,key,"Trần Phi Du","0933123004","Đồng Nai","01/01/2003","1192102102","10,000,000","Trưa","Quản Lý");
 //        StaticConfig.mNhanVien.child(key).setValue(nv);
 
-//        cmnd:
-//        "0859300312"
-//        diaChi:
-//        "sadas"
-//        maFB:
-//        "-MnW48MCQg_sQ1EtnBSv"
-//        sdtKH:
-//        "12345678"
-//        stt:
-//        6
-//        tenKH:
-//        "le hoang duy"
-
 //        String key = StaticConfig.mKhachHang.push().getKey();
 //        KhachHang kh = new KhachHang(6,key,"le hoang duy","12345678","sadas","0859300312");
 //        StaticConfig.mKhachHang.child(key).setValue(kh);
@@ -49,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
 //        KhachHang kh = new KhachHang(4,key,"Nguyễn Văn Duy","0933123008","Q9, HCM","346081888");
 //        StaticConfig.mKhachHang.child(key).setValue(kh);
 
-//        <item>Dịch vụ giặc ủi quần áo</item>
-//        <item>Dịch vụ spa</item>
-//        <item>Dịch vụ trông trẻ</item>
-//        <item>Dịch vụ phục vụ phòng</item>
 //        String key = StaticConfig.mDichVu.push().getKey();
 //        DichVu dv = new DichVu(4,key,"Dịch vụ phục vụ phòng",50000,"Ngày",0,"Dọn phòng giúp bạn");
 //        StaticConfig.mDichVu.child(key).setValue(dv);
@@ -68,7 +52,18 @@ public class MainActivity extends AppCompatActivity {
 //        String key3 = StaticConfig.mKhuyenMai.push().getKey();
 //        KhuyenMai km3 = new KhuyenMai(key3,"00dkanxa","Lễ Khánh Thành","01/01/2021","03/01/2021",5,"Khánh thành","Đã Kết Thúc");
 //        StaticConfig.mKhuyenMai.child(key3).setValue(km3);
+//
+//        String key = StaticConfig.mPhong.push().getKey();
+//        Phong p = new Phong(key,"p10t1","Phòng 10_Tầng 1","trống","2","Phòng đẹp","10",1,200000,80000);
+//        StaticConfig.mPhong.child(key).setValue(p);
+
+        //Công việc cho ngày 17.11 --
+        //Thêm dịch vụ
+        //fix lỗi vietkey tại các edittext hiển thị
+        //làm thêm nút refresh tại cách màn hình danh sách
+
         startActivity(new Intent(getApplicationContext(),AD_MenuAdmin.class));
+
     }
 
 }

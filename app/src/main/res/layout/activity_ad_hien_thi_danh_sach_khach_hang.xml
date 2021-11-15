@@ -29,17 +29,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/edTimKiem"
             android:layout_gravity="center"
-            android:hint="Nhập tên khách hàng cần tìm..."
+            android:hint="Nhập họ tên cần tìm..."
             android:padding="15dp"
             android:background="#fff"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
         </EditText>
         <ImageButton
+            android:id="@+id/imTimKiem"
             android:layout_gravity="center"
             android:layout_width="70dp"
             android:layout_height="70dp"
