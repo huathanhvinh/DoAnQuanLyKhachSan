@@ -88,6 +88,7 @@
                 android:layout_marginRight="30dp"
                 >
                 <EditText
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -126,6 +127,7 @@
                 android:layout_marginRight="30dp"
                 >
                 <EditText
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"

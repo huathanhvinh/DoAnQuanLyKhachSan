@@ -77,6 +77,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
             <EditText
+                android:id="@+id/otp_oldphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
@@ -101,6 +102,7 @@
             android:layout_height="0dp"
             android:layout_weight="1">
             <EditText
+                android:id="@+id/otp_newphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
@@ -133,6 +135,7 @@
                     android:layout_marginRight="5dp"
                     >
                     <EditText
+                        android:id="@+id/Capcha"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#fff"
@@ -146,6 +149,7 @@
                     android:layout_marginLeft="5dp"
                     >
                     <TextView
+                        android:id="@+id/tvCapcha"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:text="Capcha"
@@ -161,6 +165,7 @@
                     android:layout_weight="1"
                     >
                     <ImageView
+                        android:id="@+id/imgChangeCapcha"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/icon_change"
@@ -189,6 +194,7 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/btntieptuc"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:text="Tiếp tục"
@@ -203,6 +209,7 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/btnTroVe"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:text="Trở về"

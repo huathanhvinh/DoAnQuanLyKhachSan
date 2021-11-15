@@ -78,8 +78,7 @@ public class forgot_password extends AppCompatActivity {
                         for (DataSnapshot ds : snapshot.getChildren()){
                             User user = ds.getValue(User.class);
                             if (username.equals(user.getEmail())){
-                                pass = user.getPassword();
-
+                                pass = user.getMatKhau();
                             }
                         }
 

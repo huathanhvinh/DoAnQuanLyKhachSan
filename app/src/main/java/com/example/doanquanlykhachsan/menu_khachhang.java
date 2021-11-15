@@ -12,10 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Room;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -65,25 +69,20 @@ public class menu_khachhang extends AppCompatActivity {
         avatar = findViewById(R.id.avatar);
         name = findViewById(R.id.name);
         dangxuat = findViewById(R.id.dangxuat);
-//        for (i = 10; i < 30; i++) {
-//            key = "L0" + i;
-//            Room room = new Room(key, "phog " + i, "nor", "Free", 200, 50, i);
-//            StaticConfig.mRoom.child(key).setValue(room);
-//        }
-
-        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds:snapshot.getChildren()){
-                    Log.e("id ",ds.child("ma").getValue(String.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+        //test update pass
+//        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+//        user.updatePassword("dang01").addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void unused) {
+//                Toast.makeText(getApplicationContext(), "update pass ok", Toast.LENGTH_SHORT).show();
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.e("loi",e.getMessage());
+//            }
+//        });
+        StaticConfig.mNguoidung.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
@@ -95,5 +94,6 @@ public class menu_khachhang extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
     }
 }

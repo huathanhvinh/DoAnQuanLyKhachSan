@@ -139,7 +139,8 @@ public class register extends AppCompatActivity {
     private void UpdateUser() {
         Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), txtPassWord.getText().toString(),4);
+        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), txtPassWord.getText().toString(),
+                "0000",4);
         StaticConfig.mUser.child(id).setValue(user);
         startActivity(intent);
     }

@@ -25,6 +25,12 @@
             android:name=".register"
             android:exported="false" />
         <activity
+            android:name=".update_phonenumber_1"
+            android:exported="false" />
+        <activity
+            android:name=".update_phonenumber_2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

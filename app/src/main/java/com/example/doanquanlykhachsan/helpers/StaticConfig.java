@@ -24,6 +24,7 @@ public class StaticConfig {
     public static StorageReference storageReference = storage.getReference();
     public static String currentuser = "";
     public static DatabaseReference mUser = Database.getReference("User");
+    public static DatabaseReference mNguoidung = Database.getReference("NguoiDung");
 
     //them du lieu phong
     public static DatabaseReference mRoom = Database.getReference("Room");
