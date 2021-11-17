@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
-            android:name=".NVTN_Thongbao"
-            android:exported="false" />
+            android:name=".NVTN_Thong_Bao"
+            android:exported="false"
+            android:label="@string/title_activity_nvtn_thong_bao"
+            android:theme="@style/Theme.DoAnQuanLyKhachSan.NoActionBar" />
         <activity
             android:name=".NVTN_Thongtinluong"
             android:exported="false" />
