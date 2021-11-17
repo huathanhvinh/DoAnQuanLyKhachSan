@@ -18,15 +18,17 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_danh_sach_phong_trong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_gio.xml" value="0.22" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_ngay.xml" value="0.14666666666666667" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_doi_phong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_item_danh_sach_phong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_tra_phong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_xac_nhan_dat_phong.xml" value="0.22" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.1796875" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/item_phong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_danh_sach_dat_phong_theo_ngay.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_danh_sach_phong.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_dich_vu.xml" value="0.3333333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_gio.xml" value="0.10666666666666667" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_gio.xml" value="0.22" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_ngay.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_theo_gio.xml" value="0.1796875" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_xac_nhan_dat_phong.xml" value="0.1796875" />

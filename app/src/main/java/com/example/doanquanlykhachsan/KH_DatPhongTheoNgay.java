@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Room;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -41,18 +41,15 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
     CheckBox cboChonHet;
 
 
-    ArrayList<Room> roomArrayList = new ArrayList<>();
+    ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomPhongTheoGiaNgay customRoom;
-    Room room;
+    Phong phong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_ngay);
-        //clear checkbox
         StaticConfig.arrayListTemporaryRoom.clear();
-
-
 
         setConTrol();
         //lay ngay hien tai
@@ -66,12 +63,12 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         //lay ngay hien tai sau 1 ngay
         calendar.set(nam, thang, ngay + 1);
         tvNgaytraPhong.setText(simpleDateFormat.format(calendar.getTime()));
-
+        //phan biet man hinh
         StaticConfig.sXacNhan = "ngay";
 
         //ngay tu chi tiet
-        StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText()+"";
-        StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText()+"";
+        StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText() + "";
+        StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText() + "";
 
         setEvent();
 
@@ -79,7 +76,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
 
     private void setEvent() {
 
-        customRoom = new KH_CusTomPhongTheoGiaNgay(getApplicationContext(), R.layout.kh_item_ds_phong_gia_ngay, roomArrayList);
+        customRoom = new KH_CusTomPhongTheoGiaNgay(getApplicationContext(), R.layout.kh_item_ds_phong_gia_ngay, arrayList);
         lvDanhSachPhongNgay.setAdapter(customRoom);
 
         //lay danh sach phong trong
@@ -88,16 +85,16 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                roomArrayList.removeAll(roomArrayList);
+                arrayList.removeAll(arrayList);
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    room = ds.getValue(Room.class);
-                    if (ds.child("tinhtrang").getValue(String.class).equals("trống")) {
-                        roomArrayList.add(room);
+                    phong = ds.getValue(Phong.class);
+                    if (ds.child("trangThai").getValue(String.class).equals("trống")) {
+                        arrayList.add(phong);
                     }
                 }
                 customRoom.notifyDataSetChanged();
                 //so luong phong trong
-                tvSoPhongTrong.setText(roomArrayList.size() + "");
+                tvSoPhongTrong.setText(arrayList.size() + "");
             }
 
             @Override
@@ -186,7 +183,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 tvNgayNhanPhong.setText(simpleDateFormat.format(calendar.getTime()));
                 //ngay tu chi tiet
-                StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText()+"";
+                StaticConfig.NgayNhanXacNhanPhong = tvNgayNhanPhong.getText() + "";
 
             }
         }, nam, thang, ngay);
@@ -205,7 +202,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 tvNgaytraPhong.setText(simpleDateFormat.format(calendar.getTime()));
                 //ngay tu chi tiet
-                StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText()+"";
+                StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText() + "";
             }
         }, nam, thang, ngay + 1);
         datePickerDialog.show();
@@ -216,7 +213,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         tvTenPHong = findViewById(R.id.tvTenPhong);
         tvLau = findViewById(R.id.tvLau);
         tvLoai = findViewById(R.id.tvLoai);
-        tvSoluong = findViewById(R.id.tvSoLuong);
+        tvSoluong = findViewById(R.id.tvMoTa);
         tvGia = findViewById(R.id.tvGiaNgay);
         tvSoPhongTrong = findViewById(R.id.tvSoPhongTrong);
         tvChiTiet = findViewById(R.id.tvChiTiet);
@@ -229,6 +226,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         cboChonHet = findViewById(R.id.cboChonHet);
     }
 
+    //dinh dang chuoi thanh ngay
     public static boolean CheckDates(String startDate, String endDate) {
 
         SimpleDateFormat dfDate = new SimpleDateFormat("dd/MM/yyyy");

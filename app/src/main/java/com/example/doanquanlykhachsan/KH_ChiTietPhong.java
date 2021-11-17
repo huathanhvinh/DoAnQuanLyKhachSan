@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Dichvu;
-import com.example.doanquanlykhachsan.model.Room;
-import com.example.doanquanlykhachsan.model.RoomRented;
-import com.example.doanquanlykhachsan.model.SelectedService;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -22,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class KH_ChiTietPhong extends AppCompatActivity {
-    TextView tvTenPhong, tvLau, tvLoaiPhong, tvSoLuong, tvGia;
+    TextView tvTenPhong, tvLau, tvLoaiPhong, tvMoTa, tvGia;
     Button btnDatPhong, btntroVe;
     GridView gridView;
     ArrayList<Dichvu> data = new ArrayList<>();
@@ -32,19 +30,18 @@ public class KH_ChiTietPhong extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_chi_tiet_phong);
+        StaticConfig.arrayListTemporaryService.clear();
 
         setConTrol();
 
-        Room chitiet = (Room) getIntent().getSerializableExtra("chitiet");
-        tvTenPhong.setText(chitiet.getTen() + "");
-        tvLau.setText(chitiet.getSophong() + "");
+        Phong chitiet = (Phong) getIntent().getSerializableExtra("chitiet");
+        tvTenPhong.setText(chitiet.getTenPhong() + "");
+        tvLau.setText(chitiet.getLau() + "");
         tvLoaiPhong.setText(chitiet.getLoai() + "");
-        tvSoLuong.setText(chitiet.getSoluong() + "");
+        tvMoTa.setText(chitiet.getMoTa() + "");
         Float gia = (Float) getIntent().getFloatExtra("Gia", 0);
         tvGia.setText(gia + "");
         setEvent();
-        //Toast.makeText(getApplicationContext(),chitiet.getMa(), Toast.LENGTH_LONG).show();
-
 
     }
 
@@ -99,7 +96,7 @@ public class KH_ChiTietPhong extends AppCompatActivity {
         tvTenPhong = findViewById(R.id.tvTenPhong);
         tvLau = findViewById(R.id.tvLau);
         tvLoaiPhong = findViewById(R.id.tvLoaiPhong);
-        tvSoLuong = findViewById(R.id.tvSoLuong);
+        tvMoTa = findViewById(R.id.tvMoTa);
         tvGia = findViewById(R.id.tvGia);
         btnDatPhong = findViewById(R.id.btnDatPhong);
         btntroVe = findViewById(R.id.btnTroVe);

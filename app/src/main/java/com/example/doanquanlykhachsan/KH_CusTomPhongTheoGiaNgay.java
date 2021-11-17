@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Room;
+import com.example.doanquanlykhachsan.model.Phong;
 
 import java.util.ArrayList;
 
@@ -23,9 +23,9 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
 
     Context context;
     int resource;
-    ArrayList<Room> data;
+    ArrayList<Phong> data;
 
-    public KH_CusTomPhongTheoGiaNgay(@NonNull Context context, int resource, ArrayList<Room> data) {
+    public KH_CusTomPhongTheoGiaNgay(@NonNull Context context, int resource, ArrayList<Phong> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -44,19 +44,19 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
         TextView tvTenPhong = convertView.findViewById(R.id.tvTenPhong);
         TextView tvLau = convertView.findViewById(R.id.tvLau);
         TextView tvLoai = convertView.findViewById(R.id.tvLoai);
-        TextView tvSoLuong = convertView.findViewById(R.id.tvSoLuong);
+        TextView tvMoTa = convertView.findViewById(R.id.tvMoTa);
         TextView tvGiaNgay = convertView.findViewById(R.id.tvGiaNgay);
         TextView tvChiTiet = convertView.findViewById(R.id.tvChiTiet);
         CheckBox cboNgay = convertView.findViewById(R.id.cboNgay);
 //        TextView tvNgayNhanPhong = convertView.findViewById(R.id.tvNgayNhanPhong);
 //        TextView tvNgaytraPhong = convertView.findViewById(R.id.tvNgayTraPhong);
-        Room room = data.get(position);
+        Phong phong = data.get(position);
 
-        tvTenPhong.setText(room.getTen());
-        tvLau.setText(room.getSophong() + "");
-        tvLoai.setText(room.getLoai() + "");
-        tvSoLuong.setText(room.getSoluong() + "");
-        tvGiaNgay.setText(String.valueOf(room.getGiangay()));
+        tvTenPhong.setText(phong.getTenPhong());
+        tvLau.setText(phong.getLau() + "");
+        tvLoai.setText(phong.getLoai() + "");
+        tvMoTa.setText(phong.getMoTa() + "");
+        tvGiaNgay.setText(String.valueOf(phong.getGiaNgay()));
 
 
         //checkAll
@@ -66,7 +66,7 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
             StaticConfig.arrayListTemporaryRoom.addAll(data);
         } else {
             for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
-                if (StaticConfig.arrayListTemporaryRoom.get(i).getMa().equals(room.getMa())) {
+                if (StaticConfig.arrayListTemporaryRoom.get(i).getMaFB().equals(phong.getMaFB())) {
                     cboNgay.setChecked(true);
                 }
                 if (StaticConfig.arrayListTemporaryRoom.size() == data.size()) {
@@ -83,25 +83,26 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), KH_ChiTietPhong.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("chitiet", room);
-                bundle.putFloat("Gia", room.getGiangay());
+                bundle.putSerializable("chitiet", phong);
+                bundle.putFloat("Gia", phong.getGiaNgay());
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
                 //them phong tu chi tiet phong
                 StaticConfig.arrayListTemporaryRoom.clear();
-                StaticConfig.arrayListTemporaryRoom.add(room);
+                StaticConfig.arrayListTemporaryRoom.add(phong);
 
             }
         });
+        //checkbox tung phong
         cboNgay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (cboNgay.isChecked()) {
-                    StaticConfig.arrayListTemporaryRoom.add(room);
+                    StaticConfig.arrayListTemporaryRoom.add(phong);
                 } else {
-                    StaticConfig.arrayListTemporaryRoom.remove(room);
+                    StaticConfig.arrayListTemporaryRoom.remove(phong);
                 }
             }
         });

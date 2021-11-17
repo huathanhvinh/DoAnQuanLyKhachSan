@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +23,7 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
     private ListView listView;
     private Doi_Phong_adapter adapter;
     private Button btntrove;
-    private ArrayList<Room> data = new ArrayList<>();
+    private ArrayList<Phong> data = new ArrayList<>();
 
 
     @Override
@@ -37,10 +38,10 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room room = data.get(position);
+                Phong phong = data.get(position);
                 Intent intent = new Intent(getApplicationContext(), KH_doi_phong.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("chitiet", room);
+                bundle.putSerializable("chitiet", phong);
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -64,13 +65,13 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
 
     private void khoitao() {
         data.clear();
-        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
+        StaticConfig.mRoom.orderByChild("soPhong").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    Room room = ds.getValue(Room.class);
-                    if (ds.child("tinhtrang").getValue(String.class).equals("trống")) {
-                        data.add(room);
+                    Phong phong = ds.getValue(Phong.class);
+                    if (ds.child("trangThai").getValue(String.class).equals("trống")) {
+                        data.add(phong);
                     }
                     adapter.notifyDataSetChanged();
                 }

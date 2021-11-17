@@ -122,10 +122,10 @@ public class menu_khachhang extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("email").getValue(String.class).equals(emailhientai)) {
-                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
-                        name.setText(ds.child("name").getValue(String.class));
-                    }
+//                    if (ds.child("email").getValue(String.class).equals(emailhientai)) {
+//                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
+//                        name.setText(ds.child("name").getValue(String.class));
+//                    }
                 }
                 if (name.getText().toString().isEmpty()) {
                     name.setText(emailhientai);
@@ -140,9 +140,9 @@ public class menu_khachhang extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("id").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
-                    }
+//                    if (ds.child("id").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+//                        StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
+//                    }
                 }
             }
 

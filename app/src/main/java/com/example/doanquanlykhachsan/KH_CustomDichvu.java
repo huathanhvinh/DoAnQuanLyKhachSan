@@ -49,8 +49,8 @@ public class KH_CustomDichvu extends ArrayAdapter {
         cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                StaticConfig.arrayListTemporaryService.clear();
-                if (cboDichVu.isChecked()) {
+
+                if (cboDichVu.isChecked() == true) {
                     StaticConfig.arrayListTemporaryService.add(dv);
                 } else {
                     StaticConfig.arrayListTemporaryService.remove(dv);

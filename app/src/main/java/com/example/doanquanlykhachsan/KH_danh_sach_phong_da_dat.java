@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     private ListView listView;
     private Button btntrove, btndoiphonng;
-    private ArrayList<Room> data = new ArrayList<>();
+    private ArrayList<Phong> data = new ArrayList<>();
     private Phong_adapter adapter;
 
 
@@ -41,7 +42,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room room = data.get(position);
+                Phong phong = data.get(position);
                 for (int i = 0; i < listView.getChildCount(); i++) {
                     if (position == i) {
                         listView.getChildAt(i).setBackgroundColor(Color.WHITE);
@@ -89,16 +90,16 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
-                        String maphong = ds.child("sMaPH").getValue(String.class);
+                    if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)){
+                        String maphong = ds.child("maPhong").getValue(String.class);
                         data.clear();
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
-                                    Room room = ds.getValue(Room.class);
-                                    if (room.getMa().equals(maphong)) {
-                                        data.add(room);
+                                    Phong phong = ds.getValue(Phong.class);
+                                    if (phong.getMaFB().equals(maphong)) {
+                                        data.add(phong);
                                     }
                                     adapter.notifyDataSetChanged();
                                 }

@@ -46,9 +46,9 @@ public class KH_tra_phong extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren())
-                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)){
-                                StaticConfig.mRoom.child(ds.child("sMaPH").getValue(String.class)).child("tinhtrang").setValue("trống");
-                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).setValue(null);
+                            if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)){
+                                StaticConfig.mRoom.child(ds.child("maPhong").getValue(String.class)).child("trangThai").setValue("trống");
+                                StaticConfig.mRoomRented.child(ds.child("maFB").getValue(String.class)).setValue(null);
                             }
                     }
 
@@ -104,12 +104,12 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser)) {
-                        ngaynhan.setText(ds.child("sNgayNhan").getValue(String.class));
-                        ngaytra.setText(ds.child("sNgayTra").getValue(String.class));
-                        phongthue += ds.child("sMaPH").getValue(String.class) + " ";
+                    if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
+                        ngaynhan.setText(ds.child("thoiGianNhanPH").getValue(String.class));
+                        ngaytra.setText(ds.child("thoiGianTraPH").getValue(String.class));
+                        phongthue += ds.child("maPhong").getValue(String.class) + " ";
 
-                        if (ds.child("sManHinh").getValue(String.class).equals("ngay")) {
+                        if (ds.child("manHinh").getValue(String.class).equals("ngay")) {
                             songayo.setText(thoigian + " ngay");
                             DateDifference();
                         } else {

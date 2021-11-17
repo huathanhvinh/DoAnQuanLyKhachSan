@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.Room;
 import com.example.doanquanlykhachsan.model.RoomRented;
 import com.google.firebase.database.DataSnapshot;
@@ -20,13 +21,13 @@ import com.google.firebase.database.ValueEventListener;
 public class KH_doi_phong extends AppCompatActivity {
     private TextView chinhsach, tvtenphong;
     private Button btntrove, btnxacnhan;
-    Room chitiet;
+    Phong chitiet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_doi_phong);
-        chitiet = (Room) getIntent().getSerializableExtra("chitiet");
+        chitiet = (Phong) getIntent().getSerializableExtra("chitiet");
         SetControl();
         setEvnet();
     }
@@ -35,17 +36,17 @@ public class KH_doi_phong extends AppCompatActivity {
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.mRoom.child(StaticConfig.chon.getMa()).child("tinhtrang").setValue("trống");
-                StaticConfig.mRoom.child(chitiet.getMa()).child("tinhtrang").setValue("da dat");
+                StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("trống");
+                StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("đã đặt");
                 StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
-                            if (ds.child("sMaKH").getValue().toString().equals(StaticConfig.currentuser) && ds.child("sMaPH")
-                                    .getValue(String.class).equals(StaticConfig.chon.getMa())) {
-                                Log.d("test",ds.child("sMa").getValue(String.class));
-                                StaticConfig.mRoomRented.child(ds.child("sMa").getValue(String.class)).
-                                        child("sMaPH").setValue(chitiet.getMa());
+                            if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser) && ds.child("sMaPH")
+                                    .getValue(String.class).equals(StaticConfig.chon.getMaFB())) {
+                                Log.d("test",ds.child("maFB").getValue(String.class));
+                                StaticConfig.mRoomRented.child(ds.child("maFB").getValue(String.class)).
+                                        child("maPhong").setValue(chitiet.getMaFB());
                             }
                         }
                     }
@@ -78,6 +79,6 @@ public class KH_doi_phong extends AppCompatActivity {
         chinhsach = findViewById(R.id.chinhsach);
         btnxacnhan = findViewById(R.id.btnxacnhan);
         tvtenphong = findViewById(R.id.tvTenPhong);
-        tvtenphong.setText("Phòng " + chitiet.getSophong());
+        tvtenphong.setText("Phòng " + chitiet.getSoPhong());
     }
 }

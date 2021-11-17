@@ -12,6 +12,7 @@ public class Room implements Serializable {
     int sophong;
     int soluong;
 
+
     public Room(String ma, String ten, String loai, String tinhtrang, float giangay, float giagio, int sophong, int soluong) {
         this.ma = ma;
         this.ten = ten;

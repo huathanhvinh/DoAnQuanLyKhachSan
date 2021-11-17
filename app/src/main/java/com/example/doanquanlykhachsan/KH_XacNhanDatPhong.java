@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.example.doanquanlykhachsan.model.Room;
 import com.example.doanquanlykhachsan.model.RoomRented;
 import com.example.doanquanlykhachsan.model.SelectedService;
@@ -29,15 +31,17 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     TextView tvXnTenKhachHang, tvSoDienThoai, tvXnSoLuongPhong, tvDichVu, tvXnNhanPhong, tvXnTraPhong;
     EditText edtGhiChuKH;
 
-    ArrayList<Room> roomArrayList = new ArrayList<>();
+    ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomXacNhanDatPhong customRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_xac_nhan_dat_phong);
+
         setConTrol();
         setEvent();
+        //Toast.makeText(getApplicationContext(), StaticConfig.arrayListTemporaryService.size()+"", Toast.LENGTH_SHORT).show();
 
         //so luong phong
         tvXnSoLuongPhong.setText(StaticConfig.arrayListTemporaryRoom.size() + "");
@@ -51,24 +55,29 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         tvXnTraPhong.setText(ngaytra);
 
         //dịch vụ
+//        String dv = "";
+//        for(int i = 0;i< StaticConfig.arrayListTemporaryService.size();i++){
+//            dv += StaticConfig.arrayListTemporaryService.get(i).getTenDV()+ ", ";
+//        }
+        tvDichVu.setText(StaticConfig.arrayListTemporaryService.size() + "");
 
-        //thong tin khach hang
-        String tenhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        //taiKhoanHienTai
+        String taiKhoanHienTai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("email").getValue(String.class).equals(tenhientai)) {
+                    if (ds.child("taiKhoan").getValue(String.class).equals(taiKhoanHienTai)) {
                         StaticConfig.currentuser = ds.child("id").getValue(String.class);
                         tvXnTenKhachHang.setText(ds.child("name").getValue(String.class));
                         tvSoDienThoai.setText((ds.child("sdt").getValue(String.class)));
                     }
                 }
                 if (tvXnTenKhachHang.getText().toString().isEmpty()) {
-                    tvXnTenKhachHang.setText(tenhientai);
+                    tvXnTenKhachHang.setText(taiKhoanHienTai);
                 }
                 if (tvSoDienThoai.getText().toString().isEmpty()) {
-                    tvSoDienThoai.setText(tenhientai);
+                    tvSoDienThoai.setText(taiKhoanHienTai);
                 }
             }
 
@@ -85,20 +94,20 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang do
+                //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang hien tai
                 for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
-                    StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMa()).child("tinhtrang").setValue("đã đặt");
+                    StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("đã đặt");
                     String key = StaticConfig.mRoomRented.push().getKey();
-                    RoomRented roomRented = new RoomRented(key, StaticConfig.currentuser, StaticConfig.arrayListTemporaryRoom.get(i).getMa(),
+                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong(),
                             tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString());
-                    StaticConfig.mRoomRented.child(key).setValue(roomRented);
+                    StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
 
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
 
                         String key2 = StaticConfig.mDichVuDaChon.push().getKey();
                         SelectedService selectedService = new SelectedService(key2,
                                 StaticConfig.arrayListTemporaryService.get(j).getMaFB(), StaticConfig.arrayListTemporaryService.get(j).getTenDV(),
-                                StaticConfig.arrayListTemporaryRoom.get(i).getMa());
+                                StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong());
                         StaticConfig.mDichVuDaChon.child(key2).setValue(selectedService);
                     }
                 }
@@ -110,7 +119,6 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         btTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });

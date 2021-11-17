@@ -20,7 +20,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Room;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class KH_DatPhongTheoGio extends AppCompatActivity {
-    TextView tvTenPHong, tvLau, tvLoai, tvSoluong, tvGia, tvChiTiet, tvSoPhongTrong, tvGioNhanPhong, tvGiotraPhong;
+    TextView tvTenPHong, tvLau, tvLoai, tvMoTa, tvGia, tvChiTiet, tvSoPhongTrong, tvGioNhanPhong, tvGiotraPhong;
     ImageView imNhanPhong, imTraPhong;
     ListView lvDanhSachPhongGio;
     Button btnTroVe, btnDatPhong;
@@ -41,15 +41,15 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
     Boolean bTam = false;
 
 
-    ArrayList<Room> roomArrayList = new ArrayList<>();
+    ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomPhongTheoGiaGio customRoom;
-    Room room;
+    Phong phong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kh_dat_phong_theo_gio);
-        //clear checkbox
+
         StaticConfig.arrayListTemporaryRoom.clear();
 
         setConTrol();
@@ -73,7 +73,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
 
     private void setEvent() {
 
-        customRoom = new KH_CusTomPhongTheoGiaGio(getApplicationContext(), R.layout.kh_item_ds_phong_gia_gio, roomArrayList);
+        customRoom = new KH_CusTomPhongTheoGiaGio(getApplicationContext(), R.layout.kh_item_ds_phong_gia_gio, arrayList);
         lvDanhSachPhongGio.setAdapter(customRoom);
 
         cboChonHet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -95,16 +95,16 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                roomArrayList.removeAll(roomArrayList);
+                arrayList.removeAll(arrayList);
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    room = ds.getValue(Room.class);
-                    if (ds.child("tinhtrang").getValue(String.class).equals("trống")) {
-                        roomArrayList.add(room);
+                    phong = ds.getValue(Phong.class);
+                    if (ds.child("trangThai").getValue(String.class).equals("trống")) {
+                        arrayList.add(phong);
                     }
                 }
                 customRoom.notifyDataSetChanged();
                 //so luong phong trong
-                tvSoPhongTrong.setText(roomArrayList.size() + "");
+                tvSoPhongTrong.setText(arrayList.size() + "");
             }
 
             @Override
@@ -202,7 +202,7 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         tvTenPHong = findViewById(R.id.tvTenPhong);
         tvLau = findViewById(R.id.tvLau);
         tvLoai = findViewById(R.id.tvLoai);
-        tvSoluong = findViewById(R.id.tvSoLuong);
+        tvMoTa = findViewById(R.id.tvMoTa);
         tvGia = findViewById(R.id.tvGiaNgay);
         tvSoPhongTrong = findViewById(R.id.tvSoPhongTrong);
         tvChiTiet = findViewById(R.id.tvChiTiet);
