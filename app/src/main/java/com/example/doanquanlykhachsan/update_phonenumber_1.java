@@ -26,10 +26,11 @@ public class update_phonenumber_1 extends AppCompatActivity {
     private EditText oldphone, newphone, cacha;
     private TextView tvcacha;
     private Button btnTrove, btntieptuc;
-    FirebaseAuth mAuth ;
-    String maxacnhan="";
+    FirebaseAuth mAuth;
+    String maxacnhancu = "";
+    String maxacnhanmoi = "";
     private ImageView changeCacha;
-
+    int soluong = 0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +48,15 @@ public class update_phonenumber_1 extends AppCompatActivity {
         btntieptuc = findViewById(R.id.btntieptuc);
         btnTrove = findViewById(R.id.btnTroVe);
         mAuth = FirebaseAuth.getInstance();
-        changeCacha=findViewById(R.id.imgChangeCapcha);
-        tvcacha.setText(RamdomCapcha()+"");
-
-
+        changeCacha = findViewById(R.id.imgChangeCapcha);
+        tvcacha.setText(RamdomCapcha() + "");
     }
 
     private void setEvent() {
         changeCacha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvcacha.setText(RamdomCapcha()+"");
+                tvcacha.setText(RamdomCapcha() + "");
             }
         });
         btnTrove.setOnClickListener(new View.OnClickListener() {
@@ -69,25 +68,17 @@ public class update_phonenumber_1 extends AppCompatActivity {
         btntieptuc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!oldphone.getText().toString().isEmpty()&&
-                        !newphone.getText().toString().isEmpty()&&cacha.getText().toString().equals(tvcacha.getText().toString())) {
+                if (!oldphone.getText().toString().isEmpty() &&
+                        !newphone.getText().toString().isEmpty() && cacha.getText().toString().equals(tvcacha.getText().toString())) {
                     //gửi otp
-                    if(!oldphone.getText().toString().equals(newphone.getText().toString())){
-                        Intent intent = new Intent(getApplicationContext(), update_phonenumber_2.class);
-                        Bundle bundle = new Bundle();
+                    if (!oldphone.getText().toString().equals(newphone.getText().toString())) {
                         sendOTPCode(oldphone.getText().toString());
-                        bundle.putString("oldphone", maxacnhan);
-                        //sendOTPCode(newphone.getText().toString());
-                        bundle.putString("newphone", newphone.getText().toString());
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+
                         //0818260857
-                    }
-                   else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "sdt không được trùng nhau", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(), "Nhap du thong tin", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -120,16 +111,29 @@ public class update_phonenumber_1 extends AppCompatActivity {
 
                     @Override
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                        maxacnhan = s;
+                        maxacnhancu = s;
+                        Chuyenmanhinh();
                         super.onCodeSent(s, forceResendingToken);
-                        Log.e("id", s);
+
                     }
                 })
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
-//        PhoneAuthCredential phoneAuthCredential1 = PhoneAuthProvider.getCredential(maxacnhan, toString);
-//        signInWithPhoneAuthCredential(phoneAuthCredential1);
+
     }
+
+    private void Chuyenmanhinh() {
+        Intent intent = new Intent(getApplicationContext(), update_phonenumber_2.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("oldphone", maxacnhancu);
+        bundle.putString("newphone", newphone.getText().toString());
+         bundle.putString("oldphonenumber", oldphone.getText().toString());
+         bundle.putString("newphonenumber", newphone.getText().toString());
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
+
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
@@ -138,6 +142,8 @@ public class update_phonenumber_1 extends AppCompatActivity {
                         // FirebaseUser user = task.getResult().getUser();
                         Log.d("login", "thanh cong");
                         // Update UI
+
+
                     } else {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -147,9 +153,10 @@ public class update_phonenumber_1 extends AppCompatActivity {
                     }
                 });
     }
-    int RamdomCapcha(){
+
+    int RamdomCapcha() {
         int CapchaCode;
-        CapchaCode = 1000+(int)(Math.random()*((9999-1000)+1));
+        CapchaCode = 1000 + (int) (Math.random() * ((9999 - 1000) + 1));
         return CapchaCode;
     }
 }

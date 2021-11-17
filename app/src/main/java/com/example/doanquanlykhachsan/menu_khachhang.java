@@ -82,7 +82,7 @@ public class menu_khachhang extends AppCompatActivity {
 //                Log.e("loi",e.getMessage());
 //            }
 //        });
-        StaticConfig.mNguoidung.addValueEventListener(new ValueEventListener() {
+        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {

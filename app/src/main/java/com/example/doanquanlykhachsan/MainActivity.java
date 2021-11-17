@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //                    startActivity(new Intent(getApplicationContext(), sign_in.class));
 //                }
 //            }
-//        }, 2500);
+//        }, 0);
         startActivity(new Intent(getApplicationContext(), update_phonenumber_1.class));
     }
 
