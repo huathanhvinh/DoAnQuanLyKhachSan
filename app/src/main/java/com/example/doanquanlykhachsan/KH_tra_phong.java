@@ -46,9 +46,40 @@ public class KH_tra_phong extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren())
-                            if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)){
-                                StaticConfig.mRoom.child(ds.child("maPhong").getValue(String.class)).child("trangThai").setValue("trống");
-                                StaticConfig.mRoomRented.child(ds.child("maFB").getValue(String.class)).setValue(null);
+                            if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
+                                String maPh = ds.child("maPhong").getValue().toString();
+                                StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds2 : snapshot.getChildren()) {
+                                            if (maPh.equals(ds2.child("maPhong").getValue().toString())) {
+                                                StaticConfig.mRoom.child(ds2.child("maFB").getValue().toString()).child("trangThai").setValue("trống");
+                                                StaticConfig.mRoomRented.child(ds.child("maFB").getValue(String.class)).removeValue();
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                                //remove dich vu
+                                StaticConfig.mDichVuDaChon.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds3 : snapshot.getChildren()) {
+                                            if (maPh.equals(ds3.child("maPhong").getValue().toString())) {
+                                                StaticConfig.mDichVuDaChon.child(ds3.child("maFB").getValue().toString()).removeValue();
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                             }
                     }
 
@@ -86,7 +117,6 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     if (ds.child("email").getValue(String.class).equals(tenhientai)) {
-                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
                         hoten.setText(ds.child("name").getValue(String.class));
                     }
                 }
@@ -99,10 +129,12 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
+
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
                         ngaynhan.setText(ds.child("thoiGianNhanPH").getValue(String.class));
@@ -110,12 +142,13 @@ public class KH_tra_phong extends AppCompatActivity {
                         phongthue += ds.child("maPhong").getValue(String.class) + " ";
 
                         if (ds.child("manHinh").getValue(String.class).equals("ngay")) {
-                            songayo.setText(thoigian + " ngay");
                             DateDifference();
+                            songayo.setText(thoigian + " ngay");
+
                         } else {
-                            songayo.setText(thoigian + " gio");
                             try {
                                 TimeDifference();
+                                songayo.setText(thoigian + " gio");
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
@@ -163,7 +196,7 @@ public class KH_tra_phong extends AppCompatActivity {
             thang = Integer.parseInt(parts[1]);
             nam = Integer.parseInt(parts[2]);
             cal2.set(nam, thang, ngay);
-            thoigian = daysBetween(cal1.getTime(), cal2.getTime()) + 1 + "";
+            thoigian = daysBetween(cal1.getTime(), cal2.getTime()) + "";
         } else {
             Toast.makeText(getApplicationContext(), "Khong co phong de tra", Toast.LENGTH_SHORT).show();
         }

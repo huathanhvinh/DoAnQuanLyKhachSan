@@ -81,10 +81,9 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
         listView = findViewById(R.id.lvDanhSachPhong);
         adapter = new Phong_adapter(getApplicationContext(), R.layout.item_phong, data);
         listView.setAdapter(adapter);
-        Log.e("id", StaticConfig.currentuser );
 
         khoitao();
-        adapter.notifyDataSetChanged();
+
     }
 
     private void khoitao() {
@@ -113,6 +112,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
 
                             }
                         });
+                        adapter.notifyDataSetChanged();
                     }
                 }
 

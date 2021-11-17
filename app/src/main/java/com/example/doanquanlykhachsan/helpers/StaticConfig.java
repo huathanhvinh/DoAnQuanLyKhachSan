@@ -2,8 +2,6 @@ package com.example.doanquanlykhachsan.helpers;
 
 import com.example.doanquanlykhachsan.model.Dichvu;
 import com.example.doanquanlykhachsan.model.Phong;
-import com.example.doanquanlykhachsan.model.SelectedService;
-import com.example.doanquanlykhachsan.model.Room;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,7 +23,7 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mRoomRented = Database.getReference("PhongDaDat");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
-    public static DatabaseReference mDichVuDaChon = Database.getReference("SelectedService");
+    public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
 
     //Danh sách phòng tạm thời
     public static ArrayList<Phong> arrayListTemporaryRoom = new ArrayList<>();

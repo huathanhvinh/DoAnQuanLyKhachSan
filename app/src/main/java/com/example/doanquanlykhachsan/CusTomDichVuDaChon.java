@@ -6,25 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Dichvu;
-import com.example.doanquanlykhachsan.model.SelectedService;
+import com.example.doanquanlykhachsan.model.DichVuDaChon;
 
 import java.util.ArrayList;
 
 
-public class CusTomSelectedService extends ArrayAdapter {
+public class CusTomDichVuDaChon extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<SelectedService> data;
+    ArrayList<DichVuDaChon> data;
 
-    public CusTomSelectedService(@NonNull Context context, int resource, @NonNull ArrayList<SelectedService> data) {
+    public CusTomDichVuDaChon(@NonNull Context context, int resource, @NonNull ArrayList<DichVuDaChon> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -41,7 +37,7 @@ public class CusTomSelectedService extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
         CheckBox cboDichVu = convertView.findViewById(R.id.cboDichVu);
-        SelectedService dv = data.get(position);
+        DichVuDaChon dv = data.get(position);
 
 //        cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override

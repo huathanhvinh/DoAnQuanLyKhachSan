@@ -50,6 +50,7 @@ public class menu_khachhang extends AppCompatActivity {
 //            ma= "L"+i;
 //            StaticConfig.mRoom.child(ma).setValue(new Room(ma,"Phòng "+i,"Đơn","trống",500000,150000,i,2));
 //        }
+        StaticConfig.currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         setControl();
         setEvent();
     }

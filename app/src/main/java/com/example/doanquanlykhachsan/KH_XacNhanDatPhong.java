@@ -15,9 +15,7 @@ import android.widget.Toast;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
-import com.example.doanquanlykhachsan.model.Room;
-import com.example.doanquanlykhachsan.model.RoomRented;
-import com.example.doanquanlykhachsan.model.SelectedService;
+import com.example.doanquanlykhachsan.model.DichVuDaChon;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -105,10 +103,10 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
 
                         String key2 = StaticConfig.mDichVuDaChon.push().getKey();
-                        SelectedService selectedService = new SelectedService(key2,
+                        DichVuDaChon dichVuDaChon = new DichVuDaChon(key2,
                                 StaticConfig.arrayListTemporaryService.get(j).getMaFB(), StaticConfig.arrayListTemporaryService.get(j).getTenDV(),
                                 StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong());
-                        StaticConfig.mDichVuDaChon.child(key2).setValue(selectedService);
+                        StaticConfig.mDichVuDaChon.child(key2).setValue(dichVuDaChon);
                     }
                 }
 
