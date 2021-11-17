@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -80,6 +81,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
         listView = findViewById(R.id.lvDanhSachPhong);
         adapter = new Phong_adapter(getApplicationContext(), R.layout.item_phong, data);
         listView.setAdapter(adapter);
+        Log.e("id", StaticConfig.currentuser );
 
         khoitao();
         adapter.notifyDataSetChanged();
@@ -98,7 +100,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Phong phong = ds.getValue(Phong.class);
-                                    if (phong.getMaFB().equals(maphong)) {
+                                    if (phong.getMaPhong().equals(maphong)) {
                                         data.add(phong);
                                     }
                                     adapter.notifyDataSetChanged();

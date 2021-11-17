@@ -67,8 +67,8 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("taiKhoan").getValue(String.class).equals(taiKhoanHienTai)) {
-                        StaticConfig.currentuser = ds.child("id").getValue(String.class);
+                    if (ds.child("email").getValue(String.class).equals(taiKhoanHienTai)) {
+                        StaticConfig.currentuser = ds.child("maFB").getValue(String.class);
                         tvXnTenKhachHang.setText(ds.child("name").getValue(String.class));
                         tvSoDienThoai.setText((ds.child("sdt").getValue(String.class)));
                     }

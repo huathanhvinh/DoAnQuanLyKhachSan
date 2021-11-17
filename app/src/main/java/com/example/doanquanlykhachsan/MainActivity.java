@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(getApplicationContext(), KH_DatPhongTheoNgay.class));
+//        startActivity(new Intent(getApplicationContext(), KH_DatPhongTheoNgay.class));
         //kiểm tra coi đã login chưa
-//        if (StaticConfig.fAuth.getCurrentUser() != null) {
-//            startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-//        } else {
-//            startActivity(new Intent(getApplicationContext(), sign_in.class));
-//        }
+        if (StaticConfig.fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+        } else {
+            startActivity(new Intent(getApplicationContext(), sign_in.class));
+        }
 //
 //        StaticConfig.mDichvu.child("b1").addValueEventListener(new ValueEventListener() {
 //            @Override
