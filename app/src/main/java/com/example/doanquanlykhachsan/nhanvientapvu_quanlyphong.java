@@ -36,8 +36,8 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
     RadioButton rdDaChon, rdChuaChon;
     custom_nhanvientapvu_qlphong nhanvientapvu;
     EditText editTimKiem;
-    ArrayList<Room> timkiemphong = new ArrayList<>();
-    ArrayList<Room> data = new ArrayList<>();
+    ArrayList<Phong> timkiemphong = new ArrayList<>();
+    ArrayList<Phong> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,8 +118,8 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                         timkiemphong.clear();
 
                         for(DataSnapshot ds : snapshot.getChildren() ){
-                            Room phong = ds.getValue(Room.class);
-                            if(phong.getTen().toLowerCase().contains(timkiem)){
+                            Phong phong = ds.getValue(Phong.class);
+                            if(phong.getTenPhong().toLowerCase().contains(timkiem)){
                                 timkiemphong.add(phong);
 
                             }
@@ -154,12 +154,12 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                    ArrayList<Room> ketqua = new ArrayList<>();
+                    ArrayList<Phong> ketqua = new ArrayList<>();
                     if (rdChuaChon.isChecked()) {
                         for (int i = 0; i < data.size(); i++) {
                             ketqua.clear();
-                            String ma = data.get(i).getMa();
-                            Room room = data.get(i);
+                            String ma = data.get(i).getMaFB();
+                            Phong room = data.get(i);
                             ketqua.addAll(data);//Add tất cả phòng
                             StaticConfig.mQLPhong.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -200,11 +200,11 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
         rdDaChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ArrayList<Room> ketqua = new ArrayList<>();
+                ArrayList<Phong> ketqua = new ArrayList<>();
                 if (rdDaChon.isChecked()) {
                     for (int i = 0; i < data.size(); i++) {
-                        String ma = data.get(i).getMa();
-                        Room room = data.get(i);
+                        String ma = data.get(i).getMaFB();
+                        Phong room = data.get(i);
                         ketqua.clear();
                         StaticConfig.mQLPhong.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -243,16 +243,15 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
 //        nvtv_qlphong qlphong1 = new nvtv_qlphong("phòng:3","Kiểm tra tình trạng phòng");
 //        data.add(qlphong);
 //        data.add(qlphong1);
-        Query sapxep = StaticConfig.mRoom.orderByChild("sophong");
+        Query sapxep = StaticConfig.mRoom.orderByChild("soPhong");
         sapxep.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    Room room = ds.getValue(Room.class);
+                    Phong room = ds.getValue(Phong.class);
                     data.add(room);
                 }
-
                 nhanvientapvu.notifyDataSetChanged();
 
             }

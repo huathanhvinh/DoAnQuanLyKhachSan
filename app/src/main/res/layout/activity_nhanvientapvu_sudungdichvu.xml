@@ -32,14 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/tendichvu" />
-        <Button
-            android:layout_marginLeft="60dp"
-            android:backgroundTint="#25BDAF"
-            android:id="@+id/btnDangKyDV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký dịch vụ"
-            />
+
     </LinearLayout>
     <LinearLayout
         android:gravity="center"

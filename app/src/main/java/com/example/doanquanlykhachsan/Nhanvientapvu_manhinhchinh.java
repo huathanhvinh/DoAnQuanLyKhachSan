@@ -38,7 +38,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("id").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                    if (ds.child("maFB").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                         StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
                         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -83,7 +83,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
         tvQuanLyDichVu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),nhanvientapvu_sudungdichvu.class));
+                startActivity(new Intent(getApplicationContext(),nhanvientapvu_dangkydichvu.class));
             }
         });
         tvLuong.setOnClickListener(new View.OnClickListener() {

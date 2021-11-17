@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.Room;
 import com.example.doanquanlykhachsan.model.nvtv_qlphong;
 
@@ -25,9 +26,9 @@ public class custom_nhanvientapvu_qlphong extends ArrayAdapter {
 
     Context context;
     int resource;
-    ArrayList<Room> data;
+    ArrayList<Phong> data;
     //ListView lvQuanLyPhong;
-    public custom_nhanvientapvu_qlphong(@NonNull Context context, int resource, ArrayList<Room> data) {
+    public custom_nhanvientapvu_qlphong(@NonNull Context context, int resource, ArrayList<Phong> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -48,8 +49,8 @@ public class custom_nhanvientapvu_qlphong extends ArrayAdapter {
 
         //ListView lvQuanLyPhong = convertView.findViewById(R.id.lvQuanLyPhong);
 
-        Room room = data.get(position);
-        tvPhong.setText(room.getTen());
+        Phong room = data.get(position);
+        tvPhong.setText(room.getTenPhong());
 
        btnKiemTra.setOnClickListener(new View.OnClickListener() {
            @Override

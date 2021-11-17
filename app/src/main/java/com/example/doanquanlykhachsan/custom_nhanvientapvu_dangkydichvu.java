@@ -1,6 +1,8 @@
 package com.example.doanquanlykhachsan;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,10 +41,22 @@ public class custom_nhanvientapvu_dangkydichvu extends ArrayAdapter {
         TextView tvtenDichVu = convertView.findViewById(R.id.tvtenDichVu);
         Button btnXemPhong = convertView.findViewById(R.id.btnXemPhong);
 
+
         DangKyDichVu dangKyDichVu = data.get(position);
         tvtenDichVu.setText(dangKyDichVu.getTenDichVu());
         btnXemPhong.setText(dangKyDichVu.getXemPhong());
 
+        btnXemPhong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), nhanvientapvu_sudungdichvu.class);//Chuyen man hinh
+                Bundle bundle = new Bundle();//Tạo bundle
+                bundle.putString("XemPhong", dangKyDichVu.getTenDichVu());//Gán giá trị bên màn hình kia
+                intent.putExtras(bundle);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);//Qua màn khác
+            }
+        });
 
         return convertView;
     }

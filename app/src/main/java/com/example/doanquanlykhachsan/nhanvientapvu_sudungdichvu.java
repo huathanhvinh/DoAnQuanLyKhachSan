@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.SuDungDichVu;
 import com.example.doanquanlykhachsan.model.nvtv_qlphong;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +26,9 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     ListView lvSuDungDV ;
     Spinner spDichVu;
     ArrayList<SuDungDichVu> data = new ArrayList<>();
-    Button btnTroVe,btnDangKyDV;
+    Button btnTroVe;
     ArrayList<String> arrayList = new ArrayList<>();
+    String loaiDV = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,23 +38,19 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     }
 
     private void SetControl() {
-        btnDangKyDV = findViewById(R.id.btnDangKyDV);
+
         lvSuDungDV = findViewById(R.id.lvSuDungDV);
         btnTroVe = findViewById(R.id.btnTroVe);
         spDichVu = findViewById(R.id.spDichVu);
     }
 
     private void setEvent() {
+        loaiDV  = (String) getIntent().getStringExtra("XemPhong");
+        Log.d("loaiphong", loaiDV);
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-            }
-        });
-        btnDangKyDV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),nhanvientapvu_dangkydichvu.class));
             }
         });
         custom_nhanvientapvu_sudungdichvu sudungdichvu = new custom_nhanvientapvu_sudungdichvu(this,R.layout.listview_nhanvientapvu_sudungdichvu,data);

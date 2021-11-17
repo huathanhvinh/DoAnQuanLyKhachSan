@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.Room;
 import com.example.doanquanlykhachsan.model.nvtv_qlphong;
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
     TextView tvMaPhong, tvLoaiPhong, tvTrangThai;
     Button btnXacNhan, btnTroVe;
-    Room chitiet;
+    Phong chitiet;
     CheckBox ckDonPhong, ckVatDung, ckRuou, ckMaKM, ckTuLanh, ckThucAn;
     boolean check = false;
     boolean thucAn = false;
@@ -50,9 +52,9 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Khi bấn xác nhận phòng thì lưu checkbox xem phòng đã dọn hay chưa
-                StaticConfig.mQLPhong.child(chitiet.getMa()).setValue(new nvtv_qlphong(chitiet.getMa(), check, thucAn, tuLanh, ruou,vatDung, maKM));
+                StaticConfig.mQLPhong.child(chitiet.getMaFB()).setValue(new nvtv_qlphong(chitiet.getMaFB(), check, thucAn, tuLanh, ruou,vatDung, maKM));
                 Toast.makeText(getApplicationContext(), "Thông tin phòng đã được lưu", Toast.LENGTH_SHORT).show();
-                finish();
+                startActivity(new Intent(getApplicationContext(),nhanvientapvu_quanlyphong.class));
             }
         });
         ckDonPhong.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -127,11 +129,11 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
 
     private void khoiTao() {
         //
-        chitiet = (Room) getIntent().getSerializableExtra("Room");//Lấy thông tin từ customAdapter
+        chitiet = (Phong) getIntent().getSerializableExtra("Room");//Lấy thông tin từ customAdapter
         //Gán dữ liệu
-        tvMaPhong.setText(chitiet.getMa() + "");
+        tvMaPhong.setText(chitiet.getMaFB() + "");
         tvLoaiPhong.setText(chitiet.getLoai() + "");
-        tvTrangThai.setText(chitiet.getTinhtrang() + "");
+        tvTrangThai.setText(chitiet.getTrangThai() + "");
 
         //Truy xuất từ bản QLPHong
         StaticConfig.mQLPhong.addValueEventListener(new ValueEventListener() {
@@ -139,7 +141,7 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     //Kiểm tra chi tiết phòng hiện tại
-                    if (chitiet.getMa().equals(ds.child("phong").getValue(String.class))) {
+                    if (chitiet.getMaFB().equals(ds.child("phong").getValue(String.class))) {
                         //Kiểm tra true ,false
                         if (ds.child("kiemtra").getValue(boolean.class).equals(true)) {
                             ckDonPhong.setChecked(true);

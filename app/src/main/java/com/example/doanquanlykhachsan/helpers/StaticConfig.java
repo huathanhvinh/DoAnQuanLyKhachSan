@@ -29,13 +29,15 @@ public class StaticConfig {
     public static DatabaseReference mUser = Database.getReference("User");
 
     //them du lieu phong
-    public static DatabaseReference mRoom = Database.getReference("Room");
+    public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mQLPhong = Database.getReference("QLPhong");
     public static DatabaseReference mDichVu = Database.getReference("DichVu");
     public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
     public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
     public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
     public static DatabaseReference mLuong = Database.getReference("NhanVien_Luong");
+    public static DatabaseReference mRoomRented = Database.getReference("RoomRented");
+    public static DatabaseReference mSelectedService = Database.getReference("SelectedService");
 
 
     public static final int PICK_IMAGE_REQUEST = 10;
