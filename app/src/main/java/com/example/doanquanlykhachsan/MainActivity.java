@@ -12,6 +12,8 @@ import android.widget.Button;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Room;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2500);
     //note là gì chú
+
+
+
     }
 
 }

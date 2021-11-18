@@ -65,13 +65,13 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
                         timkiemphong.add(dv);
                     }
                 }
-                if (timkiem.isEmpty()) {
-                    timkiemphong = data;
-                }
+
                 custom_nhanvientapvu_dangkydichvu dangkydichvu = new custom_nhanvientapvu_dangkydichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_dangkydichvu, timkiemphong);
                 lvDanhSachDV.setAdapter(dangkydichvu);
                 dangkydichvu.notifyDataSetChanged();
-
+                if (timkiem.isEmpty()) {
+                   khoitao();
+                }
 
 
 //                StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
