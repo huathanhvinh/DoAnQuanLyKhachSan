@@ -46,6 +46,16 @@ public class KH_CustomDichvu extends ArrayAdapter {
 
         Dichvu dv = data.get(position);
         ten.setText(dv.getMota());
+        ten.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (cboDichVu.isChecked() == true) {
+                    cboDichVu.setChecked(false);
+                } else {
+                    cboDichVu.setChecked(true);
+                }
+            }
+        });
         cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
