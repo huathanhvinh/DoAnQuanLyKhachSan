@@ -48,7 +48,7 @@ public class KH_tra_phong extends AppCompatActivity {
                         for (DataSnapshot ds : snapshot.getChildren())
                             if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
                                 String maPh = ds.child("maPhong").getValue().toString();
-                                StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                                StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for (DataSnapshot ds2 : snapshot.getChildren()) {
@@ -65,7 +65,7 @@ public class KH_tra_phong extends AppCompatActivity {
                                     }
                                 });
                                 //remove dich vu
-                                StaticConfig.mDichVuDaChon.addValueEventListener(new ValueEventListener() {
+                                StaticConfig.mDichVuDaChon.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for (DataSnapshot ds3 : snapshot.getChildren()) {

@@ -101,7 +101,6 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                     StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
 
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
-
                         String key2 = StaticConfig.mDichVuDaChon.push().getKey();
                         DichVuDaChon dichVuDaChon = new DichVuDaChon(key2,
                                 StaticConfig.arrayListTemporaryService.get(j).getMaFB(), StaticConfig.arrayListTemporaryService.get(j).getTenDV(),
