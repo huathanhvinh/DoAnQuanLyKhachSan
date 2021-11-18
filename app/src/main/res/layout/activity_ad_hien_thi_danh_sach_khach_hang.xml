@@ -41,12 +41,12 @@
             android:layout_height="match_parent">
         </EditText>
         <ImageButton
-            android:id="@+id/imTimKiem"
+            android:id="@+id/imRefresh"
             android:layout_gravity="center"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/icon_timkiem">
+            android:src="@drawable/ic_refresh">
 
         </ImageButton>
     </LinearLayout>

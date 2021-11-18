@@ -109,6 +109,35 @@ public class AD_ThongTinKhachHang extends AppCompatActivity {
 
                             }
                         });
+                        StaticConfig.mUser.addChildEventListener(new ChildEventListener() {
+                            @Override
+                            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                                if(snapshot.child("sdt").getValue().toString().equals(thongTinKhachHang.getSdtKH()))
+                                {
+                                    //code tại đây.
+                                }
+                            }
+
+                            @Override
+                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                            }
+
+                            @Override
+                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                            }
+
+                            @Override
+                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
                     }
                 });

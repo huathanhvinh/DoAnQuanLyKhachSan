@@ -10,6 +10,11 @@
         <item>Dịch vụ spa</item>
         <item>Dịch vụ trông trẻ</item>
         <item>Dịch vụ phục vụ phòng</item>
+        <item>Dịch vụ ăn sáng</item>
+    </array>
+    <array name="donViTinh">
+        <item>Ngày</item>
+        <item>Lần</item>
     </array>
     <array name="caLam">
         <item>Sáng</item>

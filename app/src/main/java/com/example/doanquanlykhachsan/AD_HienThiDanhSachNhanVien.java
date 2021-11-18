@@ -31,7 +31,7 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
     ListView lvDSNV;
     Button btnTroVe,btnThem;
     EditText edTimKiem;
-    ImageButton imTimKiem;
+    ImageButton imTimKiem,imRF;
     Adapter_NhanVien adapter_nhanVien;
     ArrayList<NhanVien> arrNV = new ArrayList<>();
 
@@ -96,6 +96,14 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
                 finish();
             }
         });
+        //refresh
+        imRF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrNV.clear();
+                LayDSNV();
+            }
+        });
     }
 
     private void setControl() {
@@ -106,6 +114,8 @@ public class AD_HienThiDanhSachNhanVien extends AppCompatActivity {
         lvDSNV = findViewById(R.id.lvDSNV);
         edTimKiem = findViewById(R.id.edTimNhanVien);
         imTimKiem = findViewById(R.id.imTimKiem);
+        imRF = findViewById(R.id.imRefresh);
+
 
         adapter_nhanVien = new Adapter_NhanVien(getApplicationContext(),R.layout.custom_nhan_vien, arrNV);
         lvDSNV.setAdapter(adapter_nhanVien);

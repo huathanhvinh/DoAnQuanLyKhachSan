@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -25,6 +26,7 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
     EditText edTimKiem;
     ListView lvDSKH;
     Button btnTroVe;
+    ImageView imRF;
     Adapter_KhachHang adapter_khachHang;
     ArrayList<KhachHang> arrKhachHang = new ArrayList<>();
 
@@ -57,7 +59,7 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
                 String key = edTimKiem.getText().toString().toLowerCase();
                 for (int i = 0;i<arrKhachHang.size();i++)
                 {
-                    if(arrKhachHang.get(i).getTenKH().toLowerCase().contains(key)){
+                    if(arrKhachHang.get(i).getTenKH().toLowerCase().contains(key) || arrKhachHang.get(i).getSdtKH().toLowerCase().contains(key)){
                         kq.add(arrKhachHang.get(i));
                     }
                 }
@@ -73,12 +75,21 @@ public class AD_HienThiDanhSachKhachHang extends AppCompatActivity {
                 finish();
             }
         });
+        //refresh
+        imRF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrKhachHang.clear();
+                layDSKH();
+            }
+        });
     }
 
     private void setControl() {
         edTimKiem = findViewById(R.id.edTimKiem);
         lvDSKH = findViewById(R.id.lvDSKH);
         btnTroVe = findViewById(R.id.btnTroVe);
+        imRF = findViewById(R.id.imRefresh);
 
         adapter_khachHang = new Adapter_KhachHang(getApplicationContext(), R.layout.custom_khach_hang, arrKhachHang);
         lvDSKH.setAdapter(adapter_khachHang);

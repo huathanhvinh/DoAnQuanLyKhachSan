@@ -57,12 +57,11 @@ public class MainActivity extends AppCompatActivity {
 //        Phong p = new Phong(key,"p10t1","Phòng 10_Tầng 1","trống","2","Phòng đẹp","10",1,200000,80000);
 //        StaticConfig.mPhong.child(key).setValue(p);
 
-        //Công việc cho ngày 17.11 --
-        //Thêm dịch vụ
-        //fix lỗi vietkey tại các edittext hiển thị
-        //làm thêm nút refresh tại cách màn hình danh sách
+        //Công việc cho ngày 19.11 --
+        //Đổi role tại User khi chuyển khách hàng -> Nhân viên
+        //Đổi role tại User khi thay đổi thông tin nhân viên (chức vụ)
 
-        startActivity(new Intent(getApplicationContext(),AD_MenuAdmin.class));
+        startActivity(new Intent(getApplicationContext(),AD_HienThiDanhSachNhanVien.class));
 
     }
 

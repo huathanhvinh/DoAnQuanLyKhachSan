@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -24,6 +25,7 @@ public class AD_HienThiDanhSachDichVu extends AppCompatActivity {
     Button btnTroVe, btnTaoMoi;
     EditText edTimKiem;
     ListView lvDSDV;
+    ImageView imRF;
 
     Adapter_DichVu adapter_dichVu;
     ArrayList<DichVu> arrDichVu = new ArrayList<>();
@@ -46,6 +48,14 @@ public class AD_HienThiDanhSachDichVu extends AppCompatActivity {
                 finish();
             }
         });
+        //refresh
+        imRF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrDichVu.clear();
+                setDanhSachDichVu();
+            }
+        });
     }
 
     private void setControl() {
@@ -53,6 +63,7 @@ public class AD_HienThiDanhSachDichVu extends AppCompatActivity {
         btnTaoMoi = findViewById(R.id.btnTaoMoi);
         edTimKiem = findViewById(R.id.edTimDichVu);
         lvDSDV = findViewById(R.id.lvDSDV);
+        imRF = findViewById(R.id.imRefresh);
 
         adapter_dichVu = new Adapter_DichVu(getApplicationContext(), R.layout.custom_dich_vu, arrDichVu);
         lvDSDV.setAdapter(adapter_dichVu);
