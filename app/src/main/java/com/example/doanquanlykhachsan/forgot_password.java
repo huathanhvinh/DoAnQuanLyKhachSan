@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -70,32 +72,12 @@ public class forgot_password extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "nhập mã capcha sai", Toast.LENGTH_SHORT).show();
                     rdCapCha = RamdomCapcha();
                     tvCapCha.setText(rdCapCha+"");
+                }else {
+                    StaticConfig.fAuth.sendPasswordResetEmail(username);
                 }
-                // kiểm quyền & gửi tin nhắn
-                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()){
-                            User user = ds.getValue(User.class);
-                            if (username.equals(user.getEmail())){
-                                pass = user.getMatKhau();
-                            }
-                        }
 
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                        SendSMS(phone,pass);
-                    }else {
-                        requestPermissions(new String[] {Manifest.permission.SEND_SMS},1);
-                    }
-                }
             }
         });
         imgChangeCapcha.setOnClickListener(new View.OnClickListener() {

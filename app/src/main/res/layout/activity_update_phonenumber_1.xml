@@ -93,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập số điện thoại cũ"
+                    android:id="@+id/txtSdtCu"
                     />
             </LinearLayout>
 
@@ -131,6 +132,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:hint="Nhập số điện thoại mới"
+                    android:id="@+id/txtSdtMoi"
                     />
             </LinearLayout>
 
@@ -177,6 +179,7 @@
                         android:layout_height="wrap_content"
                         android:background="#fff"
                         android:hint="Nhập mã capcha"
+                        android:id="@+id/txtCapCha"
                         />
                 </LinearLayout>
                 <LinearLayout

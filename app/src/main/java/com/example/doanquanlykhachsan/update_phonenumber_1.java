@@ -127,8 +127,8 @@ public class update_phonenumber_1 extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("oldphone", maxacnhancu);
         bundle.putString("newphone", newphone.getText().toString());
-         bundle.putString("oldphonenumber", oldphone.getText().toString());
-         bundle.putString("newphonenumber", newphone.getText().toString());
+        bundle.putString("oldphonenumber", oldphone.getText().toString());
+        bundle.putString("newphonenumber", newphone.getText().toString());
         intent.putExtras(bundle);
         startActivity(intent);
 
@@ -160,3 +160,4 @@ public class update_phonenumber_1 extends AppCompatActivity {
         return CapchaCode;
     }
 }
+
