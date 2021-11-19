@@ -125,7 +125,8 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                             }
                         }
                         if(timkiem.isEmpty()){
-                            timkiemphong = data;
+                            //timkiemphong = data;
+                            khoitao();
                         }
 
                         nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,6 +71,7 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 StaticConfig.mDichVuDaChon.child(suDungDichVu.getMaFB()).removeValue();
+                
             }
         });
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,10 +80,13 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
 //                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                        timkiemphong.clear();
 //                        for (DataSnapshot ds : snapshot.getChildren()) {
-//                            DangKyDichVu dv = ds.getValue(DangKyDichVu.class);
-//                            if (dv.getTenDichVu().toLowerCase().contains(timkiem)) {
-//                                timkiemphong.add(dv);
-//                            }
+//                            DichVu dv = ds.getValue(DichVu.class);
+////                            if (dv.getTenDichVu().toLowerCase().contains(timkiem)) {
+////
+////                                timkiemphong.add(dv);
+////
+////                            }
+//                            Log.d("test", dv.getTenDV());
 //                        }
 //                        if (timkiem.isEmpty()) {
 //                            timkiemphong = data;

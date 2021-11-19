@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
 
-    TextView tvThongTinTaiKhoan,tvNhanVien,tvQuanLyPhong,tvQuanLyDichVu,tvLuong,tvLichLamViec,tvThongBao;
+    TextView tvThongTinTaiKhoan,tvNhanVien,tvQuanLyPhong,tvQuanLyDichVu,tvLuong,tvLichLamViec;
     Button btnDangXuat;
 
     @Override
@@ -104,12 +104,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),sign_in.class));
             }
         });
-        tvThongBao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),nhanvientapvu_thongbao.class));
-            }
-        });
+
 
     }
 
@@ -120,7 +115,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
         tvQuanLyDichVu=findViewById(R.id.tvQuanLyDichVu);
         tvLuong=findViewById(R.id.tvLuong);
         tvLichLamViec=findViewById(R.id.tvLichLamViec);
-        tvThongBao= findViewById(R.id.tvThongBao);
+//        tvThongBao= findViewById(R.id.tvThongBao);
         btnDangXuat=findViewById(R.id.btnDangXuat);
 
     }
