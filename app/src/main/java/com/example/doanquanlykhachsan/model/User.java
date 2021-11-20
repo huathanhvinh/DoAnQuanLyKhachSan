@@ -1,14 +1,31 @@
 package com.example.doanquanlykhachsan.model;
 
 public class User {
-    String id;
+    String maFB;
     String email;
-    String Sdt;
+    String sdt;
+    String matKhau;
+    String cmnd;
+    int role;
 
-    public User(String id, String email, String sdt) {
-        this.id = id;
+    public User(String maFB, String email, String sdt, String matKhau, String cmnd, int role) {
+        this.maFB = maFB;
         this.email = email;
-        Sdt = sdt;
+        this.sdt = sdt;
+        this.matKhau = matKhau;
+        this.cmnd = cmnd;
+        this.role = role;
+    }
+
+    public User() {
+    }
+
+    public String getMaFB() {
+        return maFB;
+    }
+
+    public void setMaFB(String maFB) {
+        this.maFB = maFB;
     }
 
     public String getEmail() {
@@ -19,19 +36,35 @@ public class User {
         this.email = email;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getSdt() {
-        return Sdt;
+        return sdt;
     }
 
     public void setSdt(String sdt) {
-        Sdt = sdt;
+        this.sdt = sdt;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+
+    public String getCmnd() {
+        return cmnd;
+    }
+
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 }

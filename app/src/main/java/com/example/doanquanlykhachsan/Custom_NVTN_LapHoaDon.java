@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.example.doanquanlykhachsan.model.NVTN_HoaDon;
+import com.example.doanquanlykhachsan.model.HoaDon;
 import java.util.ArrayList;
 
 public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<NVTN_HoaDon>arrHoaDon;
-    public Custom_NVTN_LapHoaDon(@NonNull Context context, int resource, @NonNull ArrayList<NVTN_HoaDon>arrHoaDon) {
+    ArrayList<HoaDon>arrHoaDon;
+    public Custom_NVTN_LapHoaDon(@NonNull Context context, int resource, @NonNull ArrayList<HoaDon>arrHoaDon) {
         super(context, resource, arrHoaDon);
         this.context = context;
         this.resource =resource;
@@ -33,7 +33,7 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
         TextView tvTenKH = convertView.findViewById(R.id.tvTenKH);
         Button btnLapHD = convertView.findViewById(R.id.btnLapHD);
 
-        NVTN_HoaDon laphoadon = arrHoaDon.get(position);
+        HoaDon laphoadon = arrHoaDon.get(position);
         tvTenKH.setText(laphoadon.getTenKH());
         //
         btnLapHD.setOnClickListener(new View.OnClickListener() {
