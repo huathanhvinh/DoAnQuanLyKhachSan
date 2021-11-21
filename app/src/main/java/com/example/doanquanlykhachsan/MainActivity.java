@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        }, 0);
-        startActivity(new Intent(getApplicationContext(),register.class));
+        startActivity(new Intent(getApplicationContext(), sign_in.class));
     }
 
 }

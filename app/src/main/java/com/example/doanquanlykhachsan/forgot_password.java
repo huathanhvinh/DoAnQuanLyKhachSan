@@ -19,15 +19,13 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.User;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class forgot_password extends AppCompatActivity {
-    Button btnGetPassWord,btnReturn;
-    EditText txtUserName,txtPhone,txtCapcha;
+    Button btnGetPassWord, btnReturn;
+    EditText txtUserName, txtPhone, txtCapcha;
     ImageView imgChangeCapcha;
     TextView tvCapCha;
     int rdCapCha;
@@ -42,7 +40,7 @@ public class forgot_password extends AppCompatActivity {
         setEvent();
 
         rdCapCha = RamdomCapcha();
-       tvCapCha.setText(rdCapCha+"");
+        tvCapCha.setText(rdCapCha + "");
 
     }
 
@@ -56,28 +54,27 @@ public class forgot_password extends AppCompatActivity {
 
 
                 // kiểm tra điều kiện nếu uername trống
-                if (username.isEmpty()){
+                if (username.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "để trống ô tài khoản", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu phone number trống
-                if (phone.isEmpty()){
+                if (phone.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "để trống ô số điện thoại", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu capcha trống
-                if (capcha.isEmpty()){
+                if (capcha.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "để trống ô capcha", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu nhập sai capcha
-                if (!capcha.equals( tvCapCha.getText().toString())){
+                if (!capcha.equals(tvCapCha.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "nhập mã capcha sai", Toast.LENGTH_SHORT).show();
                     rdCapCha = RamdomCapcha();
-                    tvCapCha.setText(rdCapCha+"");
-                }else {
+                    tvCapCha.setText(rdCapCha + "");
+                } else {
                     StaticConfig.fAuth.sendPasswordResetEmail(username);
+                    Toast.makeText(getApplicationContext(), "Vui Lòng kiểm tra email!!", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-
-
-
             }
         });
         imgChangeCapcha.setOnClickListener(new View.OnClickListener() {
@@ -105,21 +102,22 @@ public class forgot_password extends AppCompatActivity {
         tvCapCha = findViewById(R.id.tvCapcha);
 
     }
-    int RamdomCapcha(){
+
+    int RamdomCapcha() {
         int CapchaCode;
-        CapchaCode = 1000+(int)(Math.random()*((9999-1000)+1));
+        CapchaCode = 1000 + (int) (Math.random() * ((9999 - 1000) + 1));
         return CapchaCode;
     }
 
-    void SendSMS(String PhoneNumber, String Message){
+    void SendSMS(String PhoneNumber, String Message) {
         PhoneNumber.trim();
         Message.trim();
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(PhoneNumber,null,Message,null,null);
+            smsManager.sendTextMessage(PhoneNumber, null, Message, null, null);
             Toast.makeText(getApplicationContext(), "Mật khẩu đã được gửi qua tin nhắn của bạn ", Toast.LENGTH_SHORT).show();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Gửi tin nhắn thất bại", Toast.LENGTH_SHORT).show();
         }
