@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.model.*;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_Thongtinkhachhang;
 
 import java.util.ArrayList;
 

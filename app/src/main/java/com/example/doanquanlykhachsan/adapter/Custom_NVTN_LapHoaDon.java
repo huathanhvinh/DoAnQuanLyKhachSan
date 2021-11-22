@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.example.doanquanlykhachsan.model.HoaDon;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_XacNhanHoaDon;
+
 import java.util.ArrayList;
 
 public class Custom_NVTN_LapHoaDon extends ArrayAdapter {

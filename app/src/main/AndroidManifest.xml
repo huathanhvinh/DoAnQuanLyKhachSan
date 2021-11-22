@@ -42,6 +42,14 @@
 
             android:exported="false" />
         <activity
+            android:name=".admin.AD_ThongTinNhanVien"
+
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_SuaNhanVien"
+
+            android:exported="false" />
+        <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_thongbao"
             android:exported="false" />
         <activity
@@ -69,35 +77,78 @@
          android:name=".nhanvien_tapvu.Nhanvientapvu_manhinhchinh"
          android:exported="false" />
 
+
+
+        <activity
+            android:name=".nhanvien_letan.NVTN_Thong_Bao"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_Thongtinluong"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_lichlamviec"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_Thongtintaikhoan"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_HienThiDanhSachKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_MenuNhanVienThuNgan"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_ThemKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_LapHoaDon"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_XacNhanHoaDon"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NVTN_Thongtinkhachhang"
+            android:exported="false" />
+
+        <activity
+            android:name=".khach_hang.KH_tra_phong"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_thong_tin_tai_khoan"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_chinh_sach"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_doi_phong"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_danh_sach_phong_trong"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_danh_sach_phong_da_dat"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_XacNhanDatPhong"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_ChiTietPhong"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_DatPhongTheoGio"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_DatPhongTheoNgay"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.menu_khachhang"
+            android:exported="false" />
+        <activity
+            android:name=".khach_hang.KH_thong_tin_tai_khoan"
+            android:exported="false" />
+
         <activity
             android:name=".admin.AD_HienThiDanhSachPhong"
-            android:name=".NVTN_Thong_Bao"
-            android:exported="false"
-            android:label="@string/title_activity_nvtn_thong_bao"
-            android:theme="@style/Theme.DoAnQuanLyKhachSan.NoActionBar" />
-        <activity
-            android:name=".NVTN_Thongtinluong"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_lichlamviec"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_Thongtintaikhoan"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_HienThiDanhSachKhachHang"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_LapHoaDon"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_XacNhanHoaDon"
-            android:exported="false" />
-        <activity
-            android:name=".NVTN_Thongtinkhachhang"
-            android:exported="false" />
-        <activity
-            android:name=".menu_khachhang"
             android:exported="false" />
         <activity
             android:name=".admin.AD_SuaDichVu"
@@ -106,7 +157,38 @@
             android:name=".admin.AD_ThongTinDichVu"
             android:exported="false" />
         <activity
-            android:name=".register"
+            android:name=".admin.AD_ThemDichVu"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_HienThiDanhSachDichVu"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThongTinKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_HienThiDanhSachKhachHang"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThongKe"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_HienThiDanhSachNhanVien"
+            android:exported="false" />
+
+        <activity
+            android:name=".chung.forgot_password"
+            android:exported="false" />
+        <activity
+            android:name=".chung.sign_in"
+            android:exported="true" />
+        <activity
+            android:name=".chung.register"
+            android:exported="false" />
+        <activity
+            android:name=".chung.update_phonenumber_1"
+            android:exported="false" />
+        <activity
+            android:name=".chung.update_phonenumber_2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

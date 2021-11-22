@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.nhanvien_letan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.doanquanlykhachsan.model.*;
+import com.example.doanquanlykhachsan.R;
 
 public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     Button btnXacNhan,btnTroVe;

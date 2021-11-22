@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachNhanVien;
@@ -13,6 +14,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.*;
 import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
+import com.example.doanquanlykhachsan.nhanvien_letan.*;
 import com.example.doanquanlykhachsan.khach_hang.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if (role == 2) {
                                 Toast.makeText(getApplicationContext(), "Nhan viên lễ tân ", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
                             }
                             if (role == 3) {
                                 Toast.makeText(getApplicationContext(), "Nhan viên tạp vụ", Toast.LENGTH_SHORT).show();
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
+
             startActivity(new Intent(getApplicationContext(), sign_in.class));
         }
 

@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.doanquanlykhachsan.NVTN_ThongBao_DKDichVu;
-import com.example.doanquanlykhachsan.NVTN_ThongBao_DatPhong;
-import com.example.doanquanlykhachsan.NVTN_ThongBao_TraPhong;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_ThongBao_DKDichVu;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_ThongBao_DatPhong;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_ThongBao_TraPhong;
 import com.example.doanquanlykhachsan.R;
 
 /**

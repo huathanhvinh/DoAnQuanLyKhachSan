@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#18364b"
-    tools:context=".NVTN_HienThiDanhSachKhachHang">
+    tools:context=".nhanvien_letan.NVTN_HienThiDanhSachKhachHang">
 
     <TextView
         android:textColor="#ffffff"

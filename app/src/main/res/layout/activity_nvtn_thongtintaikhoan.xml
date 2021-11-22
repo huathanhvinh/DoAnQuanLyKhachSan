@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NVTN_Thongtintaikhoan"
+    tools:context=".nhanvien_letan.NVTN_Thongtintaikhoan"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#18364B"
     android:orientation="vertical"

@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.nhanvien_letan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;

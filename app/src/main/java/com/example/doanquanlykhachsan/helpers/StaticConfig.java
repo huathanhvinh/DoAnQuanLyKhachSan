@@ -34,7 +34,7 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mRoomRented = Database.getReference("PhongDaDat");
     //them du lieu khách hàng
-    public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
+
     //thêm dữ liệu hóa đơn
     public static DatabaseReference mHoaDon = Database.getReference("HoaDon");
     //them du lieu phong
@@ -45,15 +45,7 @@ public class StaticConfig {
 
     public static DatabaseReference mSelectedService = Database.getReference("SelectedService");
     public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
-    public static DatabaseReference mRoom = Database.getReference("Room");
-    //nhan vien
-    public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
 
-    public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
-
-    public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
-    //sdt cua user hien tai
-    public static String currentphone = "";
 
     //Danh sách phòng tạm thời
     public static ArrayList<Phong> arrayListTemporaryRoom = new ArrayList<>();

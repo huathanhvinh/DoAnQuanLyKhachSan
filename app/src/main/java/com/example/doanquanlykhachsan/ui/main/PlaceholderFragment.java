@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.doanquanlykhachsan.R;
-import com.example.doanquanlykhachsan.databinding.FragmentNVTNThongBaoBinding;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,7 +23,7 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    private FragmentNVTNThongBaoBinding binding;
+
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -44,27 +44,27 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.setIndex(index);
     }
 
-    @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-
-        binding = FragmentNVTNThongBaoBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.sectionLabel;
-        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-    }
+//    @Override
+//    public View onCreateView(
+//            @NonNull LayoutInflater inflater, ViewGroup container,
+//            Bundle savedInstanceState) {
+//
+//        binding = FragmentNVTNThongBaoBinding.inflate(inflater, container, false);
+//        View root = binding.getRoot();
+//
+//        final TextView textView = binding.sectionLabel;
+//        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
+//        return root;
+//    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+       // binding = null;
     }
 }
