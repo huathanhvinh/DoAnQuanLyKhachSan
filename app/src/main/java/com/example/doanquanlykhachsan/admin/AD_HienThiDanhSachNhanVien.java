@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Adapter_NhanVien;
+import com.example.doanquanlykhachsan.adapter.Adapter_NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

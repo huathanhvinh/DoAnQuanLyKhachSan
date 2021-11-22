@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.DichVu;
+import com.example.doanquanlykhachsan.model.*;
 
 public class AD_SuaDichVu extends AppCompatActivity {
     EditText edMadv, edGiaDV, edDVT, edMota;

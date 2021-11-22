@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".KH_DatPhongTheoNgay">
+    tools:context=".khach_hang.KH_DatPhongTheoNgay">
 
     <TextView
         android:layout_width="match_parent"

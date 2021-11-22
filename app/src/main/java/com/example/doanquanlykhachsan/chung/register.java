@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.menu_khachhang;
+import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 import com.example.doanquanlykhachsan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

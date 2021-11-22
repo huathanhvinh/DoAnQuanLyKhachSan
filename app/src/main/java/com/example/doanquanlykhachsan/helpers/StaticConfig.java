@@ -1,6 +1,6 @@
 package com.example.doanquanlykhachsan.helpers;
 
-import com.example.doanquanlykhachsan.model.Dichvu;
+import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -19,8 +19,7 @@ public class StaticConfig {
     public static String currentphone = "";
     public static DatabaseReference mUser = Database.getReference("User");
     public static DatabaseReference mDangky = Database.getReference("Dangky");
-    //them du lieu phong
-    public static DatabaseReference mRoom = Database.getReference("Room");
+
     //KET NOI VOI NHANVIEN TREN FIREBASE
     public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
     public static DatabaseReference mKhachHang = Database.getReference("KhachHang");
@@ -32,13 +31,13 @@ public class StaticConfig {
 
     public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mRoomRented = Database.getReference("PhongDaDat");
-    public static DatabaseReference mDichVu = Database.getReference("DichVu");
+
     public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
 
     //Danh sách phòng tạm thời
     public static ArrayList<Phong> arrayListTemporaryRoom = new ArrayList<>();
     //Danh sách dịch vụ tạm thời
-    public static ArrayList<Dichvu> arrayListTemporaryService = new ArrayList<>();
+    public static ArrayList<DichVu> arrayListTemporaryService = new ArrayList<>();
     //phan biet man hinh theo ngay hay gio
     public static String sXacNhan = "";
     //check all

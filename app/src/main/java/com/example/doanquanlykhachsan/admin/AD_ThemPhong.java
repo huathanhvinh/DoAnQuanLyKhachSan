@@ -95,8 +95,8 @@ public class AD_ThemPhong extends AppCompatActivity {
                                 int giaNgay = Integer.parseInt(edGiaNgay.getText().toString());
 
                                 String key = StaticConfig.mPhong.push().getKey();
-                                Phong p = new Phong(key, tvMaPhong.getText().toString(), tvTenPhong.getText().toString(), "trống", spLoaiPhong.getSelectedItem().toString(), edMoTa.getText().toString(),
-                                        soPhong + "", soLau, giaNgay, giaGio);
+                                Phong p = new Phong(key, tvMaPhong.getText().toString(), tvTenPhong.getText().toString(), soPhong + "", soLau,spLoaiPhong.getSelectedItem().toString(),
+                                        edMoTa.getText().toString(),giaNgay, giaGio,"Trống");
                                 StaticConfig.mPhong.child(key).setValue(p);
                                 Toast.makeText(getApplicationContext(), "Thêm Thành Công !!!", Toast.LENGTH_SHORT).show();
 

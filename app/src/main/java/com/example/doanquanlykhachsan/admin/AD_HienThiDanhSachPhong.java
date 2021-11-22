@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Adapter_Phong;
+import com.example.doanquanlykhachsan.adapter.Adapter_Phong;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

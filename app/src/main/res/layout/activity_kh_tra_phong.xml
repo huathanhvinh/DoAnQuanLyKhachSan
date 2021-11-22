@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".KH_tra_phong">
+    tools:context=".khach_hang.KH_tra_phong">
 
     <TextView
         android:layout_width="match_parent"

@@ -79,5 +79,4 @@ public class KhuyenMai implements Serializable {
     public void setNoiDung(String noiDung) {
         this.noiDung = noiDung;
     }
-
 }

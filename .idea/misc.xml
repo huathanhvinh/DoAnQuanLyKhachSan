@@ -3,37 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19583333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.19583333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.19583333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/ic_baseline_arrow_right_alt_24.xml" value="0.18425925925925926" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19583333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.1" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/kh_border.xml" value="0.19583333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_action_bar.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_danh_sach_dat_phong_theo_ngay.xml" value="0.22" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_chi_tiet_phong.xml" value="0.16666666666666666" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_danh_sach_phong_da_dat.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_danh_sach_phong_trong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_gio.xml" value="0.22" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_ngay.xml" value="0.14666666666666667" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_doi_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_item_danh_sach_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_tra_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_xac_nhan_dat_phong.xml" value="0.22" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/item_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_danh_sach_dat_phong_theo_ngay.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_danh_sach_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_dich_vu.xml" value="0.3333333333333333" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_gio.xml" value="0.22" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_ngay.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_theo_gio.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_xac_nhan_dat_phong.xml" value="0.1796875" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
-        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.2375" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_dich_vu.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_khach_hang.xml" value="0.18614130434782608" />
@@ -113,6 +82,7 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_themdichvu.xml" value="0.13949275362318841" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_thong_tin_tai_khoan.xml" value="0.13405797101449277" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.13020833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.13020833333333334" />
@@ -120,7 +90,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

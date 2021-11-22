@@ -15,7 +15,7 @@ import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Adapter_KhachHang;
+import com.example.doanquanlykhachsan.adapter.Adapter_KhachHang;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

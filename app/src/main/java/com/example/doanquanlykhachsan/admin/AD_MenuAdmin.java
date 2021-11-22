@@ -2,6 +2,8 @@ package com.example.doanquanlykhachsan.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 
-public class AD_MenuAdmin extends AppCompatActivity{
-    TextView tvDSP,tvDSDV,tvDSNV,tvThongKe,tvKhuyenMai,tvLuongNV,tvLichLV,tvDoiMK;
+public class AD_MenuAdmin extends AppCompatActivity {
+    TextView tvDSP, tvDSDV, tvDSNV, tvThongKe, tvKhuyenMai, tvLuongNV, tvLichLV, tvDoiMK;
     Button btnDangXuat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +89,21 @@ public class AD_MenuAdmin extends AppCompatActivity{
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Quay về màn hình Đăng Nhập", Toast.LENGTH_SHORT).show();
-
+                new AlertDialog.Builder(AD_MenuAdmin.this)
+                        .setTitle("Logout")
+                        .setMessage("Are you sure you want to sign out of the app??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                StaticConfig.fAuth.signOut();
+                                startActivity(new Intent(AD_MenuAdmin.this, MainActivity.class));
+                            }
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         });
     }

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="20sp"
     android:weightSum="10"
-    tools:context=".KH_ChiTietPhong">
+    tools:context=".khach_hang.KH_ChiTietPhong">
 
     <TextView
         android:layout_width="match_parent"

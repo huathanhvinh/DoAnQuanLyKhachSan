@@ -12,6 +12,7 @@ import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.*;
+import com.example.doanquanlykhachsan.khach_hang.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         if (ds.child("maFB").getValue().toString().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                             User user = ds.getValue(User.class);
+                            StaticConfig.currentphone = user.getSdt();
+                            StaticConfig.currentuser = user.getMaFB();
                             int role = user.getRole();
                             if (role == 1) {
-                              startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
+                                startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
                             }
                             if (role == 2) {
                                 Toast.makeText(getApplicationContext(), "Nhan viên lễ tân ", Toast.LENGTH_SHORT).show();
@@ -80,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if (role == 4) {
                                 Toast.makeText(getApplicationContext(), "Khách hàng", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
                             }
+
                         }
                     }
                 }

@@ -12,9 +12,7 @@ import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Adapter_NhanVien;
-import com.example.doanquanlykhachsan.model.Adapter_NhanVien_LichLamViec;
-import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.adapter.Adapter_NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
