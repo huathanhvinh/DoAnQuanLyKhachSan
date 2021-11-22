@@ -3,31 +3,31 @@ package com.example.doanquanlykhachsan.model;
 import java.io.Serializable;
 
 public class Phong implements Serializable {
-    String maFB,maPhong,tenPhong,trangThai,loai,moTa,soPhong;
-    int lau,giaNgay,giaGio;
+    String maFB;
+    String maPhong;
+    String tenPhong;
+    String soPhong;
+    int lau;
+    String loai;
+    String moTa;
+    float giaNgay;
+    float giaGio;
+    String trangThai;
 
-    public Phong() {
-    }
-
-    public Phong(String maFB, String maPhong, String tenPhong, String trangThai, String loai, String moTa, String soPhong, int lau, int giaNgay, int giaGio) {
-        this.maFB = maFB;
-        this.maPhong = maPhong;
-        this.tenPhong = tenPhong;
-        this.trangThai = trangThai;
-        this.loai = loai;
-        this.moTa = moTa;
-        this.soPhong = soPhong;
-        this.lau = lau;
-        this.giaNgay = giaNgay;
-        this.giaGio = giaGio;
-    }
-
-    public String getSoPhong() {
-        return soPhong;
-    }
-
-    public void setSoPhong(String soPhong) {
-        this.soPhong = soPhong;
+    @Override
+    public String toString() {
+        return "Phong{" +
+                "maFB='" + maFB + '\'' +
+                ", maPhong='" + maPhong + '\'' +
+                ", tenPhong='" + tenPhong + '\'' +
+                ", soPhong='" + soPhong + '\'' +
+                ", lau=" + lau +
+                ", loai='" + loai + '\'' +
+                ", moTa='" + moTa + '\'' +
+                ", giaNgay=" + giaNgay +
+                ", giaGio=" + giaGio +
+                ", trangThai='" + trangThai + '\'' +
+                '}';
     }
 
     public String getMaFB() {
@@ -54,12 +54,20 @@ public class Phong implements Serializable {
         this.tenPhong = tenPhong;
     }
 
-    public String getTrangThai() {
-        return trangThai;
+    public String getSoPhong() {
+        return soPhong;
     }
 
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
+    public void setSoPhong(String soPhong) {
+        this.soPhong = soPhong;
+    }
+
+    public int getLau() {
+        return lau;
+    }
+
+    public void setLau(int lau) {
+        this.lau = lau;
     }
 
     public String getLoai() {
@@ -78,27 +86,43 @@ public class Phong implements Serializable {
         this.moTa = moTa;
     }
 
-    public int getLau() {
-        return lau;
-    }
-
-    public void setLau(int lau) {
-        this.lau = lau;
-    }
-
-    public int getGiaNgay() {
+    public float getGiaNgay() {
         return giaNgay;
     }
 
-    public void setGiaNgay(int giaNgay) {
+    public void setGiaNgay(float giaNgay) {
         this.giaNgay = giaNgay;
     }
 
-    public int getGiaGio() {
+    public float getGiaGio() {
         return giaGio;
     }
 
-    public void setGiaGio(int giaGio) {
+    public void setGiaGio(float giaGio) {
         this.giaGio = giaGio;
+    }
+
+    public String getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public Phong(String maFB, String maPhong, String tenPhong, String soPhong, int lau, String loai, String moTa, float giaNgay, float giaGio, String trangThai) {
+        this.maFB = maFB;
+        this.maPhong = maPhong;
+        this.tenPhong = tenPhong;
+        this.soPhong = soPhong;
+        this.lau = lau;
+        this.loai = loai;
+        this.moTa = moTa;
+        this.giaNgay = giaNgay;
+        this.giaGio = giaGio;
+        this.trangThai = trangThai;
+    }
+
+    public Phong() {
     }
 }

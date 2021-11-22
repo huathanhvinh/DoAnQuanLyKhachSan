@@ -45,4 +45,30 @@
         <item>Đơn</item>
         <item>Đôi</item>
     </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chinhsach">Đổi  phòng:\n
+Mọi thông tin về đặt phòng, xác nhận, sửa đổi và hủy sẽ được yêu cầu gửi trực tiếp đến phòng đặt phòng của khách sạn qua điện thoại hoặc email tại:\n
+ victory@gmail.com\n
+\n
+Điện thoại: (+84) 254 354 1111\n
+Email: reception@oceanamihotels.com\n
+\n
+Nhận phòng và Trả phòng:\n
+- Thời gian nhận phòng (check-in) là từ sau 14h00 ngày đến\n
+- Thời gian trả phòng (check-out) là từ trước 12h00 ngày trả\n
+- Việc nhận phòng sớm hơn sẽ phụ thuộc vào tình trạng phòng trống của khách sạn. Bộ phận Lễ Tân giải quyết linh động cho khách nhận phòng sớm hoặc trả phòng trễ hơn so với quy định nếu Lễ Tân có thể kiểm soát và đảm bảo theo công suất phòng trống trên hệ thống, cụ thể như sau:\n
+♦  Nhận phòng sau 12h00: không tính phí  (TÙY THUỘC TÌNH TRẠNG PHÒNG SẴN CÓ)\n
+♦ Trả phòng trước 13h00: không tính phí (TÙY THUỘC TÌNH TRẠNG PHÒNG SẴN CÓ)\n
+\n
+Hủy phòng:\n
+Khách sạn có quyền áp đặt lệnh hủy sau:\n
++ Đối với đặt phòng cho khách đoàn từ 7 phòng trở lên:\n
+Nếu hủy phòng trong vòng 3 ngày trước khi đoàn đến – Khách sạn sẽ tính một đêm lưu trú cho tất cả các phòng đã được xác nhận.\n
++ Đối với đặt phòng khách lẻ dưới 7 phòng:\n
+Nếu hủy trong vòng 1 ngày trước khi khách đến – Khách sạn sẽ tính một đêm lưu trú cho tất cả các phòng xác nhận.\n
+
+
+</string>
+    <string name="chi_tiet_hoa_don"> <u>Chi tiết hoá đơn</u>.</string>
 </resources>
