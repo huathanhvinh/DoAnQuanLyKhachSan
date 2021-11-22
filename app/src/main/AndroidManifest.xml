@@ -12,73 +12,73 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
-            android:name=".AD_HienThiDanhSachKhuyenMai"
+            android:name=".admin.AD_HienThiDanhSachKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".AD_LuongCuaNhanVien"
+            android:name=".admin.AD_LuongCuaNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_LuongNhanVien"
+            android:name=".admin.AD_LuongNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_LichLamViecCuaNhanVien"
+            android:name=".admin.AD_LichLamViecCuaNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_LichLamViec"
+            android:name=".admin.AD_LichLamViec"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongTinPhong"
+            android:name=".admin.AD_ThongTinPhong"
             android:exported="false" />
         <activity
-            android:name=".AD_ThemPhong"
+            android:name=".admin.AD_ThemPhong"
             android:exported="false" />
         <activity
-            android:name=".AD_SuaPhong"
+            android:name=".admin.AD_SuaPhong"
             android:exported="false" />
         <activity
-            android:name=".AD_HienThiDanhSachPhong"
+            android:name=".admin.AD_HienThiDanhSachPhong"
             android:exported="false" />
         <activity
-            android:name=".AD_SuaDichVu"
+            android:name=".admin.AD_SuaDichVu"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongTinDichVu"
+            android:name=".admin.AD_ThongTinDichVu"
             android:exported="false" />
         <activity
-            android:name=".AD_ThemDichVu"
+            android:name=".admin.AD_ThemDichVu"
             android:exported="false" />
         <activity
-            android:name=".AD_HienThiDanhSachDichVu"
+            android:name=".admin.AD_HienThiDanhSachDichVu"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongTinKhachHang"
+            android:name=".admin.AD_ThongTinKhachHang"
             android:exported="false" />
         <activity
-            android:name=".AD_HienThiDanhSachKhachHang"
+            android:name=".admin.AD_HienThiDanhSachKhachHang"
             android:exported="false" />
         <activity
-            android:name=".AD_SuaNhanVien"
+            android:name=".admin.AD_SuaNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongTinNhanVien"
+            android:name=".admin.AD_ThongTinNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_HienThiDanhSachNhanVien"
+            android:name=".admin.AD_HienThiDanhSachNhanVien"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongTinKhuyenMai"
+            android:name=".admin.AD_ThongTinKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".AD_ThongKe"
+            android:name=".admin.AD_ThongKe"
             android:exported="false" />
         <activity
-            android:name=".AD_SuaKhuyenMai"
+            android:name=".admin.AD_SuaKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".AD_ThemKhuyenMai"
+            android:name=".admin.AD_ThemKhuyenMai"
             android:exported="false" />
         <activity
-            android:name=".AD_MenuAdmin"
+            android:name=".admin.AD_MenuAdmin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

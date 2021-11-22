@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".AD_ThemDichVu">
+    tools:context=".admin.AD_ThemDichVu">
 
     <LinearLayout
         android:layout_width="match_parent"

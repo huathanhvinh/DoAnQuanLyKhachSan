@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="24"
-    tools:context=".AD_SuaNhanVien">
+    tools:context=".admin.AD_SuaNhanVien">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#18364B"
-    tools:context=".AD_HienThiDanhSachKhuyenMai"
+    tools:context=".admin.AD_HienThiDanhSachKhuyenMai"
     android:orientation="vertical"
     android:weightSum="30">
     <LinearLayout

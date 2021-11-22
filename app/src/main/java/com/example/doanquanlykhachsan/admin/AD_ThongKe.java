@@ -1,10 +1,12 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.doanquanlykhachsan.R;
 
 public class AD_ThongKe extends AppCompatActivity {
     Button btnTroVe;

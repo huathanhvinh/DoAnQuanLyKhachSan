@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.admin;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +12,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
-import com.example.doanquanlykhachsan.model.KhachHang;
-import com.example.doanquanlykhachsan.model.NhanVien;
 
 public class AD_ThongTinDichVu extends AppCompatActivity {
     TextView tvMaDV,tvTenDV,tvGia,tvDVT,tvMota;

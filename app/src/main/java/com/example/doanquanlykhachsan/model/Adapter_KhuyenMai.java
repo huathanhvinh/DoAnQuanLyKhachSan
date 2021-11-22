@@ -1,7 +1,6 @@
 package com.example.doanquanlykhachsan.model;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,17 +12,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 
-import com.example.doanquanlykhachsan.AD_HienThiDanhSachKhuyenMai;
-import com.example.doanquanlykhachsan.AD_SuaKhuyenMai;
-import com.example.doanquanlykhachsan.AD_ThongTinKhuyenMai;
-import com.example.doanquanlykhachsan.AD_ThongTinNhanVien;
+import com.example.doanquanlykhachsan.admin.AD_ThongTinKhuyenMai;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

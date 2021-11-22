@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".AD_ThongTinKhuyenMai">
+    tools:context=".admin.AD_ThongTinKhuyenMai">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

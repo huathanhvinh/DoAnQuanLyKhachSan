@@ -1,22 +1,11 @@
 package com.example.doanquanlykhachsan;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.KhachHang;
-import com.example.doanquanlykhachsan.model.KhuyenMai;
-import com.example.doanquanlykhachsan.model.NhanVien;
-import com.example.doanquanlykhachsan.model.Phong;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
+import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachNhanVien;
 
 public class MainActivity extends AppCompatActivity {
     //StaticConfig st = new StaticConfig();
@@ -61,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //Đổi role tại User khi chuyển khách hàng -> Nhân viên
         //Đổi role tại User khi thay đổi thông tin nhân viên (chức vụ)
 
-        startActivity(new Intent(getApplicationContext(),AD_HienThiDanhSachNhanVien.class));
+        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
 
     }
 

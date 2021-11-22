@@ -13,8 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.doanquanlykhachsan.AD_ThongTinDichVu;
-import com.example.doanquanlykhachsan.AD_ThongTinKhachHang;
+import com.example.doanquanlykhachsan.admin.AD_ThongTinDichVu;
 import com.example.doanquanlykhachsan.R;
 
 import java.util.ArrayList;

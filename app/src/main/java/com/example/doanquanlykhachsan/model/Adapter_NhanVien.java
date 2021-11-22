@@ -8,15 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.doanquanlykhachsan.AD_HienThiDanhSachDichVu;
-import com.example.doanquanlykhachsan.AD_ThongTinNhanVien;
+import com.example.doanquanlykhachsan.admin.AD_ThongTinNhanVien;
 import com.example.doanquanlykhachsan.R;
 
 import java.util.ArrayList;

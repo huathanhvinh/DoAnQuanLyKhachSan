@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AD_ThongTinPhong"
+    tools:context=".admin.AD_ThongTinPhong"
     android:background="#18364B"
     android:weightSum="10"
     android:orientation="vertical">

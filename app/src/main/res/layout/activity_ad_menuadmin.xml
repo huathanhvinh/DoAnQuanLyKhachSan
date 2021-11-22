@@ -7,7 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="13"
-    tools:context=".AD_MenuAdmin">
+    tools:context=".admin.AD_MenuAdmin">
 
     <LinearLayout
         android:layout_width="match_parent"

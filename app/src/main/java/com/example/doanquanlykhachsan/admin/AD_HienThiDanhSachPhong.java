@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Adapter_NhanVien;
 import com.example.doanquanlykhachsan.model.Adapter_Phong;
-import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
