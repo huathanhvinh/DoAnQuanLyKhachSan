@@ -3,7 +3,7 @@
     package="com.example.doanquanlykhachsan">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
+        <activity
+            android:name=".admin.AD_MenuAdmin"
+            android:exported="false" />
         <activity
             android:name=".admin.AD_HienThiDanhSachKhuyenMai"
             android:exported="false" />
@@ -58,10 +61,28 @@
             android:name=".admin.AD_HienThiDanhSachKhachHang"
             android:exported="false" />
         <activity
-            android:name=".sign_in"
+            android:name=".admin.AD_ThongKe"
             android:exported="false" />
         <activity
-            android:name=".register"
+            android:name=".admin.AD_HienThiDanhSachNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".menu_khachhang"
+            android:exported="false" />
+        <activity
+            android:name=".chung.forgot_password"
+            android:exported="false" />
+        <activity
+            android:name=".chung.sign_in"
+            android:exported="true" />
+        <activity
+            android:name=".chung.register"
+            android:exported="false" />
+        <activity
+            android:name=".chung.update_phonenumber_1"
+            android:exported="false" />
+        <activity
+            android:name=".chung.update_phonenumber_2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
