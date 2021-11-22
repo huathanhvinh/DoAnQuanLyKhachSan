@@ -1,15 +1,20 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.nhanvien_tapvu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.doanquanlykhachsan.MainActivity;
+import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
+import com.example.doanquanlykhachsan.chung.sign_in;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.google.firebase.auth.FirebaseAuth;
@@ -101,7 +106,21 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),sign_in.class));
+                new AlertDialog.Builder(Nhanvientapvu_manhinhchinh.this)
+                        .setTitle("Logout")
+                        .setMessage("Are you sure you want to sign out of the app??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                StaticConfig.fAuth.signOut();
+                                startActivity(new Intent(Nhanvientapvu_manhinhchinh.this, MainActivity.class));
+                            }
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         });
 

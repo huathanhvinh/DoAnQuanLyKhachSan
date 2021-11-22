@@ -12,6 +12,7 @@ import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.*;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.example.doanquanlykhachsan.khach_hang.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if (role == 3) {
                                 Toast.makeText(getApplicationContext(), "Nhan viên tạp vụ", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
                             }
                             if (role == 4) {
                                 Toast.makeText(getApplicationContext(), "Khách hàng", Toast.LENGTH_SHORT).show();

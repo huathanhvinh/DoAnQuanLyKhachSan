@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,15 +11,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.ThongBao;
 
 import java.util.ArrayList;
 
-public class custom_nhanvientapvu_thongbao extends ArrayAdapter {
+public class custom_NVTN_thongbao extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<ThongBao> data;
-    public custom_nhanvientapvu_thongbao(@NonNull Context context, int resource, ArrayList<ThongBao> data) {
+    public custom_NVTN_thongbao(@NonNull Context context, int resource, ArrayList<ThongBao> data) {
         super(context, resource, data);
         this.context=context;
         this.resource = resource;

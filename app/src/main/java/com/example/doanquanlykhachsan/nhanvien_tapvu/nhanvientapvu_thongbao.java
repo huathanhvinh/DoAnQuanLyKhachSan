@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.nhanvien_tapvu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.ThongBao;
+import com.example.doanquanlykhachsan.adapter.custom_nhanvientapvu_thongbao;
 
 import java.util.ArrayList;
 

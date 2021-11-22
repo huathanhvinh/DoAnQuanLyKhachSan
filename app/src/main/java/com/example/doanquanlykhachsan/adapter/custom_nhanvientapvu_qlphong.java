@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan;
+package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,19 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.Phong;
-import com.example.doanquanlykhachsan.model.Room;
-import com.example.doanquanlykhachsan.model.nvtv_qlphong;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.nhanvientapvu_xacnhantrangthaiphong;
 
 import java.util.ArrayList;
 

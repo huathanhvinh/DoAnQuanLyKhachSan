@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
@@ -57,7 +58,7 @@ public class sign_in extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 //dang nhap thanh cong
                                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), "Sai email hoặc password!!", Toast.LENGTH_SHORT).show();
                             }

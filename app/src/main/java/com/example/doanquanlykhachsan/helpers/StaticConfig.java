@@ -36,17 +36,12 @@ public class StaticConfig {
     //them du lieu phong
 
     public static DatabaseReference mQLPhong = Database.getReference("QLPhong");
-    public static DatabaseReference mDichVu = Database.getReference("DichVu");
-    public static DatabaseReference mNhanVien = Database.getReference("NhanVien");
-    public static DatabaseReference mNhanVien_Luong = Database.getReference("NhanVien_Luong");
-    public static DatabaseReference mNhanVien_LichLamViec = Database.getReference("NhanVien_LichLamViec");
+
     public static DatabaseReference mLuong = Database.getReference("NhanVien_Luong");
-    public static DatabaseReference mRoomRented = Database.getReference("RoomRented");
+
     public static DatabaseReference mSelectedService = Database.getReference("SelectedService");
     public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
 
-
-    public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
 
     //Danh sách phòng tạm thời
     public static ArrayList<Phong> arrayListTemporaryRoom = new ArrayList<>();
@@ -66,7 +61,7 @@ public class StaticConfig {
 
     public static DatabaseReference mThongtinDv = Database.getReference("Thongtindv");
 
-    public static String Anh_mac_dinh= "https://firebasestorage.googleapis.com/v0/b/doanquanlykhachsan.appspot.com/o/Default%20avatar%2Favatar.jpg?alt=media&token=8238b839-bbcf-4712-ba53-1730d28720a8";
+    public static String Anh_mac_dinh = "https://firebasestorage.googleapis.com/v0/b/doanquanlykhachsan.appspot.com/o/Default%20avatar%2Favatar.jpg?alt=media&token=8238b839-bbcf-4712-ba53-1730d28720a8";
     public static final int PICK_IMAGE_REQUEST = 10;
     //timestamp
     public static Long tsLong = System.currentTimeMillis() / 1000;

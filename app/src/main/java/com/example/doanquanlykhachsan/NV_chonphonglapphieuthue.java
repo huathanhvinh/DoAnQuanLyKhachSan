@@ -11,6 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanquanlykhachsan.Fragment_f1;
+import com.example.doanquanlykhachsan.Fragment_f2;
+import com.example.doanquanlykhachsan.R;
+
 public class NV_chonphonglapphieuthue extends AppCompatActivity {
 
     ImageView imgLen, imgXuong;

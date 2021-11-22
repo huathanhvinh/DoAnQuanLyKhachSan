@@ -39,47 +39,36 @@
             android:exported="false" />
         <activity
             android:name=".admin.AD_SuaPhong"
-            android:name=".NVTN_Thongbao"
+
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_thongbao"
+            android:name=".nhanvien_tapvu.nhanvientapvu_thongbao"
             android:exported="false" />
         <activity
-            android:name=".NVTV_Thongtinluong"
+            android:name=".nhanvien_tapvu.nhanvientapvu_thongtintaikhoan"
             android:exported="false" />
         <activity
-            android:name=".NVTN_lichlamviec"
+            android:name=".nhanvien_tapvu.nhanvientapvu_xacnhantrangthaiphong"
             android:exported="false" />
         <activity
-            android:name=".NVTN_Thongtintaikhoan"
+            android:name=".nhanvien_tapvu.nhanvientapvu_thongtinluong"
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_thongtintaikhoan"
+            android:name=".nhanvien_tapvu.nhanvientapvu_lichlamviec"
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_xacnhantrangthaiphong"
+            android:name=".nhanvien_tapvu.nhanvientapvu_sudungdichvu"
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_thongtinluong"
+            android:name=".nhanvien_tapvu.nhanvientapvu_dangkydichvu"
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_lichlamviec"
-            android:exported="false" />
-        <activity
-            android:name=".nhanvientapvu_sudungdichvu"
-            android:exported="false" />
-        <activity
-            android:name=".nhanvientapvu_dangkydichvu"
-            android:exported="false" />
-        <activity
-            android:name=".nhanvientapvu_quanlyphong"
+            android:name=".nhanvien_tapvu.nhanvientapvu_quanlyphong"
             android:exported="false" />
          <activity
-         android:name=".Nhanvientapvu_manhinhchinh"
+         android:name=".nhanvien_tapvu.Nhanvientapvu_manhinhchinh"
          android:exported="false" />
-        <activity
-            android:name=".menu_khachhang"
-            android:exported="false" />
+
         <activity
             android:name=".admin.AD_HienThiDanhSachPhong"
             android:exported="false" />

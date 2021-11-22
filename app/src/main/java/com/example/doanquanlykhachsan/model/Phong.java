@@ -14,22 +14,6 @@ public class Phong implements Serializable {
     float giaGio;
     String trangThai;
 
-    @Override
-    public String toString() {
-        return "Phong{" +
-                "maFB='" + maFB + '\'' +
-                ", maPhong='" + maPhong + '\'' +
-                ", tenPhong='" + tenPhong + '\'' +
-                ", soPhong='" + soPhong + '\'' +
-                ", lau=" + lau +
-                ", loai='" + loai + '\'' +
-                ", moTa='" + moTa + '\'' +
-                ", giaNgay=" + giaNgay +
-                ", giaGio=" + giaGio +
-                ", trangThai='" + trangThai + '\'' +
-                '}';
-    }
-
     public String getMaFB() {
         return maFB;
     }
@@ -123,7 +107,6 @@ public class Phong implements Serializable {
         this.trangThai = trangThai;
     }
 
-    public Phong() {
     @Override
     public String toString() {
         return "Phong{" +
@@ -138,5 +121,8 @@ public class Phong implements Serializable {
                 ", giaGio=" + giaGio +
                 ", trangThai='" + trangThai + '\'' +
                 '}';
+    }
+
+    public Phong() {
     }
 }
