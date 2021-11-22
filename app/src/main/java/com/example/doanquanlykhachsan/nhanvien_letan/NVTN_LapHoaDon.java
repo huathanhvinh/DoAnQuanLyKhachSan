@@ -9,8 +9,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.doanquanlykhachsan.Custom_NVTN_LapHoaDon;
+
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.adapter.Custom_NVTN_LapHoaDon;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.*;
 import com.google.firebase.database.DataSnapshot;

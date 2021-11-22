@@ -13,42 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
-        <activity
-            android:name=".admin.AD_MenuAdmin"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_HienThiDanhSachKhuyenMai"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_LuongCuaNhanVien"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_LuongNhanVien"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_LichLamViecCuaNhanVien"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_LichLamViec"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThongTinPhong"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThemPhong"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_SuaPhong"
 
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThongTinNhanVien"
 
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_SuaNhanVien"
-
-            android:exported="false" />
         <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_thongbao"
             android:exported="false" />
@@ -73,12 +39,13 @@
         <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_quanlyphong"
             android:exported="false" />
-         <activity
-         android:name=".nhanvien_tapvu.Nhanvientapvu_manhinhchinh"
-         android:exported="false" />
+        <activity
+            android:name=".nhanvien_tapvu.Nhanvientapvu_manhinhchinh"
+            android:exported="false" />
 
-
-
+        <activity
+            android:name=".nhanvien_letan.NVTN_SuaKhachHang"
+            android:exported="false" />
         <activity
             android:name=".nhanvien_letan.NVTN_Thong_Bao"
             android:exported="false" />
@@ -148,6 +115,39 @@
             android:exported="false" />
 
         <activity
+            android:name=".admin.AD_MenuAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_HienThiDanhSachKhuyenMai"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_LuongCuaNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_LuongNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_LichLamViecCuaNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_LichLamViec"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThongTinPhong"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThemPhong"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_SuaPhong"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThongTinNhanVien"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_SuaNhanVien"
+            android:exported="false" />
+        <activity
             android:name=".admin.AD_HienThiDanhSachPhong"
             android:exported="false" />
         <activity
@@ -174,6 +174,19 @@
         <activity
             android:name=".admin.AD_HienThiDanhSachNhanVien"
             android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThongTinKhuyenMai"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_SuaKhuyenMai"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AD_ThemKhuyenMai"
+            android:exported="false" />
+
+
+
+
 
         <activity
             android:name=".chung.forgot_password"
