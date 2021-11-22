@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:weightSum="10"
-    android:layout_height="match_parent"
+    android:background="#DAC4C4C4"
+    android:layout_height="wrap_content"
     >
 
     <LinearLayout
@@ -69,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:backgroundTint="#02A9B2"
             android:id="@+id/btnChiTiet"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -77,6 +79,7 @@
             />
 
         <Button
+            android:backgroundTint="#02A9B2"
             android:id="@+id/btnXacNhan"
             android:layout_gravity="center"
             android:layout_marginLeft="160dp"

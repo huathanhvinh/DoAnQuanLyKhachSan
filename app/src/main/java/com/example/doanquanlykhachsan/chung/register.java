@@ -1,20 +1,19 @@
-package com.example.doanquanlykhachsan.chung;
+package com.example.doanquanlykhachsan;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
-import com.example.doanquanlykhachsan.model.User;
+import com.example.doanquanlykhachsan.model.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,6 +22,8 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
@@ -144,6 +145,3 @@ public class register extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
-
-

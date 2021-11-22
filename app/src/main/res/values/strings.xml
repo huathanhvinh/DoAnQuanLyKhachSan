@@ -89,4 +89,14 @@ Nếu hủy trong vòng 1 ngày trước khi khách đến – Khách sạn sẽ
 
 </string>
     <string name="chi_tiet_hoa_don"> <u>Chi tiết hoá đơn</u>.</string>
+    <array name="HoiVien">
+        <item>Bạc</item>
+        <item>Vàng</item>
+        <item>Kim Cương</item>
+    </array>
+    <string name="title_activity_nvtn_thong_bao">NVTN_Thong_Bao</string>
+    <string name="tab_text_1">Đặt Phòng</string>
+    <string name="tab_text_2">Dịch vụ</string>
+    <string name="tab_text_3">Trả Phòng</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

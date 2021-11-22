@@ -3,13 +3,13 @@ package com.example.doanquanlykhachsan.model;
 import java.io.Serializable;
 
 public class NhanVien_Luong extends NhanVien implements Serializable {
-
-    String tienThuong;
-    String ghiChu;
-
     public NhanVien_Luong() {
     }
 
+    public NhanVien_Luong(String tienThuong, String ghiChu) {
+        this.tienThuong = tienThuong;
+        this.ghiChu = ghiChu;
+    }
 
     public NhanVien_Luong(int stt, String maFB, String tenNV, String soDienThoai, String diaChi, String ngaySinh, String cmnd, String luong, String caLam, String chucVu, String tienThuong, String ghiChu) {
         super(stt, maFB, tenNV, soDienThoai, diaChi, ngaySinh, cmnd, luong, caLam, chucVu);
@@ -17,21 +17,8 @@ public class NhanVien_Luong extends NhanVien implements Serializable {
         this.ghiChu = ghiChu;
     }
 
-    public String getTienThuong() {
-        return tienThuong;
-    }
-
-    public void setTienThuong(String tienThuong) {
-        this.tienThuong = tienThuong;
-    }
-
-    public String getGhiChu() {
-        return ghiChu;
-    }
-
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
-    }
+    String tienThuong;
+    String ghiChu;
 
     @Override
     public String toString() {
@@ -49,5 +36,21 @@ public class NhanVien_Luong extends NhanVien implements Serializable {
                 ", tienThuong='" + tienThuong + '\'' +
                 ", ghiChu='" + ghiChu + '\'' +
                 '}';
+    }
+
+    public String getTienThuong() {
+        return tienThuong;
+    }
+
+    public void setTienThuong(String tienThuong) {
+        this.tienThuong = tienThuong;
+    }
+
+    public String getGhiChu() {
+        return ghiChu;
+    }
+
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
     }
 }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".NVTN_Thongtintaikhoan"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#18364B"
     android:orientation="vertical"
@@ -50,16 +51,20 @@
             android:layout_height="50dp"
             android:src="@drawable/icon_thongtin"
             />
-        <TextView
+        <EditText
+            android:inputType="textAutoCorrect"
+            android:id="@+id/edtTenNV"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phạm Chí Cong"
             android:textColor="#F4F4EF"
+            android:enabled="false"
             android:textSize="25dp"
             />
         <ImageView
+            android:id="@+id/ivChangeTen"
             android:layout_marginLeft="15dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -79,7 +84,9 @@
             android:layout_height="50dp"
             android:src="@drawable/icon_phone"
             />
-        <TextView
+        <EditText
+            android:enabled="false"
+            android:id="@+id/edtSoDT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0123456789"
@@ -87,8 +94,10 @@
             android:layout_marginLeft="15dp"
             android:layout_gravity="center"
             android:textSize="25dp"
+            android:maxLength="11"
             />
         <ImageView
+            android:id="@+id/ivChangeSDT"
             android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -108,7 +117,9 @@
             android:layout_height="50dp"
             android:src="@drawable/icon_cmnd"
             />
-        <TextView
+        <EditText
+            android:enabled="false"
+            android:id="@+id/edtCMND"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,14 +127,16 @@
             android:textColor="#F4F4EF"
             android:layout_marginLeft="15dp"
             android:textSize="25dp"
+            android:maxLength="11"
             />
+
         <ImageView
-            android:layout_gravity="center"
+            android:id="@+id/ivChangeCMND"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/icon_edit"
+            android:layout_gravity="center"
             android:layout_marginLeft="15dp"
-            />
+            android:src="@drawable/icon_edit" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,6 +150,7 @@
             android:src="@drawable/icon_lichlamviec"
             />
         <TextView
+            android:id="@+id/tvLichLamViec"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -158,6 +172,7 @@
             android:src="@drawable/icon_luongnhanvien"
             />
         <TextView
+            android:id="@+id/tvLuong"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,6 +188,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <Button
+            android:id="@+id/btnLuu"
             android:layout_gravity="center"
             android:backgroundTint="#25BDAF"
             android:layout_width="wrap_content"
