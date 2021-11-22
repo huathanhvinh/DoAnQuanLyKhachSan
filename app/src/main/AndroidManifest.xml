@@ -3,6 +3,7 @@
     package="com.example.doanquanlykhachsan">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -57,28 +58,10 @@
             android:name=".admin.AD_HienThiDanhSachKhachHang"
             android:exported="false" />
         <activity
-            android:name=".admin.AD_SuaNhanVien"
+            android:name=".sign_in"
             android:exported="false" />
         <activity
-            android:name=".admin.AD_ThongTinNhanVien"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_HienThiDanhSachNhanVien"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThongTinKhuyenMai"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThongKe"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_SuaKhuyenMai"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_ThemKhuyenMai"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AD_MenuAdmin"
+            android:name=".register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

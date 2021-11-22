@@ -1,26 +1,36 @@
 package com.example.doanquanlykhachsan;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.helpers.dialog;
+import com.example.doanquanlykhachsan.model.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class register extends AppCompatActivity {
     private Button btnSignIn, btnReturn;
     private EditText txtUserName, txtPassWord, txtsdt;
-    dialog dl = new dialog();
+    String ma = "KH0";
+    ArrayList<Long> data = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +38,19 @@ public class register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         setControl();
         setEvent();
+
     }
+
+    private void setControl() {
+        txtsdt = findViewById(R.id.txtPhone);
+        txtUserName = findViewById(R.id.txtUserName);
+        txtPassWord = findViewById(R.id.txtPassWord);
+        txtNhapLaiMK = findViewById(R.id.txtNhapLaiMK);
+        btnSignIn = findViewById(R.id.btnSignIn);
+        btnReturn = findViewById(R.id.btnReturn);
+        ckbDieuKhoan = findViewById(R.id.ckbDieuKhoan);
+    }
+
 
     private void setEvent() {
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -40,11 +62,13 @@ public class register extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+                register(txtUserName.getText().toString(), txtPassWord.getText().toString());
             }
         });
     }
 
+
+    //check email already exist or not.
     private void register(String Email, String Pass) {
         //check email already exist or not.
         StaticConfig.fAuth.fetchSignInMethodsForEmail(txtUserName.getText().toString())
@@ -75,12 +99,27 @@ public class register extends AppCompatActivity {
     }
 
 
+//check email already exist or not.
+
     private void UpdateUser() {
-        User user = new User(dl.getuserid(), txtUserName.getText().toString(), txtsdt.getText().toString());
-        dl.addUser(dl.getuserid(), user);
-        Intent intent = new Intent(getApplicationContext(), menu_khachhang.class);
+
+        if (data.size() > 0) {
+            Long max = data.get(0);
+            for (int i = 0; i < data.size(); i++) {
+                if (data.get(i).compareTo(max) > 0) {
+                    max = data.get(i);
+                }
+            }
+            max++;
+            String ma = "KH" + max;
+        }
+
+        User user = new User(ma, txtUserName.getText().toString(), txtsdt.getText().toString());
+        StaticConfig.mUser.child(ma).setValue(user);
+        Intent intent = new Intent(getApplicationContext(), sign_in.class);
         startActivity(intent);
     }
+}
 
     private void setControl() {
         txtsdt = findViewById(R.id.txtPhone);
@@ -88,7 +127,29 @@ public class register extends AppCompatActivity {
         txtPassWord = findViewById(R.id.txtPassWord);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
-        dl.getuserid();
+        maxid();
+
     }
 
+    private void maxid() {
+        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        long mau = 0;
+                        ma = ds.child("id").getValue(String.class);
+                        String[] parts;
+                        parts = ma.split("KH");
+                        mau = Long.parseLong(parts[1]);
+                        data.add(mau);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 }
