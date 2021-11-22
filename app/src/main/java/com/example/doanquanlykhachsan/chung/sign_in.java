@@ -49,17 +49,17 @@ public class sign_in extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (txtPassWord.getText().toString().isEmpty() || txtUserName.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "nhap email va pass", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Nhập email và password", Toast.LENGTH_SHORT).show();
                 } else {
                     StaticConfig.fAuth.signInWithEmailAndPassword(txtUserName.getText().toString(), txtPassWord.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 //dang nhap thanh cong
-                                Toast.makeText(getApplicationContext(), "dang nhap thanh cong", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
                             } else {
-                                Toast.makeText(getApplicationContext(), "sai email hoac pass!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Sai email hoặc password!!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

@@ -14,6 +14,7 @@ public class NhanVien implements Serializable {
     String caLam;
     String chucVu;
 
+
     public NhanVien() {
     }
 

@@ -1,8 +1,11 @@
 package com.example.doanquanlykhachsan.model;
 
+import com.example.doanquanlykhachsan.model.NhanVien;
+
 import java.io.Serializable;
 
 public class NhanVien_LichLamViec extends NhanVien implements Serializable {
+
     String ghiChu;
 
     public NhanVien_LichLamViec() {
@@ -39,6 +42,7 @@ public class NhanVien_LichLamViec extends NhanVien implements Serializable {
                 ", caLam='" + caLam + '\'' +
                 ", chucVu='" + chucVu + '\'' +
                 ", ghiChu='" + ghiChu + '\'' +
+                "ghiChu='" + ghiChu + '\'' +
                 '}';
     }
 }

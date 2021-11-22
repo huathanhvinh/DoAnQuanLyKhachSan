@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.doanquanlykhachsan">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -38,6 +39,46 @@
             android:exported="false" />
         <activity
             android:name=".admin.AD_SuaPhong"
+            android:name=".NVTN_Thongbao"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_thongbao"
+            android:exported="false" />
+        <activity
+            android:name=".NVTV_Thongtinluong"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_lichlamviec"
+            android:exported="false" />
+        <activity
+            android:name=".NVTN_Thongtintaikhoan"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_thongtintaikhoan"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_xacnhantrangthaiphong"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_thongtinluong"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_lichlamviec"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_sudungdichvu"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_dangkydichvu"
+            android:exported="false" />
+        <activity
+            android:name=".nhanvientapvu_quanlyphong"
+            android:exported="false" />
+         <activity
+         android:name=".Nhanvientapvu_manhinhchinh"
+         android:exported="false" />
+        <activity
+            android:name=".menu_khachhang"
             android:exported="false" />
         <activity
             android:name=".admin.AD_HienThiDanhSachPhong"
@@ -119,7 +160,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

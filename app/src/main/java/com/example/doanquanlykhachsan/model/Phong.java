@@ -124,5 +124,19 @@ public class Phong implements Serializable {
     }
 
     public Phong() {
+    @Override
+    public String toString() {
+        return "Phong{" +
+                "maFB='" + maFB + '\'' +
+                ", maPhong='" + maPhong + '\'' +
+                ", tenPhong='" + tenPhong + '\'' +
+                ", soPhong='" + soPhong + '\'' +
+                ", lau=" + lau +
+                ", loai='" + loai + '\'' +
+                ", moTa='" + moTa + '\'' +
+                ", giaNgay=" + giaNgay +
+                ", giaGio=" + giaGio +
+                ", trangThai='" + trangThai + '\'' +
+                '}';
     }
 }
