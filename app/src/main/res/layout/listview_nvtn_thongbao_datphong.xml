@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:textColor="#00FF75"
                 android:paddingTop="5dp"
-               android:gravity="right"
+                android:gravity="right"
                 android:textSize="20dp"
                 android:text="Tên Khách Hàng"
                 android:layout_width="295dp"
