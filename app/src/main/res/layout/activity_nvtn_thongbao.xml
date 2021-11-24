@@ -6,127 +6,87 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:weightSum="15"
-    >
+    android:weightSum="15">
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Thông báo"
-            android:textStyle="bold"
+            android:textColor="#EDE9E9"
             android:textSize="35dp"
-            android:textColor="#EDE9E9"
-            android:layout_gravity="center"
-            >
+            android:textStyle="bold">
 
         </TextView>
     </LinearLayout>
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yêu cầu của khách hàng"
-            android:textSize="25dp"
-            android:textColor="#EDE9E9"
-            android:layout_gravity="center"
-            >
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:background="#fff"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đặt phòng"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(0)"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký dịch vụ"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
-        <TextView
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/khung_km"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(4)"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
         <TextView
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trả phòng"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(1)"
-            android:textColor="#EDE9E9"
-            android:textSize="19dp"
-            >
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="461dp"
-        android:layout_weight="9"
-        android:background="#fff">
-
-        <ListView
-            android:id="@+id/lvThongBao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/listview_nvtn_thongbao">
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Chương trình của tôi"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
-        </ListView>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/khung_km"
+            app:tabTextColor="@color/white">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sắp diễn ra" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sắp diễn ra" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sắp diễn ra" />
+        </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
+
         <Button
             android:id="@+id/btnTroVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trở về"
             android:layout_gravity="center"
-            />
+            android:text="Trở về" />
     </LinearLayout>
 
 </LinearLayout>
+
+
+

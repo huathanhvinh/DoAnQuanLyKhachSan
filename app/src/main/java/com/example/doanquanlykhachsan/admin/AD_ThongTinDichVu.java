@@ -68,7 +68,7 @@ public class AD_ThongTinDichVu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DichVu thongTinDichVu = (DichVu) getIntent().getSerializableExtra("ThongTinDichVu");
-                Intent intent = new Intent(getApplicationContext(),AD_SuaDichVu.class);
+                Intent intent = new Intent(getApplicationContext(), AD_SuaDichVu.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("ThongTinDichVu",thongTinDichVu);
                 intent.putExtras(bundle);

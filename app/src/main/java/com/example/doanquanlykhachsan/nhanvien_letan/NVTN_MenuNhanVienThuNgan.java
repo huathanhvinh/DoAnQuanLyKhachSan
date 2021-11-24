@@ -103,8 +103,7 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
         tvThongBao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(getApplicationContext(),NVTN_Thong_Bao.class));
-                Toast.makeText(getApplicationContext(), "Chuc nang con loi", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),NVTN_Thong_Bao.class));
             }
         });
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
