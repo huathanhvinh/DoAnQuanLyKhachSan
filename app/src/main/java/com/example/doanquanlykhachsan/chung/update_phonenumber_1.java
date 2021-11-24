@@ -32,8 +32,6 @@ public class update_phonenumber_1 extends AppCompatActivity {
     String maxacnhanmoi = "";
     private ImageView changeCacha;
     int soluong = 0;
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_phonenumber_1);

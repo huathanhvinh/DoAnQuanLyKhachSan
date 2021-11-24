@@ -28,7 +28,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     private ImageView penHoten, penSdt, penCmnd;
     private EditText etHoten, etSdt, etCmnd;
     private LinearLayout ChangeMK;
-    String key="";
+    String key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         ChangeMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Change_passwork.class));
+                startActivity(new Intent(getApplicationContext(), Change_passwork.class));
             }
         });
         penHoten.setOnClickListener(new View.OnClickListener() {
@@ -69,17 +69,16 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         btnluu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etHoten.getText().toString().isEmpty()||
-                        etSdt.getText().toString().isEmpty()||
-                        etCmnd.getText().toString().isEmpty()){
+                if (etHoten.getText().toString().isEmpty() ||
+                        etSdt.getText().toString().isEmpty() ||
+                        etCmnd.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Vui Lòng nhập đủ thông tin !!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     StaticConfig.mKhachHang.child(key).child("tenKH").setValue(etHoten.getText().toString());
                     StaticConfig.mKhachHang.child(key).child("sdtKH").setValue(etSdt.getText().toString());
                     StaticConfig.mKhachHang.child(key).child("cmnd").setValue(etCmnd.getText().toString());
                     StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(etCmnd.getText().toString());
-                    startActivity(new Intent(getApplicationContext(),KH_thong_tin_tai_khoan.class));
+                    startActivity(new Intent(getApplicationContext(), KH_thong_tin_tai_khoan.class));
                 }
             }
         });
@@ -102,7 +101,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         penSdt = findViewById(R.id.pen2);
         penCmnd = findViewById(R.id.pen3);
         btnluu = findViewById(R.id.btnluu);
-        ChangeMK=findViewById(R.id.ChangeMK);
+        ChangeMK = findViewById(R.id.ChangeMK);
         khoitao();
     }
 
@@ -116,7 +115,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
                         etHoten.setText(kh.getTenKH());
                         etSdt.setText(kh.getSdtKH() + "");
                         etCmnd.setText(kh.getCmnd() + "");
-                        key=kh.getMaFB();
+                        key = kh.getMaFB();
                     }
                 }
             }
