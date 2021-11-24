@@ -2,6 +2,9 @@ package com.example.doanquanlykhachsan.chung;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +18,7 @@ import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
+import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +34,9 @@ public class register extends AppCompatActivity {
     private EditText txtUserName, txtPassWord, txtsdt, txtNhapLaiMK;
     private CheckBox ckbDieuKhoan;
     String ma = "KH0";
-    boolean issdt = false;
+    boolean issdt;
+    int maxSTT = 0;
+    int solan = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +55,45 @@ public class register extends AppCompatActivity {
         btnSignIn = findViewById(R.id.btnSignIn);
         btnReturn = findViewById(R.id.btnReturn);
         ckbDieuKhoan = findViewById(R.id.ckbDieuKhoan);
+        maxID();
     }
 
 
     private void setEvent() {
+        txtsdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            User user = ds.getValue(User.class);
+                            if (txtsdt.getText().toString().equals(user.getSdt().toString())) {
+                                issdt = false;
+                                Toast.makeText(getApplicationContext(), "sdt trung", Toast.LENGTH_SHORT).show();
+                                break;
+                            } else {
+                                issdt = true;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,28 +118,13 @@ public class register extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Bạn chưa đồng ý điều khoản", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                            for (DataSnapshot ds : snapshot.getChildren()) {
-                                User user = ds.getValue(User.class);
-                                if (phone.equals(user.getSdt().toString())) {
-                                    issdt = true;
-                                    Toast.makeText(getApplicationContext(), "Sdt trung", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    issdt = false;
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                    if(issdt==false)
+                    if (issdt == true) {
+                        Log.e("ketqua", issdt + "");
                         register(txtUserName.getText().toString(), txtPassWord.getText().toString());
+                    } else {
+                        Log.e("ketqua", issdt + "");
+                    }
+
                 }
 
             }
@@ -115,10 +141,12 @@ public class register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
                         boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
                         if (isNewUser) {
+
                             StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isComplete()) {
+                                        UpdateKhachhang();
                                         UpdateUser();
                                         Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
                                     } else {
@@ -139,9 +167,38 @@ public class register extends AppCompatActivity {
     private void UpdateUser() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(), txtPassWord.getText().toString(),
-                "0000",4);
-        StaticConfig.mUser.child(id).setValue(user);
-        startActivity(intent);
+        if (!id.equals(null)) {
+            User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(),
+                    "0000", 4);
+            StaticConfig.mUser.child(id).setValue(user);
+            startActivity(intent);
+        }
+    }
+
+    private void UpdateKhachhang() {
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if (!id.equals(null)) {
+            String key = StaticConfig.mKhachHang.push().getKey();
+            KhachHang kh = new KhachHang(maxSTT, key, txtUserName.getText().toString(), txtsdt.getText().toString(), "", "0000");
+            StaticConfig.mKhachHang.child(key).setValue(kh);
+        }
+    }
+
+    private void maxID() {
+        StaticConfig.mKhachHang.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    maxSTT = ds.child("stt").getValue(int.class);
+                }
+                maxSTT = maxSTT + 1;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

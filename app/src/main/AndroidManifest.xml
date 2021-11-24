@@ -192,6 +192,9 @@
             android:name=".chung.forgot_password"
             android:exported="false" />
         <activity
+            android:name=".chung.Change_passwork"
+            android:exported="false" />
+        <activity
             android:name=".chung.sign_in"
             android:exported="true" />
         <activity

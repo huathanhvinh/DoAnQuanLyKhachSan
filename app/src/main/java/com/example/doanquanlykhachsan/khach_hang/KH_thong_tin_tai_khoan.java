@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
+import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     private float Tongtien = 0;
     private ImageView penHoten, penSdt, penCmnd;
     private EditText etHoten, etSdt, etCmnd;
+    private LinearLayout ChangeMK;
     String key="";
 
     @Override
@@ -36,6 +39,12 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     }
 
     private void setEvnet() {
+        ChangeMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Change_passwork.class));
+            }
+        });
         penHoten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,8 +62,8 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         penCmnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etSdt.setEnabled(true);
-                etSdt.setFocusable(true);
+                etCmnd.setEnabled(true);
+                etCmnd.setFocusable(true);
             }
         });
         btnluu.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +78,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
                     StaticConfig.mKhachHang.child(key).child("tenKH").setValue(etHoten.getText().toString());
                     StaticConfig.mKhachHang.child(key).child("sdtKH").setValue(etSdt.getText().toString());
                     StaticConfig.mKhachHang.child(key).child("cmnd").setValue(etCmnd.getText().toString());
+                    StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(etCmnd.getText().toString());
                     startActivity(new Intent(getApplicationContext(),KH_thong_tin_tai_khoan.class));
                 }
             }
@@ -92,6 +102,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         penSdt = findViewById(R.id.pen2);
         penCmnd = findViewById(R.id.pen3);
         btnluu = findViewById(R.id.btnluu);
+        ChangeMK=findViewById(R.id.ChangeMK);
         khoitao();
     }
 

@@ -4,15 +4,14 @@ public class User {
     String maFB;
     String email;
     String sdt;
-    String matKhau;
+
     String cmnd;
     int role;
 
-    public User(String maFB, String email, String sdt, String matKhau, String cmnd, int role) {
+    public User(String maFB, String email, String sdt, String cmnd, int role) {
         this.maFB = maFB;
         this.email = email;
         this.sdt = sdt;
-        this.matKhau = matKhau;
         this.cmnd = cmnd;
         this.role = role;
     }
@@ -44,13 +43,7 @@ public class User {
         this.sdt = sdt;
     }
 
-    public String getMatKhau() {
-        return matKhau;
-    }
 
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
-    }
 
     public String getCmnd() {
         return cmnd;

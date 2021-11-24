@@ -101,7 +101,7 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
 
     private void UpdateUser() {
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        User user = new User(id, edtEmail.getText().toString(), edtSoDT.getText().toString(), edtEmail.getText().toString(), edtCMND.getText().toString(), 4);
+        User user = new User(id, edtEmail.getText().toString(), edtSoDT.getText().toString(), edtCMND.getText().toString(), 4);
         StaticConfig.mUser.child(id).setValue(user);
         edtTenKH.setText("");
         edtDiaChi.setText("");
