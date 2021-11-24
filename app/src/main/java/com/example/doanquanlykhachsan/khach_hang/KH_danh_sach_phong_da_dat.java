@@ -29,7 +29,6 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
     private Phong_adapter adapter;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,28 +90,35 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)){
-                        String maphong = ds.child("maPhong").getValue(String.class);
-                        data.clear();
-                        StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot ds : snapshot.getChildren()) {
-                                    Phong phong = ds.getValue(Phong.class);
-                                    if (phong.getMaPhong().equals(maphong)) {
-                                        data.add(phong);
+                    if (ds.child("xacnhan").getValue().toString().equals("Đã xác nhận")) {
+                        if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
+                            String chuoimaphong = ds.child("maPhong").getValue(String.class);
+                            String[] parts;
+                            parts = chuoimaphong.split(" ");
+                            for (String w : parts) {
+                                String maPhong = w.toString();
+                                data.clear();
+                                StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            Phong phong = ds.getValue(Phong.class);
+                                            if (phong.getMaPhong().equals(maPhong)) {
+                                                data.add(phong);
+                                            }
+                                            adapter.notifyDataSetChanged();
+                                        }
+
                                     }
-                                    adapter.notifyDataSetChanged();
-                                }
 
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                                adapter.notifyDataSetChanged();
                             }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-                        adapter.notifyDataSetChanged();
+                        }
                     }
                 }
 

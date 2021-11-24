@@ -8,18 +8,28 @@ public class PhongDaDat {
     String thoiGianTraPH;
     String manHinh;//phan biet man hinh theo ngay hay gio
     String ghiChuKH;
+    String xacnhan;
 
-    @Override
-    public String toString() {
-        return "PhongDaDat{" +
-                "maFB='" + maFB + '\'' +
-                ", maKH='" + maKH + '\'' +
-                ", maPhong='" + maPhong + '\'' +
-                ", thoiGianNhanPH='" + thoiGianNhanPH + '\'' +
-                ", thoiGianTraPH='" + thoiGianTraPH + '\'' +
-                ", manHinh='" + manHinh + '\'' +
-                ", ghiChuKH='" + ghiChuKH + '\'' +
-                '}';
+    public PhongDaDat() {
+    }
+
+    public PhongDaDat(String maFB, String maKH, String maPhong, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan) {
+        this.maFB = maFB;
+        this.maKH = maKH;
+        this.maPhong = maPhong;
+        this.thoiGianNhanPH = thoiGianNhanPH;
+        this.thoiGianTraPH = thoiGianTraPH;
+        this.manHinh = manHinh;
+        this.ghiChuKH = ghiChuKH;
+        this.xacnhan = xacnhan;
+    }
+
+    public String getXacnhan() {
+        return xacnhan;
+    }
+
+    public void setXacnhan(String xacnhan) {
+        this.xacnhan = xacnhan;
     }
 
     public String getMaFB() {
@@ -78,16 +88,6 @@ public class PhongDaDat {
         this.ghiChuKH = ghiChuKH;
     }
 
-    public PhongDaDat(String maFB, String maKH, String maPhong, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH) {
-        this.maFB = maFB;
-        this.maKH = maKH;
-        this.maPhong = maPhong;
-        this.thoiGianNhanPH = thoiGianNhanPH;
-        this.thoiGianTraPH = thoiGianTraPH;
-        this.manHinh = manHinh;
-        this.ghiChuKH = ghiChuKH;
-    }
 
-    public PhongDaDat() {
-    }
+
 }
