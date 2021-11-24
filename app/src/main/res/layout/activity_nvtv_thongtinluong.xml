@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lê Hoàng Phắc Boiz"
+            android:text="Lê Hoàng Phắc "
             android:textColor="#E4E412"
             android:textSize="20dp"
             android:layout_marginLeft="50dp"
