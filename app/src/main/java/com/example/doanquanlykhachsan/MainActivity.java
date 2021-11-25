@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
                         String maFB = ds.child("maFB").getValue().toString();
                         if (!maFB.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            String phome = user.getPhoneNumber();
-                            Log.e("sdt", phome);
+//                            String phome = user.getPhoneNumber();
+//                            Log.e("sdt", phome);
                         } else {
                             User user = ds.getValue(User.class);
                             StaticConfig.currentphone = user.getSdt();
