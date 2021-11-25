@@ -24,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 public class update_phonenumber_1 extends AppCompatActivity {
-    private EditText oldphone, newphone, cacha;
+    private EditText oldphone, cacha;
     private TextView tvcacha;
     private Button btnTrove, btntieptuc;
     FirebaseAuth mAuth;
@@ -32,6 +32,7 @@ public class update_phonenumber_1 extends AppCompatActivity {
     String maxacnhanmoi = "";
     private ImageView changeCacha;
     int soluong = 0;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_phonenumber_1);
@@ -41,7 +42,7 @@ public class update_phonenumber_1 extends AppCompatActivity {
 
     private void setControl() {
         oldphone = findViewById(R.id.etsdt);
-        newphone = findViewById(R.id.etnewsdt);
+
         cacha = findViewById(R.id.Capcha);
         tvcacha = findViewById(R.id.tvCapcha);
         btntieptuc = findViewById(R.id.btntieptuc);
@@ -67,16 +68,10 @@ public class update_phonenumber_1 extends AppCompatActivity {
         btntieptuc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!oldphone.getText().toString().isEmpty() &&
-                        !newphone.getText().toString().isEmpty() && cacha.getText().toString().equals(tvcacha.getText().toString())) {
+                if (!oldphone.getText().toString().isEmpty() && cacha.getText().toString().equals(tvcacha.getText().toString())) {
                     //gửi otp
-                    if (!oldphone.getText().toString().equals(newphone.getText().toString())) {
-                        sendOTPCode(oldphone.getText().toString());
+                    sendOTPCode(oldphone.getText().toString());
 
-                        //0818260857
-                    } else {
-                        Toast.makeText(getApplicationContext(), "sdt không được trùng nhau", Toast.LENGTH_SHORT).show();
-                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Nhap du thong tin", Toast.LENGTH_SHORT).show();
                 }
@@ -125,9 +120,6 @@ public class update_phonenumber_1 extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), update_phonenumber_2.class);
         Bundle bundle = new Bundle();
         bundle.putString("oldphone", maxacnhancu);
-        bundle.putString("newphone", newphone.getText().toString());
-         bundle.putString("oldphonenumber", oldphone.getText().toString());
-         bundle.putString("newphonenumber", newphone.getText().toString());
         intent.putExtras(bundle);
         startActivity(intent);
 

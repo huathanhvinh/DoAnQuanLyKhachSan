@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.doanquanlykhachsan.ui.main.SectionsPagerAdapter;
+//import com.example.doanquanlykhachsan.ui.main.SectionsPagerAdapter;
 
 
 public class NVTN_Thong_Bao extends AppCompatActivity {

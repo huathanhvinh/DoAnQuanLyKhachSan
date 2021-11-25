@@ -91,7 +91,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Nhập mã OTP số điện thoại mới:"
+                android:text="Nhập  số điện thoại mới:"
                 android:textColor="#ffff"
                 android:textSize="14dp"
                 android:textStyle="bold"
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:hint="Nhập mã OTP số điện thoại cũ"
+                android:hint="Nhập  số điện thoại cũ"
                 />
         </LinearLayout>
         <LinearLayout
@@ -149,6 +149,7 @@
                     android:layout_marginLeft="5dp"
                     >
                     <TextView
+                        android:gravity="center"
                         android:id="@+id/tvCapcha"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"

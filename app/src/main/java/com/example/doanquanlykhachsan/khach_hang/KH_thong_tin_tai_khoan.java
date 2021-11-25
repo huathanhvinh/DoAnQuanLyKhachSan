@@ -3,8 +3,12 @@ package com.example.doanquanlykhachsan.khach_hang;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +17,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.User;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.nhanvientapvu_thongtintaikhoan;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -29,7 +36,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     private EditText etHoten, etSdt, etCmnd;
     private LinearLayout ChangeMK;
     String key = "";
-
+    boolean iscmnd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,47 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
     }
 
     private void setEvnet() {
+        etSdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),update_phonenumber_1.class));
+            }
+        });
+        etCmnd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            User user = ds.getValue(User.class);
+
+                            if (etCmnd.getText().toString().equals(user.getCmnd().toString())) {
+                                iscmnd = false;
+                                break;
+                            } else {
+                                iscmnd = true;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         ChangeMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,10 +123,28 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Vui Lòng nhập đủ thông tin !!", Toast.LENGTH_SHORT).show();
                 } else {
                     StaticConfig.mKhachHang.child(key).child("tenKH").setValue(etHoten.getText().toString());
-                    StaticConfig.mKhachHang.child(key).child("sdtKH").setValue(etSdt.getText().toString());
-                    StaticConfig.mKhachHang.child(key).child("cmnd").setValue(etCmnd.getText().toString());
-                    StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(etCmnd.getText().toString());
-                    startActivity(new Intent(getApplicationContext(), KH_thong_tin_tai_khoan.class));
+                    if(iscmnd==true) {
+                        StaticConfig.mKhachHang.child(key).child("cmnd").setValue(etCmnd.getText().toString());
+                        StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(etCmnd.getText().toString());
+                        new AlertDialog.Builder(KH_thong_tin_tai_khoan.this)
+                                .setTitle("Thông báo ")
+                                .setMessage("Cập Nhận Thành công")
+                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                        startActivity(new Intent(getApplicationContext(), KH_thong_tin_tai_khoan.class));
+                    }
+                    else {
+                        new AlertDialog.Builder(KH_thong_tin_tai_khoan.this)
+                                .setTitle("Thông báo ")
+                                .setMessage("CMND đã có")
+                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                    }
+
                 }
             }
         });

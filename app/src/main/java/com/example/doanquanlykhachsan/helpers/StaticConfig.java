@@ -17,6 +17,8 @@ public class StaticConfig {
     public static StorageReference storageReference = storage.getReference();
     public static String currentuser = "";
     public static String currentphone = "";
+    public static int role ;
+    public static String currentCmnd = "";
 
 
     public static DatabaseReference mUser = Database.getReference("User");

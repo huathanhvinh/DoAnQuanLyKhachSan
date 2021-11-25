@@ -17,6 +17,7 @@ import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.example.doanquanlykhachsan.nhanvien_letan.*;
 import com.example.doanquanlykhachsan.khach_hang.*;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -64,16 +65,25 @@ public class MainActivity extends AppCompatActivity {
         //Đổi role tại User khi chuyển khách hàng -> Nhân viên
         //Đổi role tại User khi thay đổi thông tin nhân viên (chức vụ)
 
-//        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
+        //startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
         if (StaticConfig.fAuth.getCurrentUser() != null) {
             StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        if (ds.child("maFB").getValue().toString().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        User temp= ds.getValue(User.class);
+                        String maFB = ds.child("maFB").getValue().toString();
+                        if (!maFB.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            String phome = user.getPhoneNumber();
+                            Log.e("sdt", phome);
+                        } else {
                             User user = ds.getValue(User.class);
                             StaticConfig.currentphone = user.getSdt();
                             StaticConfig.currentuser = user.getMaFB();
+                            StaticConfig.role = user.getRole();
+                            StaticConfig.currentCmnd = user.getCmnd();
+
                             int role = user.getRole();
                             if (role == 1) {
                                 startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
@@ -101,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-
             startActivity(new Intent(getApplicationContext(), sign_in.class));
         }
 

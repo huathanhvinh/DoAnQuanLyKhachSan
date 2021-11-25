@@ -113,44 +113,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mật SDT mới"
-                    android:textColor="#fff"
-                    android:textSize="14dp"
-                    android:gravity="center"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:layout_marginRight="30dp"
-                >
-                <EditText
-                    android:id="@+id/etnewsdt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:hint="Nhập số điện thoại mới"
-                    />
-            </LinearLayout>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Capcha"
                     android:textColor="#fff"
                     android:textSize="14dp"
@@ -186,10 +148,11 @@
                     android:layout_marginLeft="5dp"
                     >
                     <TextView
+                        android:gravity="center"
                         android:id="@+id/tvCapcha"
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
-                        android:text="Capcha"
+                        android:text="Cacha"
                         android:textColor="#fff"
                         android:textStyle="bold"
                         android:background="#02A9B2"

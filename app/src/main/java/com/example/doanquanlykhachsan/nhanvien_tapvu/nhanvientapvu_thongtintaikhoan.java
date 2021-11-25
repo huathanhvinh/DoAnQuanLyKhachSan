@@ -3,8 +3,11 @@ package com.example.doanquanlykhachsan.nhanvien_tapvu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.chung.update_phonenumber_1;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.khach_hang.KH_thong_tin_tai_khoan;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
+import com.example.doanquanlykhachsan.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -29,6 +35,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
     String tenNV;
     String SDT;
     String CMND;
+    boolean iscmnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +74,47 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
     }
 
     private void setEvent() {
+        edtSoDT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), update_phonenumber_1.class));
+            }
+        });
+        edtCMND.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            User user = ds.getValue(User.class);
+
+                            if (edtCMND.getText().toString().equals(user.getCmnd().toString())) {
+                                iscmnd = false;
+                                break;
+                            } else {
+                                iscmnd = true;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         edtTenNV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +137,26 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                                 if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
                                     String ma = nv.getMaFB();
                                     StaticConfig.mNhanVien.child(ma).child("tenNV").setValue(edtTenNV.getText().toString());
-                                    StaticConfig.mNhanVien.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                                    if (iscmnd == true) {
+                                        StaticConfig.mNhanVien.child(ma).child("cmnd").setValue(edtCMND.getText().toString());
+                                        StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(edtCMND.getText().toString());
+                                        new AlertDialog.Builder(nhanvientapvu_thongtintaikhoan.this)
+                                                .setTitle("Thông báo ")
+                                                .setMessage("Cập Nhận Thành công")
+                                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
+                                    }
+                                    else {
+                                        new AlertDialog.Builder(nhanvientapvu_thongtintaikhoan.this)
+                                                .setTitle("Thông báo ")
+                                                .setMessage("CMND đã có")
+                                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
+                                    }
                                 }
                             }
                         }
@@ -173,7 +239,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //edtSoDT.setEnabled(true);
-                Toast.makeText(getApplicationContext(), "Chuyển màn hình đổi số điện thoại", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(getApplicationContext(),update_phonenumber_1.class));
             }
         });
         ivChangeCMND.setOnClickListener(new View.OnClickListener() {

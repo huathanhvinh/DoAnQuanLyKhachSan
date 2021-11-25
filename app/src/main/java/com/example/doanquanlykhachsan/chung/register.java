@@ -146,7 +146,7 @@ public class register extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isComplete()) {
-                                        UpdateKhachhang();
+                                       UpdateKhachhang();
                                         UpdateUser();
                                         Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
                                     } else {
@@ -169,7 +169,7 @@ public class register extends AppCompatActivity {
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if (!id.equals(null)) {
             User user = new User(id, txtUserName.getText().toString(), txtsdt.getText().toString(),
-                    "0000", 4);
+                    "000000000", 4);
             StaticConfig.mUser.child(id).setValue(user);
             startActivity(intent);
         }
@@ -179,7 +179,7 @@ public class register extends AppCompatActivity {
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if (!id.equals(null)) {
             String key = StaticConfig.mKhachHang.push().getKey();
-            KhachHang kh = new KhachHang(maxSTT, key, txtUserName.getText().toString(), txtsdt.getText().toString(), "", "0000");
+            KhachHang kh = new KhachHang(maxSTT, key, txtUserName.getText().toString(), txtsdt.getText().toString(), "", "000000000");
             StaticConfig.mKhachHang.child(key).setValue(kh);
         }
     }

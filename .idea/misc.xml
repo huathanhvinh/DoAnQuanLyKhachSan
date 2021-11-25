@@ -97,9 +97,12 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongbao.xml" value="0.14479166666666668" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinkhachhang.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinluong.xml" value="0.27447916666666666" />
-        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.13020833333333334" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_sign_in.xml" value="0.25416666666666665" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_update_phonenumber_1.xml" value="0.4" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_update_phonenumber_2.xml" value="0.264" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong__bao.xml" value="0.27447916666666666" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nvtn_thongbao_datphong.xml" value="0.24583333333333332" />
       </map>
     </option>
   </component>
