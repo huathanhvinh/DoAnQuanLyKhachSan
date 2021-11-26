@@ -91,7 +91,6 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                                                 data.add(phong);
                                                 sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
                                                 lvSuDungDV.setAdapter(sudungdichvu);
-
                                             }
                                         }
                                     }

@@ -63,13 +63,11 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
     }
 
     private void setControl() {
-
         btntrove = findViewById(R.id.btntrove);
         listView = findViewById(R.id.lvDanhSachPhong);
         adapter = new Doi_Phong_adapter(getApplicationContext(), R.layout.item_phong, data);
         listView.setAdapter(adapter);
         khoitao();
-
     }
 
     private void khoitao() {

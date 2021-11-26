@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -35,17 +36,18 @@ public class KH_doi_phong extends AppCompatActivity {
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
+                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
-                            if(!StaticConfig.chon.equals("")) {
-                                if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser) && ds.child("maPhong")
-                                        .getValue(String.class).equals(StaticConfig.chon.getMaPhong())) {
+                            PhongDaDat da = ds.getValue(PhongDaDat.class);
+                            if (!StaticConfig.chon.equals("")) {
+                                if (da.getMaKH().equals(StaticConfig.currentuser)) {
                                     StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("trống");
                                     StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("đã đặt");
-                                    Log.d("test", ds.child("maFB").getValue(String.class));
-                                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maPhong").setValue(chitiet.getMaPhong());
+                                    String str = da.getMaPhong();
+                                    String replacedStr = str.replaceAll(StaticConfig.chon.getMaPhong(), chitiet.getMaPhong());
+                                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maPhong").setValue(replacedStr);
                                 }
                             }
                         }
@@ -56,7 +58,7 @@ public class KH_doi_phong extends AppCompatActivity {
 
                     }
                 });
-                startActivity(new Intent(getApplicationContext(),menu_khachhang.class));
+                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
 
             }
         });
