@@ -73,6 +73,28 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
         btnHuyDV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds:snapshot.getChildren()){
+                            PhongDaDat da= ds.getValue(PhongDaDat.class);
+                            String maPhong =da.getMaPhong();
+                            String[] parts1;
+                            parts1 = maPhong.split(" ");
+                            for (String w : parts1) {
+                                if (w.equals(suDungDichVu.getMaPhong())) {
+                                    StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue("");
+                                }
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
         });

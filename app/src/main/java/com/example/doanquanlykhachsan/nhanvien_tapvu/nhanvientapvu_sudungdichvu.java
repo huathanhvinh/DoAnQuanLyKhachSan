@@ -32,6 +32,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayList<String> temp = new ArrayList<>();
     String loaiDV = "";
+    public custom_nhanvientapvu_sudungdichvu sudungdichvu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,14 +85,14 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Phong phong = ds.getValue(Phong.class);
                                     if (phong.getMaPhong().equals(w)) {
-                                     for(String u :parts2){
-                                         if(loaiDV.equals(u)) {
-                                             data.add(phong);
-                                             custom_nhanvientapvu_sudungdichvu sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
-                                             lvSuDungDV.setAdapter(sudungdichvu);
-                                             sudungdichvu.notifyDataSetChanged();
-                                         }
-                                     }
+                                        for (String u : parts2) {
+                                            if (loaiDV.equals(u)) {
+                                                data.add(phong);
+                                                sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
+                                                lvSuDungDV.setAdapter(sudungdichvu);
+                                                sudungdichvu.notifyDataSetChanged();
+                                            }
+                                        }
                                     }
                                 }
                             }
