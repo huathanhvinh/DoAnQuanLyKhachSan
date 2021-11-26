@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan.nhanvien_tapvu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayList<String> temp = new ArrayList<>();
     String loaiDV = "";
-    public custom_nhanvientapvu_sudungdichvu sudungdichvu;
+    static public custom_nhanvientapvu_sudungdichvu sudungdichvu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +44,8 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     }
 
     private void SetControl() {
-
         lvSuDungDV = findViewById(R.id.lvSuDungDV);
         btnTroVe = findViewById(R.id.btnTroVe);
-
     }
 
     private void setEvent() {
@@ -78,7 +77,9 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                     parts1 = maPhong.split(" ");
                     String[] parts2;
                     parts2 = maLoai.split(" ");
+
                     for (String w : parts1) {
+                        data.clear();
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -90,11 +91,12 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                                                 data.add(phong);
                                                 sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
                                                 lvSuDungDV.setAdapter(sudungdichvu);
-                                                sudungdichvu.notifyDataSetChanged();
+
                                             }
                                         }
                                     }
                                 }
+                                sudungdichvu.notifyDataSetChanged();
                             }
 
                             @Override
@@ -113,4 +115,5 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.example.doanquanlykhachsan.model.DangKyDichVu;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
 import com.example.doanquanlykhachsan.model.Phong;
@@ -85,6 +87,7 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
                                 if (w.equals(suDungDichVu.getMaPhong())) {
                                     StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue("");
                                 }
+                                nhanvientapvu_sudungdichvu nhanvientapvu_sudungdichvu =  new nhanvientapvu_sudungdichvu();
                             }
 
                         }
