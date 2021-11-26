@@ -16,6 +16,8 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
 
 import com.example.doanquanlykhachsan.adapter.custom_nhanvientapvu_sudungdichvu;
+import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -24,10 +26,11 @@ import java.util.ArrayList;
 
 public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     ListView lvSuDungDV;
-    Spinner spDichVu;
-    ArrayList<DichVuDaChon> data = new ArrayList<>();
+
+    ArrayList<Phong> data = new ArrayList<>();
     Button btnTroVe;
     ArrayList<String> arrayList = new ArrayList<>();
+    ArrayList<String> temp = new ArrayList<>();
     String loaiDV = "";
 
     @Override
@@ -42,7 +45,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
 
         lvSuDungDV = findViewById(R.id.lvSuDungDV);
         btnTroVe = findViewById(R.id.btnTroVe);
-        spDichVu = findViewById(R.id.spDichVu);
+
     }
 
     private void setEvent() {
@@ -62,19 +65,44 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     }
 
     private void khoiTao() {
-        StaticConfig.mDichVuDaChon.addValueEventListener(new ValueEventListener() {
+        StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("maDV").getValue().toString().equals(loaiDV)) {
-                        DichVuDaChon suDungDichVu = ds.getValue(DichVuDaChon.class);
-                        data.add(suDungDichVu);
-                        custom_nhanvientapvu_sudungdichvu sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
-                        lvSuDungDV.setAdapter(sudungdichvu);
-                        sudungdichvu.notifyDataSetChanged();
+                    PhongDaDat da = ds.getValue(PhongDaDat.class);
+                    String maPhong = da.getMaPhong();
+                    String maLoai = da.getMaDichVu();
 
+                    String[] parts1;
+                    parts1 = maPhong.split(" ");
+                    String[] parts2;
+                    parts2 = maLoai.split(" ");
+                    for (String w : parts1) {
+                        StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot ds : snapshot.getChildren()) {
+                                    Phong phong = ds.getValue(Phong.class);
+                                    if (phong.getMaPhong().equals(w)) {
+                                     for(String u :parts2){
+                                         if(loaiDV.equals(u)) {
+                                             data.add(phong);
+                                             custom_nhanvientapvu_sudungdichvu sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
+                                             lvSuDungDV.setAdapter(sudungdichvu);
+                                             sudungdichvu.notifyDataSetChanged();
+                                         }
+                                     }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
+
                 }
             }
 
@@ -83,24 +111,5 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
 
             }
         });
-        //Lấy dữ liệu các dịch vụ từ firebase vô Spinner
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
-        StaticConfig.mDichVu.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                arrayList.clear();
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    arrayList.add(ds.child("tenDV").getValue(String.class));
-                }
-                arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                throw error.toException();
-            }
-        });
-        spDichVu.setAdapter(arrayAdapter);
-
     }
 }

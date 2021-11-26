@@ -31,7 +31,7 @@
         <Button
             android:id="@+id/btnHuyDV"
             android:backgroundTint="#02A9B2"
-            android:text="Xem thông tin khách hàng"
+            android:text="Hủy sử dụng dịch vụ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

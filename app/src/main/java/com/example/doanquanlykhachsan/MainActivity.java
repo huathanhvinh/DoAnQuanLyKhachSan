@@ -89,15 +89,15 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
                             }
                             if (role == 2) {
-                                Toast.makeText(getApplicationContext(), "Nhan viên lễ tân ", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
                             }
                             if (role == 3) {
-                                Toast.makeText(getApplicationContext(), "Nhan viên tạp vụ", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
                             }
                             if (role == 4) {
-                                Toast.makeText(getApplicationContext(), "Khách hàng", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
                             }
 

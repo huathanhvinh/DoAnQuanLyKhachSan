@@ -35,9 +35,7 @@ public class KH_doi_phong extends AppCompatActivity {
         btnxacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
-
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
@@ -47,7 +45,7 @@ public class KH_doi_phong extends AppCompatActivity {
                                     StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("trống");
                                     StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("đã đặt");
                                     Log.d("test", ds.child("maFB").getValue(String.class));
-                                    StaticConfig.mRoomRented.child(ds.child("maFB").getValue(String.class)).child("maPhong").setValue(chitiet.getMaPhong());
+                                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maPhong").setValue(chitiet.getMaPhong());
                                 }
                             }
                         }

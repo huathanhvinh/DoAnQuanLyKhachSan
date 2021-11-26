@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.KH_ChiTietPhong;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -61,6 +67,41 @@ public class Phong_adapter extends ArrayAdapter {
         chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (StaticConfig.sXacNhan.equals("phong da thue")){
+                    StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                PhongDaDat da = ds.getValue(PhongDaDat.class);
+                                String maPhong = da.getMaPhong();
+
+                                String[] parts;
+                                parts = maPhong.split(" ");
+                                for (String w : parts) {
+                                    StaticConfig.mDichVu.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            if (phong.getMaPhong().equals(w)) {
+                                                StaticConfig.mathue = da.getMaFB();
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
                 Intent intent = new Intent(getContext(), KH_ChiTietPhong.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("chitiet", phong);

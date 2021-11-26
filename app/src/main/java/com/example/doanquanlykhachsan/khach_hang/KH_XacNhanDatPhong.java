@@ -32,6 +32,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     TextView tvXnTenKhachHang, tvSoDienThoai, tvXnSoLuongPhong, tvDichVu, tvXnNhanPhong, tvXnTraPhong;
     EditText edtGhiChuKH;
     String maPhong = "";
+    String maDichvu = "";
 
     ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomXacNhanDatPhong customRoom;
@@ -116,17 +117,12 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                 for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
                     StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("Chưa xử lý");
                     maPhong += StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong() + " ";
-                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong,
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(),"Chưa xác nhận");
-                    StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
-
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
-                        String key2 = StaticConfig.mDichVuDaChon.push().getKey();
-                        DichVuDaChon dichVuDaChon = new DichVuDaChon(key2,
-                                StaticConfig.arrayListTemporaryService.get(j).getMaFB(), StaticConfig.arrayListTemporaryService.get(j).getTenDV(),
-                                StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong());
-                        StaticConfig.mDichVuDaChon.child(key2).setValue(dichVuDaChon);
+                        maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB()+ " ";
                     }
+                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong,maDichvu,
+                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa xác nhận");
+                    StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
                 }
 
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));

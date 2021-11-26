@@ -55,6 +55,8 @@ public class StaticConfig {
     public static ArrayList<DichVu> arrayListTemporaryService = new ArrayList<>();
     //phan biet man hinh theo ngay hay gio
     public static String sXacNhan = "";
+    //ma thue
+    public static String mathue = "";
     //check all
     public static boolean isCheckAll = false;
     //chon phong de doi

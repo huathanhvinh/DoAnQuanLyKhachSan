@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -154,6 +155,8 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         // Update phone
                         Update();
                         StaticConfig.mUser.child(idUser).child("sdt").setValue(newphone.getText().toString());
+                        StaticConfig.fAuth.signOut();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     } else {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
