@@ -81,32 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:hint="Nhập mã OTP số điện thoại cũ"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Nhập  số điện thoại mới:"
-                android:textColor="#ffff"
-                android:textSize="14dp"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/otp_newphone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:hint="Nhập  số điện thoại cũ"
+                android:hint="Nhập mã OTP số điện thoại "
                 />
         </LinearLayout>
         <LinearLayout

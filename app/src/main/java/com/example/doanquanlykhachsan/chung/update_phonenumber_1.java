@@ -172,6 +172,7 @@ public class update_phonenumber_1 extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), update_phonenumber_2.class);
         Bundle bundle = new Bundle();
         bundle.putString("oldphone", maxacnhancu);
+        bundle.putString("phonenumber", oldphone.getText().toString());
         intent.putExtras(bundle);
         startActivity(intent);
 
@@ -191,6 +192,7 @@ public class update_phonenumber_1 extends AppCompatActivity {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             //Thông báo OTP sai
+                            tvcacha.setText(RamdomCapcha() + "");
                             Log.d("login", "sai");
                         }
                     }
