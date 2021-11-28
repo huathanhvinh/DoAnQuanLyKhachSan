@@ -40,11 +40,9 @@ public class update_phonenumber_2 extends AppCompatActivity {
     String maxacnhan_dienthoaicu = "";
     String sodienthoai = "";
 
-
     FirebaseAuth mAuth;
     String idUser = "";
     String idKH = "";
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_phonenumber_2);
@@ -100,7 +98,6 @@ public class update_phonenumber_2 extends AppCompatActivity {
     }
 
     private void setEvent() {
-
         imgChangeCapcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
