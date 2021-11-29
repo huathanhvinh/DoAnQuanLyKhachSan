@@ -19,6 +19,7 @@ import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.example.doanquanlykhachsan.model.User;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -65,13 +66,14 @@ public class AD_ThongTinKhachHang extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
-                                    size++;
                                     NhanVien nv = ds.getValue(NhanVien.class);
+                                    size = nv.getStt();
                                     if (nv.getSoDienThoai().equals(thongTinKhachHang.getSdtKH())) {
                                         i++;
                                     }
                                 }
                                 if (i == 0) {
+                                    size++;
                                     String key = StaticConfig.mNhanVien.push().getKey();
                                     //Thêm thông tin vào bảng nhân viên
                                     NhanVien nvMoi = new NhanVien(size, key, thongTinKhachHang.getTenKH(),
@@ -93,10 +95,43 @@ public class AD_ThongTinKhachHang extends AppCompatActivity {
                                             "01/01/2000", thongTinKhachHang.getCmnd(), "3,000,000",
                                             "Sáng", "Tạp Vụ", "");
                                     StaticConfig.mNhanVien_LichLamViec.child(key).setValue(nvMoi2);
-
+                                    String sdt = thongTinKhachHang.getSdtKH();
                                     StaticConfig.mKhachHang.child(thongTinKhachHang.getMaFB()).removeValue();
 
                                     Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_LONG).show();
+                                    //đổi role cho KH
+                                    StaticConfig.mUser.addChildEventListener(new ChildEventListener() {
+                                        @Override
+                                        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                                            if(snapshot.child("sdt").getValue().toString().equals(sdt))
+                                            {
+                                                User us = snapshot.getValue(User.class);
+                                                us.setRole(3);
+                                                StaticConfig.mUser.child(us.getMaFB()).setValue(us);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                                        }
+
+                                        @Override
+                                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
                                     finish();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Đã tồn tại số điện thoại trong danh sách nhân viên", Toast.LENGTH_SHORT).show();

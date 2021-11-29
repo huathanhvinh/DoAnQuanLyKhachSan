@@ -5,22 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachNhanVien;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.chung.*;
-import com.example.doanquanlykhachsan.model.*;
-import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
-import com.example.doanquanlykhachsan.nhanvien_letan.*;
-import com.example.doanquanlykhachsan.khach_hang.*;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.KhuyenMai;
+import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.Phong;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     //StaticConfig st = new StaticConfig();
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //        StaticConfig.mKhachHang.child(key).setValue(kh);
 
 //        String key = StaticConfig.mKhachHang.push().getKey();
-//        KhachHang kh = new KhachHang(4,key,"Nguyễn Văn Duy","0933123008","Q9, HCM","346081888");
+//        KhachHang kh = new KhachHang(4,key,"Dịp Tú Tèo","0933123008","Q9, HCM","346081888");
 //        StaticConfig.mKhachHang.child(key).setValue(kh);
 
 //        String key = StaticConfig.mDichVu.push().getKey();
@@ -61,59 +58,7 @@ public class MainActivity extends AppCompatActivity {
 //        Phong p = new Phong(key,"p10t1","Phòng 10_Tầng 1","trống","2","Phòng đẹp","10",1,200000,80000);
 //        StaticConfig.mPhong.child(key).setValue(p);
 
-        //Công việc cho ngày 19.11 --
-        //Đổi role tại User khi chuyển khách hàng -> Nhân viên
-        //Đổi role tại User khi thay đổi thông tin nhân viên (chức vụ)
-
-        //startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
-        if (StaticConfig.fAuth.getCurrentUser() != null) {
-            StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        User temp= ds.getValue(User.class);
-                        String maFB = ds.child("maFB").getValue().toString();
-                        if (!maFB.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                            String phome = user.getPhoneNumber();
-//                            Log.e("sdt", phome);
-                        } else {
-                            User user = ds.getValue(User.class);
-                            StaticConfig.currentphone = user.getSdt();
-                            StaticConfig.currentuser = user.getMaFB();
-                            StaticConfig.role = user.getRole();
-                            StaticConfig.currentCmnd = user.getCmnd();
-
-                            int role = user.getRole();
-                            if (role == 1) {
-                                startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
-                            }
-                            if (role == 2) {
-                                Toast.makeText(getApplicationContext(), "Nhan viên lễ tân ", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
-                            }
-                            if (role == 3) {
-                                Toast.makeText(getApplicationContext(), "Nhan viên tạp vụ", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
-                            }
-                            if (role == 4) {
-                                Toast.makeText(getApplicationContext(), "Khách hàng", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-                            }
-
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        } else {
-            startActivity(new Intent(getApplicationContext(), sign_in.class));
-        }
-
+        startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
     }
 
 }

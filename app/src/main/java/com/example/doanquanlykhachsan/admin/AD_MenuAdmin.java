@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.chung.Change_passwork;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 
@@ -82,16 +83,15 @@ public class AD_MenuAdmin extends AppCompatActivity {
         tvDoiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Quay về màn hình đổi mật khẩu", Toast.LENGTH_SHORT).show();
-            }
+                startActivity(new Intent(getApplicationContext(), Change_passwork.class)); }
         });
         //
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(AD_MenuAdmin.this)
-                        .setTitle("Logout")
-                        .setMessage("Are you sure you want to sign out of the app??")
+                        .setTitle("Đăng Xuất")
+                        .setMessage("Bạn có muốn quay về màn hình đăng nhập ?")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

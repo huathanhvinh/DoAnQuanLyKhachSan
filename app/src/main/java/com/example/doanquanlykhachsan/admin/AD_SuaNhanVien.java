@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.admin;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,8 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.example.doanquanlykhachsan.model.User;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -73,6 +76,7 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                 thongTinNhanVien.setCmnd(edCmnd.getText().toString());
                 thongTinNhanVien.setLuong(edLuong.getText().toString());
                 thongTinNhanVien.setChucVu(spChucVu.getSelectedItem().toString());
+                //sửa thông tin nhân viên
                 StaticConfig.mNhanVien.child(thongTinNhanVien.getMaFB()).setValue(thongTinNhanVien);
                 //sửa thông tin nhân viên - lương
                 StaticConfig.mNhanVien_Luong.addValueEventListener(new ValueEventListener() {
@@ -109,6 +113,48 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                                 StaticConfig.mNhanVien_LichLamViec.child(nv.getMaFB()).setValue(nvMoi1);
                             }
                         }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                //lấy sdt và Role
+                String sdt = thongTinNhanVien.getSoDienThoai();
+                int role = 0;
+                if (thongTinNhanVien.getChucVu().equals("Quản Lý"))
+                    role = 1;
+                else if(thongTinNhanVien.getChucVu().equals("Lễ Tân"))
+                    role = 2;
+                else
+                    role = 3;
+                //Đổi Role bên User
+                int finalRole = role;
+                StaticConfig.mUser.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        if (snapshot.child("sdt").getValue().toString().equals(sdt))
+                        {
+                            User us = snapshot.getValue(User.class);
+                            us.setRole(finalRole);
+                            StaticConfig.mUser.child(us.getMaFB()).setValue(us);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
                     }
 
                     @Override
