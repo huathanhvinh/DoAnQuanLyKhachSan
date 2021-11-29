@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -121,7 +122,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                         maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB()+ " ";
                     }
                     PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong,maDichvu,
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa xác nhận");
+                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận");
                     StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
                 }
 

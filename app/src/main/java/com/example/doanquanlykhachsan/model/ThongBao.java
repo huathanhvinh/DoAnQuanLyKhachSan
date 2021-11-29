@@ -1,87 +1,82 @@
 package com.example.doanquanlykhachsan.model;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+
 public class ThongBao {
-    String ID,NoiDung,Gio,Ngay,DangKyDichVu,ChiTiet,XacNhan;
+    int stt;
+    String maFB;
+    String loai;
+    String trangThai;
+    String mota;
+    String nguoidang;
+    long timestamp;
+
+    public ThongBao(int stt, String maFB, String loai, String trangThai, String mota, String nguoidang) {
+        this.stt = stt;
+        this.maFB = maFB;
+        this.loai = loai;
+        this.trangThai = trangThai;
+        this.mota = mota;
+        this.nguoidang = nguoidang;
+        this.timestamp = StaticConfig.timestamp;
+    }
 
     public ThongBao() {
     }
 
-    public ThongBao(String ID, String noiDung, String gio, String ngay, String dangKyDichVu, String chiTiet, String xacNhan) {
-        this.ID = ID;
-        NoiDung = noiDung;
-        Gio = gio;
-        Ngay = ngay;
-        DangKyDichVu = dangKyDichVu;
-        ChiTiet = chiTiet;
-        XacNhan = xacNhan;
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public String getID() {
-        return ID;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public String getNguoidang() {
+        return nguoidang;
     }
 
-    public String getNoiDung() {
-        return NoiDung;
+    public void setNguoidang(String nguoidang) {
+        this.nguoidang = nguoidang;
     }
 
-    public void setNoiDung(String noiDung) {
-        NoiDung = noiDung;
+    public int getStt() {
+        return stt;
     }
 
-    public String getGio() {
-        return Gio;
+    public void setStt(int stt) {
+        this.stt = stt;
     }
 
-    public void setGio(String gio) {
-        Gio = gio;
+    public String getMaFB() {
+        return maFB;
     }
 
-    public String getNgay() {
-        return Ngay;
+    public void setMaFB(String maFB) {
+        this.maFB = maFB;
     }
 
-    public void setNgay(String ngay) {
-        Ngay = ngay;
+    public String getLoai() {
+        return loai;
     }
 
-    public String getDangKyDichVu() {
-        return DangKyDichVu;
+    public void setLoai(String loai) {
+        this.loai = loai;
     }
 
-    public void setDangKyDichVu(String dangKyDichVu) {
-        DangKyDichVu = dangKyDichVu;
+    public String getTrangThai() {
+        return trangThai;
     }
 
-    public String getChiTiet() {
-        return ChiTiet;
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 
-    public void setChiTiet(String chiTiet) {
-        ChiTiet = chiTiet;
+    public String getMota() {
+        return mota;
     }
 
-    public String getXacNhan() {
-        return XacNhan;
-    }
-
-    public void setXacNhan(String xacNhan) {
-        XacNhan = xacNhan;
-    }
-
-    @Override
-    public String toString() {
-        return "ThongBao{" +
-                "ID='" + ID + '\'' +
-                ", NoiDung='" + NoiDung + '\'' +
-                ", Gio='" + Gio + '\'' +
-                ", Ngay='" + Ngay + '\'' +
-                ", DangKyDichVu='" + DangKyDichVu + '\'' +
-                ", ChiTiet='" + ChiTiet + '\'' +
-                ", XacNhan='" + XacNhan + '\'' +
-                '}';
+    public void setMota(String mota) {
+        this.mota = mota;
     }
 }

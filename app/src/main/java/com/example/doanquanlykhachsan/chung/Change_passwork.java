@@ -41,6 +41,12 @@ public class Change_passwork extends AppCompatActivity {
     }
 
     private void setEvent() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         btnChangePassWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

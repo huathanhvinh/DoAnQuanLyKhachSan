@@ -72,7 +72,8 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
         StaticConfig.NgayNhanXacNhanPhong = tvGioNhanPhong.getText() + "";
         StaticConfig.NgayNhanXacTraPhong = tvGiotraPhong.getText() + "";
         setEvent();
-
+        StaticConfig.arrayListTemporaryRoom= new ArrayList<>();
+        StaticConfig.arrayListTemporaryService= new ArrayList<>();
         Log.e("loai",StaticConfig.sXacNhan);
     }
 

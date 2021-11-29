@@ -83,7 +83,8 @@ public class AD_MenuAdmin extends AppCompatActivity {
         tvDoiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Change_passwork.class)); }
+             startActivity(new Intent(getApplicationContext(), Change_passwork.class));
+            }
         });
         //
         btnDangXuat.setOnClickListener(new View.OnClickListener() {

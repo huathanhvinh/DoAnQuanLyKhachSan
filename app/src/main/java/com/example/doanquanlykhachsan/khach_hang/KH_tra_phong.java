@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,7 +32,7 @@ public class KH_tra_phong extends AppCompatActivity {
     int ngay, thang, nam;
     String thoigian;
     String tenDichVu = "";
-
+    String chuoiPhongDadat = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,14 @@ public class KH_tra_phong extends AppCompatActivity {
                     }
                 });
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                String[] parts;
+                parts = chuoiPhongDadat.split(" ");
+                for (String w : parts) {
+                    StaticConfig.mRoomRented.child(w).child("xacnhan").setValue("");
+                }
+
+                Log.e("chuoi", chuoiPhongDadat);
+                chuoiPhongDadat="";
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -138,21 +147,20 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
                 String chuoiDichVu = "";
-
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
-                    if (da.getXacnhan().equals("Đã xác nhận")) {
+                    if (da.getXacnhan().equals("Đã Xác Nhận")) {
                         if (da.getMaKH().equals(StaticConfig.currentuser)) {
+                            chuoiPhongDadat +=da.getMaFB()+" ";
                             tenDichVu = "";
                             ngaynhan.setText(da.getThoiGianNhanPH());
                             ngaytra.setText(da.getThoiGianTraPH());
-                            phongthue = da.getMaPhong();
+                            phongthue += da.getMaPhong()+" ";
                             chuoiDichVu = da.getMaDichVu();
                             String[] parts;
                             parts = chuoiDichVu.split(" ");
@@ -190,6 +198,7 @@ public class KH_tra_phong extends AppCompatActivity {
                         }
                     }
                 }
+
 
                 phongdathue.setText(phongthue);
             }

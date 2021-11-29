@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="Nhân viên"
+            android:text="Nhân viên Tạp Vụ"
             android:textColor="#F4F4EF"
             android:textSize="25dp"
             android:textStyle="bold"
@@ -50,24 +50,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/ivThongTinTaiKhoan"
-            android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_thongtin"
-            />
-        <TextView
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_thongtin" />
+
+        <TextView
             android:id="@+id/tvThongTinTaiKhoan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:text="Thông tin tài khoản"
             android:textColor="#F4F4EF"
-            android:layout_marginLeft="5dp"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp" />
 
     </LinearLayout>
 
@@ -76,48 +76,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/ivQuanLyPhong"
-            android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_quanly"
-            />
-        <TextView
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_quanly" />
+
+        <TextView
             android:id="@+id/tvQuanLyPhong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:text="Quản lý phòng"
             android:textColor="#F4F4EF"
-            android:layout_marginLeft="5dp"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/ivQuanLyDichVu"
-            android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_quanly"
-            />
-        <TextView
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_quanly" />
+
+        <TextView
             android:id="@+id/tvQuanLyDichVu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:text="Quản lý dịch vụ"
             android:textColor="#F4F4EF"
-            android:layout_marginLeft="5dp"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp" />
     </LinearLayout>
 
 
@@ -125,66 +125,94 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/ivLuong"
-            android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_luongnhanvien"
-            />
-        <TextView
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_luongnhanvien" />
+
+        <TextView
             android:id="@+id/tvLuong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:text="Lương"
             android:textColor="#F4F4EF"
-            android:layout_marginLeft="5dp"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/ivLichLamViec"
-            android:layout_marginLeft="15dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_lichlamviec"
-            />
-        <TextView
-            android:layout_marginBottom="5dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_lichlamviec" />
+
+        <TextView
             android:id="@+id/tvLichLamViec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lịch làm việc"
-            android:textColor="#F4F4EF"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="13dp"
-            android:textSize="25dp"
-            />
+            android:layout_marginBottom="5dp"
+            android:text="Lịch làm việc"
+            android:textColor="#F4F4EF"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center"
+        android:id="@+id/lnchange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/ivDoiMK"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_change" />
+
+        <TextView
+            android:id="@+id/tvDoiMK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="5dp"
+            android:text="Đổi Mật khẩu"
+            android:textColor="#F4F4EF"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
         <Button
-            android:backgroundTint="#25BDAF"
             android:id="@+id/btnDangXuat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Đăng xuất"
-            />
+            android:backgroundTint="#25BDAF"
+            android:text="Đăng xuất" />
     </LinearLayout>
 
 </LinearLayout>

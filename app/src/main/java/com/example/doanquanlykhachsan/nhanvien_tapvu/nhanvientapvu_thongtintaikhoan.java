@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
-import com.example.doanquanlykhachsan.chung.update_phonenumber_1;
+import com.example.doanquanlykhachsan.chung.Change_passwork;
+import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.KH_thong_tin_tai_khoan;
 import com.example.doanquanlykhachsan.model.NhanVien;
@@ -31,6 +33,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
     Button btnLuu, btnTroVe;
     ImageView ivChangeTen, ivChangeSDT, ivChangeCMND;
     TextView tvLuong, tvLichLamViec;
+    LinearLayout doiMK,doiDienthoai;
     String maNV;
     String tenNV;
     String SDT;
@@ -54,7 +57,6 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     NhanVien nv = ds.getValue(NhanVien.class);
                     if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
-
                         maNV = nv.getMaFB();
                         tenNV = nv.getTenNV();
                         SDT = nv.getSoDienThoai();
@@ -74,6 +76,12 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
     }
 
     private void setEvent() {
+        doiDienthoai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),update_phonenumber_1.class));
+            }
+        });
         edtSoDT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -250,6 +258,12 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                 edtCMND.requestFocus();
             }
         });
+        doiMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Change_passwork.class));
+            }
+        });
     }
 
     private void setconTrol() {
@@ -263,6 +277,8 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
         ivChangeCMND = findViewById(R.id.ivChangeCMND);
         tvLuong = findViewById(R.id.tvLuong);
         tvLichLamViec = findViewById(R.id.tvLichLamViec);
+        doiMK=findViewById(R.id.lnchange);
+        doiDienthoai=findViewById(R.id.lnchangePhone);
     }
 }
 

@@ -74,9 +74,9 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText() + "";
 
         setEvent();
-
         Log.e("loai",StaticConfig.sXacNhan);
-
+        StaticConfig.arrayListTemporaryRoom= new ArrayList<>();
+        StaticConfig.arrayListTemporaryService= new ArrayList<>();
     }
 
     private void setEvent() {

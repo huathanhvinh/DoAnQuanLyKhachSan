@@ -114,7 +114,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
-                    if (da.getXacnhan().equals("Đã xác nhận")) {
+                    if (da.getXacnhan().equals("Đã Xác Nhận")) {
                         if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
                             String chuoimaphong = ds.child("maPhong").getValue(String.class);
                             String[] parts;

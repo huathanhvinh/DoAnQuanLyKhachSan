@@ -75,6 +75,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/lnchangePhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -187,6 +188,33 @@
 
     </LinearLayout>
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/ivDoiMK"
+            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_change"
+            />
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:id="@+id/tvDoiMK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đổi Mật khẩu"
+            android:textColor="#F4F4EF"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:textSize="25dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lnchange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
