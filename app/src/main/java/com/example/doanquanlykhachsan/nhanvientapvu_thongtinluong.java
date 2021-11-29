@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class nhanvientapvu_thongtinluong extends AppCompatActivity {
-    TextView tvTenNhanVien, tvLoaiNhanVien, tvLuong, tvTienThuong;
+    TextView tvTenNhanVien, tvLoaiNhanVien, tvLuong, tvTienThuong,tvGhiChu;
 
     Button btnTroVe;
 
@@ -45,6 +45,7 @@ public class nhanvientapvu_thongtinluong extends AppCompatActivity {
                             tvLoaiNhanVien.setText(nv.getChucVu());
                             tvLuong.setText(nv.getLuong() + "");
                             tvTienThuong.setText(nv.getTienThuong());
+                            tvGhiChu.setText(nv.getGhiChu());
 
                         }
                     }
@@ -65,6 +66,7 @@ public class nhanvientapvu_thongtinluong extends AppCompatActivity {
         tvLoaiNhanVien = findViewById(R.id.tvLoaiNhanVien);
         tvLuong = findViewById(R.id.tvLuong);
         tvTienThuong = findViewById(R.id.tvTienThuong);
+        tvGhiChu = findViewById(R.id.tvGhiChu);
     }
 
     private void setEvent() {
