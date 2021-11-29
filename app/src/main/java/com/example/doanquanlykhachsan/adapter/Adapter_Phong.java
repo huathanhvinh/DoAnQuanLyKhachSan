@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,12 @@ import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.admin.AD_ThongTinPhong;
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,6 +29,7 @@ public class Adapter_Phong extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<Phong> arrPhong;
+
     public Adapter_Phong(@NonNull Context context, int resource, ArrayList<Phong> arrPhong) {
         super(context, resource, arrPhong);
         this.context = context;
@@ -33,14 +40,13 @@ public class Adapter_Phong extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(resource,null);
+        convertView = LayoutInflater.from(context).inflate(resource, null);
 
         TextView tvMaPhong = convertView.findViewById(R.id.tvMaPhong);
         TextView tvTenPhong = convertView.findViewById(R.id.tvTenPhong);
         Button btnChiTiet = convertView.findViewById(R.id.btnChiTietPhong);
 
         Phong p = arrPhong.get(position);
-
         tvMaPhong.setText(p.getMaPhong());
         tvTenPhong.setText(p.getTenPhong());
 

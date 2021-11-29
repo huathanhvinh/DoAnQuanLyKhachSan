@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.DichVu;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,9 +27,10 @@ import java.util.GregorianCalendar;
 
 public class KH_tra_phong extends AppCompatActivity {
     private Button btntrove, btntraphong;
-    private TextView phongdathue, hoten, songayo, ngaynhan, ngaytra;
+    private TextView phongdathue, hoten, songayo, ngaynhan, ngaytra, dichvu;
     int ngay, thang, nam;
     String thoigian;
+    String tenDichVu = "";
 
 
     @Override
@@ -111,6 +114,7 @@ public class KH_tra_phong extends AppCompatActivity {
         ngaynhan = findViewById(R.id.tvNgayNhanPhong);
         ngaytra = findViewById(R.id.tvNgayTraPhong);
         btntraphong = findViewById(R.id.btntraphong);
+        dichvu = findViewById(R.id.tvcacdichvu);
         khoitao();
         btntrove = findViewById(R.id.btntrove);
     }
@@ -139,17 +143,42 @@ public class KH_tra_phong extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String phongthue = "";
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("xacnhan").getValue().toString().equals("Đã xác nhận")) {
-                        if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
-                            ngaynhan.setText(ds.child("thoiGianNhanPH").getValue(String.class));
-                            ngaytra.setText(ds.child("thoiGianTraPH").getValue(String.class));
-                            phongthue = ds.child("maPhong").getValue(String.class);
+                String chuoiDichVu = "";
 
-                            if (ds.child("manHinh").getValue(String.class).equals("ngay")) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    PhongDaDat da = ds.getValue(PhongDaDat.class);
+                    if (da.getXacnhan().equals("Đã xác nhận")) {
+                        if (da.getMaKH().equals(StaticConfig.currentuser)) {
+                            tenDichVu = "";
+                            ngaynhan.setText(da.getThoiGianNhanPH());
+                            ngaytra.setText(da.getThoiGianTraPH());
+                            phongthue = da.getMaPhong();
+                            chuoiDichVu = da.getMaDichVu();
+                            String[] parts;
+                            parts = chuoiDichVu.split(" ");
+                            for (String w : parts) {
+                                StaticConfig.mDichVu.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            DichVu dv = ds.getValue(DichVu.class);
+                                            if (w.equals(dv.getMaFB())) {
+                                                tenDichVu += dv.getTenDV() + "\n";
+                                                dichvu.setText(tenDichVu);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        throw error.toException();
+                                    }
+                                });
+                            }
+
+                            if (da.getManHinh().equals("ngay")) {
                                 DateDifference();
                                 songayo.setText(thoigian + " ngay");
-
                             } else {
                                 try {
                                     TimeDifference();
@@ -161,6 +190,7 @@ public class KH_tra_phong extends AppCompatActivity {
                         }
                     }
                 }
+
                 phongdathue.setText(phongthue);
             }
 

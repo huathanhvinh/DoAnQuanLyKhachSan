@@ -1,14 +1,18 @@
 package com.example.doanquanlykhachsan.khach_hang;
 
+import static com.example.doanquanlykhachsan.helpers.StaticConfig.mRoom;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -16,6 +20,7 @@ import com.example.doanquanlykhachsan.adapter.Doi_Phong_adapter;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,6 +38,7 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
         setContentView(R.layout.activity_kh_danh_sach_phong_trong);
         setControl();
         setEvnet();
+
     }
 
     private void setEvnet() {
@@ -65,10 +71,10 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
     }
 
     private void khoitao() {
-        data.clear();
-        StaticConfig.mRoom.orderByChild("soPhong").addValueEventListener(new ValueEventListener() {
+        StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Phong phong = ds.getValue(Phong.class);
                     if (ds.child("trangThai").getValue(String.class).equals("trống")) {

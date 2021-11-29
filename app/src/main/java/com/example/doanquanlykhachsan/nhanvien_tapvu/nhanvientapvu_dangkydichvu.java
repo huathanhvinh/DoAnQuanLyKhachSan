@@ -26,7 +26,7 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
     ArrayList<DangKyDichVu> data = new ArrayList<>();
     ArrayList<DangKyDichVu> timkiemphong = new ArrayList<>();
     Button btnTroVe;
-    EditText etTimKiem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,68 +44,6 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
             }
         });
 
-        etTimKiem.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String timkiem = etTimKiem.getText().toString().toLowerCase();
-                timkiemphong.clear();
-                for (int i = 0; i < data.size(); i++) {
-                    DangKyDichVu dv = data.get(i);
-                    if (dv.getTenDichVu().toLowerCase().contains(timkiem)) {
-                        timkiemphong.add(dv);
-                    }
-                }
-
-                custom_nhanvientapvu_dangkydichvu dangkydichvu = new custom_nhanvientapvu_dangkydichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_dangkydichvu, timkiemphong);
-                lvDanhSachDV.setAdapter(dangkydichvu);
-                dangkydichvu.notifyDataSetChanged();
-                if (timkiem.isEmpty()) {
-                   khoitao();
-                }
-
-
-//                StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        timkiemphong.clear();
-//                        for (DataSnapshot ds : snapshot.getChildren()) {
-//                            DichVu dv = ds.getValue(DichVu.class);
-////                            if (dv.getTenDichVu().toLowerCase().contains(timkiem)) {
-////
-////                                timkiemphong.add(dv);
-////
-////                            }
-//                            Log.d("test", dv.getTenDV());
-//                        }
-//                        if (timkiem.isEmpty()) {
-//                            timkiemphong = data;
-//                        }
-//                        custom_nhanvientapvu_dangkydichvu dangkydichvu = new custom_nhanvientapvu_dangkydichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_dangkydichvu, timkiemphong);
-//                        lvDanhSachDV.setAdapter(dangkydichvu);
-//                        dangkydichvu.notifyDataSetChanged();
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-            }
-        });
-//        custom_nhanvientapvu_dangkydichvu dangkydichvu = new custom_nhanvientapvu_dangkydichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_dangkydichvu, data);
-//        lvDanhSachDV.setAdapter(dangkydichvu);
-//        dangkydichvu.notifyDataSetChanged();
         khoitao();
 
     }
@@ -114,7 +52,7 @@ public class nhanvientapvu_dangkydichvu extends AppCompatActivity {
     private void setControl() {
         btnTroVe = findViewById(R.id.btnTroVe);
         lvDanhSachDV = findViewById(R.id.lvDanhSachDV);
-        etTimKiem = findViewById(R.id.etTimKiem);
+
     }
 
     //lấy thông tin các dịch vụ từ firebase

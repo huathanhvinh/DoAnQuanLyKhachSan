@@ -16,18 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
-import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.khach_hang.KH_thong_tin_tai_khoan;
-import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
-import com.example.doanquanlykhachsan.model.User;
-import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_MenuNhanVienThuNgan;
-import com.example.doanquanlykhachsan.nhanvien_tapvu.Nhanvientapvu_manhinhchinh;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -38,17 +33,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class update_phonenumber_2 extends AppCompatActivity {
-    private EditText otp_oldphone, newphone, cacha;
+    private EditText otp_oldphone, cacha;
     private TextView tvcacha;
     private Button btnTrove, btntieptuc;
     private ImageView imgChangeCapcha;
     String maxacnhan_dienthoaicu = "";
-
+    String sodienthoai = "";
 
     FirebaseAuth mAuth;
     String idUser = "";
     String idKH = "";
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_phonenumber_2);
@@ -59,7 +53,6 @@ public class update_phonenumber_2 extends AppCompatActivity {
     private void setControl() {
         tvcacha = findViewById(R.id.tvCapcha);
         otp_oldphone = findViewById(R.id.otp_oldphone);
-        newphone = findViewById(R.id.otp_newphone);
         cacha = findViewById(R.id.Capcha);
         btnTrove = findViewById(R.id.btnTroVe);
         btntieptuc = findViewById(R.id.btntieptuc);
@@ -67,6 +60,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         tvcacha.setText(RamdomCapcha() + "");
         maxacnhan_dienthoaicu = (String) getIntent().getSerializableExtra("oldphone");
+        sodienthoai = (String) getIntent().getSerializableExtra("phonenumber");
 
         Log.e("mã xác nhận sdt cu", maxacnhan_dienthoaicu);
         //truy bang user
@@ -104,7 +98,6 @@ public class update_phonenumber_2 extends AppCompatActivity {
     }
 
     private void setEvent() {
-
         imgChangeCapcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +132,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                             // The dialog is automatically dismissed when a dialog button is clicked.
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
+                    tvcacha.setText(RamdomCapcha() + "");
                 }
 //
             }
@@ -153,7 +147,9 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         // FirebaseUser user = task.getResult().getUser();
                         // Update phone
                         Update();
-                        StaticConfig.mUser.child(idUser).child("sdt").setValue(newphone.getText().toString());
+                        StaticConfig.mUser.child(idUser).child("sdt").setValue(sodienthoai);
+                        StaticConfig.fAuth.signOut();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     } else {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -171,7 +167,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     if (snapshot.child("cmnd").getValue().toString().equals(StaticConfig.currentCmnd)) {
                         KhachHang kh = snapshot.getValue(KhachHang.class);
-                        kh.setSdtKH(newphone.getText().toString());
+                        kh.setSdtKH(sodienthoai);
                         StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(kh);
                     }
                 }
@@ -202,7 +198,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     if (snapshot.child("cmnd").getValue().toString().equals(StaticConfig.currentCmnd)) {
                         NhanVien kh = snapshot.getValue(NhanVien.class);
-                        kh.setSoDienThoai(newphone.getText().toString());
+                        kh.setSoDienThoai(sodienthoai);
                         StaticConfig.mNhanVien.child(kh.getMaFB()).setValue(kh);
                     }
                 }
@@ -232,7 +228,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     if (snapshot.child("cmnd").getValue().toString().equals(StaticConfig.currentCmnd)) {
                         NhanVien_Luong kh = snapshot.getValue(NhanVien_Luong.class);
-                        kh.setSoDienThoai(newphone.getText().toString());
+                        kh.setSoDienThoai(sodienthoai);
                         StaticConfig.mNhanVien_Luong.child(kh.getMaFB()).setValue(kh);
                     }
                 }
@@ -262,7 +258,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     if (snapshot.child("cmnd").getValue().toString().equals(StaticConfig.currentCmnd)) {
                         NhanVien_LichLamViec kh = snapshot.getValue(NhanVien_LichLamViec.class);
-                        kh.setSoDienThoai(newphone.getText().toString());
+                        kh.setSoDienThoai(sodienthoai);
                         StaticConfig.mNhanVien_LichLamViec.child(kh.getMaFB()).setValue(kh);
                     }
                 }

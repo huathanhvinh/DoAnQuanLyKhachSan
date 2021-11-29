@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -73,6 +74,8 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
         StaticConfig.NgayNhanXacTraPhong = tvNgaytraPhong.getText() + "";
 
         setEvent();
+
+        Log.e("loai",StaticConfig.sXacNhan);
 
     }
 

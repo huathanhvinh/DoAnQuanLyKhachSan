@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,11 @@ import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.example.doanquanlykhachsan.model.DangKyDichVu;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
+import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -27,9 +31,10 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
 
     Context context;
     int resource;
-    ArrayList<DichVuDaChon> data;
-    String tenPhong="";
-    public custom_nhanvientapvu_sudungdichvu(@NonNull Context context, int resource, ArrayList<DichVuDaChon> data) {
+    ArrayList<Phong> data;
+    String tenPhong = "";
+
+    public custom_nhanvientapvu_sudungdichvu(@NonNull Context context, int resource, ArrayList<Phong> data) {
         super(context, resource, data);
         this.context = context;
         this.resource = resource;
@@ -44,35 +49,56 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(resource,null);
+        convertView = LayoutInflater.from(context).inflate(resource, null);
 
         TextView tvPhong = convertView.findViewById(R.id.tvPhong);
         Button btnHuyDV = convertView.findViewById(R.id.btnHuyDV);
 
-        DichVuDaChon suDungDichVu = data.get(position);
+        Phong suDungDichVu = data.get(position);
+
         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds:snapshot.getChildren()){
-                    if(suDungDichVu.getMaPhong().equals(ds.child("maPhong").getValue().toString())){
-                        tenPhong=ds.child("tenPhong").getValue().toString();
-                        tvPhong.setText(tenPhong);
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Phong phong = ds.getValue(Phong.class);
+                    if (suDungDichVu.getMaPhong().equals(phong.getMaPhong())) {
+                        tvPhong.setText(phong.getTenPhong());
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
 
-        btnHuyDV.setText("Hủy sử dụng dịch vụ");
         btnHuyDV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StaticConfig.mDichVuDaChon.child(suDungDichVu.getMaFB()).removeValue();
-                
+                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds:snapshot.getChildren()){
+                            PhongDaDat da= ds.getValue(PhongDaDat.class);
+                            String maPhong =da.getMaPhong();
+                            String[] parts1;
+                            parts1 = maPhong.split(" ");
+                            for (String w : parts1) {
+                                if (w.equals(suDungDichVu.getMaPhong())) {
+                                    StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue("");
+                                }
+                                nhanvientapvu_sudungdichvu nhanvientapvu_sudungdichvu =  new nhanvientapvu_sudungdichvu();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
 

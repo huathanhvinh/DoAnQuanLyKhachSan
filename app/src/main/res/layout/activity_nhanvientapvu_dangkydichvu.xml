@@ -21,29 +21,7 @@
             android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_marginLeft="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <EditText
-            android:id="@+id/etTimKiem"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:hint="Nhập thông tin cần tìm"
-            android:textColorHint="#8F8F89"
-            android:textSize="20dp"
-            />
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/icon_timkiem" />
-    </LinearLayout>
 
     <LinearLayout
         android:gravity="center"

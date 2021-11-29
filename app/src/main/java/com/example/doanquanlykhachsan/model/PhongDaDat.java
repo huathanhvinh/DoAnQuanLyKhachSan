@@ -4,6 +4,7 @@ public class PhongDaDat {
     String maFB;
     String maKH;
     String maPhong;
+    String maDichVu;
     String thoiGianNhanPH;
     String thoiGianTraPH;
     String manHinh;//phan biet man hinh theo ngay hay gio
@@ -13,15 +14,24 @@ public class PhongDaDat {
     public PhongDaDat() {
     }
 
-    public PhongDaDat(String maFB, String maKH, String maPhong, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan) {
+    public PhongDaDat(String maFB, String maKH, String maPhong, String maDichVu, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan) {
         this.maFB = maFB;
         this.maKH = maKH;
         this.maPhong = maPhong;
+        this.maDichVu = maDichVu;
         this.thoiGianNhanPH = thoiGianNhanPH;
         this.thoiGianTraPH = thoiGianTraPH;
         this.manHinh = manHinh;
         this.ghiChuKH = ghiChuKH;
         this.xacnhan = xacnhan;
+    }
+
+    public String getMaDichVu() {
+        return maDichVu;
+    }
+
+    public void setMaDichVu(String maDichVu) {
+        this.maDichVu = maDichVu;
     }
 
     public String getXacnhan() {
