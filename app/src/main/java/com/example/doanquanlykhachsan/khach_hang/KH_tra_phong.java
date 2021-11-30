@@ -3,6 +3,8 @@ package com.example.doanquanlykhachsan.khach_hang;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
@@ -48,31 +51,22 @@ public class KH_tra_phong extends AppCompatActivity {
         btntraphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            PhongDaDat da = ds.getValue(PhongDaDat.class);
-
-                            String[] parts;
-                            parts = chuoiPhongDadat.split(" ");
-                            for (String maPh : parts) {
-                                if (StaticConfig.currentuser.equals(da.getMaKH()) && da.getMaFB().equals(maPh)) {
-                                   StaticConfig.mRoomRented.child(da.getMaFB()).child("xacnhan").setValue("Trả Phòng");
+                if(!chuoiPhongDadat.equals("")) {
+                    new AlertDialog.Builder(KH_tra_phong.this)
+                            .setTitle("Trả Phòng")
+                            .setMessage("Bạn có chắc trả Phòng không??")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    traPhong();
                                 }
-                            }
-                        }
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                            })
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(android.R.string.no, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +75,33 @@ public class KH_tra_phong extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void traPhong() {
+        StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    PhongDaDat da = ds.getValue(PhongDaDat.class);
+
+                    String[] parts;
+                    parts = chuoiPhongDadat.split(" ");
+                    for (String maPh : parts) {
+                        if (StaticConfig.currentuser.equals(da.getMaKH()) && da.getMaFB().equals(maPh)) {
+                            StaticConfig.mRoomRented.child(da.getMaFB()).child("xacnhan").setValue("Trả Phòng");
+                        }
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
     }
 
     private void setControl() {
@@ -189,7 +210,14 @@ public class KH_tra_phong extends AppCompatActivity {
             Date date2 = format.parse(time2);
             thoigian = timeBetween(date1, date2) + "";
         } else {
-            Toast.makeText(getApplicationContext(), "Khong co phong de tra", Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(KH_tra_phong.this)
+                    .setTitle("Trả Phòng ")
+                    .setMessage("Không có Phòng để Trả ??")
+                    // Specifying a listener allows you to take an action before dismissing the dialog.
+                    // The dialog is automatically dismissed when a dialog button is clicked.
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         }
 
     }

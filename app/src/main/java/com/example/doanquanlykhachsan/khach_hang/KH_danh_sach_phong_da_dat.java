@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.khach_hang;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -89,9 +90,16 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (StaticConfig.chon == null) {
-                    Toast.makeText(getApplicationContext(), "chon di ", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(KH_danh_sach_phong_da_dat.this)
+                            .setTitle("Danh Sách Phòng ")
+                            .setMessage("Vui Lòng Chọn Phòng !!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
                 } else {
-                    //Toast.makeText(getApplicationContext(), chon.getMa(), Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(), KH_danh_sach_phong_trong.class));
                 }
             }

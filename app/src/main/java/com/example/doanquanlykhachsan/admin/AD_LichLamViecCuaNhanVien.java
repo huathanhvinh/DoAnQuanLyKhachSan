@@ -18,6 +18,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_ThemKhachHang;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -116,7 +117,13 @@ public class AD_LichLamViecCuaNhanVien extends AppCompatActivity {
                     }
                 });
                 //Thông Báo
-                Toast.makeText(getApplicationContext(), "Lưu Thành Công !", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(AD_LichLamViecCuaNhanVien.this)
+                        .setTitle("Lịch làm việc")
+                        .setMessage("lưu thành công")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         });
     }

@@ -103,7 +103,14 @@ public class AD_SuaPhong extends AppCompatActivity {
                     thongTinPhong.setGiaNgay(Integer.parseInt(edGiaNgay.getText().toString()));
                     thongTinPhong.setMoTa(edMoTa.getText().toString());
                     StaticConfig.mPhong.child(thongTinPhong.getMaFB()).setValue(thongTinPhong);
-                    Toast.makeText(getApplicationContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(AD_SuaPhong.this)
+                            .setTitle("Sửa Phòng")
+                            .setMessage("lưu thành công!!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
                 }
                 else
                 {
@@ -142,8 +149,14 @@ public class AD_SuaPhong extends AppCompatActivity {
 
                         }
                     });
+                    new AlertDialog.Builder(AD_SuaPhong.this)
+                            .setTitle("Sửa nhân viên")
+                            .setMessage("lưu thành công!!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
 
-                    Toast.makeText(getApplicationContext(), "Lưu thành công", Toast.LENGTH_SHORT).show();
                 }
             }
         });

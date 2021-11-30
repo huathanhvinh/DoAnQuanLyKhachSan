@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.nhanvien_tapvu;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,7 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.nvtv_qlphong;
+import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_ThemKhachHang;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -53,7 +55,13 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
             public void onClick(View v) {
                 //Khi bấn xác nhận phòng thì lưu checkbox xem phòng đã dọn hay chưa
                 StaticConfig.mQLPhong.child(chitiet.getMaFB()).setValue(new nvtv_qlphong(chitiet.getMaFB(), check, thucAn, tuLanh, ruou,vatDung, maKM));
-                Toast.makeText(getApplicationContext(), "Thông tin phòng đã được lưu", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(nhanvientapvu_xacnhantrangthaiphong.this)
+                        .setTitle("Xác nhận  trạng thái ")
+                        .setMessage("Thông tin đã được lưu")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
                 startActivity(new Intent(getApplicationContext(),nhanvientapvu_quanlyphong.class));
             }
         });

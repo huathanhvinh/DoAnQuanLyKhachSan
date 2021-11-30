@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.nhanvien_letan;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.khach_hang.KH_tra_phong;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -59,12 +61,19 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
                     String key = StaticConfig.mKhachHang.push().getKey();
                     KhachHang kh = new KhachHang(maxSTT, key, tenkh, sodt, diachi, cmnd);
                     StaticConfig.mKhachHang.child(key).setValue(kh);
-                    Toast.makeText(getApplicationContext(), "Bạn Đã Thêm Thành Công", Toast.LENGTH_SHORT).show();
+
                     maxSTT = maxSTT + 1;
                     tvMaKH.setText("KH" + maxSTT);
                     register(email, email);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Nhập Thiếu Thông Tin", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                            .setTitle("Thêm Khách hàng ")
+                            .setMessage("Vui Lòng nhập đủ thông tin!!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+
                 }
 
             }
@@ -84,15 +93,33 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isComplete()) {
                                         UpdateUser();
-                                        Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
+                                        new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                                                .setTitle("Thêm Khách hàng ")
+                                                .setMessage("Bạn đã thêm thành công")
+                                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
                                     } else {
-                                        Toast.makeText(getApplicationContext(), "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                                                .setTitle("Thêm Khách hàng ")
+                                                .setMessage(task.getException().getMessage()+" !!")
+                                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .show();
                                     }
                                 }
                             });
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "email da ton tai", Toast.LENGTH_SHORT).show();
+                            new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                                    .setTitle("Thêm Khách hàng ")
+                                    .setMessage("Email này đã tồn tại !!")
+                                    // Specifying a listener allows you to take an action before dismissing the dialog.
+                                    // The dialog is automatically dismissed when a dialog button is clicked.
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
                         }
 
                     }

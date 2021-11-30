@@ -135,14 +135,21 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 if (CheckDates(tvNgayNhanPhong.getText() + "", tvNgaytraPhong.getText() + "") == false) {
                     AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoNgay.this);
                     b.setTitle("Thông báo");
-                    b.setMessage("chọn ngày không hợp lệ");
+                    b.setMessage("chọn ngày không hợp lệ!!");
                     b.setPositiveButton("Đồng ý", null);
                     //Tạo dialog
                     AlertDialog dialog = b.create();
                     dialog.show();
                 } else {
                     if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
-                        Toast.makeText(KH_DatPhongTheoNgay.this, "xin chon phong", Toast.LENGTH_LONG).show();
+                        new AlertDialog.Builder(KH_DatPhongTheoNgay.this)
+                                .setTitle("Đặt Phòng theo Ngày ")
+                                .setMessage("Xin Chọn Phòng !!")
+                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                         Bundle bundle = new Bundle();
@@ -155,13 +162,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 }
             }
         });
-        lvDanhSachPhongNgay.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(KH_DatPhongTheoNgay.this, "dung" + position, Toast.LENGTH_LONG).show();
-            }
-        });
         cboChonHet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

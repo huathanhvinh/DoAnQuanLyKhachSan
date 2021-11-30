@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan.nhanvien_letan;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,7 +32,13 @@ public class NVTN_Thongtinkhachhang extends AppCompatActivity {
             public void onClick(View v) {
                 StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(null);
                 finish();
-                Toast.makeText(getApplicationContext(), "Bạn Đã xóa thành công", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(NVTN_Thongtinkhachhang.this)
+                        .setTitle("Thông tin Khách hàng ")
+                        .setMessage("Bạn đã xoá thành công")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         });
         tvSuaKH.setOnClickListener(new View.OnClickListener() {

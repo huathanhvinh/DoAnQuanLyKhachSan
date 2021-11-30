@@ -81,7 +81,14 @@ public class AD_SuaDichVu extends AppCompatActivity {
                         ,gia,edDVT.getText().toString(),0,edMota.getText().toString());
 
                 StaticConfig.mDichVu.child(thongTinDichVu.getMaFB()).setValue(dv);
-                Toast.makeText(getApplicationContext(), "Lưu thành công !", Toast.LENGTH_LONG).show();
+                new AlertDialog.Builder(AD_SuaDichVu.this)
+                        .setTitle("Sửa dịch vụ")
+                        .setMessage("lưu thành công!!")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
     }

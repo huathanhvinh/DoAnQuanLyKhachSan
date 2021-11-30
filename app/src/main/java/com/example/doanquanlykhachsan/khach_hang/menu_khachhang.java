@@ -44,11 +44,6 @@ public class menu_khachhang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_khachhang);
-//        String ma ="";
-//        for (int i = 1; i < 21; i++) {
-//            ma= "L"+i;
-//            StaticConfig.mRoom.child(ma).setValue(new Room(ma,"Phòng "+i,"Đơn","trống",500000,150000,i,2));
-//        }
         StaticConfig.currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         setControl();
         setEvent();

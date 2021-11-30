@@ -163,7 +163,14 @@ public class AD_SuaNhanVien extends AppCompatActivity {
                     }
                 });
                 //Thông báo
-                Toast.makeText(getApplicationContext(), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(AD_SuaNhanVien.this)
+                        .setTitle("Sửa nhân viên")
+                        .setMessage("lưu thành công!!")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
         //sự kiện nút trở về

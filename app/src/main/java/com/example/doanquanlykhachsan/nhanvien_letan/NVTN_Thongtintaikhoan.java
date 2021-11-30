@@ -118,7 +118,13 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edtTenNV.getText().toString().isEmpty() || edtCMND.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "không được bỏ trống", Toast.LENGTH_SHORT).show();
+                    new androidx.appcompat.app.AlertDialog.Builder(NVTN_Thongtintaikhoan.this)
+                            .setTitle("Thông tin tài khoản")
+                            .setMessage("Vui Lòng Không để Trống !!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                     return;
                 } else
                     StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -194,8 +200,13 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
 
                     }
                 });
-
-                Toast.makeText(getApplicationContext(), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
+                new androidx.appcompat.app.AlertDialog.Builder(NVTN_Thongtintaikhoan.this)
+                        .setTitle("Thông tin tài khoản ")
+                        .setMessage("Lưu Thành công")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
                 startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
             }
         });

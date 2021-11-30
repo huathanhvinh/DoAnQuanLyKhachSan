@@ -1,5 +1,6 @@
 package com.example.doanquanlykhachsan.nhanvien_letan;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.khach_hang.KH_tra_phong;
 import com.example.doanquanlykhachsan.model.KhachHang;
 
 public class NVTN_SuaKhachHang extends AppCompatActivity {
@@ -50,7 +52,14 @@ public class NVTN_SuaKhachHang extends AppCompatActivity {
                 String cmnd=edtCMND.getText().toString();
                 KhachHang khachhang = new KhachHang(kh.getStt(),kh.getMaFB(),tenkh,sodt,kh.getDiaChi(),cmnd);
                 StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(khachhang);
-                Toast.makeText(getApplicationContext(), "Bạn Đã Cập nhật Thành Công", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(NVTN_SuaKhachHang.this)
+                        .setTitle("Sữa khách hàng")
+                        .setMessage("Cập nhập thành công !!")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
     }

@@ -152,7 +152,13 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                     dialog.show();
                 } else {
                     if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
-                        Toast.makeText(KH_DatPhongTheoGio.this, "xin chon phong", Toast.LENGTH_LONG).show();
+                        new AlertDialog.Builder(KH_DatPhongTheoGio.this)
+                                .setTitle("Đặt Phòng theo giờ")
+                                .setMessage("Vui Lòng chọn Phòng !!")
+                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                         Bundle bundle = new Bundle();

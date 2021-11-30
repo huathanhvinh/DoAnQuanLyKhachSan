@@ -120,7 +120,13 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
                 if (etHoten.getText().toString().isEmpty() ||
                         etSdt.getText().toString().isEmpty() ||
                         etCmnd.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Vui Lòng nhập đủ thông tin !!", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(KH_thong_tin_tai_khoan.this)
+                            .setTitle("Trả Phòng ")
+                            .setMessage("Vui Lòng nhập đủ thông tin !! ")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                 } else {
                     StaticConfig.mKhachHang.child(key).child("tenKH").setValue(etHoten.getText().toString());
                     if(iscmnd==true) {

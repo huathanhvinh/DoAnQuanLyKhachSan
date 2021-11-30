@@ -3,6 +3,8 @@ package com.example.doanquanlykhachsan.khach_hang;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.adapter.KH_CusTomXacNhanDatPhong;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -109,21 +112,20 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String key = StaticConfig.mRoomRented.push().getKey();
-                //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang hien tai
-                for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
-                    StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("Chưa xử lý");
-                    maPhong += StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong() + " ";
-                    for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
-                        maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
-                    }
-                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt + 1);
-                    StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
-                }
-
-                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-
+                new AlertDialog.Builder(KH_XacNhanDatPhong.this)
+                        .setTitle("Xác Nhận Đặt Phòng")
+                        .setMessage("Bạn có chắc đặt các Phòng này không??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                               datPhong();
+                            }
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
             }
         });
@@ -133,6 +135,23 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void datPhong() {
+        String key = StaticConfig.mRoomRented.push().getKey();
+        //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang hien tai
+        for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+            StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("Chưa xử lý");
+            maPhong += StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong() + " ";
+            for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
+                maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
+            }
+            PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
+                    tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt + 1);
+            StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
+        }
+
+        startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
     }
 
     private void setConTrol() {
