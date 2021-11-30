@@ -90,7 +90,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     }
 
     private void setEvent() {
-         stt = 0;
+        stt = 0;
         StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -118,7 +118,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                         maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
                     }
                     PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt+1);
+                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt + 1);
                     StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
                 }
 

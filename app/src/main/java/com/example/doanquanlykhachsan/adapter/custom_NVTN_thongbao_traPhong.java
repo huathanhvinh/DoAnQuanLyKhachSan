@@ -101,6 +101,8 @@ public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
                                                                 Phong p= ds2.getValue(Phong.class);
                                                                 if (maPh.equals(p.getMaPhong())) {
                                                                     StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("trống");
+                                                                    //remove quan ly phong
+                                                                    StaticConfig.mQLPhong.child(p.getMaFB()).removeValue();
                                                                 }
                                                             }
                                                         }
@@ -126,6 +128,7 @@ public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
 
                                                         }
                                                     });
+
                                                 }
 
                                             }

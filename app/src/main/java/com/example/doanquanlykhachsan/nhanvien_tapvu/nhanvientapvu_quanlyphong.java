@@ -237,11 +237,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
 
 
     private void khoitao() {
-//        nvtv_qlphong qlphong = new nvtv_qlphong("phòng:2","Kiểm tra tình trạng phòng");
-//        nvtv_qlphong qlphong1 = new nvtv_qlphong("phòng:3","Kiểm tra tình trạng phòng");
-//        data.add(qlphong);
-//        data.add(qlphong1);
-        Query sapxep = StaticConfig.mRoom.orderByChild("soPhong");
+        Query sapxep = StaticConfig.mRoom.orderByChild("sophong");
         sapxep.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
