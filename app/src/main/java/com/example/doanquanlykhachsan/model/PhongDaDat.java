@@ -10,11 +10,12 @@ public class PhongDaDat {
     String manHinh;//phan biet man hinh theo ngay hay gio
     String ghiChuKH;
     String xacnhan;
+    int stt;
 
     public PhongDaDat() {
     }
 
-    public PhongDaDat(String maFB, String maKH, String maPhong, String maDichVu, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan) {
+    public PhongDaDat(String maFB, String maKH, String maPhong, String maDichVu, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan, int stt) {
         this.maFB = maFB;
         this.maKH = maKH;
         this.maPhong = maPhong;
@@ -24,6 +25,15 @@ public class PhongDaDat {
         this.manHinh = manHinh;
         this.ghiChuKH = ghiChuKH;
         this.xacnhan = xacnhan;
+        this.stt = stt;
+    }
+
+    public int getStt() {
+        return stt;
+    }
+
+    public void setStt(int stt) {
+        this.stt = stt;
     }
 
     public String getMaDichVu() {

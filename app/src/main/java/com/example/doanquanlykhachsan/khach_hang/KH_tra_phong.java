@@ -33,6 +33,8 @@ public class KH_tra_phong extends AppCompatActivity {
     String thoigian;
     String tenDichVu = "";
     String chuoiPhongDadat = "";
+    String chuoiMaTraPhong = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,47 +51,19 @@ public class KH_tra_phong extends AppCompatActivity {
                 StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren())
-                            if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
-                                StaticConfig.mRoomRented.child(ds.child("maFB").getValue().toString()).removeValue();
-                                String chuoimaphong = ds.child("maPhong").getValue(String.class);
-                                String[] parts;
-                                parts = chuoimaphong.split(" ");
-                                for (String maPh : parts) {
-                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            for (DataSnapshot ds2 : snapshot.getChildren()) {
-                                                if (maPh.equals(ds2.child("maPhong").getValue().toString())) {
-                                                    StaticConfig.mRoom.child(ds2.child("maFB").getValue().toString()).child("trangThai").setValue("trống");
-                                                }
-                                            }
-                                        }
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            PhongDaDat da = ds.getValue(PhongDaDat.class);
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
-                                    //remove dich vu
-                                    StaticConfig.mDichVuDaChon.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            for (DataSnapshot ds3 : snapshot.getChildren()) {
-                                                if (maPh.equals(ds3.child("maPhong").getValue().toString())) {
-                                                    StaticConfig.mDichVuDaChon.child(ds3.child("maFB").getValue().toString()).removeValue();
-                                                }
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
+                            String[] parts;
+                            parts = chuoiPhongDadat.split(" ");
+                            for (String maPh : parts) {
+                                if (StaticConfig.currentuser.equals(da.getMaKH()) && da.getMaFB().equals(maPh)) {
+                                   StaticConfig.mRoomRented.child(da.getMaFB()).child("xacnhan").setValue("Trả Phòng");
                                 }
-
                             }
+                        }
+
+
                     }
 
                     @Override
@@ -97,15 +71,8 @@ public class KH_tra_phong extends AppCompatActivity {
 
                     }
                 });
-                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-                String[] parts;
-                parts = chuoiPhongDadat.split(" ");
-                for (String w : parts) {
-                    StaticConfig.mRoomRented.child(w).child("xacnhan").setValue("");
-                }
 
-                Log.e("chuoi", chuoiPhongDadat);
-                chuoiPhongDadat="";
+                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -154,13 +121,15 @@ public class KH_tra_phong extends AppCompatActivity {
                 String chuoiDichVu = "";
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
-                    if (da.getXacnhan().equals("Đã Xác Nhận")) {
-                        if (da.getMaKH().equals(StaticConfig.currentuser)) {
-                            chuoiPhongDadat +=da.getMaFB()+" ";
+                    if (da.getMaKH().equals(StaticConfig.currentuser)) {
+                        if (da.getXacnhan().equals("Đã Xác Nhận")||da.getXacnhan().equals("Trả Phòng")) {
+                            if(da.getXacnhan().equals("Đã Xác Nhận")){
+                                chuoiPhongDadat += da.getMaFB() + " ";
+                            }
                             tenDichVu = "";
                             ngaynhan.setText(da.getThoiGianNhanPH());
                             ngaytra.setText(da.getThoiGianTraPH());
-                            phongthue += da.getMaPhong()+" ";
+                            phongthue += da.getMaPhong() + " ";
                             chuoiDichVu = da.getMaDichVu();
                             String[] parts;
                             parts = chuoiDichVu.split(" ");

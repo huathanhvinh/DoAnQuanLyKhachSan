@@ -57,31 +57,44 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_weight="3.5"
+        android:layout_weight="3"
         android:background="@drawable/khung"
         android:orientation="vertical"
-        android:weightSum="6">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:paddingLeft="10dp"
-            android:text="Dich vụ"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <GridView
+      >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:numColumns="2"></GridView>
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="9">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:gravity="center|left"
+                    android:text="Dịch vụ :"
+                    android:textColor="@color/white"></TextView>
+                <GridView
+                    android:id="@+id/gv_dv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:numColumns="2"
+                    android:padding="10sp"
+                    tools:listitem="@layout/kh_item_ds_dich_vu"></GridView>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,174 +133,6 @@
             android:hint="Lý do khách hàng....">
 
         </EditText>
-
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="0dp"-->
-        <!--        android:layout_margin="15dp"-->
-        <!--        android:layout_weight="9"-->
-        <!--        android:orientation="vertical">-->
-        <!--        <ImageView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="250dp"-->
-        <!--            android:src="@drawable/phong"></ImageView>-->
-
-        <!--        <TextView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center"-->
-        <!--            android:paddingVertical="10sp"-->
-        <!--            android:text="Phòng tiêu chuẩn 1 giường đôi lớn"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="30dp" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/chinhsach"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="Chính sách khách sạn"-->
-        <!--            android:textColor="#00FF75"-->
-        <!--            android:textSize="20dp" />-->
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center">-->
-
-        <!--            <View-->
-        <!--                style="@style/Divider"-->
-        <!--                android:layout_marginHorizontal="10dp"-->
-        <!--                android:layout_marginVertical="10dp"></View>-->
-        <!--        </LinearLayout>-->
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:background="#A5AE3C">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="fill_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:padding="15dp"-->
-        <!--                android:text="Thông tin thêm"-->
-        <!--                android:textColor="@color/white"-->
-        <!--                android:textSize="20dp"-->
-        <!--                android:textStyle="bold" />-->
-        <!--        </LinearLayout>-->
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:background="@drawable/khung"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:padding="20dp">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="Dich vụ"-->
-        <!--                android:textColor="@color/white"-->
-        <!--                android:textSize="20dp"-->
-        <!--                android:textStyle="bold" />-->
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="horizontal">-->
-
-        <!--                <CheckBox-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_weight="2"-->
-        <!--                    android:buttonTint="@color/white"-->
-        <!--                    android:text="Giặt giũ quần áo"-->
-        <!--                    android:textColor="@color/white"-->
-        <!--                    android:textSize="20dp" />-->
-
-        <!--                <CheckBox-->
-
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_weight="1"-->
-        <!--                    android:buttonTint="@color/white"-->
-        <!--                    android:text=" Đồ ăn theo ngày"-->
-        <!--                    android:textColor="@color/white"-->
-        <!--                    android:textSize="20dp" />-->
-        <!--            </LinearLayout>-->
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="horizontal">-->
-
-        <!--                <CheckBox-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_weight="1"-->
-        <!--                    android:buttonTint="@color/white"-->
-        <!--                    android:text="Dọn phòng"-->
-        <!--                    android:textColor="@color/white"-->
-        <!--                    android:textSize="20dp" />-->
-
-        <!--                <CheckBox-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_weight="1"-->
-        <!--                    android:buttonTint="@color/white"-->
-        <!--                    android:text="Spa"-->
-        <!--                    android:textColor="@color/white"-->
-        <!--                    android:textSize="20dp" />-->
-        <!--            </LinearLayout>-->
-
-        <!--            <CheckBox-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_weight="3"-->
-        <!--                android:buttonTint="@color/white"-->
-        <!--                android:text="Đưa đón khách hàng"-->
-        <!--                android:textColor="@color/white"-->
-        <!--                android:textSize="20dp" />-->
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:orientation="vertical">-->
-
-        <!--                <LinearLayout-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:orientation="horizontal">-->
-
-        <!--                    <TextView-->
-
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_weight="10"-->
-        <!--                        android:text="Lý do đổi phòng"-->
-        <!--                        android:textColor="@color/white"-->
-        <!--                        android:textSize="20dp"></TextView>-->
-
-        <!--                    <TextView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_weight="1"-->
-        <!--                        android:text="369.817đ"-->
-        <!--                        android:textColor="#FA5C5C"-->
-        <!--                        android:textSize="20dp" />-->
-        <!--                </LinearLayout>-->
-
-        <!--                <EditText-->
-        <!--                    android:layout_width="match_parent"-->
-        <!--                    android:layout_height="150dp"-->
-        <!--                    android:background="@color/white"-->
-        <!--                    android:gravity="top"-->
-        <!--                    android:hint="ghi chú khách hàng"-->
-        <!--                    android:textColorHint="@color/white"></EditText>-->
-        <!--            </LinearLayout>-->
-        <!--        </LinearLayout>-->
-
-
     </LinearLayout>
 
     <LinearLayout

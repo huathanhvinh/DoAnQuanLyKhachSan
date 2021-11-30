@@ -34,6 +34,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     EditText edtGhiChuKH;
     String maPhong = "";
     String maDichvu = "";
+    int stt;
 
     ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomXacNhanDatPhong customRoom;
@@ -58,11 +59,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         String ngaytra = (String) getIntent().getStringExtra("ngaytra");
         tvXnTraPhong.setText(ngaytra);
 
-        //dịch vụ
-//        String dv = "";
-//        for(int i = 0;i< StaticConfig.arrayListTemporaryService.size();i++){
-//            dv += StaticConfig.arrayListTemporaryService.get(i).getTenDV()+ ", ";
-//        }
+
         tvDichVu.setText(StaticConfig.arrayListTemporaryService.size() + "");
 
         //taiKhoanHienTai
@@ -89,13 +86,16 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+    }
+
+    private void setEvent() {
+         stt = 0;
         StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
-                        maPhong += ds.child("maPhong").getValue().toString();
-                    }
+                    stt = Integer.parseInt(ds.child("stt").getValue().toString());
                 }
             }
 
@@ -104,10 +104,6 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    private void setEvent() {
         customRoom = new KH_CusTomXacNhanDatPhong(getApplicationContext(), R.layout.kh_item_ds_xac_nhan_dat_phong, StaticConfig.arrayListTemporaryRoom);
         lvDanhSachPhongXN.setAdapter(customRoom);
         btnDatPhong.setOnClickListener(new View.OnClickListener() {
@@ -119,15 +115,16 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                     StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("Chưa xử lý");
                     maPhong += StaticConfig.arrayListTemporaryRoom.get(i).getMaPhong() + " ";
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
-                        maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB()+ " ";
+                        maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
                     }
-                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong,maDichvu,
-                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận");
+                    PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
+                            tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt+1);
                     StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
                 }
 
                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
-                Toast.makeText(getApplicationContext(), "Đặt phòng thành công", Toast.LENGTH_LONG).show();
+
+
             }
         });
         btTroVe.setOnClickListener(new View.OnClickListener() {

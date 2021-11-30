@@ -91,21 +91,6 @@ public class NVTN_ThongBao_DatPhong extends Fragment {
     }
 
     private void khoitao() {
-//        StaticConfig.mThongbao.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot ds : snapshot.getChildren()) {
-//                    ThongBao tb = ds.getValue(ThongBao.class);
-//                    data.add(tb);
-//                }
-//                apdater.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                throw error.toException();
-//            }
-//        });
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

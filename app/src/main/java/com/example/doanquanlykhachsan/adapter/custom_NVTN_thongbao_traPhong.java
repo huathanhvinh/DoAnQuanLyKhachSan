@@ -1,0 +1,151 @@
+package com.example.doanquanlykhachsan.adapter;
+
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
+import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
+    Context context;
+    int resource;
+    ArrayList<PhongDaDat> data;
+
+    public custom_NVTN_thongbao_traPhong(@NonNull Context context, int resource, ArrayList<PhongDaDat> data) {
+        super(context, resource, data);
+        this.context = context;
+        this.resource = resource;
+        this.data = data;
+    }
+
+    @Override
+    public int getCount() {
+        return data.size();
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        convertView = LayoutInflater.from(context).inflate(resource, null);
+        TextView stt = convertView.findViewById(R.id.stt);
+        TextView hoten = convertView.findViewById(R.id.hoten);
+        TextView ngay = convertView.findViewById(R.id.ngay);
+        Button btnChiTiet = convertView.findViewById(R.id.btnChiTiet);
+        Button btnXacNhan = convertView.findViewById(R.id.btnxacnhan);
+
+        PhongDaDat thongbao = data.get(position);
+        stt.setText(thongbao.getStt()+"");
+        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    KhachHang u = ds.getValue(KhachHang.class);
+                    if (thongbao.getMaKH().equals(u.getMaFB())) {
+                        hoten.setText(u.getTenKH());
+                        ngay.setText(thongbao.getThoiGianNhanPH());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Trả Phòng")
+                        .setMessage("xác nhận ??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String chuoiPhongDadat = "";
+                                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            PhongDaDat da= ds.getValue(PhongDaDat.class);
+                                            if (da.getMaKH().equals(thongbao.getMaKH())&&da.getMaFB().equals(thongbao.getMaFB())) {
+                                                StaticConfig.mRoomRented.child(da.getMaFB()).removeValue();
+                                                String chuoimaphong = ds.child("maPhong").getValue(String.class);
+                                                String[] parts;
+                                                parts = chuoimaphong.split(" ");
+                                                for (String maPh : parts) {
+                                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                            for (DataSnapshot ds2 : snapshot.getChildren()) {
+                                                                Phong p= ds2.getValue(Phong.class);
+                                                                if (maPh.equals(p.getMaPhong())) {
+                                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("trống");
+                                                                }
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                                        }
+                                                    });
+                                                    //remove dich vu
+                                                    StaticConfig.mDichVuDaChon.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                            for (DataSnapshot ds3 : snapshot.getChildren()) {
+                                                                if (maPh.equals(ds3.child("maPhong").getValue().toString())) {
+                                                                    StaticConfig.mDichVuDaChon.child(ds3.child("maFB").getValue().toString()).removeValue();
+                                                                }
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                                        }
+                                                    });
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
+        return convertView;
+    }
+}

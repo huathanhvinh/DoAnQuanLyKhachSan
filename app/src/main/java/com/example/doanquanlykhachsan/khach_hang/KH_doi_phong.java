@@ -8,20 +8,27 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.model.Phong;
-import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.example.doanquanlykhachsan.model.*;
+import com.example.doanquanlykhachsan.adapter.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class KH_doi_phong extends AppCompatActivity {
     private TextView chinhsach, tvtenphong;
     private Button btntrove, btnxacnhan;
     Phong chitiet;
+    private ArrayList<DichVu> data = new ArrayList<>();
+    KH_CustomDichvu customDichvu;
+    ;
+    GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +88,30 @@ public class KH_doi_phong extends AppCompatActivity {
         chinhsach = findViewById(R.id.chinhsach);
         btnxacnhan = findViewById(R.id.btnxacnhan);
         tvtenphong = findViewById(R.id.tvTenPhong);
+        gridView = findViewById(R.id.gv_dv);
         tvtenphong.setText("Phòng " + chitiet.getSoPhong());
+
+        customDichvu = new KH_CustomDichvu(getApplicationContext(), R.layout.kh_item_ds_dich_vu, data);
+        gridView.setAdapter(customDichvu);
+        khoitao();
+    }
+
+    private void khoitao() {
+        StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                data.clear();
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    DichVu dv = ds.getValue(DichVu.class);
+                    data.add(dv);
+                }
+                customDichvu.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

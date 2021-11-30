@@ -18,6 +18,7 @@ import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.example.doanquanlykhachsan.model.ThongBao;
 import com.example.doanquanlykhachsan.model.User;
@@ -58,15 +59,15 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
         Button btnXacNhan = convertView.findViewById(R.id.btnxacnhan);
 
         PhongDaDat thongbao = data.get(position);
-        stt.setText("1");
+        stt.setText(thongbao.getStt()+"");
         StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot ds:snapshot.getChildren()){
-                    KhachHang u= ds.getValue(KhachHang.class);
-                    if(thongbao.getMaKH().equals(u.getMaFB())){
-                       hoten.setText(u.getTenKH());
-                       ngay.setText(thongbao.getThoiGianNhanPH());
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    KhachHang u = ds.getValue(KhachHang.class);
+                    if (thongbao.getMaKH().equals(u.getMaFB())) {
+                        hoten.setText(u.getTenKH());
+                        ngay.setText(thongbao.getThoiGianNhanPH());
                     }
                 }
             }
@@ -87,6 +88,27 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 StaticConfig.mRoomRented.child(thongbao.getMaFB()).child("xacnhan").setValue("Đã Xác Nhận");
+                                String chuoiMaPhong = thongbao.getMaPhong();
+                                String[] parts;
+                                parts = chuoiMaPhong.split(" ");
+                                for (String w : parts) {
+                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                                Phong p = ds.getValue(Phong.class);
+                                                if (p.getMaPhong().equals(w)) {
+                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                }
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.

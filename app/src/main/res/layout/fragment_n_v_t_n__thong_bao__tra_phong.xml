@@ -8,12 +8,10 @@
     tools:context=".nhanvien_letan.NVTN_ThongBao_TraPhong">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ListView
+        android:id="@+id/list"
+        tools:listitem="@layout/listview_nvtn_thongbao_datphong"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ListView
-            tools:listitem="@layout/listview_nvtn_thongbao_tra_phong"
-            android:layout_width="match_parent"
-            android:layout_height="580dp"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
+
 </FrameLayout>
