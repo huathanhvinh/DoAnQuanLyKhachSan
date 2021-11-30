@@ -24,6 +24,7 @@ import com.example.doanquanlykhachsan.khach_hang.KH_thong_tin_tai_khoan;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.User;
+import com.example.doanquanlykhachsan.nhanvientapvu_thongtinluong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -123,13 +124,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                 });
             }
         });
-        edtTenNV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-            }
-        });
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -239,7 +234,6 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edtTenNV.setEnabled(true);
-                edtTenNV.setText("");
                 edtTenNV.requestFocus();
             }
         });
@@ -254,14 +248,14 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edtCMND.setEnabled(true);
-                edtCMND.setText("");
+
                 edtCMND.requestFocus();
             }
         });
         doiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Change_passwork.class));
+                startActivity(new Intent(getApplicationContext(),Change_passwork.class));
             }
         });
     }

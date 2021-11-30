@@ -80,6 +80,7 @@
         <entry key="..\:/abc/app/src/main/res/layout/item_khuyen_mai.xml" value="0.13020833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_button.xml" value="0.14635416666666667" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/custom_checkbox.xml" value="0.14635416666666667" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/drawable/rounded_corner_view.xml" value="0.26614583333333336" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_khach_hang.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_luong_cua_nhan_vien.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_menuadmin.xml" value="0.25" />
@@ -95,8 +96,10 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_menu_khachhang.xml" value="0.264" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_dangkydichvu.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_lichlamviec.xml" value="0.12395833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_manhinhchinh.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_sudungdichvu.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_thongtinluong.xml" value="0.12395833333333334" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_thongtintaikhoan.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lichlamviec.xml" value="0.14479166666666668" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_menu_nhan_vien_thu_ngan.xml" value="0.17617753623188406" />

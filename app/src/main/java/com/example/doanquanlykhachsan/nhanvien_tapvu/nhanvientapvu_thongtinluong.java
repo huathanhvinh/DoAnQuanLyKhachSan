@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan.nhanvien_tapvu;
+package com.example.doanquanlykhachsan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
@@ -18,7 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class nhanvientapvu_thongtinluong extends AppCompatActivity {
-    TextView tvTenNhanVien, tvLoaiNhanVien, tvLuong, tvTienThuong;
+    TextView tvTenNhanVien, tvLoaiNhanVien, tvLuong, tvTienThuong,tvGhiChu;
 
     Button btnTroVe;
 
@@ -46,6 +45,7 @@ public class nhanvientapvu_thongtinluong extends AppCompatActivity {
                             tvLoaiNhanVien.setText(nv.getChucVu());
                             tvLuong.setText(nv.getLuong() + "");
                             tvTienThuong.setText(nv.getTienThuong());
+                            tvGhiChu.setText(nv.getGhiChu());
 
                         }
                     }
@@ -66,6 +66,7 @@ public class nhanvientapvu_thongtinluong extends AppCompatActivity {
         tvLoaiNhanVien = findViewById(R.id.tvLoaiNhanVien);
         tvLuong = findViewById(R.id.tvLuong);
         tvTienThuong = findViewById(R.id.tvTienThuong);
+        tvGhiChu = findViewById(R.id.tvGhiChu);
     }
 
     private void setEvent() {

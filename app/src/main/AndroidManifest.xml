@@ -25,7 +25,7 @@
             android:name=".nhanvien_tapvu.nhanvientapvu_xacnhantrangthaiphong"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_tapvu.nhanvientapvu_thongtinluong"
+            android:name=".nhanvientapvu_thongtinluong"
             android:exported="false" />
         <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_lichlamviec"
@@ -110,9 +110,7 @@
         <activity
             android:name=".khach_hang.menu_khachhang"
             android:exported="false" />
-        <activity
-            android:name=".khach_hang.KH_thong_tin_tai_khoan"
-            android:exported="false" />
+
 
         <activity
             android:name=".admin.AD_MenuAdmin"
