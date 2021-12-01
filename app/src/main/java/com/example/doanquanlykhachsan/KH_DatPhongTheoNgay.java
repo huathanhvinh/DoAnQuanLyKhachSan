@@ -137,7 +137,14 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                     dialog.show();
                 } else {
                     if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
-                        Toast.makeText(KH_DatPhongTheoNgay.this, "xin chon phong", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(KH_DatPhongTheoNgay.this, "xin chon phong", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoNgay.this);
+                        b.setTitle("Thông báo");
+                        b.setMessage("yêu cầu chọn phòng");
+                        b.setPositiveButton("Đồng ý", null);
+                        //Tạo dialog
+                        AlertDialog dialog = b.create();
+                        dialog.show();
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                         Bundle bundle = new Bundle();
@@ -154,7 +161,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(KH_DatPhongTheoNgay.this, "dung" + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(KH_DatPhongTheoNgay.this, "dung" + position, Toast.LENGTH_LONG).show();
             }
         });
         cboChonHet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

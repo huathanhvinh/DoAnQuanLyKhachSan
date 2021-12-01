@@ -146,7 +146,14 @@ public class KH_DatPhongTheoGio extends AppCompatActivity {
                     dialog.show();
                 } else {
                     if (StaticConfig.arrayListTemporaryRoom.isEmpty()) {
-                        Toast.makeText(KH_DatPhongTheoGio.this, "xin chon phong", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(KH_DatPhongTheoGio.this, "xin chon phong", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder b = new AlertDialog.Builder(KH_DatPhongTheoGio.this);
+                        b.setTitle("Thông báo");
+                        b.setMessage("yêu cầu chọn phòng");
+                        b.setPositiveButton("Đồng ý", null);
+                        //Tạo dialog
+                        AlertDialog dialog = b.create();
+                        dialog.show();
                     } else {
                         Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                         Bundle bundle = new Bundle();
