@@ -77,7 +77,7 @@ public class KH_danh_sach_phong_trong extends AppCompatActivity {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Phong phong = ds.getValue(Phong.class);
-                    if (ds.child("trangThai").getValue(String.class).equals("trống")) {
+                    if (ds.child("trangThai").getValue(String.class).equals("Trống")) {
                         data.add(phong);
                     }
                     adapter.notifyDataSetChanged();

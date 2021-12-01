@@ -75,8 +75,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
 
         setEvent();
         Log.e("loai",StaticConfig.sXacNhan);
-        StaticConfig.arrayListTemporaryRoom= new ArrayList<>();
-        StaticConfig.arrayListTemporaryService= new ArrayList<>();
+
     }
 
     private void setEvent() {
@@ -93,7 +92,7 @@ public class KH_DatPhongTheoNgay extends AppCompatActivity {
                 arrayList.removeAll(arrayList);
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     phong = ds.getValue(Phong.class);
-                    if (ds.child("trangThai").getValue(String.class).equals("trống")) {
+                    if (ds.child("trangThai").getValue(String.class).equals("Trống")) {
                         arrayList.add(phong);
                     }
                 }

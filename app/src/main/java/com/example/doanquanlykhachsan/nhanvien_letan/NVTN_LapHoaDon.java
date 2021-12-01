@@ -35,9 +35,9 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
     }
 
     private void LapHoaDon() {
-        String key = StaticConfig.mHoaDon.push().getKey();
-        HoaDon hoadon = new HoaDon(1,"Phúc","Hoàng","1/11/2021",key);
-        StaticConfig.mHoaDon.child(key).setValue(hoadon);
+//        String key = StaticConfig.mHoaDon.push().getKey();
+//        HoaDon hoadon = new HoaDon(1,"Phúc","Hoàng","1/11/2021",key);
+//        StaticConfig.mHoaDon.child(key).setValue(hoadon);
     }
 
     private void setEvent() {

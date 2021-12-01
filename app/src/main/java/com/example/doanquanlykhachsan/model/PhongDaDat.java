@@ -1,6 +1,8 @@
 package com.example.doanquanlykhachsan.model;
 
-public class PhongDaDat {
+import java.io.Serializable;
+
+public class PhongDaDat implements Serializable {
     String maFB;
     String maKH;
     String maPhong;

@@ -18,8 +18,10 @@ public class StaticConfig {
     public static StorageReference storageReference = storage.getReference();
     public static String currentuser = "";
     public static String currentphone = "";
-    public static int role ;
+    public static int role;
     public static String currentCmnd = "";
+    public static String Loai = "";
+    public static String songay = "";
 
 
     public static DatabaseReference mUser = Database.getReference("User");
@@ -45,7 +47,8 @@ public class StaticConfig {
     public static DatabaseReference mQLPhong = Database.getReference("QLPhong");
 
     public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
-    public static DatabaseReference mThongbao = Database.getReference("Thongbao");
+
+
 
 
     //Danh sách phòng tạm thời

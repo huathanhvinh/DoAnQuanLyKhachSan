@@ -108,6 +108,7 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinkhachhang.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinluong.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtintaikhoan.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xac_nhan_hoa_don.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_sign_in.xml" value="0.25416666666666665" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_update_phonenumber_1.xml" value="0.4" />
@@ -116,7 +117,10 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__d_k_dich_vu.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__dat_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__tra_phong.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/item_dv.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/item_phong.xml" value="0.14166666666666666" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/items_phongthue.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_dich_vu.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_xac_nhan_dat_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_dangkydichvu.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_quanlyphong.xml" value="0.25" />

@@ -38,19 +38,19 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
         Button btnLapHD = convertView.findViewById(R.id.btnLapHD);
 
         HoaDon laphoadon = arrHoaDon.get(position);
-        tvTenKH.setText(laphoadon.getTenKH());
-        //
-        btnLapHD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), NVTN_XacNhanHoaDon.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("TenKH", laphoadon);
-                intent.putExtras(bundle);
-                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
+//        tvTenKH.setText(laphoadon.getTenKH());
+//        //
+//        btnLapHD.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), NVTN_XacNhanHoaDon.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("TenKH", laphoadon);
+//                intent.putExtras(bundle);
+//                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+//            }
+//        });
         return convertView;
     }
 

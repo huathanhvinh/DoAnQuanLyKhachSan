@@ -3,15 +3,23 @@ package com.example.doanquanlykhachsan.model;
 import java.io.Serializable;
 
 public class HoaDon implements Serializable {
-    public HoaDon(int stt, String tenKH, String tenNV, String ngayLap, String maFB) {
-        this.stt = stt;
-        this.tenKH = tenKH;
-        this.tenNV = tenNV;
-        NgayLap = ngayLap;
-        this.maFB = maFB;
-    }
+    int stt;
+    String maFB;
+    String maKH;
+    String maNV;
+    String ngaylap;
+    float tongTien;
 
     public HoaDon() {
+    }
+
+    public HoaDon(int stt, String maFB, String maKH, String maNV, String ngaylap, float tongTien) {
+        this.stt = stt;
+        this.maFB = maFB;
+        this.maKH = maKH;
+        this.maNV = maNV;
+        this.ngaylap = ngaylap;
+        this.tongTien = tongTien;
     }
 
     public int getStt() {
@@ -22,30 +30,6 @@ public class HoaDon implements Serializable {
         this.stt = stt;
     }
 
-    public String getTenKH() {
-        return tenKH;
-    }
-
-    public void setTenKH(String tenKH) {
-        this.tenKH = tenKH;
-    }
-
-    public String getTenNV() {
-        return tenNV;
-    }
-
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
-    }
-
-    public String getNgayLap() {
-        return NgayLap;
-    }
-
-    public void setNgayLap(String ngayLap) {
-        NgayLap = ngayLap;
-    }
-
     public String getMaFB() {
         return maFB;
     }
@@ -54,11 +38,35 @@ public class HoaDon implements Serializable {
         this.maFB = maFB;
     }
 
-    int stt;
-    String tenKH;
-    String tenNV;
-    String NgayLap;
-    String maFB;
+    public String getMaKH() {
+        return maKH;
+    }
 
+    public void setMaKH(String maKH) {
+        this.maKH = maKH;
+    }
 
+    public String getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
+    }
+
+    public String getNgaylap() {
+        return ngaylap;
+    }
+
+    public void setNgaylap(String ngaylap) {
+        this.ngaylap = ngaylap;
+    }
+
+    public float getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(float tongTien) {
+        this.tongTien = tongTien;
+    }
 }

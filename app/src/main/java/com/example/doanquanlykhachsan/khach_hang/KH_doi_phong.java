@@ -50,7 +50,7 @@ public class KH_doi_phong extends AppCompatActivity {
                             PhongDaDat da = ds.getValue(PhongDaDat.class);
                             if (!StaticConfig.chon.equals("")) {
                                 if (da.getMaKH().equals(StaticConfig.currentuser)) {
-                                    StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("trống");
+                                    StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("Trống");
                                     StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("đã đặt");
                                     String str = da.getMaPhong();
                                     String replacedStr = str.replaceAll(StaticConfig.chon.getMaPhong(), chitiet.getMaPhong());
