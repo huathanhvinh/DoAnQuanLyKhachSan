@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class NVTN_LapHoaDon extends AppCompatActivity {
     ListView lvHoaDon;
     Button btnTroVe;
-    ArrayList<HoaDon>arrHoadon=new ArrayList<>();
+    ArrayList<PhongDaDat>arrHoadon=new ArrayList<>();
     Custom_NVTN_LapHoaDon laphoadon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +35,13 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
     }
 
     private void LapHoaDon() {
-//        String key = StaticConfig.mHoaDon.push().getKey();
-//        HoaDon hoadon = new HoaDon(1,"Phúc","Hoàng","1/11/2021",key);
-//        StaticConfig.mHoaDon.child(key).setValue(hoadon);
+
     }
 
     private void setEvent() {
         laphoadon = new Custom_NVTN_LapHoaDon(this,R.layout.listview_nvtn_lap_hoa_don,arrHoadon);
         lvHoaDon.setAdapter(laphoadon);
         KhoiTao();
-        lvHoaDon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               HoaDon hoadon= arrHoadon.get(position);
-            }
-        });
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,13 +50,13 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
         });
     }
     private void KhoiTao() {
-        StaticConfig.mHoaDon.addValueEventListener(new ValueEventListener() {
+        StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds: snapshot.getChildren())
                 {
-                    HoaDon dshd = ds.getValue(HoaDon.class);
-                    arrHoadon.add(dshd);
+                    PhongDaDat da = ds.getValue(PhongDaDat.class);
+                    arrHoadon.add(da);
                 }
                 laphoadon.notifyDataSetChanged();
             }

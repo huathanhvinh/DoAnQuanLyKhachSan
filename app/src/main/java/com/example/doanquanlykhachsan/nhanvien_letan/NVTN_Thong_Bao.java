@@ -38,7 +38,6 @@ public class NVTN_Thong_Bao extends AppCompatActivity {
 
         VP_adapter adapter = new VP_adapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         adapter.addFragment(new NVTN_ThongBao_DatPhong(), "Đặt Phòng");
-        adapter.addFragment(new NVTN_ThongBao_DKDichVu(), "Đăng ký dịch Vụ");
         adapter.addFragment(new NVTN_ThongBao_TraPhong(), "Trả Phòng");
         viewpager.setAdapter(adapter);
         Timer myTimer = new Timer();
