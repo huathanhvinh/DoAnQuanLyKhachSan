@@ -1,10 +1,9 @@
-package com.example.doanquanlykhachsan.nhanvien_letan;
+package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.usage.NetworkStatsManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.khach_hang.KH_tra_phong;
 import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.HoaDon;
 import com.example.doanquanlykhachsan.model.KhachHang;

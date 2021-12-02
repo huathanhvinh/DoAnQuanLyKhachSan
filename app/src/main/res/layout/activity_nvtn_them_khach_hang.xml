@@ -6,7 +6,7 @@
     android:background="#18364B"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nhanvien_letan.NVTN_ThemKhachHang">
+    tools:context=".nhanvien_thungan.NVTN_ThemKhachHang">
 
     <LinearLayout
         android:layout_gravity="center"

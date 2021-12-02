@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.*;
-import com.example.doanquanlykhachsan.nhanvien_letan.NVTN_Thongtinkhachhang;
+import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_Thongtinkhachhang;
 
 import java.util.ArrayList;
 

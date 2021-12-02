@@ -7,7 +7,7 @@
     android:weightSum="30"
     android:orientation="vertical"
     android:background="#18364B"
-    tools:context=".nhanvien_letan.NVTN_MenuNhanVienThuNgan">
+    tools:context=".nhanvien_thungan.NVTN_MenuNhanVienThuNgan">
 
     <LinearLayout
         android:gravity="center"

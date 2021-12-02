@@ -1,9 +1,8 @@
-package com.example.doanquanlykhachsan.nhanvien_letan;
+package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -12,11 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.doanquanlykhachsan.Fragment_f1;
-import com.example.doanquanlykhachsan.Fragment_f2;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.adapter.Adapter_phieuthue;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;

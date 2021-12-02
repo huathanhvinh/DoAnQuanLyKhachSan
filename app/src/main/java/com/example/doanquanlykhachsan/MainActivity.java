@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachNhanVien;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
-import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.model.*;
 import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
-import com.example.doanquanlykhachsan.nhanvien_letan.*;
+import com.example.doanquanlykhachsan.nhanvien_thungan.*;
 import com.example.doanquanlykhachsan.khach_hang.*;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -110,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), sign_in.class));
+            startActivity(new Intent(getApplicationContext(), NV_chonphonglapphieuthue.class));
         }
 
     }

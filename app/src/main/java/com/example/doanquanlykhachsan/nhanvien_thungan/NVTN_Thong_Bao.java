@@ -1,20 +1,14 @@
-package com.example.doanquanlykhachsan.nhanvien_letan;
+package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import android.os.Bundle;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.adapter.VP_adapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 
 import java.util.Timer;
 import java.util.TimerTask;

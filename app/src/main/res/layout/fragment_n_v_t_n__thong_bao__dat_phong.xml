@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#18364B"
-    tools:context=".nhanvien_letan.NVTN_ThongBao_DatPhong">
+    tools:context=".nhanvien_thungan.NVTN_ThongBao_DatPhong">
 
     <!-- TODO: Update blank fragment layout -->
   <ListView

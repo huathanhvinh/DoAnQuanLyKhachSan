@@ -44,40 +44,40 @@
             android:exported="false" />
 
         <activity
-            android:name=".nhanvien_letan.NVTN_SuaKhachHang"
+            android:name=".nhanvien_thungan.NVTN_SuaKhachHang"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_Thong_Bao"
+            android:name=".nhanvien_thungan.NVTN_Thong_Bao"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_Thongtinluong"
+            android:name=".nhanvien_thungan.NVTN_Thongtinluong"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_lichlamviec"
+            android:name=".nhanvien_thungan.NVTN_lichlamviec"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_Thongtintaikhoan"
+            android:name=".nhanvien_thungan.NVTN_Thongtintaikhoan"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_HienThiDanhSachKhachHang"
+            android:name=".nhanvien_thungan.NVTN_HienThiDanhSachKhachHang"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_MenuNhanVienThuNgan"
+            android:name=".nhanvien_thungan.NVTN_MenuNhanVienThuNgan"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_ThemKhachHang"
+            android:name=".nhanvien_thungan.NVTN_ThemKhachHang"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_LapHoaDon"
+            android:name=".nhanvien_thungan.NVTN_LapHoaDon"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_XacNhanHoaDon"
+            android:name=".nhanvien_thungan.NVTN_XacNhanHoaDon"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NVTN_Thongtinkhachhang"
+            android:name=".nhanvien_thungan.NVTN_Thongtinkhachhang"
             android:exported="false" />
         <activity
-            android:name=".nhanvien_letan.NV_chonphonglapphieuthue"
+            android:name=".nhanvien_thungan.NV_chonphonglapphieuthue"
             android:exported="false" />
 
 

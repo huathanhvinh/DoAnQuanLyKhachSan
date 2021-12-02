@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan.nhanvien_letan;
+package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import android.os.Bundle;
 
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.doanquanlykhachsan.R;
-import com.example.doanquanlykhachsan.adapter.custom_NVTN_thongbao_datphong;
 import com.example.doanquanlykhachsan.adapter.custom_NVTN_thongbao_traPhong;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.PhongDaDat;

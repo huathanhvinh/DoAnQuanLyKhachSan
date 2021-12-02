@@ -1,4 +1,4 @@
-package com.example.doanquanlykhachsan.nhanvien_letan;
+package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

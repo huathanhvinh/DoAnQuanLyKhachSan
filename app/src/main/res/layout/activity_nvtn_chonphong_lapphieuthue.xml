@@ -87,172 +87,180 @@
 
     </LinearLayout>
 
-    <GridView
-        tools:listitem="@layout/item_phieuthue"
-        android:id="@+id/ListRoom"
+    <ScrollView
+        android:layout_weight="7"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:numColumns="5"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_weight="4"
-        android:orientation="vertical"
-        android:weightSum="4">
-
-    </GridView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="2"
-        android:orientation="horizontal"
-        >
+        android:layout_height="0dp">
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="2"
-            >
-            <LinearLayout
+            android:orientation="vertical">
+            <GridView
+                tools:listitem="@layout/item_phieuthue"
+                android:id="@+id/ListRoom"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phòng đã chọn"
-                    android:textColor="#fff"
-                    android:textSize="24dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="17 20 50 60"
-                    android:textColor="#fff"
-                    android:textSize="24dp"
-                    android:layout_marginLeft="15dp"
-
-                    />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_change"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chọn lại phòng"
-                android:textColor="#fff"
+                android:layout_height="300dp"
+                android:numColumns="5"
                 android:layout_marginLeft="10dp"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:weightSum="4">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:weightSum="6"
-        android:orientation="vertical"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hướng dẫn"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Màu đỏ: Phòng đã thuê"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Màu vàng: chwof xử lý"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Màu xanh: phòng trống"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Màu cam: chờ dọn phòng"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Màu xanh dương: đang bảo trì"
-                android:textColor="#fff"
-                android:textSize="14dp"
-                android:layout_marginLeft="20dp"
-                />
-        </LinearLayout>
+            </GridView>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:weightSum="3"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_marginLeft="185dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/icon_change"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chọn lại phòng"
+                        android:textColor="#fff"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Phòng đã chọn"
+                            android:textColor="#fff"
+                            android:textSize="24dp"
+                            android:layout_gravity="center"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="17 20 50 60"
+                            android:textColor="#fff"
+                            android:textSize="24dp"
+
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:weightSum="6"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hướng dẫn"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Màu đỏ: Phòng đã thuê"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Màu vàng: chờ xử lý"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Màu xanh: phòng trống"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Màu cam: chờ dọn phòng"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Màu xanh dương: đang bảo trì"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
