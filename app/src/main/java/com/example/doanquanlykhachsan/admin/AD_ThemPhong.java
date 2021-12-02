@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.admin;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -67,11 +68,11 @@ public class AD_ThemPhong extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edGiaGio.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Giá giờ không được bỏ trống", Toast.LENGTH_SHORT).show();
+                    edGiaGio.setError("Giá giờ không được bỏ trống");
                 } else if (edGiaNgay.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Giá ngày không được bỏ trống", Toast.LENGTH_SHORT).show();
+                    edGiaNgay.setError("Giá ngày không được bỏ trống");
                 } else if (edMoTa.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Mô tả không được bỏ trống", Toast.LENGTH_SHORT).show();
+                    edMoTa.setError("Mô tả không được bỏ trốn");
                 } else {
                     StaticConfig.mPhong.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -83,7 +84,13 @@ public class AD_ThemPhong extends AppCompatActivity {
                                 }
                             }
                             if (check != 0) {
-                                Toast.makeText(getApplicationContext(), "Đã tồn tại phòng này trong khách sạn", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemPhong.this)
+                                        .setTitle("Thêm Phòng")
+                                        .setMessage("Hiện đã có dịch vụ này trong danh sách")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
                             } else {
                                 int soLau = spLau.getSelectedItemPosition();
                                 soLau++;
@@ -98,7 +105,14 @@ public class AD_ThemPhong extends AppCompatActivity {
                                 Phong p = new Phong(key, tvMaPhong.getText().toString(), tvTenPhong.getText().toString(), soPhong + "", soLau,spLoaiPhong.getSelectedItem().toString(),
                                         edMoTa.getText().toString(),giaNgay, giaGio,"Trống");
                                 StaticConfig.mPhong.child(key).setValue(p);
-                                Toast.makeText(getApplicationContext(), "Thêm Thành Công !!!", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemPhong.this)
+                                        .setTitle("Thêm Phòng")
+                                        .setMessage("Thêm Thành Công !!!")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+
 
                             }
                         }

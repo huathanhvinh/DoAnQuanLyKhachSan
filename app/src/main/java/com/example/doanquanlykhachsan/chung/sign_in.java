@@ -57,10 +57,10 @@ public class sign_in extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 //dang nhap thanh cong
-                                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else {
-                                Toast.makeText(getApplicationContext(), "Sai email hoặc password!!", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "Sai email hoặc password!!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

@@ -76,6 +76,10 @@
         <activity
             android:name=".nhanvien_letan.NVTN_Thongtinkhachhang"
             android:exported="false" />
+        <activity
+            android:name=".nhanvien_letan.NV_chonphonglapphieuthue"
+            android:exported="false" />
+
 
         <activity
             android:name=".khach_hang.KH_tra_phong"

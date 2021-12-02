@@ -2,6 +2,7 @@ package com.example.doanquanlykhachsan.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -42,9 +43,11 @@ public class AD_ThemDichVu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edgiaDichVu.getText().toString().equals(""))
-                    Toast.makeText(getApplicationContext(), "Không được để trống giá dịch vụ", Toast.LENGTH_SHORT).show();
+                    edgiaDichVu.setError("Không được để trống giá dịch vụ");
+
                 else if (edMota.getText().toString().equals(""))
-                    Toast.makeText(getApplicationContext(), "Không được để trống mô tả", Toast.LENGTH_SHORT).show();
+                    edMota.setError("Không được để trống mô tả");
+
                 else {
                     StaticConfig.mDichVu.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -58,13 +61,26 @@ public class AD_ThemDichVu extends AppCompatActivity {
                                 }
                             }
                             if (check == true)
-                                Toast.makeText(getApplicationContext(), "Hiện đã có dịch vụ này trong danh sách", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemDichVu.this)
+                                        .setTitle("Thêm Dịch vụ")
+                                        .setMessage("Hiện đã có dịch vụ này trong danh sách")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+
                             else {
                                 int giaDichVu = Integer.parseInt(edgiaDichVu.getText().toString());
                                 String key = StaticConfig.mDichVu.push().getKey();
                                 DichVu dv = new DichVu(stt, key, spTendichvu.getSelectedItem().toString(), giaDichVu, spDonViTinh.getSelectedItem().toString(), 0, edMota.getText().toString());
                                 StaticConfig.mDichVu.child(key).setValue(dv);
-                                Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemDichVu.this)
+                                        .setTitle("Thêm Dịch vụ")
+                                        .setMessage("Lưu thành công")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
                             }
                         }
 

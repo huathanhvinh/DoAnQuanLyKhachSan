@@ -78,7 +78,12 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
     }
 
     private void setEvent() {
-
+        tvLapPhieuThue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),NV_chonphonglapphieuthue.class));
+            }
+        });
         doiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

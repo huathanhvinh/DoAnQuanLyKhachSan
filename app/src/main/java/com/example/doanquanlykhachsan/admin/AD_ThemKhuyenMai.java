@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.admin;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -81,19 +82,26 @@ public class AD_ThemKhuyenMai extends AppCompatActivity {
                 }
                 //khởi tạo khuyến mãi
                 if (sizeTen == 0) {
-                    Toast.makeText(getApplicationContext(), "Tên không được bỏ trống", Toast.LENGTH_LONG).show();
+                    edTenkm.setError("Tên không được bỏ trống");
+
                 } else if (sizeTen > 50) {
-                    Toast.makeText(getApplicationContext(), "Tên không được vượt quá 50 kí tự", Toast.LENGTH_LONG).show();
+                    edTenkm.setError("Tên không được vượt quá 50 kí tự");
                 } else if (checkNgay != 0) {
-                    Toast.makeText(getApplicationContext(), "Thời gian bất đầu không được lớn hơn thời gian kết thúc", Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(AD_ThemKhuyenMai.this)
+                            .setTitle("Thêm Khuyến mãi")
+                            .setMessage("Thời gian bất đầu không được lớn hơn thời gian kết thúc!!")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                 } else if (edMucGiamGia.getText().toString().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Không được để trống mức giảm giá", Toast.LENGTH_LONG).show();
+                    edMucGiamGia.setError("Không được để trống mức giảm giá");
                 } else if (Integer.parseInt(edMucGiamGia.getText().toString()) < 1) {
-                    Toast.makeText(getApplicationContext(), "Mức giảm giá phải lớn hơn 1", Toast.LENGTH_LONG).show();
+                    edMucGiamGia.setError("Mức giảm giá phải lớn hơn 1");
                 } else if (Integer.parseInt(edMucGiamGia.getText().toString()) > 100) {
-                    Toast.makeText(getApplicationContext(), "Mức giảm giá phải nhỏ hơn 100", Toast.LENGTH_LONG).show();
+                    edMucGiamGia.setError("Mức giảm giá phải nhỏ hơn 100");
                 }else if (sizeNoiDung == 0) {
-                    Toast.makeText(getApplicationContext(), "Nội dung không được để trống", Toast.LENGTH_LONG).show();
+                    edNoidung.setError("Nội dung không được để trống");
                 }
                 else
                 {
@@ -109,7 +117,13 @@ public class AD_ThemKhuyenMai extends AppCompatActivity {
                             }
                             if (check != 0)
                             {
-                                Toast.makeText(getApplicationContext(), "Đã tồn tại mã này trong danh sách", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemKhuyenMai.this)
+                                        .setTitle("Thêm Khuyến mãi")
+                                        .setMessage("Hiện đã có dịch vụ này trong danh sách")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
                             }
                             else
                             {
@@ -119,7 +133,13 @@ public class AD_ThemKhuyenMai extends AppCompatActivity {
                                         tvNgayBatDau.getText().toString(),tvNgayKetThuc.getText().toString(),
                                         giamGia,edNoidung.getText().toString());
                                 StaticConfig.mKhuyenMai.child(key).setValue(km);
-                                Toast.makeText(getApplicationContext(), "Thêm Thành Công", Toast.LENGTH_SHORT).show();
+                                new AlertDialog.Builder(AD_ThemKhuyenMai.this)
+                                        .setTitle("Thêm Khuyến mãi")
+                                        .setMessage("lưu thành công!!")
+                                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                                        // The dialog is automatically dismissed when a dialog button is clicked.
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
                             }
                         }
                         @Override
