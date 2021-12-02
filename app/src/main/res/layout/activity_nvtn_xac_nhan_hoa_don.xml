@@ -12,13 +12,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="10">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
@@ -32,8 +30,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:weightSum="5">
@@ -45,7 +42,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="90dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Mã Hóa Đơn :"
                     android:textColor="#fff"
@@ -114,7 +111,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Ngày lập hóa đơn :"
                     android:textColor="#fff"
@@ -153,26 +150,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:weightSum="6">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Thuê phòng :"
-                    android:textColor="#fff"
-                    android:textSize="18dp" />
-            </LinearLayout>
+            android:paddingTop="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -205,8 +186,7 @@
             <ListView
                 android:id="@+id/lvthue"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_height="200dp"
                 tools:listitem="@layout/items_phongthue"
                 android:orientation="horizontal">
             </ListView>
@@ -221,16 +201,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:weightSum="10">
+            android:paddingTop="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -243,8 +220,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -273,8 +249,7 @@
             <ListView
                 android:id="@+id/lvDv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_height="200dp"
                 tools:listitem="@layout/item_dv"
                 android:orientation="horizontal">
             </ListView>
@@ -289,7 +264,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:gravity="right"
             android:orientation="horizontal">
 
@@ -323,7 +298,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"
-            android:layout_weight="1.5"
+            android:layout_weight="4"
             android:orientation="vertical"
             android:paddingTop="10dp"
             android:weightSum="2">
