@@ -5,9 +5,11 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#18364B"
+    android:padding="10dp"
     android:orientation="vertical"
     android:weightSum="10">
     <LinearLayout
+
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,13 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thông tin lương"
-            android:textColor="#CF0A32"
+            android:textColor="#FFC107"
             android:textSize="35dp"
             android:layout_gravity="center"
             android:textStyle="bold"
             />
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/rounded_corner_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -31,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tên nhân viên :"
-            android:textColor="#D1D110"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             android:layout_marginLeft="20dp"
             />
@@ -41,12 +44,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lê Hoàng Phắc Boiz"
-            android:textColor="#E4E412"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             android:layout_marginLeft="50dp"
             />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -55,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Loại nhân viên :"
-            android:textColor="#15D81D"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             android:layout_marginLeft="20dp"
             />
@@ -65,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thu Ngân"
-            android:textColor="#0BCC13"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             android:layout_marginLeft="50dp"
             />
@@ -85,17 +90,19 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:background="@drawable/rounded_corner_view"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
         <TextView
+
             android:id="@+id/tvLuong"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lương :"
-            android:textColor="#F4F4EF"
+            android:textColor="#FFC107"
             android:textSize="20dp"
 
             />
@@ -104,13 +111,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1 đ"
-            android:textColor="#F4F4EF"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             android:layout_marginLeft="20dp"
 
             />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner_view"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -120,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tiền thưởng :"
-            android:textColor="#F4F4EF"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             />
         <TextView
@@ -129,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0 đ"
-            android:textColor="#F4F4EF"
+            android:textColor="#FFC107"
             android:textSize="20dp"
             />
     </LinearLayout>
