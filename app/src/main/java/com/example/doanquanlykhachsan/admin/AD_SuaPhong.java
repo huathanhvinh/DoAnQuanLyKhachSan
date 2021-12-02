@@ -24,7 +24,7 @@ import com.google.firebase.database.DatabaseError;
 
 public class AD_SuaPhong extends AppCompatActivity {
     TextView tvTenPhong,tvMaPhong;
-    Spinner spLoaiPhong;
+    Spinner spLoaiPhong,spTrangThai;
     RadioButton rd1phong,rdNhieuPhong;
     EditText edGiaGio,edGiaNgay,edMoTa;
     Button btnLuu,btnTrove;
@@ -41,6 +41,7 @@ public class AD_SuaPhong extends AppCompatActivity {
         tvMaPhong = findViewById(R.id.tvMaPhongS);
 
         spLoaiPhong = findViewById(R.id.spLoaiPhongS);
+        spTrangThai = findViewById(R.id.spTrangThaiPhong);
         rd1phong = findViewById(R.id.rd1phong);
         rdNhieuPhong = findViewById(R.id.rdNhieuPhong);
 
@@ -99,9 +100,10 @@ public class AD_SuaPhong extends AppCompatActivity {
                 if (rd1phong.isChecked())
                 {
                     thongTinPhong.setLoai(spLoaiPhong.getSelectedItem().toString());
-                    thongTinPhong.setGiaGio(Integer.parseInt(edGiaGio.getText().toString()));
-                    thongTinPhong.setGiaNgay(Integer.parseInt(edGiaNgay.getText().toString()));
+                    thongTinPhong.setGiaGio(Float.parseFloat(edGiaGio.getText().toString()));
+                    thongTinPhong.setGiaNgay(Float.parseFloat(edGiaNgay.getText().toString()));
                     thongTinPhong.setMoTa(edMoTa.getText().toString());
+                    thongTinPhong.setTrangThai(spTrangThai.getSelectedItem().toString());
                     StaticConfig.mPhong.child(thongTinPhong.getMaFB()).setValue(thongTinPhong);
                     new AlertDialog.Builder(AD_SuaPhong.this)
                             .setTitle("Sửa Phòng")
@@ -168,6 +170,17 @@ public class AD_SuaPhong extends AppCompatActivity {
             spLoaiPhong.setSelection(0);
         else
             spLoaiPhong.setSelection(1);
+        //
+        if(thongTinPhong.getTrangThai().equals("Trống"))
+            spTrangThai.setSelection(0);
+        else if(thongTinPhong.getTrangThai().equals("Đã đặt phòng"))
+            spTrangThai.setSelection(1);
+        else if(thongTinPhong.getTrangThai().equals("Chưa xử lý"))
+            spTrangThai.setSelection(2);
+        else if(thongTinPhong.getTrangThai().equals("Trả phòng"))
+            spTrangThai.setSelection(3);
+        else
+            spTrangThai.setSelection(4);
         //
         tvTenPhong.setText(thongTinPhong.getTenPhong());
         tvMaPhong.setText(thongTinPhong.getMaPhong());

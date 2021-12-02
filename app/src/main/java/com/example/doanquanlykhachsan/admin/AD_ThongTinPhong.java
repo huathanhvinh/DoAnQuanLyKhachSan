@@ -20,7 +20,7 @@ import com.example.doanquanlykhachsan.model.Phong;
 public class AD_ThongTinPhong extends AppCompatActivity {
     Button btnSua, btnXoa, btnTroVe;
     TextView tvTenPhong, tvMaPhong;
-    Spinner spSoPhong, spLau, spLoaiPhong;
+    Spinner spSoPhong, spLau, spLoaiPhong,spTrangThai;
     EditText edGiaGio, edGiaNgay, edMoTa;
 
     @Override
@@ -105,6 +105,22 @@ public class AD_ThongTinPhong extends AppCompatActivity {
             spSoPhong.setSelection(8);
         else
             spSoPhong.setSelection(9);
+        //trạng thái
+//        <item>Trống</item>
+//        <item>Đã đặt phòng</item>
+//        <item>Chưa xử lý</item>
+//        <item>Trả phòng</item>
+//        <item>Bảo trì</item>
+        if(thongTinPhong.getTrangThai().equals("Trống"))
+            spTrangThai.setSelection(0);
+        else if(thongTinPhong.getTrangThai().equals("Đã đặt phòng"))
+            spTrangThai.setSelection(1);
+        else if(thongTinPhong.getTrangThai().equals("Chưa xử lý"))
+            spTrangThai.setSelection(2);
+        else if(thongTinPhong.getTrangThai().equals("Trả phòng"))
+            spTrangThai.setSelection(3);
+        else
+            spTrangThai.setSelection(4);
         //
         if (lau.equals("1"))
             spLau.setSelection(0);
@@ -140,6 +156,8 @@ public class AD_ThongTinPhong extends AppCompatActivity {
         spSoPhong = findViewById(R.id.spSoPhongTT);
         spLau = findViewById(R.id.spLauTT);
         spLoaiPhong = findViewById(R.id.spLoaiPhongTT);
+        spTrangThai = findViewById(R.id.spTrangThaiPhong);
+
 
         edGiaGio = findViewById(R.id.edGiaGioTT);
         edGiaNgay = findViewById(R.id.edGiaNgayTT);

@@ -42,7 +42,7 @@
         android:layout_weight="6"
         android:background="#3a5263"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <LinearLayout
             android:layout_gravity="center"
@@ -231,6 +231,32 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
             </EditText>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:gravity="center"
+                android:text="Trạng Thái"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
+            <Spinner
+                android:id="@+id/spTrangThaiPhong"
+                android:entries="@array/trangThaiPhong"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </Spinner>
         </LinearLayout>
         <LinearLayout
             android:layout_gravity="center"

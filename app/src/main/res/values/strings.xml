@@ -21,6 +21,13 @@
         <item>Chiều</item>
         <item>Tối</item>
     </array>
+    <array name="trangThaiPhong">
+        <item>Trống</item>
+        <item>Đã đặt phòng</item>
+        <item>Chưa xử lý</item>
+        <item>Trả phòng</item>
+        <item>Bảo trì</item>
+    </array>
     <array name="soPhong">
         <item>Phòng 1</item>
         <item>Phòng 2</item>

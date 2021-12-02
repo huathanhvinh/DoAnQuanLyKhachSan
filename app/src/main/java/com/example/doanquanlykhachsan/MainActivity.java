@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachPhong;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.*;
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), NV_chonphonglapphieuthue.class));
+            startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachPhong.class));
         }
 
     }
