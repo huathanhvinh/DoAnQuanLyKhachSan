@@ -74,7 +74,7 @@ public class menu_khachhang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(menu_khachhang.this)
-                        .setTitle("Đăng xuất")
+                        .setTitle("Đăng xuất ")
                         .setMessage("Bạn có Chắc đăng xuất không ?")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
