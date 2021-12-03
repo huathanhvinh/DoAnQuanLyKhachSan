@@ -62,7 +62,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
         maxacnhan_dienthoaicu = (String) getIntent().getSerializableExtra("oldphone");
         sodienthoai = (String) getIntent().getSerializableExtra("phonenumber");
 
-        Log.e("mã xác nhận sdt cu", maxacnhan_dienthoaicu);
+        //Log.e("mã xác nhận sdt cu", maxacnhan_dienthoaicu);
         //truy bang user
         StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
             @Override
@@ -118,10 +118,10 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(maxacnhan_dienthoaicu, otp_oldphone.getText().toString());
                         signInWithPhoneAuthCredential(credential);
                     } catch (Exception e) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Verification Code is wrong, try again", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), "Mã xác nhận đã sai, mời nhập lại", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
-                        Log.e("eror", e.getMessage());
+                        //Log.e("eror", e.getMessage());
                     }
                 }
                 else {
@@ -154,7 +154,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             //Thông báo OTP sai
-                            Toast.makeText(getApplicationContext(), "that bai", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Thất bại", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -154,7 +154,7 @@ public class AD_SuaPhong extends AppCompatActivity {
                         }
                     });
                     new AlertDialog.Builder(AD_SuaPhong.this)
-                            .setTitle("Sửa nhân viên")
+                            .setTitle("Sửa Sửa Phòng")
                             .setMessage("lưu thành công!!")
                             // Specifying a listener allows you to take an action before dismissing the dialog.
                             // The dialog is automatically dismissed when a dialog button is clicked.

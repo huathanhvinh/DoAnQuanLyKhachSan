@@ -79,7 +79,7 @@ public class register extends AppCompatActivity {
                             User user = ds.getValue(User.class);
                             if (txtsdt.getText().toString().equals(user.getSdt().toString())) {
                                 issdt = false;
-                                Toast.makeText(getApplicationContext(), "sdt trung", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Số điện thoại đã tồn tại", Toast.LENGTH_SHORT).show();
                                 break;
                             } else {
                                 issdt = true;
@@ -148,16 +148,16 @@ public class register extends AppCompatActivity {
                                     if (task.isComplete()) {
                                        UpdateKhachhang();
                                         UpdateUser();
-                                        Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Đăng kí Thành Công", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(getApplicationContext(), "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Lỗi :" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
 
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "email da ton tai", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Email đã tồn tại", Toast.LENGTH_SHORT).show();
                         }
 
                     }

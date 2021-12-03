@@ -47,15 +47,15 @@ public class forgot_password extends AppCompatActivity {
 
                 // kiểm tra điều kiện nếu uername trống
                 if (username.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "để trống ô tài khoản", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Không được để trống ô tài khoản", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu phone number trống
                 if (phone.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "để trống ô số điện thoại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Không được để trống ô số điện thoại", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu capcha trống
                 if (capcha.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "để trống ô capcha", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Không được để trống ô capcha", Toast.LENGTH_SHORT).show();
                 }
                 // kiểm tra điều kiện nếu nhập sai capcha
                 if (!capcha.equals(tvCapCha.getText().toString())) {

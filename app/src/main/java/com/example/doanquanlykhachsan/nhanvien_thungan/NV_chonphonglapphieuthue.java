@@ -89,7 +89,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         btnTieptheo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "qua ma hinh chi tiet", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "qua ma hinh chi tiet", Toast.LENGTH_SHORT).show();
             }
         });
     }

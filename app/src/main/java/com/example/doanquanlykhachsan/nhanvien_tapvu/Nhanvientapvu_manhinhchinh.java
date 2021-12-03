@@ -114,8 +114,8 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(Nhanvientapvu_manhinhchinh.this)
-                        .setTitle("Logout")
-                        .setMessage("Are you sure you want to sign out of the app??")
+                        .setTitle("Đăng Xuất")
+                        .setMessage("Bạn có muốn quay trở lại màn hình đăng xuất ?")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
