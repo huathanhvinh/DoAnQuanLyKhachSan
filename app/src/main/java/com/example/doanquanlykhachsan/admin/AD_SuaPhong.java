@@ -22,6 +22,8 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
+import java.text.DecimalFormat;
+
 public class AD_SuaPhong extends AppCompatActivity {
     TextView tvTenPhong,tvMaPhong;
     Spinner spLoaiPhong,spTrangThai;
@@ -184,8 +186,9 @@ public class AD_SuaPhong extends AppCompatActivity {
         //
         tvTenPhong.setText(thongTinPhong.getTenPhong());
         tvMaPhong.setText(thongTinPhong.getMaPhong());
-        edGiaGio.setText(thongTinPhong.getGiaGio()+"");
-        edGiaNgay.setText(thongTinPhong.getGiaNgay()+"");
+        DecimalFormat toTheFormat = new DecimalFormat("#.#");
+        edGiaGio.setText(toTheFormat.format(thongTinPhong.getGiaGio())+"");
+        edGiaNgay.setText(toTheFormat.format(thongTinPhong.getGiaNgay())+"");
         edMoTa.setText(thongTinPhong.getMoTa());
     }
 }

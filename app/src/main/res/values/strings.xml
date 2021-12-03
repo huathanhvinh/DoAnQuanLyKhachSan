@@ -23,10 +23,10 @@
     </array>
     <array name="trangThaiPhong">
         <item>Trống</item>
-        <item>Đã đặt phòng</item>
-        <item>Chưa xử lý</item>
-        <item>Trả phòng</item>
-        <item>Bảo trì</item>
+        <item>Đã Đặt Phòng</item>
+        <item>Chưa Xử Lý</item>
+        <item>Trả Phòng</item>
+        <item>Bảo Trì</item>
     </array>
     <array name="soPhong">
         <item>Phòng 1</item>
@@ -39,6 +39,7 @@
         <item>Phòng 8</item>
         <item>Phòng 9</item>
         <item>Phòng 10</item>
+        <item>Phòng 11</item>
     </array>
     <array name="lauPhong">
         <item>Tầng 1</item>

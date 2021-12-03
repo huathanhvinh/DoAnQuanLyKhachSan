@@ -19,6 +19,7 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
@@ -58,7 +59,8 @@ public class KH_CusTomPhongTheoGiaNgay extends ArrayAdapter {
         tvLau.setText(phong.getLau() + "");
         tvLoai.setText(phong.getLoai() + "");
         tvMoTa.setText(phong.getMoTa() + "");
-        tvGiaNgay.setText(String.valueOf(phong.getGiaNgay()));
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        tvGiaNgay.setText(toTheFormat.format(phong.getGiaNgay()));
 
 
         //checkAll

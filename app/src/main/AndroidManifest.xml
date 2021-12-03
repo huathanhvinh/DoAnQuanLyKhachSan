@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
-
-
+        <activity
+            android:name=".nhanvien_letan.NVTN_chitiethoadon"
+            android:exported="false" />
         <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_thongbao"
             android:exported="false" />
@@ -42,7 +43,6 @@
         <activity
             android:name=".nhanvien_tapvu.Nhanvientapvu_manhinhchinh"
             android:exported="false" />
-
         <activity
             android:name=".nhanvien_thungan.NVTN_SuaKhachHang"
             android:exported="false" />
@@ -79,8 +79,9 @@
         <activity
             android:name=".nhanvien_thungan.NV_chonphonglapphieuthue"
             android:exported="false" />
-
-
+        <activity
+            android:name=".nhanvien_thungan.NVTN_chitietphong"
+            android:exported="false" />
         <activity
             android:name=".khach_hang.KH_tra_phong"
             android:exported="false" />
@@ -114,8 +115,6 @@
         <activity
             android:name=".khach_hang.menu_khachhang"
             android:exported="false" />
-
-
         <activity
             android:name=".admin.AD_MenuAdmin"
             android:exported="false" />
@@ -185,11 +184,6 @@
         <activity
             android:name=".admin.AD_ThemKhuyenMai"
             android:exported="false" />
-
-
-
-
-
         <activity
             android:name=".chung.forgot_password"
             android:exported="false" />

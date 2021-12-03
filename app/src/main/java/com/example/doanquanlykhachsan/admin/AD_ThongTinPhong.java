@@ -17,6 +17,8 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 
+import java.text.DecimalFormat;
+
 public class AD_ThongTinPhong extends AppCompatActivity {
     Button btnSua, btnXoa, btnTroVe;
     TextView tvTenPhong, tvMaPhong;
@@ -140,8 +142,9 @@ public class AD_ThongTinPhong extends AppCompatActivity {
         //
         tvTenPhong.setText(thongTinPhong.getTenPhong());
         tvMaPhong.setText(thongTinPhong.getMaPhong());
-        edGiaGio.setText(thongTinPhong.getGiaGio()+"");
-        edGiaNgay.setText(thongTinPhong.getGiaNgay()+"");
+        DecimalFormat toTheFormat = new DecimalFormat("#.#");
+        edGiaGio.setText(toTheFormat.format(thongTinPhong.getGiaGio())+"");
+        edGiaNgay.setText(toTheFormat.format(thongTinPhong.getGiaNgay())+"");
         edMoTa.setText(thongTinPhong.getMoTa());
     }
 

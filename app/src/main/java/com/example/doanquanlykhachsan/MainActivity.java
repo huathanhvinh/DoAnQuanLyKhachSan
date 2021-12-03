@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachPhong;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
+import com.example.doanquanlykhachsan.chung.*;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.*;
 import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachPhong.class));
+            startActivity(new Intent(getApplicationContext(), sign_in.class));
         }
 
     }

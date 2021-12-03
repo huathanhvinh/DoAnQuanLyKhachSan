@@ -59,6 +59,8 @@ public class StaticConfig {
     public static String sXacNhan = "";
     //ma thue
     public static String mathue = "";
+    //Tổng tiền
+    public static float Tongtien ;
     //check all
     public static boolean isCheckAll = false;
     //chon phong de doi

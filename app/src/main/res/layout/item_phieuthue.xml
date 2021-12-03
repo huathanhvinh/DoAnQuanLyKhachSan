@@ -10,10 +10,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="3dp"
-
         android:gravity="center"
         android:text="01"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="28dp"
         android:textStyle="bold"></Button>
 </LinearLayout>

@@ -23,10 +23,11 @@ public class Adapter_DichVu extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<DichVu> listDichVu;
-    public Adapter_DichVu(@NonNull Context context, int resource,ArrayList<DichVu> listDichVu) {
+
+    public Adapter_DichVu(@NonNull Context context, int resource, ArrayList<DichVu> listDichVu) {
         super(context, resource, listDichVu);
 
-        this.context =context;
+        this.context = context;
         this.resource = resource;
         this.listDichVu = listDichVu;
     }
@@ -34,7 +35,7 @@ public class Adapter_DichVu extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(resource,null);
+        convertView = LayoutInflater.from(context).inflate(resource, null);
 
         TextView tenDV = convertView.findViewById(R.id.tvTenDichVu);
         TextView giaDV = convertView.findViewById(R.id.tvgiaDV);
@@ -44,7 +45,7 @@ public class Adapter_DichVu extends ArrayAdapter {
         DichVu dv = listDichVu.get(position);
 
         tenDV.setText(dv.getTenDV());
-        giaDV.setText(dv.getGiaDV()+"");
+        giaDV.setText(dv.getGiaDV() + "");
         dvt.setText(dv.getDvt());
 
         btnChiTietDichVu.setOnClickListener(new View.OnClickListener() {

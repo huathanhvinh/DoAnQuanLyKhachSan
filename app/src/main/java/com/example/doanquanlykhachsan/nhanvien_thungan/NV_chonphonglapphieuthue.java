@@ -2,11 +2,14 @@ package com.example.doanquanlykhachsan.nhanvien_thungan;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,14 +29,15 @@ import java.util.ArrayList;
 public class NV_chonphonglapphieuthue extends AppCompatActivity {
 
     ImageView imgLen, imgXuong;
+    LinearLayout lnchange;
+    TextView chuoiphong;
     TextView tvLau;
     GridView gridView;
     int floor = 1;
     Adapter_phieuthue adapter;
     ArrayList<Phong> data = new ArrayList<>();
     Button btnTrove, btnTieptheo;
-    int min = 0;
-    int max = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,22 +45,26 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         setContentView(R.layout.activity_nvtn_chonphong_lapphieuthue);
         setControl();
         setEvent();
-        max = 10;
-        tvLau.setText("Lầu" + floor);
+
+        tvLau.setText("Lầu " + floor);
     }
 
     private void setEvent() {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
+        lnchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StaticConfig.arrayListTemporaryRoom.clear();
+                StaticConfig.arrayListTemporaryService.clear();
+                chuoiphong.setText("");
+            }
+        });
         imgLen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (floor < 3) {
                     floor++;
                     tvLau.setText("Lầu " + floor);
-                    min = min + 10;
-                    max = max + 10;
+
                     khoitao();
                 }
 
@@ -68,8 +76,6 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                 if (floor > 1) {
                     floor--;
                     tvLau.setText("Lầu" + floor);
-                    min = min - 10;
-                    max = max - 10;
                     khoitao();
                 }
             }
@@ -77,7 +83,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         btnTrove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+               startActivity(new Intent(getApplicationContext(),NVTN_MenuNhanVienThuNgan.class));
             }
         });
         btnTieptheo.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +101,8 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         gridView = findViewById(R.id.ListRoom);
         btnTrove = findViewById(R.id.btnTroVe);
         btnTieptheo = findViewById(R.id.btntieptuc);
+        lnchange = findViewById(R.id.lnchange);
+        chuoiphong = findViewById(R.id.phongdachon);
 
         adapter = new Adapter_phieuthue(getApplicationContext(), R.layout.item_phieuthue, data);
         gridView.setAdapter(adapter);
@@ -106,15 +114,17 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 data.clear();
-                int soluong = 0;
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Phong p = ds.getValue(Phong.class);
-                    if (soluong >= min && soluong < max) {
+                    if (p.getLau() == floor) {
                         data.add(p);
                     }
-                    soluong++;
-
                 }
+                String chuoi = "";
+                for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                    chuoi += StaticConfig.arrayListTemporaryRoom.get(i).getSoPhong()+" ";
+                }
+                chuoiphong.setText(chuoi);
                 adapter.notifyDataSetChanged();
             }
 
@@ -123,5 +133,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

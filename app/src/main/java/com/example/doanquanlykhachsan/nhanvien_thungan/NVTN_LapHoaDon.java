@@ -52,6 +52,7 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                arrHoadon.clear();
                 for(DataSnapshot ds: snapshot.getChildren())
                 {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);

@@ -78,11 +78,8 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                 String key = StaticConfig.mHoaDon.push().getKey();
                                 Log.e("solan", stt + 1 + "");
                                 HoaDon hd = new HoaDon();
-                                if (StaticConfig.Loai.equals("ngay")) {
-                                    hd = new HoaDon(stt + 1, key, maKH, maNV, thoigian + " Ngày", Tongtien);
-                                } else {
-                                    hd = new HoaDon(stt + 1, key, maKH, maNV, thoigian + " Giờ", Tongtien);
-                                }
+
+                                hd = new HoaDon(stt + 1, key, maKH, maNV, ngayLap.getText().toString(), Tongtien);
                                 StaticConfig.mHoaDon.child(key).setValue(hd);
 //                                Trả Phòng
                                 String chuoiPhongDadat = "";
@@ -364,7 +361,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     private void TimeDifference() throws ParseException {
         if (!chitiet.getThoiGianNhanPH().isEmpty() && !chitiet.getThoiGianTraPH().isEmpty()) {
             String time1 = chitiet.getThoiGianNhanPH();
-            String time2 = chitiet.getThoiGianTraPH();
+            String time2 = ngayLap.getText().toString();
 
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
             Date date1 = format.parse(time1);

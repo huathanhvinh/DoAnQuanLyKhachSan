@@ -48,12 +48,7 @@ public class Doi_Phong_adapter extends ArrayAdapter {
 
         Phong phong = data.get(position);
         tenphong.setText(phong.getTenPhong());
-        int sophong = Integer.valueOf(phong.getSoPhong());
-        if (sophong < 11) {
-            solau.setText("1");
-        } else {
-            solau.setText("2");
-        }
+        solau.setText(phong.getLau());
         loai.setText(phong.getLoai());
         gia.setText(phong.getGiaNgay() + "");
         moTa.setText(phong.getSoPhong() + "");
