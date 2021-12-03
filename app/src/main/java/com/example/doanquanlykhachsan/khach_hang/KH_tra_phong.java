@@ -240,7 +240,7 @@ public class KH_tra_phong extends AppCompatActivity {
             cal2.set(nam, thang, ngay);
             thoigian = daysBetween(cal1.getTime(), cal2.getTime()) + "";
         } else {
-            Toast.makeText(getApplicationContext(), "Khong co phong de tra", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Không có phòng để trả", Toast.LENGTH_SHORT).show();
         }
 
     }

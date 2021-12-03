@@ -62,7 +62,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
         maxacnhan_dienthoaicu = (String) getIntent().getSerializableExtra("oldphone");
         sodienthoai = (String) getIntent().getSerializableExtra("phonenumber");
 
-        Log.e("mã xác nhận sdt cu", maxacnhan_dienthoaicu);
+        //Log.e("mã xác nhận sdt cu", maxacnhan_dienthoaicu);
         //truy bang user
         StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
             @Override
@@ -121,7 +121,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), "Mã xác nhận đã sai, mời nhập lại", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
-                        Log.e("eror", e.getMessage());
+                        //Log.e("eror", e.getMessage());
                     }
                 }
                 else {

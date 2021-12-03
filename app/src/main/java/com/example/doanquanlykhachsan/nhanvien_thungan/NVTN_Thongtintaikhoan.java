@@ -238,7 +238,7 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                edtSoDT.setEnabled(true);
-                Toast.makeText(getApplicationContext(), "chuyển màn hình sửa sdt", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "chuyển màn hình sửa sdt", Toast.LENGTH_SHORT).show();
             }
         });
         ivChangeCMND.setOnClickListener(new View.OnClickListener() {
