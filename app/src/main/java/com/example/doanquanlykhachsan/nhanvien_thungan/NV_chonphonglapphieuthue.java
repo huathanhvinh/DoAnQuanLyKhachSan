@@ -45,7 +45,6 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         setContentView(R.layout.activity_nvtn_chonphong_lapphieuthue);
         setControl();
         setEvent();
-
         tvLau.setText("Lầu " + floor);
     }
 
@@ -64,7 +63,6 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                 if (floor < 3) {
                     floor++;
                     tvLau.setText("Lầu " + floor);
-
                     khoitao();
                 }
 
@@ -83,13 +81,15 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         btnTrove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(getApplicationContext(),NVTN_MenuNhanVienThuNgan.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
             }
         });
         btnTieptheo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "qua ma hinh chi tiet", Toast.LENGTH_SHORT).show();
+                if (StaticConfig.arrayListTemporaryRoom.size() > 0) {
+                    startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Gio.class));
+                }
             }
         });
     }
@@ -122,7 +122,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                 }
                 String chuoi = "";
                 for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
-                    chuoi += StaticConfig.arrayListTemporaryRoom.get(i).getSoPhong()+" ";
+                    chuoi += StaticConfig.arrayListTemporaryRoom.get(i).getSoPhong() + " ";
                 }
                 chuoiphong.setText(chuoi);
                 adapter.notifyDataSetChanged();

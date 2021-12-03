@@ -59,7 +59,6 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
                                     KhachHang kh = ds.getValue(KhachHang.class);
                                     if ((sdt.equals(kh.getSdtKH()))) {
                                         tvTenKH.setText(kh.getTenKH());
-
                                     }
                                 }
                             }
@@ -69,6 +68,9 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
 
                             }
                         });
+                        break;
+                    } else {
+                        tvTenKH.setText(laphoadon.getMaKH());
                     }
 
                 }
@@ -80,8 +82,6 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
             }
         });
 
-
-        //
         btnLapHD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +93,7 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
                 context.startActivity(intent);
             }
         });
+
         return convertView;
     }
 

@@ -28,7 +28,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class KH_XacNhanDatPhong extends AppCompatActivity {
     ListView lvDanhSachPhongXN;
@@ -37,6 +39,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
     EditText edtGhiChuKH;
     String maPhong = "";
     String maDichvu = "";
+    String ngayhientai = "";
     int stt;
 
     ArrayList<Phong> arrayList = new ArrayList<>();
@@ -119,7 +122,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                               datPhong();
+                                datPhong();
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.
@@ -146,12 +149,23 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
             for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
                 maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
             }
+            layngayhientai();
             PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
-                    tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", stt + 1);
+                    tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận",ngayhientai ,StaticConfig.currentphone, stt + 1);
             StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
         }
 
         startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+    }
+
+    private void layngayhientai() {
+        final Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+        calendar.set(nam, thang, ngay);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ngayhientai = simpleDateFormat.format(calendar.getTime());
     }
 
     private void setConTrol() {

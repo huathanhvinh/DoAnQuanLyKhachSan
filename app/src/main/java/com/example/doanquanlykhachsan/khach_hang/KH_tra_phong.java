@@ -212,7 +212,7 @@ public class KH_tra_phong extends AppCompatActivity {
         } else {
             new AlertDialog.Builder(KH_tra_phong.this)
                     .setTitle("Trả Phòng ")
-                    .setMessage("Không có Phòng để Trả ??")
+                    .setMessage("Không có phòng để trả !!")
                     // Specifying a listener allows you to take an action before dismissing the dialog.
                     // The dialog is automatically dismissed when a dialog button is clicked.
                     .setIcon(android.R.drawable.ic_dialog_alert)

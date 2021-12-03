@@ -61,6 +61,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         setContentView(R.layout.activity_nvtn_xac_nhan_hoa_don);
         setControl();
         setEvent();
+
     }
 
     private void setEvent() {
@@ -78,8 +79,14 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                 String key = StaticConfig.mHoaDon.push().getKey();
                                 Log.e("solan", stt + 1 + "");
                                 HoaDon hd = new HoaDon();
-
-                                hd = new HoaDon(stt + 1, key, maKH, maNV, ngayLap.getText().toString(), Tongtien);
+                                String Tongthoigian = "";
+                                if (chitiet.getManHinh().equals("ngay")) {
+                                    Tongthoigian = thoigian + " Ngày";
+                                }
+                                if (chitiet.getManHinh().equals("gio")) {
+                                    Tongthoigian = thoigian + " Giờ";
+                                }
+                                hd = new HoaDon(stt + 1, key, maKH, maNV, ngayLap.getText().toString(), chitiet.getThoiGianNhanPH(), chitiet.getThoiGianTraPH(), Tongthoigian, "", Tongtien);
                                 StaticConfig.mHoaDon.child(key).setValue(hd);
 //                                Trả Phòng
                                 String chuoiPhongDadat = "";
@@ -176,11 +183,9 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         lv.setAdapter(adapter);
         adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
         lvdv.setAdapter(adapterdv);
-        try {
-            khoitao();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
+        khoitao();
+
         getstt();
     }
 
@@ -201,7 +206,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         });
     }
 
-    private void khoitao() throws ParseException {
+    private void khoitao() {
         chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
         if (chitiet.getStt() < 9) {
             maHD.setText("HD0" + chitiet.getStt());
@@ -245,7 +250,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     NhanVien nv = ds.getValue(NhanVien.class);
-                    if (nv.getSoDienThoai().equals(sdtNV)) {
+                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
                         tenNV.setText(nv.getTenNV());
                         tvtenNV.setText(nv.getTenNV());
                         maNV = nv.getMaFB();
@@ -267,6 +272,11 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                         tenKH.setText(kh.getTenKH());
                         tvTenKH.setText(kh.getTenKH());
                         maKH = kh.getMaFB();
+                    }
+                    else {
+                        tenKH.setText(chitiet.getMaKH());
+                        tvTenKH.setText(chitiet.getMaKH());
+                        maKH =chitiet.getMaKH();
                     }
                 }
             }
@@ -309,8 +319,10 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                             }
                                         }
                                     }
+
                                     solan = Integer.parseInt(StaticConfig.songay);
                                     Tongtien = Tongtien * solan;
+
                                     adapter.notifyDataSetChanged();
                                 }
 
@@ -358,15 +370,21 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
     }
 
-    private void TimeDifference() throws ParseException {
+    private void TimeDifference() {
         if (!chitiet.getThoiGianNhanPH().isEmpty() && !chitiet.getThoiGianTraPH().isEmpty()) {
             String time1 = chitiet.getThoiGianNhanPH();
-            String time2 = ngayLap.getText().toString();
+            String time2 = chitiet.getThoiGianTraPH();
 
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-            Date date1 = format.parse(time1);
-            Date date2 = format.parse(time2);
-            thoigian = timeBetween(date1, date2) + "";
+            Date date1 = null;
+            Date date2 = null;
+            try {
+                date1 = format.parse(time1);
+                date2 = format.parse(time2);
+                thoigian = timeBetween(date1, date2) + "";
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         } else {
             new AlertDialog.Builder(NVTN_XacNhanHoaDon.this)
                     .setTitle("Lỗi ")

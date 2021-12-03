@@ -36,6 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/editTimKiem"
                     android:hint="Nhập thông tin cần tìm..."
                     android:background="#ffffff"
                     android:layout_width="250dp"

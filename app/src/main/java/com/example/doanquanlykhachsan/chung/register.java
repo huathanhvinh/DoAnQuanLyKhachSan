@@ -146,18 +146,18 @@ public class register extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isComplete()) {
-                                       UpdateKhachhang();
+                                        UpdateKhachhang();
                                         UpdateUser();
                                         Toast.makeText(getApplicationContext(), "dang ky thanh cong", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(getApplicationContext(), "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Lỗi :" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
 
 
                         } else {
-                            Toast.makeText(getApplicationContext(), "email da ton tai", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Email đã tồn tại", Toast.LENGTH_SHORT).show();
                         }
 
                     }

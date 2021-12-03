@@ -8,18 +8,58 @@ public class HoaDon implements Serializable {
     String maKH;
     String maNV;
     String ngaylap;
+    String ngayden;
+    String ngaydi;
+    String tongThoigian;
+    String phanloai;
     float tongTien;
 
     public HoaDon() {
     }
 
-    public HoaDon(int stt, String maFB, String maKH, String maNV, String ngaylap, float tongTien) {
+    public HoaDon(int stt, String maFB, String maKH, String maNV, String ngaylap, String ngayden, String ngaydi, String tongThoigian, String phanloai, float tongTien) {
         this.stt = stt;
         this.maFB = maFB;
         this.maKH = maKH;
         this.maNV = maNV;
         this.ngaylap = ngaylap;
+        this.ngayden = ngayden;
+        this.ngaydi = ngaydi;
+        this.tongThoigian = tongThoigian;
+        this.phanloai = phanloai;
         this.tongTien = tongTien;
+    }
+
+    public String getNgayden() {
+        return ngayden;
+    }
+
+    public void setNgayden(String ngayden) {
+        this.ngayden = ngayden;
+    }
+
+    public String getNgaydi() {
+        return ngaydi;
+    }
+
+    public void setNgaydi(String ngaydi) {
+        this.ngaydi = ngaydi;
+    }
+
+    public String getTongThoigian() {
+        return tongThoigian;
+    }
+
+    public void setTongThoigian(String tongThoigian) {
+        this.tongThoigian = tongThoigian;
+    }
+
+    public String getPhanloai() {
+        return phanloai;
+    }
+
+    public void setPhanloai(String phanloai) {
+        this.phanloai = phanloai;
     }
 
     public int getStt() {

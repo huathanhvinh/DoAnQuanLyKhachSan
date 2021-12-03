@@ -14,12 +14,15 @@ import com.example.doanquanlykhachsan.model.PhongDaDat;
 import java.util.ArrayList;
 
 public class Adapter_thongbao extends ArrayAdapter {
-    Context context; int resource; ArrayList<PhongDaDat>data;
-    public Adapter_thongbao(@NonNull Context context, int resource, ArrayList<PhongDaDat>data) {
+    Context context;
+    int resource;
+    ArrayList<PhongDaDat> data;
+
+    public Adapter_thongbao(@NonNull Context context, int resource, ArrayList<PhongDaDat> data) {
         super(context, resource, data);
-        this.context=context;
-        this.resource=resource;
-        this.data=data;
+        this.context = context;
+        this.resource = resource;
+        this.data = data;
     }
 
     @Override
@@ -30,7 +33,7 @@ public class Adapter_thongbao extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView= LayoutInflater.from(context).inflate(resource,null);
+        convertView = LayoutInflater.from(context).inflate(resource, null);
 
         return convertView;
     }

@@ -12,12 +12,14 @@ public class PhongDaDat implements Serializable {
     String manHinh;//phan biet man hinh theo ngay hay gio
     String ghiChuKH;
     String xacnhan;
+    String ngaybatdau;
+    String sdt;
     int stt;
 
     public PhongDaDat() {
     }
 
-    public PhongDaDat(String maFB, String maKH, String maPhong, String maDichVu, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan, int stt) {
+    public PhongDaDat(String maFB, String maKH, String maPhong, String maDichVu, String thoiGianNhanPH, String thoiGianTraPH, String manHinh, String ghiChuKH, String xacnhan, String ngaybatdau, String sdt, int stt) {
         this.maFB = maFB;
         this.maKH = maKH;
         this.maPhong = maPhong;
@@ -27,7 +29,25 @@ public class PhongDaDat implements Serializable {
         this.manHinh = manHinh;
         this.ghiChuKH = ghiChuKH;
         this.xacnhan = xacnhan;
+        this.ngaybatdau = ngaybatdau;
+        this.sdt = sdt;
         this.stt = stt;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getNgaybatdau() {
+        return ngaybatdau;
+    }
+
+    public void setNgaybatdau(String ngaybatdau) {
+        this.ngaybatdau = ngaybatdau;
     }
 
     public int getStt() {

@@ -124,8 +124,8 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(NVTN_MenuNhanVienThuNgan.this)
-                        .setTitle("Logout")
-                        .setMessage("Are you sure you want to sign out of the app??")
+                        .setTitle("Đăng xuất")
+                        .setMessage("Bạn có Chắc đăng xuất không ?")        .setMessage("Are you sure you want to sign out of the app??")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

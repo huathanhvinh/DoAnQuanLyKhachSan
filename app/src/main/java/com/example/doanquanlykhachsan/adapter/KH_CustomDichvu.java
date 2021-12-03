@@ -67,20 +67,20 @@ public class KH_CustomDichvu extends ArrayAdapter {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (cboDichVu.isChecked() == true) {
                     StaticConfig.arrayListTemporaryService.add(dv);
-                } else {
+                } else if (cboDichVu.isChecked() == false) {
                     StaticConfig.arrayListTemporaryService.remove(dv);
                 }
             }
         });
-        if(StaticConfig.sXacNhan.equals("phong da thue")){
+        if (StaticConfig.sXacNhan.equals("phong da thue")) {
             StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
                         PhongDaDat da = ds.getValue(PhongDaDat.class);
-                        if (StaticConfig.currentuser.equals(da.getMaKH())&&StaticConfig.mathue.equals(da.getMaFB())) {
+                        if (StaticConfig.currentuser.equals(da.getMaKH()) && StaticConfig.mathue.equals(da.getMaFB())) {
                             madichvu = da.getMaDichVu();
-                            String[] parts=null;
+                            String[] parts = null;
                             parts = madichvu.split(" ");
                             for (String w : parts) {
                                 StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
