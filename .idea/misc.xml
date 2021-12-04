@@ -33,6 +33,9 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_xem_khuyen_mai.xml" value="0.16530797101449277" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_main.xml" value="0.16530797101449277" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_chonphong_lapphieuthue.xml" value="0.166015625" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lap_phieu_thue_gio.xml" value="0.166015625" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lap_phieu_thue_ngay.xml" value="0.125" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thong_bao.xml" value="0.166015625" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xac_nhan_hoa_don.xml" value="0.166015625" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/cus_tom_dich_vu.xml" value="0.20153985507246377" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/cus_tom_khachhang.xml" value="0.18931159420289856" />
@@ -51,6 +54,8 @@
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/item_dv.xml" value="0.166015625" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/item_khuyen_mai.xml" value="0.16530797101449277" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/items_phongthue.xml" value="0.166015625" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_dich_vu.xml" value="0.166015625" />
+        <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_phong_gia_gio.xml" value="0.166015625" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nvtn_lap_hoa_don.xml" value="0.166015625" />
         <entry key="..\:/DoAnQuanLyKhachSan/app/src/main/res/layout/temp.xml" value="0.166015625" />
         <entry key="..\:/Nhom7_QLKS/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_hien_thi_danh_sach_dich_vu.xml" value="0.17481884057971014" />
