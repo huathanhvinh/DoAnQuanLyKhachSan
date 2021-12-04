@@ -53,6 +53,7 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
 
         PhongDaDat thongbao = data.get(position);
         stt.setText(thongbao.getStt()+"");
+        ngay.setText(thongbao.getNgaybatdau());
         StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -60,7 +61,6 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
                     KhachHang u = ds.getValue(KhachHang.class);
                     if (thongbao.getMaKH().equals(u.getMaFB())) {
                         hoten.setText(u.getTenKH());
-                        ngay.setText(thongbao.getThoiGianNhanPH());
                     }
                 }
             }

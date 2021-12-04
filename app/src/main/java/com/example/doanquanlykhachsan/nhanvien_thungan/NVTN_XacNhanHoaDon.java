@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.HoaDon;
 import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.KhuyenMai;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.adapter.*;
@@ -37,7 +39,9 @@ import java.util.GregorianCalendar;
 
 public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     Button btnXacNhan, btnTroVe;
-    TextView maHD, tvtenNV, tvTenKH, tenNV, tenKH, ngayLap, tvTongtien;
+    TextView maHD, tvtenNV, tvTenKH, tenNV, tenKH, ngayLap, tvTongtien, tvsdt;
+    Button call, btnKm;
+    EditText edmaKm;
     PhongDaDat chitiet;
     String sdt = "";
     String sdtNV = "";
@@ -66,6 +70,37 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     }
 
     private void setEvent() {
+        btnKm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StaticConfig.mKhuyenMai.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            KhuyenMai km = ds.getValue(KhuyenMai.class);
+                            if (edmaKm.getText().toString().equals(km.getMaKM())) {
+                                float tien =Tongtien;
+                                tien = Tongtien * (100 - km.getMucGiamGia())/100;
+                                //Tong tien
+                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+                                tvTongtien.setText(toTheFormat.format(tien) + " VNĐ");
+                                break;
+                            }
+                            else {
+                                //Tong tien
+                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+                                tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,14 +214,14 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         lv = findViewById(R.id.lvthue);
         lvdv = findViewById(R.id.lvDv);
         tvTongtien = findViewById(R.id.tvTongTien);
+        btnKm = findViewById(R.id.btnKm);
+        edmaKm = findViewById(R.id.edMaKm);
 
         adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
         lv.setAdapter(adapter);
         adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
         lvdv.setAdapter(adapterdv);
-
         khoitao();
-
         getstt();
     }
 
@@ -209,6 +244,9 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
     private void khoitao() {
         chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
+
+        tvTenKH.setText(chitiet.getTen());
+        tenKH.setText(chitiet.getTen());
         if (chitiet.getStt() < 9) {
             maHD.setText("HD0" + chitiet.getStt());
         } else {
@@ -225,27 +263,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         if (chitiet.getManHinh().equals("ngay")) {
             StaticConfig.Loai = "ngay";
         }
-        StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    User u = ds.getValue(User.class);
-                    if (u.getMaFB().equals(chitiet.getMaKH())) {
-                        sdt = u.getSdt();
-                        Log.e("sdt", sdt);
-                    }
-                    if (u.getSdt().equals(StaticConfig.currentphone)) {
-                        sdtNV = u.getSdt();
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -255,29 +272,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                         tenNV.setText(nv.getTenNV());
                         tvtenNV.setText(nv.getTenNV());
                         maNV = nv.getMaFB();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        StaticConfig.mKhachHang.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    KhachHang kh = ds.getValue(KhachHang.class);
-                    if (kh.getSdtKH().equals(sdt)) {
-                        tenKH.setText(kh.getTenKH());
-                        tvTenKH.setText(kh.getTenKH());
-                        maKH = kh.getMaFB();
-                    }
-                    else {
-                        tenKH.setText(chitiet.getMaKH());
-                        tvTenKH.setText(chitiet.getMaKH());
-                        maKH =chitiet.getMaKH();
                     }
                 }
             }

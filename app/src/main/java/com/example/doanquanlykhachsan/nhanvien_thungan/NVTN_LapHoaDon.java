@@ -71,7 +71,7 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
                     for (int i = 0; i < arrHoadon.size(); i++) {
                         PhongDaDat p = arrHoadon.get(i);
                         makh = p.getMaKH();
-                        if (p.getSdt().toLowerCase().contains(timkiem) || p.getMaKH().contains(timkiem)) {
+                        if (p.getSdt().toLowerCase().contains(timkiem) || p.getTen().contains(timkiem)) {
                             arrTimKiem.add(arrHoadon.get(i));
                         }
                     }

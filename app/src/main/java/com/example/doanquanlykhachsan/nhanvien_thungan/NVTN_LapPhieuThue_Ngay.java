@@ -113,8 +113,8 @@ public class NVTN_LapPhieuThue_Ngay extends AppCompatActivity {
                         chuoidichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
                     }
                     for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
-                        phongDaDat = new PhongDaDat(key, edtenKH.getText().toString(), chuoima, chuoidichvu,
-                                edngayden.getText().toString(), edngaydi.getText().toString(), "ngay", "", "Đã Xác Nhận", ngayhientai, edSDT.getText().toString(), stt + 1);
+                        phongDaDat = new PhongDaDat(key,"", chuoima, chuoidichvu,
+                                edngayden.getText().toString(), edngaydi.getText().toString(), "ngay", "", "Đã Xác Nhận", ngayhientai, edSDT.getText().toString(),  edtenKH.getText().toString(),stt + 1);
                     }
                     Intent intent = new Intent(getApplicationContext(), NVTN_xacnhandatphong.class);
                     Bundle bundle = new Bundle();

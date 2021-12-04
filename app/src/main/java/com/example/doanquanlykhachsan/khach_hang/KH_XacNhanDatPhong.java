@@ -21,6 +21,7 @@ import com.example.doanquanlykhachsan.adapter.KH_CusTomXacNhanDatPhong;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.menu_khachhang;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
+import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,6 +45,7 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
 
     ArrayList<Phong> arrayList = new ArrayList<>();
     KH_CusTomXacNhanDatPhong customRoom;
+    private String ten="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +94,9 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
+        laytenhientai();
+        layngayhientai();
+        Log.e("ten",ten);
     }
 
     private void setEvent() {
@@ -149,9 +153,9 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
             for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {
                 maDichvu += StaticConfig.arrayListTemporaryService.get(j).getMaFB() + " ";
             }
-            layngayhientai();
+
             PhongDaDat phongDaDat = new PhongDaDat(key, StaticConfig.currentuser, maPhong, maDichvu,
-                    tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận",ngayhientai ,StaticConfig.currentphone, stt + 1);
+                    tvXnNhanPhong.getText().toString(), tvXnTraPhong.getText().toString(), StaticConfig.sXacNhan, edtGhiChuKH.getText().toString(), "Chưa Xác Nhận", ngayhientai, StaticConfig.currentphone,ten, stt + 1);
             StaticConfig.mRoomRented.child(key).setValue(phongDaDat);
         }
 
@@ -166,6 +170,25 @@ public class KH_XacNhanDatPhong extends AppCompatActivity {
         calendar.set(nam, thang, ngay);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         ngayhientai = simpleDateFormat.format(calendar.getTime());
+    }
+
+    private void laytenhientai() {
+        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    KhachHang kh= ds.getValue(KhachHang.class);
+                    if(kh.getSdtKH().equals(StaticConfig.currentphone)){
+                        ten = kh.getTenKH();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void setConTrol() {

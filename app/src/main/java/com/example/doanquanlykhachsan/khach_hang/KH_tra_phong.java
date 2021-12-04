@@ -51,7 +51,7 @@ public class KH_tra_phong extends AppCompatActivity {
         btntraphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!chuoiPhongDadat.equals("")) {
+                if (!chuoiPhongDadat.equals("")) {
                     new AlertDialog.Builder(KH_tra_phong.this)
                             .setTitle("Trả Phòng")
                             .setMessage("Bạn có chắc trả Phòng không??")
@@ -83,7 +83,6 @@ public class KH_tra_phong extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
-
                     String[] parts;
                     parts = chuoiPhongDadat.split(" ");
                     for (String maPh : parts) {
@@ -101,7 +100,16 @@ public class KH_tra_phong extends AppCompatActivity {
 
             }
         });
-        startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+        new AlertDialog.Builder(KH_tra_phong.this)
+                .setTitle("Trả Phòng")
+                .setMessage("Vui lòng chờ nhân viên xác nhận")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     private void setControl() {
@@ -143,8 +151,8 @@ public class KH_tra_phong extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
                     if (da.getMaKH().equals(StaticConfig.currentuser)) {
-                        if (da.getXacnhan().equals("Đã Xác Nhận")||da.getXacnhan().equals("Trả Phòng")) {
-                            if(da.getXacnhan().equals("Đã Xác Nhận")){
+                        if (da.getXacnhan().equals("Đã Xác Nhận") || da.getXacnhan().equals("Trả Phòng")) {
+                            if (da.getXacnhan().equals("Đã Xác Nhận")) {
                                 chuoiPhongDadat += da.getMaFB() + " ";
                             }
                             tenDichVu = "";

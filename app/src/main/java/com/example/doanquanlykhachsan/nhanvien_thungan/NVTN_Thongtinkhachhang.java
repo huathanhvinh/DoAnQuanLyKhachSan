@@ -21,7 +21,8 @@ public class NVTN_Thongtinkhachhang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nvtn_thongtinkhachhang);
-        setControl(); setEvent();
+        setControl();
+        setEvent();
         KhoiTao();
     }
 

@@ -45,43 +45,7 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
         Button btnLapHD = convertView.findViewById(R.id.btnLapHD);
 
         PhongDaDat laphoadon = arrHoaDon.get(position);
-        StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    User u = ds.getValue(User.class);
-                    if (u.getMaFB().equals(laphoadon.getMaKH())) {
-                        String sdt = u.getSdt();
-                        StaticConfig.mKhachHang.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot ds : snapshot.getChildren()) {
-                                    KhachHang kh = ds.getValue(KhachHang.class);
-                                    if ((sdt.equals(kh.getSdtKH()))) {
-                                        tvTenKH.setText(kh.getTenKH());
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-                        break;
-                    } else {
-                        tvTenKH.setText(laphoadon.getMaKH());
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+        tvTenKH.setText(laphoadon.getTen());
         btnLapHD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
