@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class NVTN_LapHoaDon extends AppCompatActivity {
     ListView lvHoaDon;
@@ -71,7 +72,7 @@ public class NVTN_LapHoaDon extends AppCompatActivity {
                     for (int i = 0; i < arrHoadon.size(); i++) {
                         PhongDaDat p = arrHoadon.get(i);
                         makh = p.getMaKH();
-                        if (p.getSdt().toLowerCase().contains(timkiem) || p.getTen().contains(timkiem)) {
+                        if (p.getSdt().toLowerCase().contains(timkiem) || p.getTen().toLowerCase().contains(timkiem)) {
                             arrTimKiem.add(arrHoadon.get(i));
                         }
                     }

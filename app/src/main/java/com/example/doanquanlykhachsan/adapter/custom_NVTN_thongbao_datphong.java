@@ -2,6 +2,8 @@ package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_thongbao_xacnhandatphong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -52,7 +55,7 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
         Button btnXacNhan = convertView.findViewById(R.id.btnxacnhan);
 
         PhongDaDat thongbao = data.get(position);
-        stt.setText(thongbao.getStt()+"");
+        stt.setText(thongbao.getStt() + "");
         ngay.setText(thongbao.getNgaybatdau());
         StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
@@ -109,6 +112,17 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
 
+            }
+        });
+        btnChiTiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), NVTN_thongbao_xacnhandatphong.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("chitiet", thongbao);
+                intent.putExtras(bundle);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
         return convertView;

@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Ngay.class));
+            startActivity(new Intent(getApplicationContext(), sign_in.class));
         }
 
     }

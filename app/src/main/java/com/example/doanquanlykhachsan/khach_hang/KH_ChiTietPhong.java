@@ -24,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class KH_ChiTietPhong extends AppCompatActivity {
@@ -49,7 +50,8 @@ public class KH_ChiTietPhong extends AppCompatActivity {
         tvLoaiPhong.setText(chitiet.getLoai() + "");
         tvMoTa.setText(chitiet.getMoTa() + "");
         Float gia = (Float) getIntent().getFloatExtra("Gia", 0);
-        tvGia.setText(gia + "");
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        tvGia.setText(toTheFormat.format(gia)+" VNĐ");
 
         setEvent();
 
@@ -71,8 +73,6 @@ public class KH_ChiTietPhong extends AppCompatActivity {
 
                     Log.e("solan",StaticConfig.arrayListTemporaryService.size()+"");
                     StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maDichVu").setValue(maDichvu);
-
-
                 } else {
                     Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                     Bundle bundle = new Bundle();

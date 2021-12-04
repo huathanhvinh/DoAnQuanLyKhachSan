@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,16 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanquanlykhachsan.R;
+import com.example.doanquanlykhachsan.adapter.Adapter_HD_DV;
+import com.example.doanquanlykhachsan.adapter.Adapter_PhongThue;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.HoaDon;
 import com.example.doanquanlykhachsan.model.KhachHang;
-import com.example.doanquanlykhachsan.model.KhuyenMai;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
-import com.example.doanquanlykhachsan.adapter.*;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
-import com.example.doanquanlykhachsan.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -37,97 +38,89 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class NVTN_XacNhanHoaDon extends AppCompatActivity {
-    Button btnXacNhan, btnTroVe;
-    TextView maHD, tvtenNV, tvTenKH, tenNV, tenKH, ngayLap, tvTongtien, tvThanhTien, tvTienkm, tvsdt;
-    Button call, btnKm;
-    EditText edmaKm;
+public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
+    Button btnXacNhan, btnTroVe, btnHuy;
+    TextView tvtenNV, tvTenKH, tenNV, tenKH, tvTongtien, tvsdt;
+    Button call;
     PhongDaDat chitiet;
-    String sdt = "";
-    String sdtNV = "";
     ArrayList<Phong> data = new ArrayList<>();
     ArrayList<DichVu> dichvu = new ArrayList<>();
     Adapter_PhongThue adapter;
     Adapter_HD_DV adapterdv;
     ListView lv;
     ListView lvdv;
-    float Tongtien = 0;
-    float ThanhTien = 0;
-    String thoigian;
+    private String thoigian;
     int ngay, thang, nam;
+    private float Tongtien;
     int solan = 1;
-    int stt = 0;
-    String maKH = "";
-    String maNV = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nvtn_xac_nhan_hoa_don);
+        setContentView(R.layout.activity_nvtn_thongbao_xacnhandatphong);
         setControl();
-        setEvent();
-
+        setEvnent();
     }
 
-    private void setEvent() {
-        btnKm.setOnClickListener(new View.OnClickListener() {
+    private void setEvnent() {
+        call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StaticConfig.mKhuyenMai.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            KhuyenMai km = ds.getValue(KhuyenMai.class);
-                            if (edmaKm.getText().toString().equals(km.getMaKM())) {
-                                float tien = Tongtien;
-                                tien = Tongtien * (100 - km.getMucGiamGia()) / 100;
-                                float tietkm = Tongtien - tien;
-                                //Tong tien
-                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
-                                tvTongtien.setText(toTheFormat.format(tien) + " VNĐ");
-                                tvTienkm.setText(toTheFormat.format(tietkm) + " VNĐ");
-                                ThanhTien = tien;
-                                break;
-                            } else {
-                                //Tong tien
-                                ThanhTien = Tongtien;
-                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
-                                tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
-                                tvTienkm.setText(0 + " VNĐ");
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                Intent intentDial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Integer.parseInt(tvsdt.getText().toString())));
+                startActivity(intentDial);
             }
         });
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new androidx.appcompat.app.AlertDialog.Builder(NVTN_XacNhanHoaDon.this)
-                        .setTitle("Trả Phòng")
+                new androidx.appcompat.app.AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
+                        .setTitle("Đặt Phòng")
                         .setMessage("xác nhận ??")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                //thêm vào hoá đơn
-                                String key = StaticConfig.mHoaDon.push().getKey();
-                                Log.e("solan", stt + 1 + "");
-                                HoaDon hd = new HoaDon();
-                                String Tongthoigian = "";
-                                if (chitiet.getManHinh().equals("ngay")) {
-                                    Tongthoigian = thoigian + " Ngày";
+                                StaticConfig.mRoomRented.child(chitiet.getMaFB()).child("xacnhan").setValue("Đã Xác Nhận");
+                                String chuoiMaPhong = chitiet.getMaPhong();
+                                String[] parts;
+                                parts = chuoiMaPhong.split(" ");
+                                for (String w : parts) {
+                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                                Phong p = ds.getValue(Phong.class);
+                                                if (p.getMaPhong().equals(w)) {
+                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                                 }
-                                if (chitiet.getManHinh().equals("gio")) {
-                                    Tongthoigian = thoigian + " Giờ";
-                                }
-                                hd = new HoaDon(stt + 1, key, maKH, maNV, ngayLap.getText().toString(), chitiet.getThoiGianNhanPH(), chitiet.getThoiGianTraPH(), Tongthoigian, "", ThanhTien);
-                                StaticConfig.mHoaDon.child(key).setValue(hd);
+                            }
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+            }
+        });
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new androidx.appcompat.app.AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
+                        .setTitle("Đặt Phòng")
+                        .setMessage("xác nhận huỷ Phòng ??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
 //                                Trả Phòng
                                 String chuoiPhongDadat = "";
                                 StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -150,22 +143,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                                                     StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Trống");
                                                                     //remove quan ly phong
                                                                     StaticConfig.mQLPhong.child(p.getMaFB()).removeValue();
-                                                                }
-                                                            }
-                                                        }
-
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                                        }
-                                                    });
-                                                    //remove dich vu
-                                                    StaticConfig.mDichVuDaChon.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                            for (DataSnapshot ds3 : snapshot.getChildren()) {
-                                                                if (maPh.equals(ds3.child("maPhong").getValue().toString())) {
-                                                                    StaticConfig.mDichVuDaChon.child(ds3.child("maFB").getValue().toString()).removeValue();
                                                                 }
                                                             }
                                                         }
@@ -198,46 +175,19 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
             }
         });
-        btnTroVe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
-    private void setControl() {
-        btnXacNhan = findViewById(R.id.btnXacNhan);
-        btnTroVe = findViewById(R.id.btnTroVe);
-        tvTenKH = findViewById(R.id.tvKH);
-        tvtenNV = findViewById(R.id.tvTenNV);
-        maHD = findViewById(R.id.tvMaHD);
-        ngayLap = findViewById(R.id.tvNgayLapHD);
-        tenNV = findViewById(R.id.tvNhanVien);
-        tenKH = findViewById(R.id.tvTenKH);
-        lv = findViewById(R.id.lvthue);
-        lvdv = findViewById(R.id.lvDv);
-        tvTongtien = findViewById(R.id.tvTongTien);
-        btnKm = findViewById(R.id.btnKm);
-        edmaKm = findViewById(R.id.edMaKm);
-        tvThanhTien = findViewById(R.id.tvThanhTien);
-        tvTienkm = findViewById(R.id.tvTienkm);
-
-        adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
-        lv.setAdapter(adapter);
-        adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
-        lvdv.setAdapter(adapterdv);
-        khoitao();
-        getstt();
-    }
-
-    private void getstt() {
-        StaticConfig.mHoaDon.addValueEventListener(new ValueEventListener() {
+    private void khoitao() {
+        chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
+        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    HoaDon h = ds.getValue(HoaDon.class);
-                    stt = h.getStt();
+                    NhanVien nv = ds.getValue(NhanVien.class);
+                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
+                        tenNV.setText(nv.getTenNV());
+                        tvtenNV.setText(nv.getTenNV());
+                    }
                 }
             }
 
@@ -246,17 +196,24 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
             }
         });
-    }
+        StaticConfig.mKhachHang.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    KhachHang kh = ds.getValue(KhachHang.class);
+                    if (kh.getSdtKH().equals(chitiet.getSdt())) {
+                        tenKH.setText(kh.getTenKH());
+                        tvTenKH.setText(kh.getTenKH());
+                    }
 
-    private void khoitao() {
-        chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
-        tvTenKH.setText(chitiet.getTen());
-        tenKH.setText(chitiet.getTen());
-        if (chitiet.getStt() < 9) {
-            maHD.setText("HD0" + chitiet.getStt());
-        } else {
-            maHD.setText("HD" + chitiet.getStt());
-        }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         //lấy thời gian
         if (chitiet.getManHinh().equals("ngay")) {
             DateDifference();
@@ -268,32 +225,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         if (chitiet.getManHinh().equals("ngay")) {
             StaticConfig.Loai = "ngay";
         }
-        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    NhanVien nv = ds.getValue(NhanVien.class);
-                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
-                        tenNV.setText(nv.getTenNV());
-                        tvtenNV.setText(nv.getTenNV());
-                        maNV = nv.getMaFB();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        //lay ngay hien tai
-        final Calendar calendar = Calendar.getInstance();
-        int ngay = calendar.get(Calendar.DATE);
-        int thang = calendar.get(Calendar.MONTH);
-        int nam = calendar.get(Calendar.YEAR);
-        calendar.set(nam, thang, ngay);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        ngayLap.setText(simpleDateFormat.format(calendar.getTime()));
         //Lấy Phòng thuê
         StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -350,8 +281,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                     //Tong tien
                                     DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
                                     tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
-                                    tvThanhTien.setText(toTheFormat.format(Tongtien) + " VNĐ");
-                                    ThanhTien = Tongtien;
                                 }
 
                                 @Override
@@ -370,7 +299,29 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
             }
         });
+        tvsdt.setText(chitiet.getSdt());
+    }
 
+    private void setControl() {
+        btnXacNhan = findViewById(R.id.btnXacNhan);
+        btnTroVe = findViewById(R.id.btnTroVe);
+        tvTenKH = findViewById(R.id.tvKH);
+        tvtenNV = findViewById(R.id.tvTenNV);
+        tenNV = findViewById(R.id.tvNhanVien);
+        tenKH = findViewById(R.id.tvTenKH);
+        lv = findViewById(R.id.lvthue);
+        lvdv = findViewById(R.id.lvDv);
+        btnHuy = findViewById(R.id.btnHuy);
+        tvTongtien = findViewById(R.id.tvTongTien);
+        tvsdt = findViewById(R.id.txtSdt);
+        btnTroVe = findViewById(R.id.btnTroVe);
+        call= findViewById(R.id.btncall);
+
+        adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
+        lv.setAdapter(adapter);
+        adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
+        lvdv.setAdapter(adapterdv);
+        khoitao();
     }
 
     private void TimeDifference() {
@@ -389,7 +340,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else {
-            new AlertDialog.Builder(NVTN_XacNhanHoaDon.this)
+            new AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
                     .setTitle("Lỗi ")
                     .setMessage("Lỗi ?")
                     // Specifying a listener allows you to take an action before dismissing the dialog.

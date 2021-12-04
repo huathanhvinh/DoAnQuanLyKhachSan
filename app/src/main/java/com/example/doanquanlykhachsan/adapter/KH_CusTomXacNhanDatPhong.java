@@ -14,6 +14,7 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class KH_CusTomXacNhanDatPhong extends ArrayAdapter {
@@ -49,10 +50,11 @@ public class KH_CusTomXacNhanDatPhong extends ArrayAdapter {
         tvLau.setText(phong.getLau() + "");
         tvLoai.setText(phong.getLoai() + "");
         tvMoTa.setText(phong.getMoTa() + "");
-        if(StaticConfig.sXacNhan.equals("ngay")){
-            tvGia.setText(String.valueOf(phong.getGiaNgay()));
-        }else {
-            tvGia.setText(String.valueOf(phong.getGiaGio()));
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        if (StaticConfig.sXacNhan.equals("ngay")) {
+            tvGia.setText(toTheFormat.format(phong.getGiaNgay())+" VNĐ");
+        } else {
+            tvGia.setText(toTheFormat.format(phong.getGiaGio())+" VNĐ");
         }
 
         return convertView;
