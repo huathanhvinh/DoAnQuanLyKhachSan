@@ -59,11 +59,8 @@ public class MainActivity extends AppCompatActivity {
 //        Phong p = new Phong(key,"p10t1","Phòng 10_Tầng 1","trống","2","Phòng đẹp","10",1,200000,80000);
 //        StaticConfig.mPhong.child(key).setValue(p);
 
-        //Công việc cho ngày 19.11 --
-        //Đổi role tại User khi chuyển khách hàng -> Nhân viên
-        //Đổi role tại User khi thay đổi thông tin nhân viên (chức vụ)
+//        startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
 
-        //startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
         if (StaticConfig.fAuth.getCurrentUser() != null) {
             StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -100,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), sign_in.class));
+            startActivity(new Intent(getApplicationContext(), NVTN_LapHoaDon.class));
         }
 
     }
