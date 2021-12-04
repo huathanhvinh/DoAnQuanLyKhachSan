@@ -65,36 +65,28 @@ public class MainActivity extends AppCompatActivity {
 
         //startActivity(new Intent(getApplicationContext(), AD_HienThiDanhSachNhanVien.class));
         if (StaticConfig.fAuth.getCurrentUser() != null) {
-            StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+            StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        User temp= ds.getValue(User.class);
                         String maFB = ds.child("maFB").getValue().toString();
-                        if (!maFB.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                            String phome = user.getPhoneNumber();
-//                            Log.e("sdt", phome);
-                        } else {
+                        if (maFB.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                             User user = ds.getValue(User.class);
                             StaticConfig.currentphone = user.getSdt();
-                            StaticConfig.currentuser = user.getMaFB();
+                            StaticConfig.currentuser = FirebaseAuth.getInstance().getUid();
                             StaticConfig.role = user.getRole();
                             StaticConfig.currentCmnd = user.getCmnd();
-                           int role = user.getRole();
+                            int role = user.getRole();
                             if (role == 1) {
                                 startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
                             }
                             if (role == 2) {
-
                                 startActivity(new Intent(getApplicationContext(), NVTN_MenuNhanVienThuNgan.class));
                             }
                             if (role == 3) {
-
                                 startActivity(new Intent(getApplicationContext(), Nhanvientapvu_manhinhchinh.class));
                             }
                             if (role == 4) {
-
                                 startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
                             }
 

@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnQuanLyKhachSan">
         <activity
+            android:name=".nhanvien_thungan.NVTN_LapPhieuThue_Ngay"
+            android:exported="false" />
+        <activity
             android:name=".nhanvien_thungan.NVTN_xacnhandatphong"
             android:exported="false" />
         <activity

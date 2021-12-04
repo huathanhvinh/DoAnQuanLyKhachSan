@@ -22,6 +22,8 @@ public class StaticConfig {
     public static String currentCmnd = "";
     public static String Loai = "";
     public static String songay = "";
+    public static ArrayList<String>loaiNgay= new ArrayList<>();
+    public static ArrayList<String>loaiGio= new ArrayList<>();
 
 
     public static DatabaseReference mUser = Database.getReference("User");

@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Phong_adapter extends ArrayAdapter {
@@ -54,20 +55,33 @@ public class Phong_adapter extends ArrayAdapter {
 
         Phong phong = data.get(position);
         tenphong.setText(phong.getTenPhong());
-        int sophong = Integer.valueOf(phong.getSoPhong());
-        if (sophong < 11) {
-            solau.setText("1");
-        } else {
-            solau.setText("2");
-        }
+        solau.setText(phong.getLau() + "");
+
         loai.setText(phong.getLoai());
-        gia.setText(phong.getGiaNgay() + "");
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+//        if(StaticConfig.Loai.equals("ngay")) {
+//            gia.setText(toTheFormat.format(phong.getGiaNgay()));
+//        }
+//        else {
+//            gia.setText(toTheFormat.format(phong.getGiaGio()));
+//        }
+        for (int i = 0; i < StaticConfig.loaiNgay.size(); i++) {
+            if(phong.getMaFB().equals(StaticConfig.loaiNgay.get(i).toString())){
+                gia.setText(toTheFormat.format(phong.getGiaNgay()));
+            }
+        }
+        for (int i = 0; i < StaticConfig.loaiGio.size(); i++) {
+            if(phong.getMaFB().equals(StaticConfig.loaiGio.get(i).toString())){
+                gia.setText(toTheFormat.format(phong.getGiaGio()));
+            }
+        }
+
         moTa.setText(phong.getMoTa() + "");
 
         chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (StaticConfig.sXacNhan.equals("phong da thue")){
+                if (StaticConfig.sXacNhan.equals("phong da thue")) {
                     StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,7 +97,6 @@ public class Phong_adapter extends ArrayAdapter {
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             if (phong.getMaPhong().equals(w)) {
                                                 StaticConfig.mathue = da.getMaFB();
-
                                             }
                                         }
 

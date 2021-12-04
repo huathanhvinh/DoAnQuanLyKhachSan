@@ -108,6 +108,8 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nhanvientapvu_thongtintaikhoan.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_chitiephong.xml" value="0.24583333333333332" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_chonphong_lapphieuthue.xml" value="0.17572463768115942" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lap_phieu_thue_gio.xml" value="0.14105191256830601" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lap_phieu_thue_ngay.xml" value="0.16216216216216217" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lichlamviec.xml" value="0.14479166666666668" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_menu_nhan_vien_thu_ngan.xml" value="0.17617753623188406" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thong_bao.xml" value="0.14479166666666668" />
@@ -126,6 +128,7 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__dat_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__tra_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/item_phong.xml" value="0.14166666666666666" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_dich_vu.xml" value="0.16216216216216217" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/kh_item_ds_xac_nhan_dat_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_dangkydichvu.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/listview_nhanvientapvu_quanlyphong.xml" value="0.25" />

@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -348,7 +349,8 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                     }
                                     adapterdv.notifyDataSetChanged();
                                     //Tong tien
-                                    tvTongtien.setText(Tongtien + "");
+                                    DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+                                    tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
                                 }
 
                                 @Override

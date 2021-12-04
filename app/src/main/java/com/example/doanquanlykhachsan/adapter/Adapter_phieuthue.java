@@ -18,6 +18,7 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_chitietphong;
+import com.example.doanquanlykhachsan.nhanvien_thungan.NV_chonphonglapphieuthue;
 
 import java.util.ArrayList;
 
@@ -48,15 +49,22 @@ public class Adapter_phieuthue extends ArrayAdapter {
         btnPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), p.getTenPhong(), Toast.LENGTH_SHORT).show();
-                StaticConfig.arrayListTemporaryRoom.add(p);
-                //Toast.makeText(getContext(), room.getTen(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), NVTN_chitietphong.class);//Chuyen man hinh
-                Bundle bundle = new Bundle();//Tạo bundle
-                bundle.putSerializable("Room", p);//Gán giá trị bên màn hình kia
-                intent.putExtras(bundle);
-                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);//Qua màn khác
+                if (p.getTrangThai().equals("Trống")) {
+                    if (StaticConfig.arrayListTemporaryRoom.size() == 0) {
+                        StaticConfig.arrayListTemporaryRoom.add(p);
+                    }
+                    for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                        if (!p.getMaFB().equals(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB())) {
+                            StaticConfig.arrayListTemporaryRoom.add(p);
+                        }
+                    }
+                    Intent intent = new Intent(getContext(), NV_chonphonglapphieuthue.class);//Chuyen man hinh
+                    Bundle bundle = new Bundle();//Tạo bundle
+                    bundle.putSerializable("Room", p);//Gán giá trị bên màn hình kia
+                    intent.putExtras(bundle);
+                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);//Qua màn khác
+                }
             }
         });
         if (p.getTrangThai().equals("Trống")) {
@@ -73,6 +81,11 @@ public class Adapter_phieuthue extends ArrayAdapter {
         }
         if (p.getTrangThai().equals("Bảo Trì")) {
             btnPhong.setBackgroundColor(Color.parseColor("#0602b2"));
+        }
+        for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+            if(p.getMaFB().equals(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB())){
+                btnPhong.setTextColor(Color.RED);
+            }
         }
 
         return convertView;

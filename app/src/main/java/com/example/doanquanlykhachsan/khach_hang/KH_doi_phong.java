@@ -27,7 +27,6 @@ public class KH_doi_phong extends AppCompatActivity {
     Phong chitiet;
     private ArrayList<DichVu> data = new ArrayList<>();
     KH_CustomDichvu customDichvu;
-    ;
     GridView gridView;
 
     @Override
@@ -51,7 +50,7 @@ public class KH_doi_phong extends AppCompatActivity {
                             if (!StaticConfig.chon.equals("")) {
                                 if (da.getMaKH().equals(StaticConfig.currentuser)) {
                                     StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("Trống");
-                                    StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("đã đặt");
+                                    StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
                                     String str = da.getMaPhong();
                                     String replacedStr = str.replaceAll(StaticConfig.chon.getMaPhong(), chitiet.getMaPhong());
                                     StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maPhong").setValue(replacedStr);

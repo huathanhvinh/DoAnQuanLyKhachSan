@@ -1,7 +1,9 @@
 package com.example.doanquanlykhachsan.nhanvien_thungan;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +18,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.adapter.Adapter_phieuthue;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.Nhanvientapvu_manhinhchinh;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -55,6 +59,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                 StaticConfig.arrayListTemporaryRoom.clear();
                 StaticConfig.arrayListTemporaryService.clear();
                 chuoiphong.setText("");
+                adapter.notifyDataSetChanged();
             }
         });
         imgLen.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +93,24 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (StaticConfig.arrayListTemporaryRoom.size() > 0) {
-                    startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Gio.class));
+
+                    new AlertDialog.Builder(NV_chonphonglapphieuthue.this)
+                            .setTitle("Đặt Phòng")
+                            .setMessage("Chọn loại !!")
+                            .setPositiveButton("Đặt theo giờ", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Gio.class));
+                                }
+                            })
+                            .setNegativeButton("Đặt theo ngay", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Ngay.class));
+                                }
+                            })
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                 }
             }
         });

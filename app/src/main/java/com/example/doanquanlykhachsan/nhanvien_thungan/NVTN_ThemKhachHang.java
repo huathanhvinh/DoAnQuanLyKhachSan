@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +17,12 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +33,7 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
     EditText edtTenKH, edtSoDT, edtDiaChi, edtCMND, edtEmail;
     TextView tvMaKH;
     int maxSTT = 0;
+    FirebaseUser nhanvienhientai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,8 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
         setContentView(R.layout.activity_nvtn_them_khach_hang);
         setconTrol();
         setEvent();
+        nhanvienhientai = FirebaseAuth.getInstance().getCurrentUser();
+        Log.e("id", FirebaseAuth.getInstance().getCurrentUser().getUid());
     }
 
     private void setEvent() {
@@ -53,13 +61,11 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
                 String cmnd = edtCMND.getText().toString();
                 String email = edtEmail.getText().toString();
                 if (!tenkh.isEmpty() && !diachi.isEmpty() && !sodt.isEmpty() && !tenkh.isEmpty() && !email.isEmpty()) {
-                    String key = StaticConfig.mKhachHang.push().getKey();
-                    KhachHang kh = new KhachHang(maxSTT, key, tenkh, sodt, diachi, cmnd);
-                    StaticConfig.mKhachHang.child(key).setValue(kh);
 
                     maxSTT = maxSTT + 1;
                     tvMaKH.setText("KH" + maxSTT);
                     register(email, email);
+
                 } else {
                     new AlertDialog.Builder(NVTN_ThemKhachHang.this)
                             .setTitle("Thêm Khách hàng ")
@@ -83,29 +89,36 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
                         boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
                         if (isNewUser) {
-                            StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isComplete()) {
-                                        UpdateUser();
-                                        new AlertDialog.Builder(NVTN_ThemKhachHang.this)
-                                                .setTitle("Thêm Khách hàng ")
-                                                .setMessage("Bạn đã thêm thành công")
-                                                // Specifying a listener allows you to take an action before dismissing the dialog.
-                                                // The dialog is automatically dismissed when a dialog button is clicked.
-                                                .setIcon(android.R.drawable.ic_dialog_alert)
-                                                .show();
-                                    } else {
-                                        new AlertDialog.Builder(NVTN_ThemKhachHang.this)
-                                                .setTitle("Thêm Khách hàng ")
-                                                .setMessage(task.getException().getMessage()+" !!")
-                                                // Specifying a listener allows you to take an action before dismissing the dialog.
-                                                // The dialog is automatically dismissed when a dialog button is clicked.
-                                                .setIcon(android.R.drawable.ic_dialog_alert)
-                                                .show();
-                                    }
-                                }
-                            });
+                            new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                                    .setTitle("Thêm Khách hàng ")
+                                    .setMessage("Bạn đã thêm thành công")
+                                    // Specifying a listener allows you to take an action before dismissing the dialog.
+                                    // The dialog is automatically dismissed when a dialog button is clicked.
+                                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            StaticConfig.fAuth.createUserWithEmailAndPassword(Email, Pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                    if (task.isComplete()) {
+                                                        UpdateUser();
+                                                    } else {
+                                                        new AlertDialog.Builder(NVTN_ThemKhachHang.this)
+                                                                .setTitle("Thêm Khách hàng ")
+                                                                .setMessage(task.getException().getMessage() + " !!")
+                                                                // Specifying a listener allows you to take an action before dismissing the dialog.
+                                                                // The dialog is automatically dismissed when a dialog button is clicked.
+                                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                                .show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    })
+                                    .setNegativeButton("no", null)
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+
 
                         } else {
                             new AlertDialog.Builder(NVTN_ThemKhachHang.this)
@@ -122,15 +135,26 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
     }
 
     private void UpdateUser() {
+        String tenkh = edtTenKH.getText().toString();
+        String diachi = edtDiaChi.getText().toString();
+        String sodt = edtSoDT.getText().toString();
+        String cmnd = edtCMND.getText().toString();
+        String email = edtEmail.getText().toString();
+
+        String key = StaticConfig.mKhachHang.push().getKey();
+        KhachHang kh = new KhachHang(maxSTT, key, tenkh, sodt, diachi, cmnd);
+        StaticConfig.mKhachHang.child(key).setValue(kh);
+
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         User user = new User(id, edtEmail.getText().toString(), edtSoDT.getText().toString(), edtCMND.getText().toString(), 4);
         StaticConfig.mUser.child(id).setValue(user);
         edtTenKH.setText("");
-        edtDiaChi.setText("");
+        edtEmail.setText("");
         edtSoDT.setText("");
         edtCMND.setText("");
-        edtEmail.setText("");
-        edtTenKH.requestFocus();
+        edtDiaChi.setText("");
+        StaticConfig.fAuth.updateCurrentUser(nhanvienhientai);
+        Log.e("id sau", FirebaseAuth.getInstance().getCurrentUser().getUid());
     }
 
     private void setconTrol() {

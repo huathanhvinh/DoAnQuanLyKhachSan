@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -48,22 +49,29 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Phong phong = data.get(position);
                 for (int i = 0; i < listView.getChildCount(); i++) {
                     if (position == i) {
                         listView.getChildAt(i).setBackgroundColor(Color.WHITE);
                         StaticConfig.chon = data.get(i);
+
                         StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot ds : snapshot.getChildren()) {
-                                    PhongDaDat da= ds.getValue(PhongDaDat.class);
+                                    PhongDaDat da = ds.getValue(PhongDaDat.class);
                                     String chuoimaphong = ds.child("maPhong").getValue(String.class);
                                     String[] parts;
                                     parts = chuoimaphong.split(" ");
                                     for (String w : parts) {
-                                        if(StaticConfig.chon.getMaPhong().equals(w)){
-                                            StaticConfig.mathue= da.getMaFB();
+                                        if (StaticConfig.chon.getMaPhong().equals(w)) {
+                                            StaticConfig.mathue = da.getMaFB();
+                                            if (da.getManHinh().equals("ngay")) {
+                                                StaticConfig.Loai = "ngay";
+                                            }
+                                            if (da.getManHinh().equals("gio")) {
+                                                StaticConfig.Loai = "gio";
+                                            }
+                                            break;
                                         }
                                     }
                                 }
@@ -78,6 +86,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                         listView.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
                     }
                 }
+
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +108,6 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                             .show();
 
                 } else {
-
                     startActivity(new Intent(getApplicationContext(), KH_danh_sach_phong_trong.class));
                 }
             }
@@ -122,7 +130,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
-                    if (da.getXacnhan().equals("Đã Xác Nhận")||da.getXacnhan().equals("Trả Phòng")) {
+                    if (da.getXacnhan().equals("Đã Xác Nhận") || da.getXacnhan().equals("Trả Phòng")) {
                         if (ds.child("maKH").getValue().toString().equals(StaticConfig.currentuser)) {
                             String chuoimaphong = ds.child("maPhong").getValue(String.class);
                             String[] parts;
@@ -137,9 +145,14 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                                             Phong phong = ds.getValue(Phong.class);
                                             if (phong.getMaPhong().equals(maPhong)) {
                                                 data.add(phong);
+                                                if (da.getManHinh().equals("ngay")) {
+                                                    StaticConfig.loaiNgay.add(phong.getMaFB());
+                                                } else {
+                                                    StaticConfig.loaiGio.add(phong.getMaFB());
+                                                }
                                             }
-                                            adapter.notifyDataSetChanged();
                                         }
+                                        adapter.notifyDataSetChanged();
 
                                     }
 
@@ -148,8 +161,8 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
 
                                     }
                                 });
-                                adapter.notifyDataSetChanged();
                             }
+
                         }
                     }
                 }

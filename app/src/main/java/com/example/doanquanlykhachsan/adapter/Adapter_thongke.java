@@ -69,16 +69,8 @@ public class Adapter_thongke extends ArrayAdapter {
         });
         DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
         thanhtien.setText(toTheFormat.format(hd.getTongTien()) + " VNĐ");
-        Log.e("Tong ",StaticConfig.Tongtien+"");
 
         return convertView;
     }
 
-    public float Tongtien() {
-        float Tong = 0;
-        for (int i = 0; i < data.size(); i++) {
-            Tong += data.get(i).getTongTien();
-        }
-        return Tong;
-    }
 }

@@ -12,10 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.khach_hang.KH_doi_phong;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.model.Phong;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Doi_Phong_adapter extends ArrayAdapter {
@@ -48,9 +50,16 @@ public class Doi_Phong_adapter extends ArrayAdapter {
 
         Phong phong = data.get(position);
         tenphong.setText(phong.getTenPhong());
-        solau.setText(phong.getLau());
+        solau.setText(phong.getLau()+"");
         loai.setText(phong.getLoai());
-        gia.setText(phong.getGiaNgay() + "");
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        if(StaticConfig.Loai.equals("ngay")) {
+            gia.setText(toTheFormat.format(phong.getGiaNgay()));
+        }
+        if(StaticConfig.Loai.equals("gio")) {
+            gia.setText(toTheFormat.format(phong.getGiaGio()));
+        }
+
         moTa.setText(phong.getSoPhong() + "");
 
         chitiet.setOnClickListener(new View.OnClickListener() {

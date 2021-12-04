@@ -65,11 +65,25 @@ public class KH_CustomDichvu extends ArrayAdapter {
         cboDichVu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (cboDichVu.isChecked() == true) {
-                    StaticConfig.arrayListTemporaryService.add(dv);
-                } else if (cboDichVu.isChecked() == false) {
-                    StaticConfig.arrayListTemporaryService.remove(dv);
+                if (StaticConfig.arrayListTemporaryService.size() == 0) {
+                    if (cboDichVu.isChecked() == true) {
+                        StaticConfig.arrayListTemporaryService.add(dv);
+                    } else if (cboDichVu.isChecked() == false) {
+                        StaticConfig.arrayListTemporaryService.remove(dv);
+                    }
                 }
+                for (int i = 0; i < StaticConfig.arrayListTemporaryService.size(); i++) {
+                    if (!dv.getMaFB().equals(StaticConfig.arrayListTemporaryService.get(i).getMaFB())) {
+                        if (cboDichVu.isChecked() == true) {
+                            StaticConfig.arrayListTemporaryService.add(dv);
+                            break;
+                        } else if (cboDichVu.isChecked() == false) {
+                            StaticConfig.arrayListTemporaryService.remove(dv);
+                            break;
+                        }
+                    }
+                }
+
             }
         });
         if (StaticConfig.sXacNhan.equals("phong da thue")) {
@@ -107,6 +121,11 @@ public class KH_CustomDichvu extends ArrayAdapter {
 
                 }
             });
+        }
+        for (int i = 0; i < StaticConfig.arrayListTemporaryService.size(); i++) {
+            if (dv.getMaFB().equals(StaticConfig.arrayListTemporaryService.get(i).getMaFB())) {
+                cboDichVu.setChecked(true);
+            }
         }
 
         return convertView;

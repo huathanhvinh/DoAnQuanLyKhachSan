@@ -15,6 +15,7 @@ import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.Phong;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Adapter_HD_DV extends ArrayAdapter {
@@ -45,7 +46,8 @@ public class Adapter_HD_DV extends ArrayAdapter {
 
         p = data.get(position);
         tenDV.setText(p.getTenDV());
-        tien.setText(p.getGiaDV() + "");
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        tien.setText(toTheFormat.format(p.getGiaDV()));
         solan.setText(StaticConfig.songay + " Lần");
         return convertView;
     }

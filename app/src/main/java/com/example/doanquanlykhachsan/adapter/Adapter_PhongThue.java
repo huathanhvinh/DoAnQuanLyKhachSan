@@ -19,6 +19,7 @@ import com.example.doanquanlykhachsan.khach_hang.KH_tra_phong;
 import com.example.doanquanlykhachsan.model.Phong;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,12 +56,14 @@ public class Adapter_PhongThue extends ArrayAdapter {
 
         p = data.get(position);
         tenPhong.setText(p.getTenPhong());
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+
         if (StaticConfig.Loai.equals("ngay")) {
-            tien.setText(p.getGiaNgay() + "");
-            songay.setText(StaticConfig.songay+ " Ngày");
+            tien.setText(toTheFormat.format(p.getGiaNgay()));
+            songay.setText(StaticConfig.songay + " Ngày");
         } else {
-            tien.setText(p.getGiaGio() + "");
-            songay.setText(StaticConfig.songay+ " Giờ");
+            tien.setText(toTheFormat.format(p.getGiaGio()));
+            songay.setText(StaticConfig.songay + " Giờ");
         }
 
 
