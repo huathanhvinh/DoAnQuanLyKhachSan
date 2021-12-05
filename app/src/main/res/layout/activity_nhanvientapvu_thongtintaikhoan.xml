@@ -33,7 +33,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/img_avatar"
             app:civ_border_color="#3F51B5"
             app:civ_border_width="5dp">
@@ -57,7 +57,7 @@
             android:id="@+id/edtTenNV"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Phạm Chí Cong"
             android:textColor="#F4F4EF"
@@ -67,8 +67,8 @@
         <ImageView
             android:id="@+id/ivChangeTen"
             android:layout_marginLeft="15dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/icon_edit"
             android:layout_gravity="center"
 
@@ -89,7 +89,7 @@
         <EditText
             android:maxLength="11"
             android:id="@+id/edtSoDT"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="0123456789"
             android:textColor="#F4F4EF"
@@ -123,7 +123,7 @@
         <EditText
             android:id="@+id/edtCMND"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="212818436"
             android:textColor="#F4F4EF"
