@@ -57,23 +57,8 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
         PhongDaDat thongbao = data.get(position);
         stt.setText(thongbao.getStt() + "");
         ngay.setText(thongbao.getNgaybatdau());
-        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    KhachHang u = ds.getValue(KhachHang.class);
-                    if (thongbao.getMaKH().equals(u.getMaFB())) {
-                        hoten.setText(u.getTenKH());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                throw error.toException();
-            }
-        });
-        btnXacNhan.setOnClickListener(new View.OnClickListener() {
+        hoten.setText(thongbao.getTen());
+             btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(getContext())

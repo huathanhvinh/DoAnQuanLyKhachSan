@@ -159,22 +159,6 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
                                                         }
                                                     });
-                                                    //remove dich vu
-                                                    StaticConfig.mDichVuDaChon.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                            for (DataSnapshot ds3 : snapshot.getChildren()) {
-                                                                if (maPh.equals(ds3.child("maPhong").getValue().toString())) {
-                                                                    StaticConfig.mDichVuDaChon.child(ds3.child("maFB").getValue().toString()).removeValue();
-                                                                }
-                                                            }
-                                                        }
-
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                                        }
-                                                    });
 
                                                 }
 

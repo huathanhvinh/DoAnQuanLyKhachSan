@@ -54,20 +54,16 @@ public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
         PhongDaDat thongbao = data.get(position);
         stt.setText(thongbao.getStt()+"");
         ngay.setText(thongbao.getNgaybatdau());
-        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
+        hoten.setText(thongbao.getTen());
+        btnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    KhachHang u = ds.getValue(KhachHang.class);
-                    if (thongbao.getMaKH().equals(u.getMaFB())) {
-                        hoten.setText(u.getTenKH());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                throw error.toException();
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), NVTN_XacNhanHoaDon.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("chitiet", thongbao);
+                intent.putExtras(bundle);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
         btnXacNhan.setOnClickListener(new View.OnClickListener() {

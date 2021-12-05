@@ -143,8 +143,7 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
                                                 // The dialog is automatically dismissed when a dialog button is clicked.
                                                 .setIcon(android.R.drawable.ic_dialog_alert)
                                                 .show();
-                                    }
-                                    else {
+                                    } else {
                                         new AlertDialog.Builder(NVTN_Thongtintaikhoan.this)
                                                 .setTitle("Thông báo ")
                                                 .setMessage("CMND đã có")
@@ -230,7 +229,6 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edtTenNV.setEnabled(true);
-                edtTenNV.setText("");
                 edtTenNV.requestFocus();
             }
         });
@@ -245,7 +243,6 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 edtCMND.setEnabled(true);
-                edtCMND.setText("");
                 edtCMND.requestFocus();
             }
         });

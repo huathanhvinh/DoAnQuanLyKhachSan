@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan.nhanvien_thungan;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,9 @@ import com.example.doanquanlykhachsan.model.*;
 
 public class NVTN_Thongtinkhachhang extends AppCompatActivity {
     Button btnTroVe;
-    TextView tvSuaKH,tvXoaKH,tvMaKH,tvTenKH,tvDiachi,tvCMND,tvSoDT;
+    TextView tvSuaKH, tvXoaKH, tvMaKH, tvTenKH, tvDiachi, tvCMND, tvSoDT;
     KhachHang kh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +32,17 @@ public class NVTN_Thongtinkhachhang extends AppCompatActivity {
         tvXoaKH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(null);
-                finish();
                 new AlertDialog.Builder(NVTN_Thongtinkhachhang.this)
                         .setTitle("Thông tin Khách hàng ")
                         .setMessage("Bạn đã xoá thành công")
-                        // Specifying a listener allows you to take an action before dismissing the dialog.
-                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(null);
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), NVTN_HienThiDanhSachKhachHang.class));
+                            }
+                        })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             }
@@ -57,16 +63,18 @@ public class NVTN_Thongtinkhachhang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                startActivity(new Intent(getApplicationContext(), NVTN_HienThiDanhSachKhachHang.class));
             }
         });
     }
+
     private void KhoiTao() {
         kh = (KhachHang) getIntent().getSerializableExtra("ThongTinKhachHang");
-        tvMaKH.setText("KH"+kh.getStt());
-        tvTenKH.setText(kh.getTenKH()+"");
-        tvDiachi.setText(kh.getDiaChi()+"");
-        tvCMND.setText(kh.getCmnd()+"");
-        tvSoDT.setText(kh.getSdtKH()+"");
+        tvMaKH.setText("KH" + kh.getStt());
+        tvTenKH.setText(kh.getTenKH() + "");
+        tvDiachi.setText(kh.getDiaChi() + "");
+        tvCMND.setText(kh.getCmnd() + "");
+        tvSoDT.setText(kh.getSdtKH() + "");
     }
 
     private void setControl() {
