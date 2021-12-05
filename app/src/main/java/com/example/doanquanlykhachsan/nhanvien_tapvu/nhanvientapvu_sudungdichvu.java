@@ -79,22 +79,22 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                     parts2 = maLoai.split(" ");
 
                     for (String w : parts1) {
-                        data.clear();
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                data.clear();
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Phong phong = ds.getValue(Phong.class);
                                     if (phong.getMaPhong().equals(w)) {
                                         for (String u : parts2) {
                                             if (loaiDV.equals(u)) {
                                                 data.add(phong);
-                                                sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
-                                                lvSuDungDV.setAdapter(sudungdichvu);
                                             }
                                         }
                                     }
                                 }
+                                sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
+                                lvSuDungDV.setAdapter(sudungdichvu);
                                 sudungdichvu.notifyDataSetChanged();
                             }
 

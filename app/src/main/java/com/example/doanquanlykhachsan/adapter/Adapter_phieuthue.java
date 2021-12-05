@@ -82,6 +82,9 @@ public class Adapter_phieuthue extends ArrayAdapter {
         if (p.getTrangThai().equals("Bảo Trì")) {
             btnPhong.setBackgroundColor(Color.parseColor("#0602b2"));
         }
+        if (p.getTrangThai().equals("Chưa Dọn")) {
+            btnPhong.setBackgroundColor(Color.parseColor("#e1842d"));
+        }
         for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
             if(p.getMaFB().equals(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB())){
                 btnPhong.setTextColor(Color.RED);

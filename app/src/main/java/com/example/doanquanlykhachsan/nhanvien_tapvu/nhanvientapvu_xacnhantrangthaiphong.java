@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -51,22 +52,27 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Khi bấn xác nhận phòng thì lưu checkbox xem phòng đã dọn hay chưa
-                StaticConfig.mQLPhong.child(chitiet.getMaFB()).setValue(new nvtv_qlphong(chitiet.getMaFB(), check, thucAn, tuLanh, ruou,vatDung, maKM));
                 new AlertDialog.Builder(nhanvientapvu_xacnhantrangthaiphong.this)
                         .setTitle("Xác nhận  trạng thái ")
                         .setMessage("Thông tin đã được lưu")
-                        // Specifying a listener allows you to take an action before dismissing the dialog.
-                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Khi bấn xác nhận phòng thì lưu checkbox xem phòng đã dọn hay chưa
+                                StaticConfig.mQLPhong.child(chitiet.getMaFB()).setValue(new nvtv_qlphong(chitiet.getMaFB(), check, thucAn, tuLanh, ruou, vatDung, maKM));
+                                if (check == true) {
+                                    StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("Trống");
+                                }
+                                startActivity(new Intent(getApplicationContext(), nhanvientapvu_quanlyphong.class));
+                            }
+                        })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
-                startActivity(new Intent(getApplicationContext(),nhanvientapvu_quanlyphong.class));
             }
         });
         ckDonPhong.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
                 if (ckDonPhong.isChecked()) {
                     check = true;
                 } else {
@@ -137,7 +143,7 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
         //
         chitiet = (Phong) getIntent().getSerializableExtra("Room");//Lấy thông tin từ customAdapter
         //Gán dữ liệu
-        tvMaPhong.setText(chitiet.getMaFB() + "");
+        tvMaPhong.setText(chitiet.getMaPhong() + "");
         tvLoaiPhong.setText(chitiet.getLoai() + "");
         tvTrangThai.setText(chitiet.getTrangThai() + "");
 
@@ -166,17 +172,17 @@ public class nhanvientapvu_xacnhantrangthaiphong extends AppCompatActivity {
                         }
                         if (ds.child("ruou").getValue(boolean.class).equals(true)) {
                             ckRuou.setChecked(true);
-                        } else  if (ds.child("ruou").getValue(boolean.class).equals(false)){
+                        } else if (ds.child("ruou").getValue(boolean.class).equals(false)) {
                             ckRuou.setChecked(false);
                         }
                         if (ds.child("vatDung").getValue(boolean.class).equals(true)) {
                             ckVatDung.setChecked(true);
-                        } else   if (ds.child("vatDung").getValue(boolean.class).equals(false)){
+                        } else if (ds.child("vatDung").getValue(boolean.class).equals(false)) {
                             ckVatDung.setChecked(false);
                         }
                         if (ds.child("maKM").getValue(boolean.class).equals(true)) {
                             ckMaKM.setChecked(true);
-                        } else  if (ds.child("maKM").getValue(boolean.class).equals(false)){
+                        } else if (ds.child("maKM").getValue(boolean.class).equals(false)) {
                             ckMaKM.setChecked(false);
                         }
 

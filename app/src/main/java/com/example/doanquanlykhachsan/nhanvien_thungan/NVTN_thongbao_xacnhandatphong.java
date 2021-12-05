@@ -102,6 +102,7 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                finish();
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.

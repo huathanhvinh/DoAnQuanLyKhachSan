@@ -147,7 +147,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                                             for (DataSnapshot ds2 : snapshot.getChildren()) {
                                                                 Phong p = ds2.getValue(Phong.class);
                                                                 if (maPh.equals(p.getMaPhong())) {
-                                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Trống");
+                                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Chưa Dọn");
                                                                     //remove quan ly phong
                                                                     StaticConfig.mQLPhong.child(p.getMaFB()).removeValue();
                                                                 }
