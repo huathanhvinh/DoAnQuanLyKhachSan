@@ -92,7 +92,6 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
         khoitao();
 
 
-
         //Tim kiem
         editTimKiem.addTextChangedListener(new TextWatcher() {
             @Override
@@ -108,24 +107,25 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 String timkiem = editTimKiem.getText().toString().toLowerCase();
-
                 StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         timkiemphong.clear();
-
-                        for(DataSnapshot ds : snapshot.getChildren() ){
+                        for (DataSnapshot ds : snapshot.getChildren()) {
                             Phong phong = ds.getValue(Phong.class);
-                            if(phong.getTenPhong().toLowerCase().contains(timkiem)){
-                                timkiemphong.add(phong);
-
+                            if (phong.getTenPhong().toLowerCase().contains(timkiem)) {
+                                if (rdChuaChon.isChecked()) {
+                                    if (phong.getTrangThai().equals("Chưa Dọn")) {
+                                        timkiemphong.add(phong);
+                                    }
+                                }
+                                if (rdDaChon.isChecked()) {
+                                    if (!phong.getTrangThai().equals("Chưa Dọn")) {
+                                        timkiemphong.add(phong);
+                                    }
+                                }
                             }
                         }
-                        if(timkiem.isEmpty()){
-                            //timkiemphong = data;
-                            khoitao();
-                        }
-
                         nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, timkiemphong);
                         lvQuanLyPhong.setAdapter(nhanvientapvu);
                         nhanvientapvu.notifyDataSetChanged();
@@ -142,8 +142,6 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                 });
 
 
-
-
             }
         });
 
@@ -151,47 +149,31 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
         rdChuaChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                    ArrayList<Phong> ketqua = new ArrayList<>();
-                    if (rdChuaChon.isChecked()) {
-                        for (int i = 0; i < data.size(); i++) {
+                ArrayList<Phong> ketqua = new ArrayList<>();
+                if (rdChuaChon.isChecked()) {
+                    StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
                             ketqua.clear();
-                            String ma = data.get(i).getMaFB();
-                            Phong room = data.get(i);
-                            ketqua.addAll(data);//Add tất cả phòng
-                            StaticConfig.mQLPhong.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-                                    for (DataSnapshot ds : snapshot.getChildren()) {
-
-                                        nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
-
-
-                                        if (qlphong.getPhong().equals(ma) && qlphong.isKiemtra() == true) {
-
-                                            //Kiểm tra nếu dữ liệu = true thì remove phòng
-                                            //Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-                                            ketqua.remove(room);
-                                        }
-                                    }
-                                    nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, ketqua);
-                                    lvQuanLyPhong.setAdapter(nhanvientapvu);
-                                    nhanvientapvu.notifyDataSetChanged();
-                                    Log.d("soluong", ketqua.size() + "");
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                Phong p = ds.getValue(Phong.class);
+                                if (p.getTrangThai().equals("Chưa Dọn")) {
+                                    ketqua.add(p);
                                 }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
+                            }
+                            nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, ketqua);
+                            lvQuanLyPhong.setAdapter(nhanvientapvu);
+                            nhanvientapvu.notifyDataSetChanged();
                         }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
 
-                    }
             }
+
         });
 
         //Xử lý nút radionbutton đã chọn hiển thị các phòng xem đã dọn hay chưa
@@ -200,38 +182,30 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 ArrayList<Phong> ketqua = new ArrayList<>();
                 if (rdDaChon.isChecked()) {
-                    for (int i = 0; i < data.size(); i++) {
-                        String ma = data.get(i).getMaFB();
-                        Phong room = data.get(i);
-                        ketqua.clear();
-                        StaticConfig.mQLPhong.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot ds : snapshot.getChildren()) {
-                                    nvtv_qlphong qlphong = ds.getValue(nvtv_qlphong.class);
-                                    if (qlphong.getPhong().equals(ma) && qlphong.isKiemtra() == true) {
-                                        ketqua.add(room);
-                                    }
+                    StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ketqua.clear();
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                Phong p = ds.getValue(Phong.class);
+                                if (!p.getTrangThai().equals("Chưa Dọn")) {
+                                    ketqua.add(p);
                                 }
-                                nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, ketqua);
-                                lvQuanLyPhong.setAdapter(nhanvientapvu);
-                                nhanvientapvu.notifyDataSetChanged();
-                                Log.d("soluong", ketqua.size() + "");
                             }
+                            nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, ketqua);
+                            lvQuanLyPhong.setAdapter(nhanvientapvu);
+                            nhanvientapvu.notifyDataSetChanged();
+                        }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                            }
-                        });
-                    }
-
-                } else {
-                    nhanvientapvu = new custom_nhanvientapvu_qlphong(getApplicationContext(), R.layout.listview_nhanvientapvu_quanlyphong, data);
-                    lvQuanLyPhong.setAdapter(nhanvientapvu);
-                    nhanvientapvu.notifyDataSetChanged();
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
                 }
 
             }
+
+
         });
     }
 
@@ -244,7 +218,9 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                 data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Phong room = ds.getValue(Phong.class);
-                    data.add(room);
+                    if (room.getTrangThai().equals("Chưa Dọn")) {
+                        data.add(room);
+                    }
                 }
                 nhanvientapvu.notifyDataSetChanged();
 
@@ -255,7 +231,6 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
 
             }
         });
-
-
+        rdChuaChon.setChecked(true);
     }
 }

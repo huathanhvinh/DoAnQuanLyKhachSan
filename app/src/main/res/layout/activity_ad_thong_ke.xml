@@ -120,12 +120,12 @@
                 android:layout_height="wrap_content">
 
                 <ImageButton
+                    android:id="@+id/imTimKiem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/icon_timkiem">
-
                 </ImageButton>
             </LinearLayout>
         </LinearLayout>
@@ -165,10 +165,13 @@
         android:layout_weight="6">
 
         <GridView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:id="@+id/listhoadon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:verticalSpacing="5dp"
             tools:listitem="@layout/item_hoadon"></GridView>
     </LinearLayout>
 
