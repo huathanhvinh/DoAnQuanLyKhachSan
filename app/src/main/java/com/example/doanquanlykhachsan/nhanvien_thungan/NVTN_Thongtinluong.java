@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class NVTN_Thongtinluong extends AppCompatActivity {
-    TextView tvTenNV, tvLoaiNV, tvLuong, tvTienThuong;
+    TextView tvTenNV, tvLoaiNV, tvLuong, tvTienThuong ,tvGhiChu;
     Button btnTroVe;
 
     @Override
@@ -39,6 +39,7 @@ public class NVTN_Thongtinluong extends AppCompatActivity {
                         tvLoaiNV.setText(nv.getChucVu());
                         tvTenNV.setText(nv.getTenNV());
                         tvTienThuong.setText(nv.getTienThuong());
+                        tvGhiChu.setText(nv.getGhiChu());
                     }
                 }
             }
@@ -61,6 +62,7 @@ public class NVTN_Thongtinluong extends AppCompatActivity {
     }
 
     private void setconTrol() {
+        tvGhiChu = findViewById(R.id.tvGhiChu);
         btnTroVe =findViewById(R.id.btnTroVe);
         tvTenNV = findViewById(R.id.tvTenNV);
         tvLoaiNV = findViewById(R.id.tvLoaiNV);

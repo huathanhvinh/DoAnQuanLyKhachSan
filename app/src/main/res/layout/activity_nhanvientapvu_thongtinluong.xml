@@ -24,32 +24,34 @@
             android:textStyle="bold"
             />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="50dp"
-        android:background="@drawable/rounded_corner_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corner_view">
+
         <TextView
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
             android:text="Tên nhân viên :"
             android:textColor="#FFC107"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/tvTenNhanVien"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
             android:text="Lê Hoàng Phắc Boiz"
             android:textColor="#FFC107"
-            android:textSize="20dp"
-            android:layout_marginLeft="50dp"
-            />
+            android:textSize="20dp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corner_view"

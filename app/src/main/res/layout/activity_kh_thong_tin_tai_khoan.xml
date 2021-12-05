@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".KH_thong_tin_tai_khoan">
+    tools:context=".khach_hang.KH_thong_tin_tai_khoan">
 
     <LinearLayout
         android:layout_width="match_parent"

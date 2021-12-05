@@ -91,7 +91,7 @@ public class NVTN_ThemKhachHang extends AppCompatActivity {
                         if (isNewUser) {
                             new AlertDialog.Builder(NVTN_ThemKhachHang.this)
                                     .setTitle("Thêm Khách hàng ")
-                                    .setMessage("Bạn đã thêm thành công")
+                                    .setMessage("Bạn muốn thêm thành công")
                                     // Specifying a listener allows you to take an action before dismissing the dialog.
                                     // The dialog is automatically dismissed when a dialog button is clicked.
                                     .setPositiveButton("yes", new DialogInterface.OnClickListener() {
