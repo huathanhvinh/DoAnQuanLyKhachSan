@@ -153,7 +153,7 @@
                 <ListView
                     android:id="@+id/lvthue"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:orientation="horizontal"
                     tools:listitem="@layout/items_phongthue"></ListView>
             </LinearLayout>
@@ -221,7 +221,7 @@
                 <ListView
                     android:id="@+id/lvDv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:orientation="horizontal"
                     tools:listitem="@layout/item_dv"></ListView>
             </LinearLayout>
