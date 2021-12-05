@@ -121,6 +121,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), "Mã xác nhận đã sai, mời nhập lại", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
+                        tvcacha.setText(RamdomCapcha() + "");
                         //Log.e("eror", e.getMessage());
                     }
                 }
@@ -154,6 +155,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
                         // Sign in failed, display a message and update the UI
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             //Thông báo OTP sai
+                            tvcacha.setText(RamdomCapcha() + "");
                             Toast.makeText(getApplicationContext(), "Thất bại", Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -235,8 +235,7 @@ public class NVTN_Thongtintaikhoan extends AppCompatActivity {
         ivChangeSDT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                edtSoDT.setEnabled(true);
-                //Toast.makeText(getApplicationContext(), "chuyển màn hình sửa sdt", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),update_phonenumber_1.class));
             }
         });
         ivChangeCMND.setOnClickListener(new View.OnClickListener() {

@@ -116,6 +116,7 @@ public class update_phonenumber_1 extends AppCompatActivity {
                          sendOTPCode(oldphone.getText().toString());
 
                     } else {
+                        tvcacha.setText(RamdomCapcha() + "");
                         Toast.makeText(getApplicationContext(), "Xin nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     }
                 } else {
