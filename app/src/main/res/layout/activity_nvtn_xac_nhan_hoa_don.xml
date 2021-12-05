@@ -174,7 +174,7 @@
                     tools:listitem="@layout/items_phongthue"
                     android:id="@+id/lvthue"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:orientation="horizontal">
                 </ListView>
             </LinearLayout>
@@ -234,7 +234,7 @@
                     tools:listitem="@layout/item_dv"
                     android:id="@+id/lvDv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:orientation="horizontal">
                 </ListView>
             </LinearLayout>
