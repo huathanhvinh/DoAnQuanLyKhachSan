@@ -155,15 +155,13 @@
                     <TextView
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="Số điện thoại :"
+                        android:text="Địa chỉ :"
                         android:textColor="#FD0B0B" />
 
                     <EditText
-                        android:id="@+id/edtSDT"
-                        android:inputType="number"
+                        android:id="@+id/edtDiaChi"
                         android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:text="0859777888" />
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
