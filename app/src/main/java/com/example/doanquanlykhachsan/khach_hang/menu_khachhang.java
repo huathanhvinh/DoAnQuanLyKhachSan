@@ -140,7 +140,7 @@ public class menu_khachhang extends AppCompatActivity {
                 StaticConfig.sothongbao = 0;
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     ThongBao tb = ds.getValue(ThongBao.class);
-                    if (tb.getTrangThai().equals("Chưa xác nhận") ) {
+                    if (tb.getTrangThai().equals("Chưa xác nhận")&& tb.getNguoinhan().equals(StaticConfig.currentuser) ) {
                         StaticConfig.sothongbao++;
                     }
                 }

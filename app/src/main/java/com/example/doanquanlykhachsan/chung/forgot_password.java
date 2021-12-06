@@ -72,8 +72,8 @@ public class forgot_password extends AppCompatActivity {
         imgChangeCapcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rdCapCha = RamdomCapcha();
-                tvCapCha.setText(rdCapCha);
+
+                tvCapCha.setText(RamdomCapcha() + "");
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
