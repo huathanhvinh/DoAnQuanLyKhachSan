@@ -15,7 +15,7 @@ import com.example.doanquanlykhachsan.model.KhachHang;
 
 public class NVTN_SuaKhachHang extends AppCompatActivity {
     Button btnTroVe,btnSuaKH;
-    EditText edtTenKH ,edtCMND,edtSDT;
+    EditText edtTenKH ,edtCMND,edtDiaChi;
     KhachHang kh ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,10 @@ public class NVTN_SuaKhachHang extends AppCompatActivity {
     }
 
     private void KhoiTao() {
+
         kh = (KhachHang) getIntent().getSerializableExtra("SuaKhachHang");
         edtTenKH.setText(kh.getTenKH()+"");
-        edtSDT.setText(kh.getSdtKH()+"");
+        edtDiaChi.setText(kh.getDiaChi()+"");
         edtCMND.setText(kh.getCmnd()+"");
 
 
@@ -46,9 +47,9 @@ public class NVTN_SuaKhachHang extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tenkh =edtTenKH.getText().toString();
-                String sodt=edtSDT.getText().toString();
+                String diachi=edtDiaChi.getText().toString();
                 String cmnd=edtCMND.getText().toString();
-                KhachHang khachhang = new KhachHang(kh.getStt(),kh.getMaFB(),tenkh,sodt,kh.getDiaChi(),cmnd);
+                KhachHang khachhang = new KhachHang(kh.getStt(),kh.getMaFB(),tenkh,kh.getSdtKH(),diachi,cmnd);
                 StaticConfig.mKhachHang.child(kh.getMaFB()).setValue(khachhang);
                 new AlertDialog.Builder(NVTN_SuaKhachHang.this)
                         .setTitle("Sữa khách hàng")
@@ -67,6 +68,6 @@ public class NVTN_SuaKhachHang extends AppCompatActivity {
         btnSuaKH =findViewById(R.id.btnSuaKH);
         edtTenKH =findViewById(R.id.edtTenKH);
         edtCMND =findViewById(R.id.edtCMND);
-        edtSDT = findViewById(R.id.edtSDT);
+        edtDiaChi = findViewById(R.id.edtDiaChi);
     }
 }

@@ -22,8 +22,10 @@ public class StaticConfig {
     public static String currentCmnd = "";
     public static String Loai = "";
     public static String songay = "";
-    public static ArrayList<String>loaiNgay= new ArrayList<>();
-    public static ArrayList<String>loaiGio= new ArrayList<>();
+    public static ArrayList<String> loaiNgay = new ArrayList<>();
+    public static ArrayList<String> loaiGio = new ArrayList<>();
+    //so thong bao
+    public static int sothongbao = 0;
 
 
     public static DatabaseReference mUser = Database.getReference("User");
@@ -40,6 +42,7 @@ public class StaticConfig {
 
     public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mRoomRented = Database.getReference("PhongDaDat");
+    public static DatabaseReference mThongBao = Database.getReference("Thongbao");
     //them du lieu khách hàng
 
     //thêm dữ liệu hóa đơn
@@ -51,8 +54,6 @@ public class StaticConfig {
     public static DatabaseReference mDichVuDaChon = Database.getReference("DichVuDaChon");
 
 
-
-
     //Danh sách phòng tạm thời
     public static ArrayList<Phong> arrayListTemporaryRoom = new ArrayList<>();
     //Danh sách dịch vụ tạm thời
@@ -62,7 +63,7 @@ public class StaticConfig {
     //ma thue
     public static String mathue = "";
     //Tổng tiền
-    public static float Tongtien ;
+    public static float Tongtien;
     //check all
     public static boolean isCheckAll = false;
     //chon phong de doi

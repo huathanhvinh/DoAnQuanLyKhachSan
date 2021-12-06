@@ -7,13 +7,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.doanquanlykhachsan.khach_hang.*;
 import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
@@ -23,22 +22,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
 public class menu_khachhang extends AppCompatActivity {
 
 
     private ImageView avatar;
     private TextView name;
-    private TextView test, tvDatPhongTheoNgay, getTvDatPhongTheoGio;
+    private TextView test, tvDatPhongTheoNgay, getTvDatPhongTheoGio, sothongbao;
     private Button dangxuat;
     private TextView traphong, danhsachdaphong, thongtin;
-    ArrayList<Long> soluong = new ArrayList<>();
-    ArrayList<Room> data = new ArrayList<>();
-    int i;
+    private LinearLayout lnthongbao;
 
-    String key;
-    Room room;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +40,15 @@ public class menu_khachhang extends AppCompatActivity {
         StaticConfig.currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         setControl();
         setEvent();
-        Log.e("role",StaticConfig.role+"");
-        Log.e("cmnd",StaticConfig.currentCmnd+"");
     }
 
     private void setEvent() {
+        lnthongbao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), KH_Thongbao.class));
+            }
+        });
         traphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +111,9 @@ public class menu_khachhang extends AppCompatActivity {
         getTvDatPhongTheoGio = findViewById(R.id.tvDatPhongTheoGio);
         danhsachdaphong = findViewById(R.id.phongdadat);
         thongtin = findViewById(R.id.thongtin);
+        lnthongbao = findViewById(R.id.lnThongbao);
+        sothongbao = findViewById(R.id.sothongbao);
+        setsoThongbao();
         StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -131,5 +131,26 @@ public class menu_khachhang extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setsoThongbao() {
+        StaticConfig.mThongBao.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                StaticConfig.sothongbao = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ThongBao tb = ds.getValue(ThongBao.class);
+                    if (tb.getTrangThai().equals("Chưa xác nhận")&& tb.getNguoinhan().equals(StaticConfig.currentuser) ) {
+                        StaticConfig.sothongbao++;
+                    }
+                }
+                sothongbao.setText("(" + StaticConfig.sothongbao + ")");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
     }
 }

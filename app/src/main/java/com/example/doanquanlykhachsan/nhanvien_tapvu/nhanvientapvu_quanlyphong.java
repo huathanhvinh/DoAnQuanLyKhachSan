@@ -188,7 +188,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
                             ketqua.clear();
                             for (DataSnapshot ds : snapshot.getChildren()) {
                                 Phong p = ds.getValue(Phong.class);
-                                if (!p.getTrangThai().equals("Chưa Dọn")) {
+                                if (p.getTrangThai().equals("Trống")) {
                                     ketqua.add(p);
                                 }
                             }

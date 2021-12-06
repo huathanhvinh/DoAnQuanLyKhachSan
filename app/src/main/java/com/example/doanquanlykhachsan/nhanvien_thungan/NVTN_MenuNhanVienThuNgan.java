@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -17,15 +18,18 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.chung.Change_passwork;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.NhanVien;
+import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
-    private TextView tvTTTaiKhoan , tvLichLamViec,tvQLKhachHang,tvLapPhieuThue,tvLapHoaDon,tvThongBao,tvLuong,tvDoiMK,tvTenNV;
+    private TextView tvTTTaiKhoan, tvLichLamViec, tvQLKhachHang, tvLapPhieuThue, tvLapHoaDon, tvThongBao, tvLuong, tvDoiMK, tvTenNV;
     private Button btnDangXuat;
     private LinearLayout doiMK;
+    private TextView sothongbao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,28 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
         setConTrol();
         setEvent();
         sdtHienTai();
+        setsoThongbao();
+    }
+
+    private void setsoThongbao() {
+        StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                StaticConfig.sothongbao = 0;
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    PhongDaDat da =ds.getValue(PhongDaDat.class);
+                    if(da.getXacnhan().equals("Chưa Xác Nhận")||da.getXacnhan().equals("Trả Phòng")){
+                        StaticConfig.sothongbao++;
+                    }
+                }
+                sothongbao.setText("("+StaticConfig.sothongbao+")");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
     }
 
     private void sdtHienTai() {
@@ -41,18 +67,17 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     if (ds.child("maFB").getValue(String.class).equals(StaticConfig.currentuser)) {
-                        StaticConfig.currentphone=ds.child("sdt").getValue(String.class);
+                        StaticConfig.currentphone = ds.child("sdt").getValue(String.class);
                         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot ds : snapshot.getChildren())
-                                {
+                                for (DataSnapshot ds : snapshot.getChildren()) {
                                     NhanVien nv = ds.getValue(NhanVien.class);
-                                    if(nv.getSoDienThoai().toString().equals(StaticConfig.currentphone))
-                                    {
+                                    if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
                                         tvTenNV.setText(nv.getTenNV());
                                     }
                                 }
+
                             }
 
                             @Override
@@ -75,7 +100,7 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
         tvLapPhieuThue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),NV_chonphonglapphieuthue.class));
+                startActivity(new Intent(getApplicationContext(), NV_chonphonglapphieuthue.class));
             }
         });
         doiMK.setOnClickListener(new View.OnClickListener() {
@@ -87,37 +112,37 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
         tvLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_Thongtinluong.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_Thongtinluong.class));
             }
         });
         tvLichLamViec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_lichlamviec.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_lichlamviec.class));
             }
         });
         tvTTTaiKhoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_Thongtintaikhoan.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_Thongtintaikhoan.class));
             }
         });
         tvQLKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_HienThiDanhSachKhachHang.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_HienThiDanhSachKhachHang.class));
             }
         });
         tvLapHoaDon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_LapHoaDon.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_LapHoaDon.class));
             }
         });
         tvThongBao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NVTN_Thong_Bao.class));
+                startActivity(new Intent(getApplicationContext(), NVTN_Thong_Bao.class));
             }
         });
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
@@ -143,18 +168,18 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
     }
 
 
-
     private void setConTrol() {
-        tvTenNV=findViewById(R.id.tvTenNV);
-        tvTTTaiKhoan=findViewById(R.id.tvTTTaiKhoan);
-        tvLichLamViec=findViewById(R.id.tvLichLamViec);
-        tvQLKhachHang=findViewById(R.id.tvQLKhachHang);
-        tvLapPhieuThue=findViewById(R.id.tvLapPhieuThue);
-        tvLapHoaDon=findViewById(R.id.tvLapHoaDon);
-        tvThongBao=findViewById(R.id.tvThongBao);
-        tvLuong=findViewById(R.id.tvLuong);
-        tvDoiMK=findViewById(R.id.tvDoiMK);
-        btnDangXuat=findViewById(R.id.btnDangXuat);
-        doiMK=findViewById(R.id.lnchange);
+        tvTenNV = findViewById(R.id.tvTenNV);
+        tvTTTaiKhoan = findViewById(R.id.tvTTTaiKhoan);
+        tvLichLamViec = findViewById(R.id.tvLichLamViec);
+        tvQLKhachHang = findViewById(R.id.tvQLKhachHang);
+        tvLapPhieuThue = findViewById(R.id.tvLapPhieuThue);
+        tvLapHoaDon = findViewById(R.id.tvLapHoaDon);
+        tvThongBao = findViewById(R.id.tvThongBao);
+        tvLuong = findViewById(R.id.tvLuong);
+        tvDoiMK = findViewById(R.id.tvDoiMK);
+        btnDangXuat = findViewById(R.id.btnDangXuat);
+        sothongbao=findViewById(R.id.sothongbao);
+        doiMK = findViewById(R.id.lnchange);
     }
 }

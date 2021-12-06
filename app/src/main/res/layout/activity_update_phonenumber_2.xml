@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Nhập mã OTP số điện thoại cũ:"
+                android:text="Nhập mã OTP số điện thoại mới:"
                 android:textColor="#ffff"
                 android:textSize="14dp"
                 android:textStyle="bold"

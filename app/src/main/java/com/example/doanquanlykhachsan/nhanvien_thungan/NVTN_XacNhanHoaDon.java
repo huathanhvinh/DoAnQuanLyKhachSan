@@ -18,13 +18,12 @@ import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.HoaDon;
-import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.KhuyenMai;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.adapter.*;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
-import com.example.doanquanlykhachsan.model.User;
+import com.example.doanquanlykhachsan.model.ThongBao;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -59,6 +58,8 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     int stt = 0;
     String maKH = "";
     String maNV = "";
+    int idthongbao = 0;
+    private String tennv="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +116,10 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                //thông báo cho khách hàng
+                                String id = StaticConfig.mThongBao.push().getKey();
+                                ThongBao tb = new ThongBao(idthongbao + 1, id, "Thanh toán", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
+                                StaticConfig.mThongBao.child(id).setValue(tb);
                                 //thêm vào hoá đơn
                                 String key = StaticConfig.mHoaDon.push().getKey();
                                 Log.e("solan", stt + 1 + "");
@@ -233,6 +238,8 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     }
 
     private void khoitao() {
+        tenNhanvien();
+        layid();
         chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
         tvTenKH.setText(chitiet.getTen());
         tenKH.setText(chitiet.getTen());
@@ -414,5 +421,41 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
     public int timeBetween(Date d1, Date d2) {
         return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60)) % 24;
+    }
+
+    private void tenNhanvien() {
+        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    NhanVien nv = ds.getValue(NhanVien.class);
+                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
+                        tennv = nv.getTenNV();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void layid() {
+        StaticConfig.mThongBao.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ThongBao tb = ds.getValue(ThongBao.class);
+                    idthongbao = tb.getStt();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

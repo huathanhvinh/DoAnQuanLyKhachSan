@@ -10,15 +10,24 @@ public class ThongBao {
     String mota;
     String nguoidang;
     long timestamp;
+    String nguoinhan;
 
-    public ThongBao(int stt, String maFB, String loai, String trangThai, String mota, String nguoidang) {
+    public ThongBao(int stt, String maFB, String loai, String trangThai, String mota, String nguoidang, String nguoinhan) {
         this.stt = stt;
         this.maFB = maFB;
         this.loai = loai;
         this.trangThai = trangThai;
         this.mota = mota;
         this.nguoidang = nguoidang;
-        this.timestamp = StaticConfig.timestamp;
+        this.nguoinhan = nguoinhan;
+    }
+
+    public String getNguoinhan() {
+        return nguoinhan;
+    }
+
+    public void setNguoinhan(String nguoinhan) {
+        this.nguoinhan = nguoinhan;
     }
 
     public ThongBao() {
