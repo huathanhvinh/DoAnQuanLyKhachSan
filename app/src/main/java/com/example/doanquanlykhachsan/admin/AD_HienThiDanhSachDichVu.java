@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +40,12 @@ public class AD_HienThiDanhSachDichVu extends AppCompatActivity {
     }
 
     private void setEvent() {
+        btnTaoMoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AD_ThemDichVu.class));
+            }
+        });
         //hiển thị danh sách dịch vụ từ firebase
         setDanhSachDichVu();
         //sự kiện nút trở về
