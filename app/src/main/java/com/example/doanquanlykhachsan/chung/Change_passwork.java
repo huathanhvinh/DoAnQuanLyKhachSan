@@ -41,6 +41,13 @@ public class Change_passwork extends AppCompatActivity {
     }
 
     private void setEvent() {
+        imgChangeCapcha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rdCapCha = RamdomCapcha();
+                tvCapCha.setText(rdCapCha + "");
+            }
+        });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
