@@ -93,7 +93,6 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (StaticConfig.arrayListTemporaryRoom.size() > 0) {
-
                     new AlertDialog.Builder(NV_chonphonglapphieuthue.this)
                             .setTitle("Đặt Phòng")
                             .setMessage("Chọn loại !!")
@@ -108,6 +107,15 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                                     startActivity(new Intent(getApplicationContext(), NVTN_LapPhieuThue_Ngay.class));
                                 }
                             })
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+                else {
+                    new AlertDialog.Builder(NV_chonphonglapphieuthue.this)
+                            .setTitle("Đặt Phòng")
+                            .setMessage("Vui Lòng chọn Phòng !!")
+                            .setPositiveButton("ok", null)
                             // A null listener allows the button to dismiss the dialog and take no further action.
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
