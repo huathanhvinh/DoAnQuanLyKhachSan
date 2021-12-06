@@ -29,7 +29,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Khách hàng A"
+        android:text="Khách hàng AB"
         android:textColor="@color/white"
         android:textSize="25dp" />
     <LinearLayout
