@@ -34,18 +34,5 @@ public class NVTN_Thong_Bao extends AppCompatActivity {
         adapter.addFragment(new NVTN_ThongBao_DatPhong(), "Đặt Phòng");
         adapter.addFragment(new NVTN_ThongBao_TraPhong(), "Trả Phòng");
         viewpager.setAdapter(adapter);
-        Timer myTimer = new Timer();
-        myTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Thongbao();
-            }
-        }, 0, 60000);
-    }
-    private void Thongbao() {
-
-//        String key= StaticConfig.mThongbao.push().getKey();
-//        ThongBao tb = new ThongBao(1,key,"h","xác nhận","mô tả",StaticConfig.currentuser);
-//        StaticConfig.mThongbao.child(key).setValue(tb);
     }
 }
