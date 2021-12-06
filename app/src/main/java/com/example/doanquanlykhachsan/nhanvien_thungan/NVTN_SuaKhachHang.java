@@ -27,6 +27,7 @@ public class NVTN_SuaKhachHang extends AppCompatActivity {
     }
 
     private void KhoiTao() {
+
         kh = (KhachHang) getIntent().getSerializableExtra("SuaKhachHang");
         edtTenKH.setText(kh.getTenKH()+"");
         edtDiaChi.setText(kh.getDiaChi()+"");
