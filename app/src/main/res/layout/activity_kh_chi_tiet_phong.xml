@@ -6,23 +6,22 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:paddingHorizontal="20sp"
+    android:padding="5dp"
     android:weightSum="10"
     tools:context=".khach_hang.KH_ChiTietPhong">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0sp"
         android:layout_weight="1"
-        android:gravity="center|left"
+        android:gravity="center"
         android:text="Chi tiết phòng"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="2">
 
         <ImageView
             android:layout_width="match_parent"
@@ -79,15 +78,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5"
+        android:layout_weight="3.5"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="8">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -99,20 +96,17 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6"
+                android:layout_weight="5"
                 android:background="@drawable/kh_border"
                 android:orientation="vertical">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:weightSum="4">
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -139,11 +133,10 @@
                             android:src="@drawable/icon_kh_user" />
 
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:orientation="vertical"
                         android:weightSum="3">
 
@@ -171,7 +164,6 @@
                             android:text="Mô tả "
                             android:textColor="@color/white" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -206,22 +198,20 @@
                             android:text="1"
                             android:textColor="@color/white" />
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvGia"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:gravity="center|bottom"
-                        android:text="369.817đ"
-                        android:textColor="#FA5C5C"
-                        android:textSize="30sp" />
                 </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:id="@+id/tvGia"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:gravity="right"
+                android:text="369.817đ"
+                android:textColor="#FA5C5C"
+                android:textSize="30sp" />
         </LinearLayout>
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0sp"
@@ -230,19 +220,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnTroVe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="70sp"
-            android:backgroundTint="#25BDAF"
-            android:text="Trở về"></Button>
-
-        <Button
             android:id="@+id/btnDatPhong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
             android:text="Đặt phòng"></Button>
+
+        <Button
+            android:id="@+id/btnTroVe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70sp"
+            android:backgroundTint="#25BDAF"
+            android:text="Trở về"></Button>
     </LinearLayout>
 
 </LinearLayout>

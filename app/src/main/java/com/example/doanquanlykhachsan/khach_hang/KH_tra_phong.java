@@ -17,6 +17,7 @@ import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
+import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -125,22 +126,21 @@ public class KH_tra_phong extends AppCompatActivity {
     }
 
     private void khoitao() {
-        String tenhientai = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        StaticConfig.mUser.addValueEventListener(new ValueEventListener() {
+        StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("email").getValue(String.class).equals(tenhientai)) {
-                        hoten.setText(ds.child("name").getValue(String.class));
+                for (DataSnapshot ds: snapshot.getChildren()) {
+                    KhachHang kh = ds.getValue(KhachHang.class);
+                    if(kh.getSdtKH().equals(StaticConfig.currentphone))
+                    {
+                        hoten.setText(kh.getTenKH());
                     }
-                }
-                if (hoten.getText().toString().isEmpty()) {
-                    hoten.setText(tenhientai);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
@@ -184,11 +184,11 @@ public class KH_tra_phong extends AppCompatActivity {
 
                             if (da.getManHinh().equals("ngay")) {
                                 DateDifference();
-                                songayo.setText(thoigian + " ngay");
+                                songayo.setText(thoigian + " Ngày");
                             } else {
                                 try {
                                     TimeDifference();
-                                    songayo.setText(thoigian + " gio");
+                                    songayo.setText(thoigian + " Giờ");
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }

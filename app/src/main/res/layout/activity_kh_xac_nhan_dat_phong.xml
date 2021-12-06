@@ -309,18 +309,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnTroVe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="70sp"
-            android:backgroundTint="#25BDAF"
-            android:text="Trở về"></Button>
-
-        <Button
             android:id="@+id/btnDatPhong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#25BDAF"
             android:text="Đặt phòng"></Button>
+
+        <Button
+            android:layout_marginLeft="70dp"
+            android:id="@+id/btnTroVe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:text="Trở về"></Button>
     </LinearLayout>
 </LinearLayout>

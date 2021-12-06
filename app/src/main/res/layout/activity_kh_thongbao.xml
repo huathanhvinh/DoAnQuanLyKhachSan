@@ -4,33 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="6"
     android:background="#18364B"
     android:orientation="vertical"
+    android:weightSum="10"
+    android:padding="5dp"
     tools:context=".khach_hang.KH_Thongbao">
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingBottom="20dp"
         android:text="Thông báo"
         android:textColor="#EDE9E9"
         android:textSize="35dp"
         android:textStyle="bold" />
-
     <ListView
         android:id="@+id/list_thongbao"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         tools:listitem="@layout/item_thongbao" />
-
     <Button
+        android:layout_margin="5dp"
         android:id="@+id/btnTroVe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="0dp"
+        android:textSize="20dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:backgroundTint="#25BDAF"

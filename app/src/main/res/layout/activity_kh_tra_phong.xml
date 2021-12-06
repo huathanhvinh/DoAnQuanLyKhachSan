@@ -184,7 +184,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:orientation="horizontal"
@@ -193,7 +193,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center|top"
                     android:layout_weight="2"
                     android:text="Dịch vụ đã chọn:"
                     android:textColor="@color/white"
@@ -202,7 +202,7 @@
                 <TextView
                     android:id="@+id/tvcacdichvu"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="3"

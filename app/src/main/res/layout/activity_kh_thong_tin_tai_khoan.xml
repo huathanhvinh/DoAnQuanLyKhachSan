@@ -23,7 +23,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_weight="2.5"
-            android:src="@drawable/img_avatar"></de.hdodenhof.circleimageview.CircleImageView>
+            android:src="@drawable/avatar_customer"></de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
             android:layout_width="match_parent"

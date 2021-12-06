@@ -58,18 +58,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btntrove"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="70sp"
-            android:background="@drawable/custom_button"
-            android:text="Trở về"></Button>
-
-        <Button
             android:id="@+id/btndoiphong"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
             android:text="Đổi phòng"></Button>
+        <Button
+            android:id="@+id/btntrove"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:background="@drawable/custom_button"
+            android:text="Trở về"></Button>
+
+
     </LinearLayout>
 </LinearLayout>

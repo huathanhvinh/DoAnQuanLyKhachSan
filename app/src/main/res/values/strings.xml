@@ -77,7 +77,7 @@ Nếu hủy trong vòng 1 ngày trước khi khách đến – Khách sạn sẽ
 
 
 </string>
-    <string name="chi_tiet_hoa_don"> <u>Chi tiết hoá đơn</u>.</string>
+    <string name="chi_tiet_hoa_don"> <u>Chi tiết hoá đơn</u></string>
     <array name="HoiVien">
         <item>Bạc</item>
         <item>Vàng</item>
