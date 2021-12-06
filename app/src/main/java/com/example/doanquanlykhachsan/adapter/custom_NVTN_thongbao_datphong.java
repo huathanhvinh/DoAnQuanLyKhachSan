@@ -18,8 +18,10 @@ import androidx.appcompat.app.AlertDialog;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.KhachHang;
+import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.example.doanquanlykhachsan.model.ThongBao;
 import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_thongbao_xacnhandatphong;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +33,8 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<PhongDaDat> data;
+    int id = 0;
+    private String tennv;
 
     public custom_NVTN_thongbao_datphong(@NonNull Context context, int resource, ArrayList<PhongDaDat> data) {
         super(context, resource, data);
@@ -53,12 +57,14 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
         TextView ngay = convertView.findViewById(R.id.ngay);
         Button btnChiTiet = convertView.findViewById(R.id.btnChiTiet);
         Button btnXacNhan = convertView.findViewById(R.id.btnxacnhan);
+        layid();
+        tenNhanvien();
 
         PhongDaDat thongbao = data.get(position);
         stt.setText(thongbao.getStt() + "");
         ngay.setText(thongbao.getNgaybatdau());
         hoten.setText(thongbao.getTen());
-             btnXacNhan.setOnClickListener(new View.OnClickListener() {
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(getContext())
@@ -90,6 +96,9 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
                                         }
                                     });
                                 }
+                                String key = StaticConfig.mThongBao.push().getKey();
+                                ThongBao tb = new ThongBao(id + 1, key, "Đặt Phòng", "Chưa xác nhận", "", tennv,thongbao.getMaKH());
+                                StaticConfig.mThongBao.child(key).setValue(tb);
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.
@@ -111,5 +120,41 @@ public class custom_NVTN_thongbao_datphong extends ArrayAdapter {
             }
         });
         return convertView;
+    }
+
+    private void tenNhanvien() {
+        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    NhanVien nv =ds.getValue(NhanVien.class);
+                    if(nv.getSoDienThoai().equals(StaticConfig.currentphone)){
+                        tennv = nv.getTenNV();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void layid() {
+        StaticConfig.mThongBao.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ThongBao tb = ds.getValue(ThongBao.class);
+                    id = tb.getStt();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

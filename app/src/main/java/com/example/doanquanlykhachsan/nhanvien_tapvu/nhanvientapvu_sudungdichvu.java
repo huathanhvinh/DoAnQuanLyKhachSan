@@ -80,14 +80,14 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Phong phong = ds.getValue(Phong.class);
-                                        if (phong.getMaPhong().equals(w)) {
-                                            for (String u : parts2) {
+                                    if (phong.getMaPhong().equals(w)) {
+                                        for (String u : parts2) {
                                             if (loaiDV.equals(u)) {
-                                                data.add(phong);
-                                                Log.e("ma",da.getMaDichVu());
+                                                if (phong.getTrangThai().equals("Đã Đặt Phòng")) {
+                                                    data.add(phong);
+                                                }
                                             }
                                         }
                                     }
