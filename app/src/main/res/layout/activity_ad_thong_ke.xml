@@ -78,6 +78,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tvNgayBatDau"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -87,6 +88,7 @@
                         android:textSize="18dp"></TextView>
 
                     <ImageButton
+                        android:id="@+id/imNgayBatDau"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
@@ -95,6 +97,7 @@
                     </ImageButton>
 
                     <TextView
+                        android:id="@+id/txNgayKetThuc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -106,6 +109,7 @@
                     </TextView>
 
                     <ImageButton
+                        android:id="@+id/imNgayKetThuc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -152,7 +156,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:text="300,000,000 VND"
+                android:text="0 VND"
                 android:textColor="#FF0000"
                 android:textSize="20dp"></TextView>
 
