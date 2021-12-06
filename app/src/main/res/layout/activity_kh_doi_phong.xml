@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
+    android:padding="5dp"
     android:weightSum="10"
     tools:context=".khach_hang.KH_danh_sach_phong_trong">
 
@@ -14,22 +15,22 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:padding="20sp"
-        android:text="Đổi phòng"
+        android:text="Đổi Phòng"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5"
+        android:layout_weight="2"
+        android:padding="5dp"
         android:src="@drawable/phong"></ImageView>
 
     <TextView
         android:id="@+id/tvTenPhong"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:gravity="center"
         android:text="Phòng tiêu chuẩn 1 giường đôi lớn"
         android:textColor="@color/white"
@@ -41,100 +42,120 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:text="Chính sách khách sạn"
+        android:text="@string/chinhSach"
         android:textColor="#00FF75" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20sp"
-        android:layout_weight="0.5"
-        android:background="#A5AE3C"
-        android:gravity="center|right"
-        android:paddingRight="10dp"
-        android:text="Thông tin thêm"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_weight="3"
-        android:background="@drawable/khung"
-        android:orientation="vertical"
-      >
+        android:layout_weight="5">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#A5AE3C"
+                android:gravity="right|center"
+                android:paddingRight="5dp"
+                android:text="Thông tin thêm"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="9">
+                android:background="@drawable/khung"
+                android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:gravity="center|left"
-                    android:text="Dịch vụ :"
-                    android:textColor="@color/white"></TextView>
-                <GridView
-                    android:id="@+id/gv_dv"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center|left"
+                            android:text="Dịch vụ"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"></TextView>
+
+                        <GridView
+                            android:id="@+id/gv_dv"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:numColumns="2"
+                            android:padding="5dp"
+                            tools:listitem="@layout/kh_item_ds_dich_vu"></GridView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="7"
-                    android:numColumns="2"
-                    android:padding="10sp"
-                    tools:listitem="@layout/kh_item_ds_dich_vu"></GridView>
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:text="Thành tiền "
+                            android:textSize="20dp"
+                            android:textColor="#fff"
+                            android:gravity="left|center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </TextView>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|right"
+                        android:paddingRight="10dp"
+                        android:text="369.817đ"
+                        android:textColor="#FA5C5C"
+                        android:textSize="25dp" />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center|left"
+                    android:text="Lý do đổi phòng"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"></TextView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:gravity="top"
+                    android:hint="Lý do khách hàng...."
+                    android:paddingLeft="5dp">
+
+                </EditText>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:paddingLeft="10dp"
-                android:text="Lý do đổi phòng"
-                android:textColor="@color/white"></TextView>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|right"
-                android:paddingRight="10dp"
-                android:text="369.817đ"
-                android:textColor="#FA5C5C"
-                android:textSize="20dp" />
-        </LinearLayout>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="10sp"
-            android:layout_weight="2"
-            android:background="@color/white"
-            android:gravity="left"
-            android:hint="Lý do khách hàng....">
-
-        </EditText>
-    </LinearLayout>
-
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -143,20 +164,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btntrove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="70sp"
-            android:background="@drawable/custom_button"
-            android:text="Trở về"></Button>
-
-        <Button
             android:id="@+id/btnxacnhan"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
             android:text="Xác nhận"></Button>
+
+        <Button
+            android:id="@+id/btntrove"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/custom_button"
+            android:text="Trở về"></Button>
     </LinearLayout>
-
-
 </LinearLayout>

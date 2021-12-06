@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachNhanVien;
 import com.example.doanquanlykhachsan.admin.AD_HienThiDanhSachPhong;
 import com.example.doanquanlykhachsan.admin.AD_MenuAdmin;
 import com.example.doanquanlykhachsan.chung.*;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            startActivity(new Intent(getApplicationContext(), sign_in.class));
+            startActivity(new Intent(getApplicationContext(),sign_in.class));
         }
 
     }

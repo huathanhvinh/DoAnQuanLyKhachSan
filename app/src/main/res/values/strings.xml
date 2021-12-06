@@ -88,5 +88,6 @@ Nếu hủy trong vòng 1 ngày trước khi khách đến – Khách sạn sẽ
     <string name="tab_text_2">Dịch vụ</string>
     <string name="tab_text_3">Trả Phòng</string>
     <string name="quenMK"><u>Quên mật khẩu ?</u></string>
+    <string name="chinhSach"><u>Chính sách khách hàng</u></string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
