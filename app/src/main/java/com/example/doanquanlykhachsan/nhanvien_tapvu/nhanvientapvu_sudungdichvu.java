@@ -50,7 +50,6 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
 
     private void setEvent() {
         loaiDV = (String) getIntent().getStringExtra("XemPhong");
-        Log.d("loaiphong", loaiDV);
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,31 +67,32 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                data.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     PhongDaDat da = ds.getValue(PhongDaDat.class);
                     String maPhong = da.getMaPhong();
                     String maLoai = da.getMaDichVu();
-
                     String[] parts1;
                     parts1 = maPhong.split(" ");
                     String[] parts2;
                     parts2 = maLoai.split(" ");
-
                     for (String w : parts1) {
                         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                data.clear();
+
                                 for (DataSnapshot ds : snapshot.getChildren()) {
                                     Phong phong = ds.getValue(Phong.class);
-                                    if (phong.getMaPhong().equals(w)) {
-                                        for (String u : parts2) {
+                                        if (phong.getMaPhong().equals(w)) {
+                                            for (String u : parts2) {
                                             if (loaiDV.equals(u)) {
                                                 data.add(phong);
+                                                Log.e("ma",da.getMaDichVu());
                                             }
                                         }
                                     }
                                 }
+
                                 sudungdichvu = new custom_nhanvientapvu_sudungdichvu(getApplicationContext(), R.layout.listview_nhanvientapvu_sudungdichvu, data);
                                 lvSuDungDV.setAdapter(sudungdichvu);
                                 sudungdichvu.notifyDataSetChanged();
@@ -104,6 +104,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
                             }
                         });
                     }
+
 
                 }
             }

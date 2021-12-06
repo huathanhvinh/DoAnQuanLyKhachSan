@@ -135,6 +135,7 @@
                 android:src="@drawable/icon_thongbao" />
 
             <LinearLayout
+                android:id="@+id/lnThongbao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
