@@ -1,6 +1,7 @@
 package com.example.doanquanlykhachsan.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,9 +51,13 @@ public class KH_CustomDichvu extends ArrayAdapter {
         convertView = LayoutInflater.from(context).inflate(resource, null);
         TextView ten = convertView.findViewById(R.id.tvTendv);
         CheckBox cboDichVu = convertView.findViewById(R.id.cboDichVu);
+        LinearLayout layout = convertView.findViewById(R.id.lndv);
 
         DichVu dv = data.get(position);
         ten.setText(dv.getMota());
+        if (StaticConfig.sXacNhan.equals("Đổi Phòng")) {
+            layout.setBackgroundColor(Color.parseColor("#3a5263"));
+        }
         ten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

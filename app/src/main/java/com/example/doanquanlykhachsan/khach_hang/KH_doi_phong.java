@@ -19,10 +19,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class KH_doi_phong extends AppCompatActivity {
-    private TextView chinhsach, tvtenphong;
+    private TextView chinhsach, tvtenphong, tvGia;
     private Button btntrove, btnxacnhan;
     Phong chitiet;
     private ArrayList<DichVu> data = new ArrayList<>();
@@ -36,6 +37,7 @@ public class KH_doi_phong extends AppCompatActivity {
         chitiet = (Phong) getIntent().getSerializableExtra("chitiet");
         SetControl();
         setEvnet();
+        StaticConfig.sXacNhan = "Đổi Phòng";
     }
 
     private void setEvnet() {
@@ -88,7 +90,15 @@ public class KH_doi_phong extends AppCompatActivity {
         btnxacnhan = findViewById(R.id.btnxacnhan);
         tvtenphong = findViewById(R.id.tvTenPhong);
         gridView = findViewById(R.id.gv_dv);
+        tvGia = findViewById(R.id.tvGia);
         tvtenphong.setText("Phòng " + chitiet.getSoPhong());
+        DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+        if (StaticConfig.Loai.equals("ngay")) {
+            tvGia.setText(toTheFormat.format(chitiet.getGiaNgay()) + " VNĐ");
+        }
+        if (StaticConfig.Loai.equals("gio")) {
+            tvGia.setText(toTheFormat.format(chitiet.getGiaGio()) + " VNĐ");
+        }
 
         customDichvu = new KH_CustomDichvu(getApplicationContext(), R.layout.kh_item_ds_dich_vu, data);
         gridView.setAdapter(customDichvu);

@@ -125,12 +125,13 @@
                         </TextView>
                     </LinearLayout>
                     <TextView
+                        android:id="@+id/tvGia"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center|right"
                         android:paddingRight="10dp"
-                        android:text="369.817đ"
+                        android:text="0 VNĐ"
                         android:textColor="#FA5C5C"
                         android:textSize="25dp" />
                 </LinearLayout>
