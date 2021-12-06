@@ -41,7 +41,7 @@ public class NVTN_MenuNhanVienThuNgan extends AppCompatActivity {
     }
 
     private void setsoThongbao() {
-        StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+        StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 StaticConfig.sothongbao = 0;

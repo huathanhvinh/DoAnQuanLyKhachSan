@@ -26,6 +26,7 @@ import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.example.doanquanlykhachsan.model.ThongBao;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -53,6 +54,8 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
     int ngay, thang, nam;
     private float Tongtien;
     int solan = 1;
+    private String tennv;
+    int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +105,9 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                String key = StaticConfig.mThongBao.push().getKey();
+                                ThongBao tb = new ThongBao(id + 1, key, "Đặt Phòng", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
+                                StaticConfig.mThongBao.child(key).setValue(tb);
                                 finish();
                             }
                         })
@@ -179,6 +185,8 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
     }
 
     private void khoitao() {
+        layid();
+        tenNhanvien();
         chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -316,7 +324,7 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
         tvTongtien = findViewById(R.id.tvTongTien);
         tvsdt = findViewById(R.id.txtSdt);
         btnTroVe = findViewById(R.id.btnTroVe);
-        call= findViewById(R.id.btncall);
+        call = findViewById(R.id.btncall);
 
         adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
         lv.setAdapter(adapter);
@@ -382,5 +390,41 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
 
     public int timeBetween(Date d1, Date d2) {
         return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60)) % 24;
+    }
+
+    private void tenNhanvien() {
+        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    NhanVien nv = ds.getValue(NhanVien.class);
+                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
+                        tennv = nv.getTenNV();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void layid() {
+        StaticConfig.mThongBao.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ThongBao tb = ds.getValue(ThongBao.class);
+                    id = tb.getStt();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

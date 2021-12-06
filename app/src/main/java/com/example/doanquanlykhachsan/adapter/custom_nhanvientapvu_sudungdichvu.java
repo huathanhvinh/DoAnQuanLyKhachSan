@@ -1,6 +1,8 @@
 package com.example.doanquanlykhachsan.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
@@ -20,6 +23,7 @@ import com.example.doanquanlykhachsan.model.DangKyDichVu;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
 import com.example.doanquanlykhachsan.model.Phong;
 import com.example.doanquanlykhachsan.model.PhongDaDat;
+import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_MenuNhanVienThuNgan;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -66,6 +70,7 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -78,16 +83,15 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
                 StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot ds:snapshot.getChildren()){
-                            PhongDaDat da= ds.getValue(PhongDaDat.class);
-                            String maPhong =da.getMaPhong();
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            PhongDaDat da = ds.getValue(PhongDaDat.class);
+                            String maPhong = da.getMaPhong();
                             String[] parts1;
                             parts1 = maPhong.split(" ");
                             for (String w : parts1) {
                                 if (w.equals(suDungDichVu.getMaPhong())) {
                                     StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue("");
                                 }
-                                nhanvientapvu_sudungdichvu nhanvientapvu_sudungdichvu =  new nhanvientapvu_sudungdichvu();
                             }
 
                         }
@@ -98,10 +102,18 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
 
                     }
                 });
-
             }
         });
 
         return convertView;
+    }
+
+    private Context getDialogContext() {
+        Context context;
+        if (getContext() != null)
+            context = getContext();
+        else
+            context = getContext();
+        return context;
     }
 }

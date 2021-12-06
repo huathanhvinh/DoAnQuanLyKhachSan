@@ -28,11 +28,11 @@ public class custom_nhanvientapvu_dangkydichvu extends ArrayAdapter {
     int resource;
     ArrayList<DangKyDichVu> data;
 
-    public custom_nhanvientapvu_dangkydichvu(@NonNull Context context, int resource, ArrayList<DangKyDichVu>data) {
+    public custom_nhanvientapvu_dangkydichvu(@NonNull Context context, int resource, ArrayList<DangKyDichVu> data) {
         super(context, resource, data);
-        this.context= context;
+        this.context = context;
         this.resource = resource;
-        this.data =data;
+        this.data = data;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class custom_nhanvientapvu_dangkydichvu extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(resource,null);
+        convertView = LayoutInflater.from(context).inflate(resource, null);
         TextView tvtenDichVu = convertView.findViewById(R.id.tvtenDichVu);
         Button btnXemPhong = convertView.findViewById(R.id.btnXemPhong);
 
@@ -60,9 +60,9 @@ public class custom_nhanvientapvu_dangkydichvu extends ArrayAdapter {
                 StaticConfig.mDichVu.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds:snapshot.getChildren()){
-                            if (dangKyDichVu.getTenDichVu().equals(ds.child("tenDV").getValue().toString())){
-                                bundle.putString("XemPhong",ds.child("maFB").getValue().toString());//Gán giá trị bên màn hình kia
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            if (dangKyDichVu.getTenDichVu().equals(ds.child("tenDV").getValue().toString())) {
+                                bundle.putString("XemPhong", ds.child("maFB").getValue().toString());//Gán giá trị bên màn hình kia
                                 intent.putExtras(bundle);
                                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);//Qua màn khác

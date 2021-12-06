@@ -38,7 +38,7 @@
                 android:paddingTop="5dp"
                 android:gravity="right"
                 android:textSize="20dp"
-                android:text="Tên khách hàng"
+                android:text="Tên Nhân viên"
                 android:layout_width="295dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -58,10 +58,10 @@
                 android:id="@+id/hoten"
                 android:layout_gravity="center"
                 android:textColor="#E3F512"
-                android:layout_marginRight="40dp"
                 android:gravity="right"
                 android:textSize="20dp"
-                android:text="Phạm Hải Đăng"
+                android:layout_marginRight="40dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -69,7 +69,6 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp">
-
             <Button
                 android:layout_marginRight="10dp"
                 android:id="@+id/btnxacnhan"

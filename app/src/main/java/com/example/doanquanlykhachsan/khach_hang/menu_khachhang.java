@@ -27,7 +27,7 @@ public class menu_khachhang extends AppCompatActivity {
 
     private ImageView avatar;
     private TextView name;
-    private TextView test, tvDatPhongTheoNgay, getTvDatPhongTheoGio;
+    private TextView test, tvDatPhongTheoNgay, getTvDatPhongTheoGio, sothongbao;
     private Button dangxuat;
     private TextView traphong, danhsachdaphong, thongtin;
     private LinearLayout lnthongbao;
@@ -112,6 +112,8 @@ public class menu_khachhang extends AppCompatActivity {
         danhsachdaphong = findViewById(R.id.phongdadat);
         thongtin = findViewById(R.id.thongtin);
         lnthongbao = findViewById(R.id.lnThongbao);
+        sothongbao = findViewById(R.id.sothongbao);
+        setsoThongbao();
         StaticConfig.mKhachHang.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -129,5 +131,26 @@ public class menu_khachhang extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setsoThongbao() {
+        StaticConfig.mThongBao.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                StaticConfig.sothongbao = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ThongBao tb = ds.getValue(ThongBao.class);
+                    if (tb.getTrangThai().equals("Chưa xác nhận") ) {
+                        StaticConfig.sothongbao++;
+                    }
+                }
+                sothongbao.setText("(" + StaticConfig.sothongbao + ")");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
     }
 }
