@@ -7,6 +7,7 @@
     android:background="#18364B"
     android:orientation="vertical"
     android:weightSum="10"
+    android:padding="5dp"
     tools:context=".admin.AD_ThongKe">
 
     <LinearLayout
@@ -23,7 +24,6 @@
             android:textColor="#fff"
             android:textSize="30dp"></TextView>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -162,23 +162,42 @@
 
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
+    <ScrollView
+        android:layout_weight="6"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6">
-
-        <GridView
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:id="@+id/listhoadon"
+        android:layout_height="0dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:verticalSpacing="5dp"
-            tools:listitem="@layout/item_hoadon"></GridView>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
 
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:text="CHI TIẾT HÓA ĐƠN"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+                <GridView
+                    android:id="@+id/listhoadon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:verticalSpacing="5dp"
+                    tools:listitem="@layout/item_hoadon"></GridView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -195,5 +214,4 @@
             android:text="Trở Về"
             android:textSize="20dp"></Button>
     </LinearLayout>
-
 </LinearLayout>
