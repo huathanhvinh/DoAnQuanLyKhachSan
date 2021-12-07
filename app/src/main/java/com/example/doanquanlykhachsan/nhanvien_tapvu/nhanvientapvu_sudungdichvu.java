@@ -11,9 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
 
 import com.example.doanquanlykhachsan.adapter.custom_nhanvientapvu_sudungdichvu;
@@ -32,7 +34,9 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     Button btnTroVe;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayList<String> temp = new ArrayList<>();
+    TextView tvTenDv;
     public static String loaiDV = "";
+
     static public custom_nhanvientapvu_sudungdichvu sudungdichvu;
 
     @Override
@@ -46,10 +50,12 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     private void SetControl() {
         lvSuDungDV = findViewById(R.id.lvSuDungDV);
         btnTroVe = findViewById(R.id.btnTroVe);
+        tvTenDv = findViewById(R.id.tvTendv);
+
     }
 
     private void setEvent() {
-        loaiDV = (String) getIntent().getStringExtra("XemPhong");
+        loaiDV = getIntent().getStringExtra("XemPhong");
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +70,24 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     }
 
     private void khoiTao() {
+        StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    DichVu dv = ds.getValue(DichVu.class);
+                    if(dv.getMaFB().equals(loaiDV)){
+                        tvTenDv.setText(dv.getTenDV());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         StaticConfig.mRoomRented.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

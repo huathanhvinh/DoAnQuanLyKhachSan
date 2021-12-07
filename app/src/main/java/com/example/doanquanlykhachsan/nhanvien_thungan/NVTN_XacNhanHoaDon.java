@@ -59,7 +59,8 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
     String maKH = "";
     String maNV = "";
     int idthongbao = 0;
-    private String tennv="";
+    private String tennv = "";
+    private String ngayhientai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,28 +75,32 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
         btnKm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                layngayhientai();
                 StaticConfig.mKhuyenMai.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             KhuyenMai km = ds.getValue(KhuyenMai.class);
-                            if (edmaKm.getText().toString().equals(km.getMaKM())) {
-                                float tien = Tongtien;
-                                tien = Tongtien * (100 - km.getMucGiamGia()) / 100;
-                                float tietkm = Tongtien - tien;
-                                //Tong tien
-                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
-                                tvTongtien.setText(toTheFormat.format(tien) + " VNĐ");
-                                tvTienkm.setText(toTheFormat.format(tietkm) + " VNĐ");
-                                ThanhTien = tien;
-                                break;
-                            } else {
-                                //Tong tien
-                                ThanhTien = Tongtien;
-                                DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
-                                tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
-                                tvTienkm.setText(0 + " VNĐ");
+                            if (CheckDates(ngayhientai, km.getNgayKetThuc())) {
+                                if (edmaKm.getText().toString().equals(km.getMaKM())) {
+                                    float tien = Tongtien;
+                                    tien = Tongtien * (100 - km.getMucGiamGia()) / 100;
+                                    float tietkm = Tongtien - tien;
+                                    //Tong tien
+                                    DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+                                    tvTongtien.setText(toTheFormat.format(tien) + " VNĐ");
+                                    tvTienkm.setText(toTheFormat.format(tietkm) + " VNĐ");
+                                    ThanhTien = tien;
+                                    break;
+                                } else {
+                                    //Tong tien
+                                    ThanhTien = Tongtien;
+                                    DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
+                                    tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
+                                    tvTienkm.setText(0 + " VNĐ");
+                                }
                             }
+
                         }
                     }
 
@@ -118,7 +123,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 //thông báo cho khách hàng
                                 String id = StaticConfig.mThongBao.push().getKey();
-                                ThongBao tb = new ThongBao(idthongbao + 1, id, "Thanh toán", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
+                                ThongBao tb = new ThongBao(idthongbao + 1, id, "Thanh toán", "Chưa xác nhận", "", tennv, chitiet.getMaKH());
                                 StaticConfig.mThongBao.child(id).setValue(tb);
                                 //thêm vào hoá đơn
                                 String key = StaticConfig.mHoaDon.push().getKey();
@@ -457,5 +462,35 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void layngayhientai() {
+        final Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+        calendar.set(nam, thang, ngay);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ngayhientai = simpleDateFormat.format(calendar.getTime());
+    }
+
+    //dinh dang chuoi thanh ngay
+    public static boolean CheckDates(String startDate, String endDate) {
+
+        SimpleDateFormat dfDate = new SimpleDateFormat("dd/MM/yyyy");
+        boolean b = false;
+        try {
+            if (dfDate.parse(startDate).before(dfDate.parse(endDate))) {
+                b = true;  // If start date is before end date.
+            } else if (dfDate.parse(startDate).equals(dfDate.parse(endDate))) {
+                b = true;  // If two dates are equal.
+            } else {
+                b = false; // If start date is after the end date.
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return b;
     }
 }
