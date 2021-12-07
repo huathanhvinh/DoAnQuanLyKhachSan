@@ -43,23 +43,24 @@ public class Adapter_thongke extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(context).inflate(resource, null);
-        TextView maHD = convertView.findViewById(R.id.idhoadon);
-        TextView thoigian = convertView.findViewById(R.id.tvthoigian);
-        TextView tenNhanvien = convertView.findViewById(R.id.tvTenNhanVien);
-        TextView thanhtien = convertView.findViewById(R.id.tvThanhTien);
-        TextView Loai = convertView.findViewById(R.id.tvloai);
+        TextView maHD = convertView.findViewById(R.id.tvMaHoaDon2);
+        TextView thoiGianDen = convertView.findViewById(R.id.tvNgayDen2);
+        TextView thoiGianDi = convertView.findViewById(R.id.tvNgayDi2);
+        TextView tenNhanVien = convertView.findViewById(R.id.tvNhanVienThu2);
+        TextView tongTien = convertView.findViewById(R.id.tvTongTien2);
 
         HoaDon hd = data.get(position);
-        maHD.setText("HD" + hd.getStt());
-        thoigian.setText(hd.getNgaylap());
-        Loai.setText(hd.getTongThoigian());
+        maHD.setText(hd.getNgaylap());
+        thoiGianDen.setText(hd.getNgaylap());
+        thoiGianDi.setText(hd.getNgaylap());
+
         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     NhanVien nv = ds.getValue(NhanVien.class);
                     if (nv.getMaFB().equals(hd.getMaNV())) {
-                        tenNhanvien.setText(nv.getTenNV());
+                        tenNhanVien.setText(nv.getTenNV());
                     }
                 }
             }
@@ -70,7 +71,7 @@ public class Adapter_thongke extends ArrayAdapter {
             }
         });
         DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
-        thanhtien.setText(toTheFormat.format(hd.getTongTien()) + " VNĐ");
+        tongTien.setText(toTheFormat.format(hd.getTongTien()) + " VNĐ");
 
         return convertView;
     }

@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:weightSum="10"
     android:padding="5dp"
+    android:weightSum="10"
     tools:context=".admin.AD_ThongKe">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="0.7">
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,13 +24,13 @@
             android:textColor="#fff"
             android:textSize="30dp"></TextView>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="2.3"
         android:background="#3a5263"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tvNgayBatDau"
+                        android:id="@+id/tvNgayBatDau1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -88,7 +88,7 @@
                         android:textSize="18dp"></TextView>
 
                     <ImageButton
-                        android:id="@+id/imNgayBatDau"
+                        android:id="@+id/imNgayBatDau1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
@@ -97,7 +97,7 @@
                     </ImageButton>
 
                     <TextView
-                        android:id="@+id/txNgayKetThuc"
+                        android:id="@+id/tvNgayKetThuc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -109,7 +109,7 @@
                     </TextView>
 
                     <ImageButton
-                        android:id="@+id/imNgayKetThuc"
+                        android:id="@+id/imNgayKetThuc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -124,17 +124,17 @@
                 android:layout_height="wrap_content">
 
                 <ImageButton
-                    android:id="@+id/imTimKiem"
+                    android:id="@+id/imTimKiem1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/icon_timkiem">
-                </ImageButton>
+                    android:src="@drawable/icon_timkiem"></ImageButton>
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -143,61 +143,80 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
                 android:text="Tổng Doanh Thu:"
                 android:textColor="#fff"
                 android:textSize="20dp"></TextView>
 
             <TextView
-                android:id="@+id/tvTongTien"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tvDoanhThu1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
                 android:text="0 VND"
                 android:textColor="#FF0000"
                 android:textSize="20dp"></TextView>
 
         </LinearLayout>
     </LinearLayout>
+
     <ScrollView
-        android:layout_weight="6"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="6">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="400dp">
-
-            </LinearLayout>
             <TextView
+                android:id="@+id/namThongKe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:textStyle="bold"
+                android:text="BIỂU ĐỒ THỐNG KÊ NĂM 2021"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold">
+
+            </TextView>
+            <LinearLayout
+                android:padding="5dp"
+                android:background="#B1ABAB"
+                android:layout_width="match_parent"
+                android:layout_height="380dp">
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/activity_main_piechart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.github.mikephil.charting.charts.PieChart>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="CHI TIẾT HÓA ĐƠN"
                 android:textColor="#fff"
                 android:textSize="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:textStyle="bold">
 
             </TextView>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
-                <GridView
-                    android:id="@+id/listhoadon"
+                android:layout_height="475dp">
+                <ListView
+                    tools:listitem="@layout/item_hoadon"
+                    android:id="@+id/lvDanhSachHoaDon1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:verticalSpacing="5dp"
-                    tools:listitem="@layout/item_hoadon"></GridView>
+                    android:layout_height="match_parent"
+                    android:verticalSpacing="5dp">
+                </ListView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -205,7 +224,7 @@
         android:layout_weight="1">
 
         <Button
-            android:id="@+id/btnTroVe"
+            android:id="@+id/btnTroVe1"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
