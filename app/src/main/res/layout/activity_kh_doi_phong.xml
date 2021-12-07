@@ -91,6 +91,8 @@
                             android:textSize="20dp"></TextView>
 
                         <GridView
+                            android:verticalSpacing="10dp"
+                            android:horizontalSpacing="10dp"
                             android:id="@+id/gv_dv"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"

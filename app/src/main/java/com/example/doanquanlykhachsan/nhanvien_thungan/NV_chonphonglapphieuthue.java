@@ -32,14 +32,14 @@ import java.util.ArrayList;
 
 public class NV_chonphonglapphieuthue extends AppCompatActivity {
 
+    private static int floor=1;
     ImageView imgLen, imgXuong;
     LinearLayout lnchange;
-    TextView chuoiphong;
+    static TextView chuoiphong;
     TextView tvLau;
     GridView gridView;
-    int floor = 1;
-    Adapter_phieuthue adapter;
-    ArrayList<Phong> data = new ArrayList<>();
+    public static Adapter_phieuthue adapter;
+    static ArrayList<Phong> data = new ArrayList<>();
     Button btnTrove, btnTieptheo;
 
 
@@ -110,8 +110,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
                             // A null listener allows the button to dismiss the dialog and take no further action.
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
-                }
-                else {
+                } else {
                     new AlertDialog.Builder(NV_chonphonglapphieuthue.this)
                             .setTitle("Đặt Phòng")
                             .setMessage("Vui Lòng chọn Phòng !!")
@@ -139,7 +138,7 @@ public class NV_chonphonglapphieuthue extends AppCompatActivity {
         khoitao();
     }
 
-    private void khoitao() {
+    public static void khoitao() {
         StaticConfig.mRoom.orderByChild("sophong").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

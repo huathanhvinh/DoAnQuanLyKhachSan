@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.Phong;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
+import com.example.doanquanlykhachsan.nhanvien_thungan.*;
 import com.example.doanquanlykhachsan.nhanvien_thungan.NVTN_chitietphong;
 import com.example.doanquanlykhachsan.nhanvien_thungan.NV_chonphonglapphieuthue;
 
@@ -58,12 +60,7 @@ public class Adapter_phieuthue extends ArrayAdapter {
                             StaticConfig.arrayListTemporaryRoom.add(p);
                         }
                     }
-                    Intent intent = new Intent(getContext(), NV_chonphonglapphieuthue.class);//Chuyen man hinh
-                    Bundle bundle = new Bundle();//Tạo bundle
-                    bundle.putSerializable("Room", p);//Gán giá trị bên màn hình kia
-                    intent.putExtras(bundle);
-                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);//Qua màn khác
+                    NV_chonphonglapphieuthue.khoitao();
                 }
             }
         });

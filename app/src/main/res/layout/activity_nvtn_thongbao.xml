@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     android:background="#18364B"
     android:orientation="vertical"
-    android:weightSum="15">
+    android:weightSum="12">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center">
 
         <TextView
-            android:paddingBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingBottom="20dp"
             android:text="Thông báo"
             android:textColor="#EDE9E9"
             android:textSize="35dp"
@@ -29,8 +29,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="15dp"
+        android:layout_weight="1.5"
         android:background="@drawable/khung_km"
         android:orientation="vertical"
         android:padding="20dp">
@@ -62,13 +63,15 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="8" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="center"
+        >
 
         <Button
             android:id="@+id/btnTroVe"

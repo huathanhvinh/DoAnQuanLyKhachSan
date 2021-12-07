@@ -47,10 +47,12 @@ public class Adapter_thongke extends ArrayAdapter {
         TextView thoigian = convertView.findViewById(R.id.tvthoigian);
         TextView tenNhanvien = convertView.findViewById(R.id.tvTenNhanVien);
         TextView thanhtien = convertView.findViewById(R.id.tvThanhTien);
+        TextView Loai = convertView.findViewById(R.id.tvloai);
 
         HoaDon hd = data.get(position);
         maHD.setText("HD" + hd.getStt());
         thoigian.setText(hd.getNgaylap());
+        Loai.setText(hd.getTongThoigian());
         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

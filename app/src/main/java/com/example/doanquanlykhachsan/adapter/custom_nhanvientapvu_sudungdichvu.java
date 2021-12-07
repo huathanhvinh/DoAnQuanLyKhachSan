@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
+import com.example.doanquanlykhachsan.model.DichVu;
 import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.example.doanquanlykhachsan.model.DangKyDichVu;
 import com.example.doanquanlykhachsan.model.DichVuDaChon;
@@ -36,6 +37,7 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<Phong> data;
+    ArrayList<DichVu> datadv;
     String tenPhong = "";
 
     public custom_nhanvientapvu_sudungdichvu(@NonNull Context context, int resource, ArrayList<Phong> data) {
@@ -58,14 +60,14 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
         TextView tvPhong = convertView.findViewById(R.id.tvPhong);
         Button btnHuyDV = convertView.findViewById(R.id.btnHuyDV);
 
-        Phong suDungDichVu = data.get(position);
+        Phong p = data.get(position);
 
         StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Phong phong = ds.getValue(Phong.class);
-                    if (suDungDichVu.getMaPhong().equals(phong.getMaPhong())) {
+                    if (p.getMaPhong().equals(phong.getMaPhong())) {
                         tvPhong.setText(phong.getTenPhong());
                     }
                 }
@@ -86,14 +88,29 @@ public class custom_nhanvientapvu_sudungdichvu extends ArrayAdapter {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             PhongDaDat da = ds.getValue(PhongDaDat.class);
                             String maPhong = da.getMaPhong();
-                            String[] parts1;
-                            parts1 = maPhong.split(" ");
-                            for (String w : parts1) {
-                                if (w.equals(suDungDichVu.getMaPhong())) {
-                                    StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue("");
-                                }
-                            }
+                            String[] parts2;
+                            parts2 = maPhong.split(" ");
+                            for (String u : parts2) {
+                                StaticConfig.mDichVu.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            DichVu dv = ds.getValue(DichVu.class);
+                                            if (nhanvientapvu_sudungdichvu.loaiDV.equals(dv.getMaFB()) && u.equals(p.getMaPhong())) {
+                                                String str = da.getMaDichVu();
+                                                String replacedStr = str.replaceAll(nhanvientapvu_sudungdichvu.loaiDV, "");
+                                                StaticConfig.mRoomRented.child(da.getMaFB()).child("maDichVu").setValue(replacedStr);
+                                            }
+                                        }
+                                    }
 
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
                         }
                     }
 

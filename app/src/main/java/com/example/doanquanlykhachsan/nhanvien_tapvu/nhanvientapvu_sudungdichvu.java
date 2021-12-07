@@ -32,7 +32,7 @@ public class nhanvientapvu_sudungdichvu extends AppCompatActivity {
     Button btnTroVe;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayList<String> temp = new ArrayList<>();
-    String loaiDV = "";
+    public static String loaiDV = "";
     static public custom_nhanvientapvu_sudungdichvu sudungdichvu;
 
     @Override

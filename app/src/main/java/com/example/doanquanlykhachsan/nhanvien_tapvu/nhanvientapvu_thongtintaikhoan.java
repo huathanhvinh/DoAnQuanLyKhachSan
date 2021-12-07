@@ -24,7 +24,7 @@ import com.example.doanquanlykhachsan.khach_hang.KH_thong_tin_tai_khoan;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.User;
-import com.example.doanquanlykhachsan.nhanvientapvu_thongtinluong;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
