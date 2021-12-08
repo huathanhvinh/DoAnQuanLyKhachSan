@@ -159,6 +159,10 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
 
                                                         }
                                                     });
+                                                    String key = StaticConfig.mThongBao.push().getKey();
+                                                    ThongBao tb = new ThongBao(id + 1, key, "Đã bị huỷ yêu cầu", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
+                                                    StaticConfig.mThongBao.child(key).setValue(tb);
+                                                    finish();
 
                                                 }
 

@@ -52,7 +52,7 @@ public class KH_tra_phong extends AppCompatActivity {
         btntraphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!chuoiPhongDadat.equals("")) {
+
                     new AlertDialog.Builder(KH_tra_phong.this)
                             .setTitle("Trả Phòng")
                             .setMessage("Bạn có chắc trả Phòng không??")
@@ -67,7 +67,7 @@ public class KH_tra_phong extends AppCompatActivity {
                             .setNegativeButton(android.R.string.no, null)
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
-                }
+
             }
         });
         btntrove.setOnClickListener(new View.OnClickListener() {

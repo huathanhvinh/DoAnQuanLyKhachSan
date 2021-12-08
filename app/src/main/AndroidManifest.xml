@@ -38,7 +38,7 @@
             android:name=".nhanvien_tapvu.nhanvientapvu_xacnhantrangthaiphong"
             android:exported="false" />
         <activity
-            android:name=".nhanvientapvu_thongtinluong"
+            android:name=".nhanvien_tapvu.nhanvientapvu_thongtinluong"
             android:exported="false" />
         <activity
             android:name=".nhanvien_tapvu.nhanvientapvu_lichlamviec"

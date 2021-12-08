@@ -1,11 +1,16 @@
 package com.example.doanquanlykhachsan.chung;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +31,10 @@ public class sign_in extends AppCompatActivity {
     private Button btnSignIn, btnRegister;
     private TextView forgot_pass;
     private EditText txtUserName, txtPassWord;
+    private CheckBox saveLoginCheckBox;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +43,6 @@ public class sign_in extends AppCompatActivity {
         setControl();
         SetEvent();
     }
-
     private void SetEvent() {
 
         forgot_pass.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +77,7 @@ public class sign_in extends AppCompatActivity {
                                         .setMessage("Sai email hoặc mật khẩu")
                                         // Specifying a listener allows you to take an action before dismissing the dialog.
                                         // The dialog is automatically dismissed when a dialog button is clicked.
-                                        .setPositiveButton(android.R.string.yes,null)
+                                        .setPositiveButton(android.R.string.yes, null)
                                         // A null listener allows the button to dismiss the dialog and take no further action.
                                         .setIcon(android.R.drawable.ic_dialog_alert)
                                         .show();
@@ -79,14 +87,44 @@ public class sign_in extends AppCompatActivity {
                 }
             }
         });
+        saveLoginCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (saveLoginCheckBox.isChecked()) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(txtUserName.getWindowToken(), 0);
+
+                    if (saveLoginCheckBox.isChecked()) {
+                        loginPrefsEditor.putBoolean("saveLogin", true);
+                        loginPrefsEditor.putString("username", txtUserName.getText().toString());
+                        loginPrefsEditor.putString("password", txtPassWord.getText().toString());
+                        loginPrefsEditor.commit();
+                    } else {
+                        loginPrefsEditor.clear();
+                        loginPrefsEditor.commit();
+                    }
+                }
+            }
+
+        });
     }
 
     private void setControl() {
+        saveLoginCheckBox = findViewById(R.id.saveLogin);
         txtUserName = findViewById(R.id.txtUserName);
         txtPassWord = findViewById(R.id.txtPassWord);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnRegister = findViewById(R.id.btnRegister);
         forgot_pass = findViewById(R.id.tvQuenMK);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            txtUserName.setText(loginPreferences.getString("username", ""));
+            txtPassWord.setText(loginPreferences.getString("password", ""));
+            saveLoginCheckBox.setChecked(true);
+        }
     }
 
 
