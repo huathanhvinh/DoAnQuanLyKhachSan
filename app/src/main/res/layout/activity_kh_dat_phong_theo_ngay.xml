@@ -177,20 +177,20 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">
-
+        <Button
+            android:id="@+id/btnDatPhong"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#25BDAF"
+            android:layout_marginRight="70sp"
+            android:text="Đặt phòng"></Button>
         <Button
             android:id="@+id/btnTroVe"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="70sp"
+
             android:backgroundTint="#25BDAF"
             android:text="Trở về"></Button>
 
-        <Button
-            android:id="@+id/btnDatPhong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#25BDAF"
-            android:text="Đặt phòng"></Button>
     </LinearLayout>
 </LinearLayout>

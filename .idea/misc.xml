@@ -97,11 +97,13 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_sua_phong.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_themdichvu.xml" value="0.13949275362318841" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_ad_thong_ke.xml" value="0.1253415300546448" />
-        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_change_password.xml" value="0.4" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_change_password.xml" value="0.176" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_chi_tiet_phong.xml" value="0.14166666666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_chinh_sach.xml" value="0.16216216216216217" />
-        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_doi_phong.xml" value="0.19202898550724637" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_gio.xml" value="0.11919398907103824" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_dat_phong_theo_ngay.xml" value="0.11919398907103824" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_doi_phong.xml" value="0.144" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_thong_tin_tai_khoan.xml" value="0.13405797101449277" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_thongbao.xml" value="0.1" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_kh_tra_phong.xml" value="0.14166666666666666" />
