@@ -53,7 +53,7 @@ public class KH_Thongbao extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     ThongBao tb = ds.getValue(ThongBao.class);
                     if (tb.getNguoinhan().equals(StaticConfig.currentuser) &&
-                            tb.getTrangThai().equals("Chưa xác nhận")) {
+                            !tb.getTrangThai().equals("Đã xác nhận")) {
                         data.add(0,tb);
                     }
                 }
