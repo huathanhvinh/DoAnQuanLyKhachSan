@@ -141,7 +141,6 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                                 StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        data.clear();
                                         for (DataSnapshot ds : snapshot.getChildren()) {
                                             Phong phong = ds.getValue(Phong.class);
                                             if (phong.getMaPhong().equals(maPhong)) {
