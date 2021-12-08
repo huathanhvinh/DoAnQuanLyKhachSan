@@ -141,10 +141,9 @@ public class AD_ThongKe extends AppCompatActivity {
                     builder.show();
                 } else {
                     StaticConfig.mHoaDon.addValueEventListener(new ValueEventListener() {
-                        float tongTien = 0;
-
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            float tongTien = 0;
                             for (DataSnapshot ds : snapshot.getChildren()) {
                                 HoaDon hd = ds.getValue(HoaDon.class);
                                 try {
@@ -177,39 +176,38 @@ public class AD_ThongKe extends AppCompatActivity {
 
     private void thongKeTheoQuyCuaNam() {
         StaticConfig.mHoaDon.addValueEventListener(new ValueEventListener() {
-            float tongTienQuy1 = 0;
-            float tongTienQuy2 = 0;
-            float tongTienQuy3 = 0;
-            float tongTienQuy4 = 0;
-            float tongDoanhThu = 0;
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                float tongTienQuy1 = 0;
+                float tongTienQuy2 = 0;
+                float tongTienQuy3 = 0;
+                float tongTienQuy4 = 0;
+                float tongDoanhThu = 0;
                 String namHienTai = new SimpleDateFormat("yy", Locale.getDefault()).format(new Date());
                 String namTiepTheo = (Integer.parseInt(namHienTai) + 1) + "";
-
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     HoaDon hd = ds.getValue(HoaDon.class);
                     try {
                         Date ngayLap = new SimpleDateFormat("dd/MM/yy").parse(hd.getNgaylap());
                         Date ngayBatDauQ1 = new SimpleDateFormat("dd/MM/yy").parse("01/01/" + namHienTai);
-                        Date ngayKetThucQ1 = new SimpleDateFormat("dd/MM/yy").parse("01/03/" + namHienTai);
-                        Date ngayBatDauQ2 = new SimpleDateFormat("dd/MM/yy").parse("01/03/" + namHienTai);
-                        Date ngayKetThucQ2 = new SimpleDateFormat("dd/MM/yy").parse("01/06/" + namHienTai);
-                        Date ngayBatDauQ3 = new SimpleDateFormat("dd/MM/yy").parse("01/06/" + namHienTai);
-                        Date ngayKetThucQ3 = new SimpleDateFormat("dd/MM/yy").parse("01/09/" + namHienTai);
-                        Date ngayBatDauQ4 = new SimpleDateFormat("dd/MM/yy").parse("01/09/" + namHienTai);
+                        Date ngayKetThucQ1 = new SimpleDateFormat("dd/MM/yy").parse("01/04/" + namHienTai);
+                        Date ngayBatDauQ2 = new SimpleDateFormat("dd/MM/yy").parse("01/04/" + namHienTai);
+                        Date ngayKetThucQ2 = new SimpleDateFormat("dd/MM/yy").parse("01/07/" + namHienTai);
+                        Date ngayBatDauQ3 = new SimpleDateFormat("dd/MM/yy").parse("01/07/" + namHienTai);
+                        Date ngayKetThucQ3 = new SimpleDateFormat("dd/MM/yy").parse("01/10/" + namHienTai);
+                        Date ngayBatDauQ4 = new SimpleDateFormat("dd/MM/yy").parse("01/10/" + namHienTai);
                         Date ngayKetThucQ4 = new SimpleDateFormat("dd/MM/yy").parse("01/01/" + namTiepTheo);
 
                         if (ngayLap.compareTo(ngayBatDauQ1) >= 0 && ngayLap.compareTo(ngayKetThucQ1) < 0) {
                             tongTienQuy1 += hd.getTongTien();
-                        } else if (ngayLap.compareTo(ngayBatDauQ2) >= 0 && ngayLap.compareTo(ngayKetThucQ2) < 0) {
+                        }
+                        if (ngayLap.compareTo(ngayBatDauQ2) >= 0 && ngayLap.compareTo(ngayKetThucQ2) < 0) {
                             tongTienQuy2 += hd.getTongTien();
                         }
-                        else if (ngayLap.compareTo(ngayBatDauQ3) >= 0 && ngayLap.compareTo(ngayKetThucQ3) < 0) {
+                        if (ngayLap.compareTo(ngayBatDauQ3) >= 0 && ngayLap.compareTo(ngayKetThucQ3) < 0) {
                             tongTienQuy3 += hd.getTongTien();
                         }
-                        else if (ngayLap.compareTo(ngayBatDauQ4) >= 0 && ngayLap.compareTo(ngayKetThucQ4) < 0) {
+                        if (ngayLap.compareTo(ngayBatDauQ4) >= 0 && ngayLap.compareTo(ngayKetThucQ4) < 0) {
                             tongTienQuy4 += hd.getTongTien();
                         }
                     } catch (ParseException e) {
@@ -217,7 +215,7 @@ public class AD_ThongKe extends AppCompatActivity {
                     }
                 }
                 //////////////////////////////////////////////
-                tongDoanhThu = tongTienQuy1+tongTienQuy2+tongTienQuy3+tongTienQuy4;
+                tongDoanhThu = tongTienQuy1 + tongTienQuy2 + tongTienQuy3 + tongTienQuy4;
                 DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
                 String tongDoanhThuFM = toTheFormat.format(tongDoanhThu) + " VNĐ";
                 pieChart.setDrawHoleEnabled(true);
@@ -250,7 +248,7 @@ public class AD_ThongKe extends AppCompatActivity {
                     colors.add(color);
                 }
 
-                PieDataSet dataSet = new PieDataSet(entries, "Thống kê năm 20"+namHienTai);
+                PieDataSet dataSet = new PieDataSet(entries, "Thống kê năm 20" + namHienTai);
                 dataSet.setColors(colors);
 
                 PieData data = new PieData(dataSet);
@@ -264,6 +262,7 @@ public class AD_ThongKe extends AppCompatActivity {
 
                 pieChart.animateY(1400, Easing.EaseInOutQuad);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -273,10 +272,10 @@ public class AD_ThongKe extends AppCompatActivity {
 
     private void themDuLieu() {
         StaticConfig.mHoaDon.addValueEventListener(new ValueEventListener() {
-            float tongTien = 0;
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                float tongTien = 0;
+                //
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     HoaDon hd = ds.getValue(HoaDon.class);
                     try {
