@@ -275,6 +275,7 @@ public class AD_ThongKe extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 float tongTien = 0;
+                //
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     HoaDon hd = ds.getValue(HoaDon.class);
                     try {
