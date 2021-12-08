@@ -32,8 +32,14 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                for (int i = 0; i < StaticConfig.arrayListTemporaryRoom.size(); i++) {
+                    StaticConfig.mRoom.child(StaticConfig.arrayListTemporaryRoom.get(i).getMaFB()).child("trangThai").setValue("Trống");
+                }
                 StaticConfig.arrayListTemporaryService.clear();
-                finish();
+                StaticConfig.arrayListTemporaryService.clear();
+                StaticConfig.mRoomRented.child(key).removeValue();
+                startActivity(new Intent(getApplicationContext(), NV_chonphonglapphieuthue.class));
             }
         });
         btnXacnhan.setOnClickListener(new View.OnClickListener() {
@@ -56,12 +62,11 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
         key = getIntent().getStringExtra("ma");
         btnHuy = findViewById(R.id.btnHuy);
         btnXacnhan = findViewById(R.id.btnXacNhan);
-        tvMaGiaoDich=findViewById(R.id.mahd);
-        if(chitiet.getStt()>9){
-            tvMaGiaoDich.setText("HD"+chitiet.getStt());
-        }
-       else {
-            tvMaGiaoDich.setText("HD0"+chitiet.getStt());
+        tvMaGiaoDich = findViewById(R.id.mahd);
+        if (chitiet.getStt() > 9) {
+            tvMaGiaoDich.setText("HD" + chitiet.getStt());
+        } else {
+            tvMaGiaoDich.setText("HD0" + chitiet.getStt());
         }
     }
 }

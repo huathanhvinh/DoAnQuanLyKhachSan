@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                             StaticConfig.currentuser = FirebaseAuth.getInstance().getUid();
                             StaticConfig.role = user.getRole();
                             StaticConfig.currentCmnd = user.getCmnd();
+                            StaticConfig.arrayListTemporaryService.clear();
+                            StaticConfig.arrayListTemporaryService.clear();
                             int role = user.getRole();
                             if (role == 1) {
                                 startActivity(new Intent(getApplicationContext(), AD_MenuAdmin.class));
