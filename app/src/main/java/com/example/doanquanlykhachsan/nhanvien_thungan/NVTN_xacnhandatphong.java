@@ -48,6 +48,7 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
                 StaticConfig.arrayListTemporaryService.clear();
                 StaticConfig.arrayListTemporaryService.clear();
                 StaticConfig.mRoomRented.child(id).removeValue();
+
                 String key = StaticConfig.mThongBao.push().getKey();
                 ThongBao tb = new ThongBao(idthongbao + 1, key, "Huỷ Phòng", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
                 StaticConfig.mThongBao.child(key).setValue(tb);
