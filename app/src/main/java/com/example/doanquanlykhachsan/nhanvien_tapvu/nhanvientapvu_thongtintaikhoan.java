@@ -145,7 +145,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                                         StaticConfig.mUser.child(StaticConfig.currentuser).child("cmnd").setValue(edtCMND.getText().toString());
                                         new AlertDialog.Builder(nhanvientapvu_thongtintaikhoan.this)
                                                 .setTitle("Thông báo ")
-                                                .setMessage("Cập Nhận Thành công")
+                                                .setMessage("Cập Nhập Thành công")
                                                 // Specifying a listener allows you to take an action before dismissing the dialog.
                                                 // The dialog is automatically dismissed when a dialog button is clicked.
                                                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -154,7 +154,7 @@ public class nhanvientapvu_thongtintaikhoan extends AppCompatActivity {
                                     else {
                                         new AlertDialog.Builder(nhanvientapvu_thongtintaikhoan.this)
                                                 .setTitle("Thông báo ")
-                                                .setMessage("CMND đã có")
+                                                .setMessage("Lưu thông tin thành công")
                                                 // Specifying a listener allows you to take an action before dismissing the dialog.
                                                 // The dialog is automatically dismissed when a dialog button is clicked.
                                                 .setIcon(android.R.drawable.ic_dialog_alert)
