@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
-                    android:hint="Nhập số điện thoại cũ"
+                    android:hint="Nhập số điện thoại "
                     />
             </LinearLayout>
 
