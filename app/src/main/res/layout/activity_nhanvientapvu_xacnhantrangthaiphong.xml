@@ -189,7 +189,7 @@
             android:layout_gravity="center"
             android:id="@+id/ckVatDung"
             android:layout_marginLeft="50dp"
-            android:text="Làm vỡ vật dụng"
+            android:text="Vật dụng trong phòng"
             android:textColor="#F3EEEE"
             android:textSize="20dp"
             android:layout_width="wrap_content"
