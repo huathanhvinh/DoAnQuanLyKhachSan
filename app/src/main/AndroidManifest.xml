@@ -86,11 +86,15 @@
             android:name=".nhanvien_thungan.NVTN_XacNhanHoaDon"
             android:exported="false" />
         <activity
+            android:name=".nhanvien_thungan.NVTN_xacnhandoiphong"
+            android:exported="false" />
+        <activity
             android:name=".nhanvien_thungan.NVTN_Thongtinkhachhang"
             android:exported="false" />
         <activity
             android:name=".nhanvien_thungan.NV_chonphonglapphieuthue"
             android:exported="false" />
+
         <activity
             android:name=".nhanvien_thungan.NVTN_chitietphong"
             android:exported="false" />

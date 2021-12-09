@@ -119,12 +119,15 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_lichlamviec.xml" value="0.14479166666666668" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_menu_nhan_vien_thu_ngan.xml" value="0.17617753623188406" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thong_bao.xml" value="0.14479166666666668" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thong_bao_doi_phong.xml" value="0.16216216216216217" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongbao.xml" value="0.14479166666666668" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongbao_xacnhandatphong.xml" value="0.11919398907103824" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinkhachhang.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtinluong.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_thongtintaikhoan.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xac_nhan_hoa_don.xml" value="0.12" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xacnhandatphong.xml" value="0.10894808743169399" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_nvtn_xacnhandoiphong.xml" value="0.16216216216216217" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_sign_in.xml" value="0.12" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/activity_update_phonenumber_1.xml" value="0.2" />
@@ -132,6 +135,7 @@
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong__bao.xml" value="0.27447916666666666" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__d_k_dich_vu.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__dat_phong.xml" value="0.25" />
+        <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__doi_phong.xml" value="0.16216216216216217" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/fragment_n_v_t_n__thong_bao__tra_phong.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/item_dv.xml" value="0.25" />
         <entry key="..\:/android 2/DoAnQuanLyKhachSan/app/src/main/res/layout/item_hoadon.xml" value="0.1253415300546448" />

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanquanlykhachsan.MainActivity;
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
@@ -65,14 +68,27 @@ public class KH_ChiTietPhong extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (btnDatPhong.getText().toString().equals("Xác nhận")) {
-                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maDichVu").setValue("");
-                    maDichvu="";
-                    for (int i = 0; i < StaticConfig.arrayListTemporaryService.size(); i++) {
-                        maDichvu += StaticConfig.arrayListTemporaryService.get(i).getMaFB() + " ";
-                    }
+                    new AlertDialog.Builder(KH_ChiTietPhong.this)
+                            .setTitle("Dịch vụ ")
+                            .setMessage("Bạn có Chắc cập nhập dịch vụ không ?")
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maDichVu").setValue("");
+                                    maDichvu="";
+                                    for (int i = 0; i < StaticConfig.arrayListTemporaryService.size(); i++) {
+                                        maDichvu += StaticConfig.arrayListTemporaryService.get(i).getMaFB() + " ";
+                                        StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maDichVu").setValue(maDichvu);
+                                        startActivity(new Intent(getApplicationContext(),KH_danh_sach_phong_da_dat.class));
+                                    }
+                                }
+                            })
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(android.R.string.no, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
 
-                    Log.e("solan",StaticConfig.arrayListTemporaryService.size()+"");
-                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maDichVu").setValue(maDichvu);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), KH_XacNhanDatPhong.class);
                     Bundle bundle = new Bundle();

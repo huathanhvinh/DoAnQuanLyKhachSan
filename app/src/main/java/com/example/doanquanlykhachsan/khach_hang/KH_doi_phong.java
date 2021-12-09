@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 
 public class KH_doi_phong extends AppCompatActivity {
     private TextView chinhsach, tvtenphong, tvGia;
+    private EditText lydo;
     private Button btntrove, btnxacnhan;
     Phong chitiet;
     private ArrayList<DichVu> data = new ArrayList<>();
@@ -50,29 +52,10 @@ public class KH_doi_phong extends AppCompatActivity {
                         .setTitle("Xác Nhận Đổi Phòng Phòng")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        for (DataSnapshot ds : snapshot.getChildren()) {
-                                            PhongDaDat da = ds.getValue(PhongDaDat.class);
-                                            if (!StaticConfig.chon.equals("")) {
-                                                if (da.getMaKH().equals(StaticConfig.currentuser)) {
-                                                    StaticConfig.mRoom.child(StaticConfig.chon.getMaFB()).child("trangThai").setValue("Trống");
-                                                    StaticConfig.mRoom.child(chitiet.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
-                                                    String str = da.getMaPhong();
-                                                    String replacedStr = str.replaceAll(StaticConfig.chon.getMaPhong(), chitiet.getMaPhong());
-                                                    StaticConfig.mRoomRented.child(StaticConfig.mathue).child("maPhong").setValue(replacedStr);
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
-                                });
-                                startActivity(new Intent(getApplicationContext(), menu_khachhang.class));
+//
+                                DoiPhong dp = new DoiPhong(StaticConfig.chon.getMaPhong(), StaticConfig.chon.getMaPhong(), chitiet.getMaPhong(), StaticConfig.mathue,lydo.getText().toString());
+                                StaticConfig.mDoiPhong.child(StaticConfig.chon.getMaPhong()).setValue(dp);
+                                startActivity(new Intent(getApplicationContext(),menu_khachhang.class));
                             }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.
@@ -96,6 +79,7 @@ public class KH_doi_phong extends AppCompatActivity {
     }
 
     private void SetControl() {
+        lydo=findViewById(R.id.lydo);
         btntrove = findViewById(R.id.btntrove);
         chinhsach = findViewById(R.id.chinhsach);
         btnxacnhan = findViewById(R.id.btnxacnhan);

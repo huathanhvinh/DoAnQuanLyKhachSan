@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Xác nhập đặt Phòng"
+            android:text="Xác nhập Đổi Phòng"
             android:textColor="#fff"
             android:textSize="30dp" />
     </LinearLayout>
@@ -58,31 +58,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:textColor="#fff"
-                        android:textSize="18dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="5">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Nhân viên :"
-                        android:textColor="#fff"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/tvTenNV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:paddingLeft="5dp"
-
                         android:textColor="#fff"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -224,6 +199,37 @@
                     android:layout_height="120dp"
                     android:orientation="horizontal"
                     tools:listitem="@layout/item_dv"></ListView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                 >
+
+                    <TextView
+                        android:id="@+id/machon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_marginRight="55dp"
+                        android:layout_marginLeft="55dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_baseline_arrow_right_alt_24" />
+
+                    <TextView
+                        android:id="@+id/madoi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -282,32 +288,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Người thu: "
-                        android:textColor="#fff"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:id="@+id/tvNhanVien"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:gravity="right"
-                        android:text="Nhân Viên Thu"
-                        android:textColor="#fff"
-                        android:textSize="20dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:weightSum="5">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
                         android:text="Khách hàng:"
                         android:textColor="#fff"
                         android:textSize="20dp" />
@@ -347,34 +327,34 @@
                         android:text="call" />
 
                 </LinearLayout>
+
                 <TextView
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Ghi Chú:"
-                    android:textSize="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
                     android:enabled="false"
-                    />
+                    android:text="Ghi Chú:"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:background="@drawable/rounded_corner_view"
-                    android:layout_weight="4"
-                    android:layout_margin="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/rounded_corner_view"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_marginTop="15dp"
                         android:id="@+id/tvGhiChu"
-                        android:layout_marginLeft="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
                         android:enabled="false"
-                        />
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
                 </LinearLayout>
 
             </LinearLayout>

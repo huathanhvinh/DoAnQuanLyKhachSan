@@ -138,7 +138,7 @@ public class KH_danh_sach_phong_da_dat extends AppCompatActivity {
                             for (String w : parts) {
                                 String maPhong = w.toString();
 
-                                StaticConfig.mRoom.addValueEventListener(new ValueEventListener() {
+                                StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for (DataSnapshot ds : snapshot.getChildren()) {

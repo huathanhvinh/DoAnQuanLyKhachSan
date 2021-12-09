@@ -1,27 +1,24 @@
 package com.example.doanquanlykhachsan.nhanvien_thungan;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doanquanlykhachsan.R;
 import com.example.doanquanlykhachsan.adapter.Adapter_HD_DV;
 import com.example.doanquanlykhachsan.adapter.Adapter_PhongThue;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.DichVu;
-import com.example.doanquanlykhachsan.model.HoaDon;
+import com.example.doanquanlykhachsan.model.DoiPhong;
 import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.Phong;
@@ -39,135 +36,61 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
+public class NVTN_xacnhandoiphong extends AppCompatActivity {
     Button btnXacNhan, btnTroVe, btnHuy;
-    TextView tvtenNV, tvTenKH, tenNV, tenKH, tvTongtien, tvsdt;
+    TextView tvmachon, tvmadoi, tvTenKH, tvTongtien, tvsdt;
+    private TextView tvGhiChu;
     Button call;
     PhongDaDat chitiet;
+    private String thoigian;
+    int ngay, thang, nam;
+    private float Tongtien;
+    int solan = 1;
+
+    private int id;
+    private String tennv;
+    private String ma;
     ArrayList<Phong> data = new ArrayList<>();
     ArrayList<DichVu> dichvu = new ArrayList<>();
     Adapter_PhongThue adapter;
     Adapter_HD_DV adapterdv;
     ListView lv;
     ListView lvdv;
-    private String thoigian;
-    int ngay, thang, nam;
-    private float Tongtien;
-    int solan = 1;
-    private String tennv;
-    private TextView tvGhiChu;
-    int id = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nvtn_thongbao_xacnhandatphong);
+        setContentView(R.layout.activity_nvtn_xacnhandoiphong);
         setControl();
-        setEvnent();
+        setEvent();
     }
 
-    private void setEvnent() {
-        call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentDial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Integer.parseInt(tvsdt.getText().toString())));
-                startActivity(intentDial);
-            }
-        });
-        btnXacNhan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new androidx.appcompat.app.AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
-                        .setTitle("Đặt Phòng")
-                        .setMessage("xác nhận ??")
-                        // Specifying a listener allows you to take an action before dismissing the dialog.
-                        // The dialog is automatically dismissed when a dialog button is clicked.
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                StaticConfig.mRoomRented.child(chitiet.getMaFB()).child("xacnhan").setValue("Đã Xác Nhận");
-                                String chuoiMaPhong = chitiet.getMaPhong();
-                                String[] parts;
-                                parts = chuoiMaPhong.split(" ");
-                                for (String w : parts) {
-                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            for (DataSnapshot ds : snapshot.getChildren()) {
-                                                Phong p = ds.getValue(Phong.class);
-                                                if (p.getMaPhong().equals(w)) {
-                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
-                                                }
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
-                                }
-                                String key = StaticConfig.mThongBao.push().getKey();
-                                ThongBao tb = new ThongBao(id + 1, key, "Đặt Phòng", "Chưa xác nhận", "", tennv, chitiet.getMaKH());
-                                StaticConfig.mThongBao.child(key).setValue(tb);
-                                finish();
-                            }
-                        })
-                        // A null listener allows the button to dismiss the dialog and take no further action.
-                        .setNegativeButton(android.R.string.no, null)
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
-
-            }
-        });
+    private void setEvent() {
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new androidx.appcompat.app.AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
-                        .setTitle("Đặt Phòng")
-                        .setMessage("xác nhận huỷ Phòng ??")
+                new androidx.appcompat.app.AlertDialog.Builder(NVTN_xacnhandoiphong.this)
+                        .setTitle("Đổi Phòng")
+                        .setMessage("Huỷ yêu cầu  ??")
                         // Specifying a listener allows you to take an action before dismissing the dialog.
                         // The dialog is automatically dismissed when a dialog button is clicked.
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Trả Phòng
-                                String chuoiPhongDadat = "";
-                                StaticConfig.mRoomRented.addListenerForSingleValueEvent(new ValueEventListener() {
+                                String key = StaticConfig.mThongBao.push().getKey();
+                                ThongBao tb = new ThongBao(id + 1, key, "Huỷ Đổi Phòng", "Chưa xác nhận", "", tennv, chitiet.getMaKH());
+                                StaticConfig.mThongBao.child(key).setValue(tb);
+                                //remove doi phong
+                                StaticConfig.mDoiPhong.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for (DataSnapshot ds : snapshot.getChildren()) {
-                                            PhongDaDat da = ds.getValue(PhongDaDat.class);
-                                            if (da.getMaKH().equals(chitiet.getMaKH()) && da.getMaFB().equals(chitiet.getMaFB())) {
-                                                StaticConfig.mRoomRented.child(da.getMaFB()).removeValue();
-                                                String chuoimaphong = ds.child("maPhong").getValue(String.class);
-                                                String[] parts;
-                                                parts = chuoimaphong.split(" ");
-                                                for (String maPh : parts) {
-                                                    StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                            for (DataSnapshot ds2 : snapshot.getChildren()) {
-                                                                Phong p = ds2.getValue(Phong.class);
-                                                                if (maPh.equals(p.getMaPhong())) {
-                                                                    StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Trống");
-                                                                    //remove quan ly phong
-                                                                    StaticConfig.mQLPhong.child(p.getMaFB()).removeValue();
-                                                                }
-                                                            }
-                                                        }
-
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                                        }
-                                                    });
-                                                    String key = StaticConfig.mThongBao.push().getKey();
-                                                    ThongBao tb = new ThongBao(id + 1, key, "Đã bị huỷ yêu cầu", "Chưa xác nhận", "", tennv, chitiet.getMaKH());
-                                                    StaticConfig.mThongBao.child(key).setValue(tb);
-                                                    finish();
-
-                                                }
-
+                                            DoiPhong dp = ds.getValue(DoiPhong.class);
+                                            if (dp.getMaPhieu().equals(chitiet.getMaFB())) {
+                                                StaticConfig.mDoiPhong.child(dp.getMaFB()).removeValue();
+                                                startActivity(new Intent(getApplicationContext(), NVTN_Thong_Bao.class));
                                             }
+
                                         }
                                     }
 
@@ -176,9 +99,74 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
 
                                     }
                                 });
-                                finish();
                             }
+                        })
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
+            }
+        });
+        btnXacNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new androidx.appcompat.app.AlertDialog.Builder(NVTN_xacnhandoiphong.this)
+                        .setTitle("Đổi Phòng")
+                        .setMessage("xác nhận ??")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String key = StaticConfig.mThongBao.push().getKey();
+                                ThongBao tb = new ThongBao(id + 1, key, "Đổi Phòng ", "Chưa xác nhận", "", tennv, chitiet.getMaKH());
+                                StaticConfig.mThongBao.child(key).setValue(tb);
+                                //remove doi phong
+                                StaticConfig.mDoiPhong.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()) {
+                                            DoiPhong dp = ds.getValue(DoiPhong.class);
+                                            if (dp.getMaPhieu().equals(chitiet.getMaFB())) {
+                                               //cap nhap
+                                                StaticConfig.mRoom.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        for(DataSnapshot ds:snapshot.getChildren()){
+                                                            Phong p = ds.getValue(Phong.class);
+                                                            if(p.getMaPhong().equals(dp.getMaPhongchon())){
+                                                                StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Trống");
+                                                            }
+                                                            if(p.getMaPhong().equals(dp.getGetMaPhong())){
+                                                                StaticConfig.mRoom.child(p.getMaFB()).child("trangThai").setValue("Đã Đặt Phòng");
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
+                                                String str = chitiet.getMaPhong();
+                                                String replacedStr = str.replaceAll(tvmachon.getText().toString(), tvmadoi.getText().toString());
+                                                StaticConfig.mRoomRented.child(chitiet.getMaFB()).child("maPhong").setValue(replacedStr);
+
+                                                StaticConfig.mDoiPhong.child(dp.getMaFB()).removeValue();
+                                                startActivity(new Intent(getApplicationContext(), NVTN_Thong_Bao.class));
+                                            }
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
                         })
                         // A null listener allows the button to dismiss the dialog and take no further action.
                         .setNegativeButton(android.R.string.no, null)
@@ -189,18 +177,14 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
         });
     }
 
-    private void khoitao() {
-        layid();
-        tenNhanvien();
-        chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
+    private void tenNhanvien() {
         StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     NhanVien nv = ds.getValue(NhanVien.class);
                     if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
-                        tenNV.setText(nv.getTenNV());
-                        tvtenNV.setText(nv.getTenNV());
+                        tennv = nv.getTenNV();
                     }
                 }
             }
@@ -210,13 +194,46 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setControl() {
+        layid();
+        tenNhanvien();
+        chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
+        ma = getIntent().getStringExtra("ma");
+        btnHuy = findViewById(R.id.btnHuy);
+        btnXacNhan = findViewById(R.id.btnXacNhan);
+        tvTenKH = findViewById(R.id.tvKH);
+        tvmachon = findViewById(R.id.machon);
+        tvmadoi = findViewById(R.id.madoi);
+
+
+        lv = findViewById(R.id.lvthue);
+        lvdv = findViewById(R.id.lvDv);
+        btnHuy = findViewById(R.id.btnHuy);
+        tvTongtien = findViewById(R.id.tvTongTien);
+        tvsdt = findViewById(R.id.txtSdt);
+        btnTroVe = findViewById(R.id.btnTroVe);
+        call = findViewById(R.id.btncall);
+        tvGhiChu = findViewById(R.id.tvGhiChu);
+
+        adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
+        lv.setAdapter(adapter);
+        adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
+        lvdv.setAdapter(adapterdv);
+        khoitao();
+
+    }
+
+    private void khoitao() {
+        layid();
+        chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
         StaticConfig.mKhachHang.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     KhachHang kh = ds.getValue(KhachHang.class);
                     if (kh.getSdtKH().equals(chitiet.getSdt())) {
-                        tenKH.setText(kh.getTenKH());
                         tvTenKH.setText(kh.getTenKH());
                     }
 
@@ -292,8 +309,6 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
                                         }
                                     }
                                     adapterdv.notifyDataSetChanged();
-                                    //ghi chu
-                                    tvGhiChu.setText(da.getGhiChuKH());
                                     //Tong tien
                                     DecimalFormat toTheFormat = new DecimalFormat("###,###,###.#");
                                     tvTongtien.setText(toTheFormat.format(Tongtien) + " VNĐ");
@@ -316,29 +331,26 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
             }
         });
         tvsdt.setText(chitiet.getSdt());
-    }
+        //lay phong doi
+        StaticConfig.mDoiPhong.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    DoiPhong dp = ds.getValue(DoiPhong.class);
+                    if (dp.getMaPhieu().equals(chitiet.getMaFB())) {
+                        tvGhiChu.setText(dp.getLydo());
+                        tvmachon.setText(dp.getMaPhongchon());
+                        tvmadoi.setText(dp.getGetMaPhong());
+                    }
+                }
+            }
 
-    private void setControl() {
-        btnXacNhan = findViewById(R.id.btnXacNhan);
-        btnTroVe = findViewById(R.id.btnTroVe);
-        tvTenKH = findViewById(R.id.tvKH);
-        tvtenNV = findViewById(R.id.tvTenNV);
-        tenNV = findViewById(R.id.tvNhanVien);
-        tenKH = findViewById(R.id.tvTenKH);
-        lv = findViewById(R.id.lvthue);
-        lvdv = findViewById(R.id.lvDv);
-        btnHuy = findViewById(R.id.btnHuy);
-        tvTongtien = findViewById(R.id.tvTongTien);
-        tvsdt = findViewById(R.id.txtSdt);
-        btnTroVe = findViewById(R.id.btnTroVe);
-        call = findViewById(R.id.btncall);
-        tvGhiChu = findViewById(R.id.tvGhiChu);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        adapter = new Adapter_PhongThue(getApplicationContext(), R.layout.items_phongthue, data);
-        lv.setAdapter(adapter);
-        adapterdv = new Adapter_HD_DV(getApplicationContext(), R.layout.item_dv, dichvu);
-        lvdv.setAdapter(adapterdv);
-        khoitao();
+            }
+        });
+
     }
 
     private void TimeDifference() {
@@ -357,7 +369,7 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else {
-            new AlertDialog.Builder(NVTN_thongbao_xacnhandatphong.this)
+            new AlertDialog.Builder(NVTN_xacnhandoiphong.this)
                     .setTitle("Lỗi ")
                     .setMessage("Lỗi ?")
                     // Specifying a listener allows you to take an action before dismissing the dialog.
@@ -398,25 +410,6 @@ public class NVTN_thongbao_xacnhandatphong extends AppCompatActivity {
 
     public int timeBetween(Date d1, Date d2) {
         return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60)) % 24;
-    }
-
-    private void tenNhanvien() {
-        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    NhanVien nv = ds.getValue(NhanVien.class);
-                    if (nv.getSoDienThoai().equals(StaticConfig.currentphone)) {
-                        tennv = nv.getTenNV();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     private void layid() {

@@ -43,6 +43,7 @@ public class StaticConfig {
     public static DatabaseReference mRoom = Database.getReference("Phong");
     public static DatabaseReference mRoomRented = Database.getReference("PhongDaDat");
     public static DatabaseReference mThongBao = Database.getReference("Thongbao");
+    public static DatabaseReference mDoiPhong = Database.getReference("DoiPhong");
     //them du lieu khách hàng
 
     //thêm dữ liệu hóa đơn

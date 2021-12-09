@@ -103,8 +103,7 @@ public class KH_thong_tin_tai_khoan extends AppCompatActivity {
         penSdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etSdt.setEnabled(true);
-                etSdt.setFocusable(true);
+               startActivity(new Intent(getApplicationContext(),update_phonenumber_1.class));
             }
         });
         penCmnd.setOnClickListener(new View.OnClickListener() {
