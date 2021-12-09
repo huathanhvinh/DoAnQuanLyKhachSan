@@ -51,16 +51,16 @@ public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
         Button btnChiTiet = convertView.findViewById(R.id.btnChiTiet);
         Button btnXacNhan = convertView.findViewById(R.id.btnxacnhan);
 
-        PhongDaDat thongbao = data.get(position);
-        stt.setText(thongbao.getStt()+"");
-        ngay.setText(thongbao.getNgaybatdau());
-        hoten.setText(thongbao.getTen());
+        PhongDaDat da = data.get(position);
+        stt.setText(da.getStt()+"");
+        ngay.setText(da.getNgaybatdau());
+        hoten.setText(da.getTen());
         btnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), NVTN_XacNhanHoaDon.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("chitiet", thongbao);
+                bundle.putSerializable("chitiet", da);
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
@@ -71,7 +71,7 @@ public class custom_NVTN_thongbao_traPhong extends ArrayAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), NVTN_XacNhanHoaDon.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("chitiet", thongbao);
+                bundle.putSerializable("chitiet", da);
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

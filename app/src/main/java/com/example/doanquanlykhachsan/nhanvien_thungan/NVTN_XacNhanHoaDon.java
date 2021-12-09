@@ -145,8 +145,7 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         for (DataSnapshot ds : snapshot.getChildren()) {
                                             PhongDaDat da = ds.getValue(PhongDaDat.class);
-                                            if (da.getMaKH().equals(chitiet.getMaKH()) && da.getMaFB().equals(chitiet.getMaFB())) {
-                                                StaticConfig.mRoomRented.child(da.getMaFB()).removeValue();
+                                            if (da.getMaFB().equals(chitiet.getMaFB())) {
                                                 String chuoimaphong = ds.child("maPhong").getValue(String.class);
                                                 String[] parts;
                                                 parts = chuoimaphong.split(" ");
@@ -169,10 +168,11 @@ public class NVTN_XacNhanHoaDon extends AppCompatActivity {
 
                                                         }
                                                     });
-
                                                 }
+                                                StaticConfig.mRoomRented.child(chitiet.getMaFB()).removeValue();
 
                                             }
+
                                         }
                                     }
 

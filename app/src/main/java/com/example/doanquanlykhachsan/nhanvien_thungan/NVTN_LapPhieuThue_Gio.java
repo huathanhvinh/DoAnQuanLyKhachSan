@@ -88,7 +88,7 @@ public class NVTN_LapPhieuThue_Gio extends AppCompatActivity {
                     AlertDialog dialog = b.create();
                     dialog.show();
                 } else {
-                    String key = StaticConfig.mRoomRented.push().getKey();
+                   final String key = StaticConfig.mRoomRented.push().getKey();
                     //cap nhat trang thai phong , luu danh sach phong da dat cua khach hang hien tai
                     PhongDaDat phongDaDat = new PhongDaDat();
                     for (int j = 0; j < StaticConfig.arrayListTemporaryService.size(); j++) {

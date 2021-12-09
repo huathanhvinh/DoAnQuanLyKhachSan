@@ -55,6 +55,7 @@ public class Custom_NVTN_LapHoaDon extends ArrayAdapter {
                 intent.putExtras(bundle);
                 intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+
             }
         });
 

@@ -3,6 +3,7 @@ package com.example.doanquanlykhachsan.nhanvien_tapvu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,13 +17,14 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.doanquanlykhachsan.R;
-import com.example.doanquanlykhachsan.adapter.custom_nhanvientapvu_qlphong;
+import com.example.doanquanlykhachsan.adapter.*;
 import com.example.doanquanlykhachsan.helpers.StaticConfig;
 import com.example.doanquanlykhachsan.model.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.example.doanquanlykhachsan.nhanvien_tapvu.*;
 
 import java.util.ArrayList;
 
@@ -84,7 +86,7 @@ public class nhanvientapvu_quanlyphong extends AppCompatActivity {
         btnTroVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(getApplicationContext(),Nhanvientapvu_manhinhchinh.class));
             }
         });
         nhanvientapvu = new custom_nhanvientapvu_qlphong(this, R.layout.listview_nhanvientapvu_quanlyphong, data);

@@ -26,6 +26,7 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
     String key;
     private int idthongbao;
     private String tennv;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
                 }
                 StaticConfig.arrayListTemporaryService.clear();
                 StaticConfig.arrayListTemporaryService.clear();
-                StaticConfig.mRoomRented.child(key).removeValue();
+                StaticConfig.mRoomRented.child(id).removeValue();
                 String key = StaticConfig.mThongBao.push().getKey();
                 ThongBao tb = new ThongBao(idthongbao + 1, key, "Huỷ Phòng", "Chưa xác nhận", "", tennv,chitiet.getMaKH());
                 StaticConfig.mThongBao.child(key).setValue(tb);
@@ -65,7 +66,7 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
                 StaticConfig.mThongBao.child(key).setValue(tb);
                 StaticConfig.arrayListTemporaryRoom.clear();
                 StaticConfig.arrayListTemporaryService.clear();
-                StaticConfig.mRoomRented.child(key).setValue(chitiet);
+                StaticConfig.mRoomRented.child(id).setValue(chitiet);
                 startActivity(new Intent(getApplicationContext(), NV_chonphonglapphieuthue.class));
             }
         });
@@ -92,7 +93,7 @@ public class NVTN_xacnhandatphong extends AppCompatActivity {
         layid();
         tenNhanvien();
         chitiet = (PhongDaDat) getIntent().getSerializableExtra("chitiet");
-        key = getIntent().getStringExtra("ma");
+        id = getIntent().getStringExtra("ma");
         btnHuy = findViewById(R.id.btnHuy);
         btnXacnhan = findViewById(R.id.btnXacNhan);
         tvMaGiaoDich = findViewById(R.id.mahd);
