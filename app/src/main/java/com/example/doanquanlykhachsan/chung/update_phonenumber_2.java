@@ -23,6 +23,7 @@ import com.example.doanquanlykhachsan.model.KhachHang;
 import com.example.doanquanlykhachsan.model.NhanVien;
 import com.example.doanquanlykhachsan.model.NhanVien_LichLamViec;
 import com.example.doanquanlykhachsan.model.NhanVien_Luong;
+import com.example.doanquanlykhachsan.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -163,6 +164,7 @@ public class update_phonenumber_2 extends AppCompatActivity {
     }
 
     private void Update() {
+        StaticConfig.mUser.child(StaticConfig.currentuser).child("sdt").setValue(sodienthoai);
         if (StaticConfig.role == 4) {
             StaticConfig.mKhachHang.addChildEventListener(new ChildEventListener() {
                 @Override

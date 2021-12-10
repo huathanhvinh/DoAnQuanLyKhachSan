@@ -47,36 +47,22 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
 
     //So sánh sđt từ tài khoản trên firebase để lấy thông tin nhân viên
     private void Phone() {
-        StaticConfig.mUser.addListenerForSingleValueEvent(new ValueEventListener() {
+        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    if (ds.child("maFB").getValue(String.class).equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        StaticConfig.currentphone = ds.child("sdt").getValue(String.class);
-                        StaticConfig.mNhanVien.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for (DataSnapshot ds : snapshot.getChildren()) {
-                                    NhanVien nv = ds.getValue(NhanVien.class);
-                                    if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
-                                        tvNhanVien.setText(nv.getTenNV());
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                            }
-                        });
+                    NhanVien nv = ds.getValue(NhanVien.class);
+                    if (nv.getSoDienThoai().toString().equals(StaticConfig.currentphone)) {
+                        tvNhanVien.setText(nv.getTenNV());
                     }
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+
     }
 
     private void setEvent() {
@@ -133,7 +119,7 @@ public class Nhanvientapvu_manhinhchinh extends AppCompatActivity {
         doiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),Change_passwork.class));
+                startActivity(new Intent(getApplicationContext(), Change_passwork.class));
             }
         });
 
